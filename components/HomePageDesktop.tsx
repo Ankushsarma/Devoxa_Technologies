@@ -351,7 +351,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
     <>
       <section id="hero" className="nx vx-float pt-24 md:pt-32">
         <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0 }}>
-          <WebGLVisibilityWrapper>
+          <WebGLVisibilityWrapper isAbsolute={false}>
             <Particles
             className=""
             particleColors={["#ffffff", "#a78bfa", "#c084fc"]}
@@ -514,7 +514,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       <div style={{ position: "relative", backgroundColor: "#0d0d11", overflow: "hidden" }}>
         {/* Shared Light Pillar Background */}
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 0.8, pointerEvents: 'none' }}>
-          <WebGLVisibilityWrapper>
+          <WebGLVisibilityWrapper isAbsolute={false}>
             <LightPillar
             topColor="#5227FF"
             bottomColor="#FF9FFC"
@@ -624,7 +624,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         {/* Magic Rings Background */}
         <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0, overflow: "hidden", pointerEvents: "none" }}>
           <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "100vw", height: "100vw", minWidth: "1000px", minHeight: "1000px", opacity: 0.4 }}>
-            <WebGLVisibilityWrapper>
+            <WebGLVisibilityWrapper isAbsolute={false}>
             <MagicRings
               color="#A855F7"
               colorTwo="#6366F1"
@@ -666,7 +666,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       {/* Recent Projects */}
       <section id="recent-projects" className="scroll-mt-32 vx-float" style={{ padding: "80px 0 60px", position: "relative", zIndex: 10 }}>
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1, background: 'var(--bg-void)' }}>
-          <WebGLVisibilityWrapper>
+          <WebGLVisibilityWrapper isAbsolute={false}>
             <LiquidEther
             colors={[ '#5227FF', '#FF9FFC', '#B497CF' ]}
             mouseForce={20}
@@ -735,7 +735,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       {/* Pricing */}
       <section id="pricing" className="scroll-mt-32 light-sec vx-float" style={{ padding: "100px 0", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, opacity: 1 }}>
-          <WebGLVisibilityWrapper>
+          <WebGLVisibilityWrapper isAbsolute={false}>
             <LightRays
             raysOrigin="top-center"
             raysColor="#8b5cf6"
@@ -792,21 +792,21 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                   <tr>
                     <td></td>
                     <td style={{ padding: "20px 10px", textAlign: "center" }}>
-                      <WebGLVisibilityWrapper>
+                      <WebGLVisibilityWrapper isAbsolute={false}>
             <SpecularButton size="sm" radius={10} tint="#ffffff" tintOpacity={0} blur={0} textColor="#f5f5f5" lineColor="#8b5cf6" baseColor="#3b2b5c" intensity={1} shineSize={10} shineFade={40} thickness={1.5} speed={0.35} followMouse proximity={250} onClick={onOpenModal}>
                         Contact Sales
                       </SpecularButton>
           </WebGLVisibilityWrapper>
                     </td>
                     <td style={{ padding: "20px 10px", textAlign: "center" }}>
-                      <WebGLVisibilityWrapper>
+                      <WebGLVisibilityWrapper isAbsolute={false}>
             <SpecularButton size="sm" radius={10} tint="#ffffff" tintOpacity={0} blur={0} textColor="#f5f5f5" lineColor="#8b5cf6" baseColor="#3b2b5c" intensity={1} shineSize={10} shineFade={40} thickness={1.5} speed={0.35} followMouse proximity={250} onClick={onOpenModal}>
                         Get Started
                       </SpecularButton>
           </WebGLVisibilityWrapper>
                     </td>
                     <td style={{ padding: "20px 10px", textAlign: "center" }}>
-                      <WebGLVisibilityWrapper>
+                      <WebGLVisibilityWrapper isAbsolute={false}>
             <SpecularButton size="sm" radius={10} tint="#ffffff" tintOpacity={0} blur={0} textColor="#f5f5f5" lineColor="#8b5cf6" baseColor="#201a30" intensity={1} shineSize={10} shineFade={40} thickness={1.5} speed={0.35} followMouse proximity={250} onClick={onOpenModal}>
                         Get Started
                       </SpecularButton>
@@ -823,7 +823,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       {/* Industries */}
       <section id="industries" className="scroll-mt-32 light-sec vx-float" style={{ padding: "100px 0", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, opacity: 0.5 }}>
-          <WebGLVisibilityWrapper>
+          <WebGLVisibilityWrapper isAbsolute={false}>
             <SideRays
             speed={2}
             rayColor1="#a78bfa"

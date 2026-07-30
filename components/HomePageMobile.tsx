@@ -1048,7 +1048,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
     <>
       <section id="hero" className="nx vx-float pt-24 md:pt-32" style={{ height: "auto", minHeight: "100vh" }}>
         <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0 }}>
-          <WebGLVisibilityWrapper>
+          <WebGLVisibilityWrapper isAbsolute={false}>
             <Particles
             className=""
             particleColors={["#ffffff", "#a78bfa", "#c084fc"]}
@@ -1213,7 +1213,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       <div style={{ position: "relative", backgroundColor: "#0d0d11", overflow: "hidden" }}>
         {/* Shared Light Pillar Background */}
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 0.35, pointerEvents: 'none' }}>
-          <WebGLVisibilityWrapper>
+          <WebGLVisibilityWrapper isAbsolute={false}>
             <LightPillar
             topColor="#5227FF"
             bottomColor="#FF9FFC"
@@ -1355,7 +1355,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         {/* Magic Rings Background */}
         <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0, overflow: "hidden", pointerEvents: "none" }}>
           <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "100vw", height: "100vw", minWidth: "1000px", minHeight: "1000px", opacity: 0.4 }}>
-            <WebGLVisibilityWrapper>
+            <WebGLVisibilityWrapper isAbsolute={false}>
             <MagicRings
               color="#A855F7"
               colorTwo="#6366F1"
@@ -1397,7 +1397,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       {/* Recent Projects */}
       <section id="recent-projects" className="scroll-mt-32 vx-float" style={{ padding: "40px 0 30px", position: "relative", zIndex: 10 }}>
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1, background: 'var(--bg-void)' }}>
-          <WebGLVisibilityWrapper>
+          <WebGLVisibilityWrapper isAbsolute={false}>
             <LiquidEther
             colors={[ '#5227FF', '#FF9FFC', '#B497CF' ]}
             mouseForce={20}
@@ -1459,7 +1459,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         }}
       >
         <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, opacity: 1 }}>
-          <WebGLVisibilityWrapper>
+          <WebGLVisibilityWrapper isAbsolute={false}>
             <LightRays
             raysOrigin="top-center"
             raysColor="#8b5cf6"
@@ -1514,7 +1514,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       {/* Industries */}
       <section id="industries" className="scroll-mt-32 light-sec vx-float" style={{ padding: "60px 0 30px 0", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, opacity: 0.5 }}>
-          <WebGLVisibilityWrapper>
+          <WebGLVisibilityWrapper isAbsolute={false}>
             <SideRays
             speed={2}
             rayColor1="#a78bfa"

@@ -87,7 +87,8 @@ const AnimatedProcessWorkflow = () => {
   ];
 
   return (
-    <div className="relative w-full max-w-lg mx-auto py-4">
+    <div className="w-full flex justify-center">
+      <div className="relative w-full max-w-lg md:max-w-2xl mx-auto py-4">
       {/* Glowing Connecting Timeline Line */}
       <div className="absolute left-[38px] top-8 bottom-8 w-[2px] bg-gradient-to-b from-purple-500 via-fuchsia-500 to-indigo-500 opacity-40 pointer-events-none z-0" />
       
@@ -147,6 +148,7 @@ const AnimatedProcessWorkflow = () => {
           );
         })}
       </div>
+    </div>
     </div>
   );
 };

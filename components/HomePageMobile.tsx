@@ -350,7 +350,7 @@ const MobileTestimonialSingleCard = () => {
                   : "opacity-0 translate-x-full pointer-events-none scale-90"
               }`}
             >
-        <SpotlightCard className="group relative w-full h-[300px] rounded-[24px] bg-[#0A0A0B] border border-[rgba(255,255,255,0.08)] shadow-[0_10px_30px_rgba(0,0,0,0.6)] flex flex-col transition-all duration-300 overflow-visible" spotlightColor="rgba(79, 70, 229, 0.15)">
+        <SpotlightCard className="group relative w-[90%] sm:w-[92%] max-w-[300px] sm:max-w-[340px] mx-auto h-[300px] rounded-[24px] bg-[#0A0A0B] border border-[rgba(255,255,255,0.08)] shadow-[0_10px_30px_rgba(0,0,0,0.6)] flex flex-col transition-all duration-300 overflow-visible" spotlightColor="rgba(79, 70, 229, 0.15)">
           
           {/* Left Ribbon Banner with Triangular Fold */}
           <div 

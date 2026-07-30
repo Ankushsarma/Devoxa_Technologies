@@ -95,7 +95,7 @@ const AnimatedProcessWorkflow = () => {
             <div
               key={idx}
               onClick={() => setActiveStep(idx)}
-              className={`relative flex items-center gap-4 p-4 rounded-2xl cursor-pointer transition-all duration-500 border ${
+              className={`relative flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-2xl cursor-pointer transition-all duration-500 border ${
                 isActive
                   ? "bg-gradient-to-r from-purple-950/80 via-slate-900/90 to-purple-950/60 border-purple-500/70 shadow-[0_0_30px_rgba(139,92,246,0.35)] scale-[1.02]"
                   : "bg-[#0d0d11]/80 border-white/10 hover:border-purple-500/30 hover:bg-white/[0.04]"
@@ -123,12 +123,12 @@ const AnimatedProcessWorkflow = () => {
               </div>
 
               {/* Step Content */}
-              <div className="flex flex-col flex-1 min-w-0">
-                <div className="flex items-center justify-between gap-2 mb-1">
-                  <h4 className={`text-base font-bold transition-colors ${isActive ? "text-white" : "text-gray-200"}`}>
+              <div className="flex flex-col flex-1 min-w-0 pr-1">
+                <div className="flex items-center justify-between gap-2 mb-1.5">
+                  <h4 className={`text-[15px] sm:text-base font-bold transition-colors truncate ${isActive ? "text-white" : "text-gray-200"}`}>
                     {step.title}
                   </h4>
-                  <span className={`text-xs font-mono font-bold px-2 py-0.5 rounded-md ${
+                  <span className={`text-[10px] sm:text-xs font-mono font-bold px-1.5 py-0.5 rounded-md shrink-0 ${
                     isActive 
                       ? "bg-purple-500/20 text-purple-300 border border-purple-500/40" 
                       : "bg-white/5 text-gray-400 border border-white/5"
@@ -136,7 +136,7 @@ const AnimatedProcessWorkflow = () => {
                     0{idx + 1}
                   </span>
                 </div>
-                <p className="text-xs sm:text-sm text-gray-300 font-light leading-relaxed">
+                <p className="text-[11.5px] sm:text-sm text-gray-300 font-light leading-relaxed">
                   {step.desc}
                 </p>
               </div>

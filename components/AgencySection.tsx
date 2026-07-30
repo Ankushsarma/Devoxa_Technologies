@@ -136,7 +136,7 @@ export default function AgencySection({ onOpenModal }: { onOpenModal: () => void
                   grid-template-columns: repeat(3, 1fr) !important;
                   max-width: 320px !important;
                   margin: 0 auto !important;
-                  gap: 12px !important;
+                  gap: 24px 12px !important;
                 }
                 .agency-circle-item:nth-child(n+7) {
                   display: none;

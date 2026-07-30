@@ -109,9 +109,10 @@ const LineSidebar = ({
         }
       }
 
+      const ease = FALLOFF_CURVES[falloff] ?? FALLOFF_CURVES.linear;
       for (let i = 0; i < items.length; i++) {
-        if (minDistance <= proximityRadius) {
-          targetsRef.current[i] = i === closestIdx ? 1 : 0;
+        if (i === closestIdx && minDistance <= proximityRadius) {
+          targetsRef.current[i] = ease(Math.max(0, 1 - minDistance / proximityRadius));
         } else {
           targetsRef.current[i] = 0;
         }

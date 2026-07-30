@@ -277,7 +277,6 @@ const MobileProjectCarousel = ({ projects }: { projects: any[] }) => {
 
 const MobileTestimonialSingleCard = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [fadeState, setFadeState] = useState(true);
 
   const testimonials = [
     {
@@ -313,28 +312,15 @@ const MobileTestimonialSingleCard = () => {
   ];
 
   const handleNext = () => {
-    setFadeState(false);
-    setTimeout(() => {
-      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-      setFadeState(true);
-    }, 250);
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
   };
 
   const handlePrev = () => {
-    setFadeState(false);
-    setTimeout(() => {
-      setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-      setFadeState(true);
-    }, 250);
+    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
   const handleSelect = (idx: number) => {
-    if (idx === currentIndex) return;
-    setFadeState(false);
-    setTimeout(() => {
-      setCurrentIndex(idx);
-      setFadeState(true);
-    }, 250);
+    setCurrentIndex(idx);
   };
 
   useEffect(() => {
@@ -344,19 +330,31 @@ const MobileTestimonialSingleCard = () => {
     return () => clearInterval(timer);
   }, [currentIndex]);
 
-  const t = testimonials[currentIndex];
-
   return (
     <div className="w-full flex flex-col items-center justify-center px-6 pt-6">
-      {/* Centered Single Card (Exact 100% Original Card Design - Fixed 300px Height) */}
-      <div className="relative w-full max-w-[340px] sm:max-w-[378px] mx-auto" style={{ height: "300px" }}>
-        <SpotlightCard className="group relative w-full h-full rounded-[24px] bg-[#0A0A0B] border border-[rgba(255,255,255,0.08)] shadow-[0_10px_30px_rgba(0,0,0,0.6)] flex flex-col transition-all duration-300 overflow-visible" style={{ height: "300px" }} spotlightColor="rgba(79, 70, 229, 0.15)">
+      {/* Centered Sliding Cards Container */}
+      <div className="relative w-full max-w-[340px] sm:max-w-[378px] mx-auto overflow-hidden" style={{ height: "320px", padding: "10px 0" }}>
+        <div className="relative w-full h-[300px] flex items-center justify-center">
+        {testimonials.map((t, idx) => {
+          const isActive = idx === currentIndex;
+          const isPrev = idx === (currentIndex - 1 + testimonials.length) % testimonials.length;
+
+          return (
+            <div
+              key={idx}
+              className={`absolute inset-0 w-full h-full flex flex-col items-center justify-center transition-all duration-700 ease-out ${
+                isActive
+                  ? "opacity-100 z-20 scale-100 translate-x-0"
+                  : isPrev
+                  ? "opacity-0 -translate-x-full pointer-events-none scale-90"
+                  : "opacity-0 translate-x-full pointer-events-none scale-90"
+              }`}
+            >
+        <SpotlightCard className="group relative w-full h-[300px] rounded-[24px] bg-[#0A0A0B] border border-[rgba(255,255,255,0.08)] shadow-[0_10px_30px_rgba(0,0,0,0.6)] flex flex-col transition-all duration-300 overflow-visible" spotlightColor="rgba(79, 70, 229, 0.15)">
           
-          {/* Left Ribbon Banner with Triangular Fold (Increased for Mobile Balance) */}
+          {/* Left Ribbon Banner with Triangular Fold */}
           <div 
-            className={`absolute top-4 -left-5 bg-gradient-to-r from-[#4F46E5] to-[#7C3AED] rounded-r-[15px] rounded-tl-[15px] rounded-bl-none px-7 z-20 shadow-lg min-w-[235px] max-w-[245px] flex flex-col justify-center items-center text-center transition-all duration-300 ${
-              fadeState ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
-            }`} 
+            className="absolute top-4 -left-5 bg-gradient-to-r from-[#4F46E5] to-[#7C3AED] rounded-r-[15px] rounded-tl-[15px] rounded-bl-none px-7 z-20 shadow-lg min-w-[235px] max-w-[245px] flex flex-col justify-center items-center text-center" 
             style={{ paddingTop: '1.05rem', paddingBottom: '1.05rem' }}
           >
             <div className="absolute top-full left-0 w-0 h-0" style={{ borderTop: '22px solid #1E1B4B', borderLeft: '22px solid transparent' }}></div>
@@ -364,11 +362,9 @@ const MobileTestimonialSingleCard = () => {
             <p className="text-white/90 text-[13.5px] font-medium whitespace-nowrap relative z-10">{t.title}</p>
           </div>
 
-          {/* Profile Circle Avatar Top Right (Increased for Mobile Balance) */}
+          {/* Profile Circle Avatar Top Right */}
           <div className="absolute -top-5 -right-2.5 w-[96px] h-[96px] rounded-full border-[3px] border-[#0A0A0B] shadow-[0_4px_12px_rgba(0,0,0,0.5)] overflow-hidden z-20 bg-[#0A0A0B]">
-            <div className={`w-full h-full bg-gradient-to-br from-[#4F46E5] to-[#7C3AED] flex items-center justify-center transition-all duration-300 ${
-              fadeState ? "opacity-100 scale-100" : "opacity-0 scale-90"
-            }`}>
+            <div className="w-full h-full bg-gradient-to-br from-[#4F46E5] to-[#7C3AED] flex items-center justify-center">
               <span className="text-white font-bold text-[28px] tracking-tight">{t.initials}</span>
             </div>
           </div>
@@ -386,9 +382,7 @@ const MobileTestimonialSingleCard = () => {
             <div className="relative flex items-center" style={{ height: "120px", overflow: "hidden" }}>
               <div className="absolute left-0 top-1 bottom-1 w-[3px] bg-gradient-to-b from-[#4F46E5] to-[#7C3AED] rounded-full shadow-[0_0_8px_rgba(79,70,229,0.3)]"></div>
               <p 
-                className={`text-[#8981A6] text-[14px] sm:text-[15px] leading-[1.65] font-sans transition-all duration-300 w-full ${
-                  fadeState ? "opacity-100 translate-x-0" : "opacity-0 translate-x-3"
-                }`} 
+                className="text-[#8981A6] text-[14px] sm:text-[15px] leading-[1.65] font-sans w-full" 
                 style={{ paddingLeft: '28px' }}
               >
                 "{t.content}"
@@ -397,6 +391,10 @@ const MobileTestimonialSingleCard = () => {
           </div>
 
         </SpotlightCard>
+            </div>
+          );
+        })}
+        </div>
       </div>
 
       {/* Navigation Controls & Dot Indicators below Centered Card */}

@@ -764,9 +764,9 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                 <thead>
                   <tr>
                     <th><span className="cmp-cat">Services & Features</span></th>
-                    <th>Enterprise Solutions</th>
-                    <th>Custom Application</th>
                     <th>Digital Presence</th>
+                    <th>Custom Application</th>
+                    <th>Enterprise Solutions</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -782,9 +782,9 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                   ].map((row, i) => (
                     <tr key={i}>
                       <th scope="row">{row.label}</th>
-                      <td>{row.ent ? <span className="cmp-check"><CheckCircle size={19} /></span> : <span className="cmp-x"><X size={18} /></span>}</td>
-                      <td>{row.pro ? <span className="cmp-check"><CheckCircle size={19} /></span> : <span className="cmp-x"><X size={18} /></span>}</td>
                       <td>{row.basic ? <span className="cmp-check"><CheckCircle size={19} /></span> : <span className="cmp-x"><X size={18} /></span>}</td>
+                      <td>{row.pro ? <span className="cmp-check"><CheckCircle size={19} /></span> : <span className="cmp-x"><X size={18} /></span>}</td>
+                      <td>{row.ent ? <span className="cmp-check"><CheckCircle size={19} /></span> : <span className="cmp-x"><X size={18} /></span>}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -793,22 +793,22 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                     <td></td>
                     <td style={{ padding: "20px 10px", textAlign: "center" }}>
                       <WebGLVisibilityWrapper isAbsolute={false}>
-            <SpecularButton size="sm" radius={10} tint="#ffffff" tintOpacity={0} blur={0} textColor="#f5f5f5" lineColor="#8b5cf6" baseColor="#3b2b5c" intensity={1} shineSize={10} shineFade={40} thickness={1.5} speed={0.35} followMouse proximity={250} onClick={onOpenModal}>
-                        Contact Sales
-                      </SpecularButton>
-          </WebGLVisibilityWrapper>
-                    </td>
-                    <td style={{ padding: "20px 10px", textAlign: "center" }}>
-                      <WebGLVisibilityWrapper isAbsolute={false}>
-            <SpecularButton size="sm" radius={10} tint="#ffffff" tintOpacity={0} blur={0} textColor="#f5f5f5" lineColor="#8b5cf6" baseColor="#3b2b5c" intensity={1} shineSize={10} shineFade={40} thickness={1.5} speed={0.35} followMouse proximity={250} onClick={onOpenModal}>
-                        Get Started
-                      </SpecularButton>
-          </WebGLVisibilityWrapper>
-                    </td>
-                    <td style={{ padding: "20px 10px", textAlign: "center" }}>
-                      <WebGLVisibilityWrapper isAbsolute={false}>
             <SpecularButton size="sm" radius={10} tint="#ffffff" tintOpacity={0} blur={0} textColor="#f5f5f5" lineColor="#8b5cf6" baseColor="#201a30" intensity={1} shineSize={10} shineFade={40} thickness={1.5} speed={0.35} followMouse proximity={250} onClick={onOpenModal}>
                         Get Started
+                      </SpecularButton>
+          </WebGLVisibilityWrapper>
+                    </td>
+                    <td style={{ padding: "20px 10px", textAlign: "center" }}>
+                      <WebGLVisibilityWrapper isAbsolute={false}>
+            <SpecularButton size="sm" radius={10} tint="#ffffff" tintOpacity={0} blur={0} textColor="#f5f5f5" lineColor="#8b5cf6" baseColor="#3b2b5c" intensity={1} shineSize={10} shineFade={40} thickness={1.5} speed={0.35} followMouse proximity={250} onClick={onOpenModal}>
+                        Get Started
+                      </SpecularButton>
+          </WebGLVisibilityWrapper>
+                    </td>
+                    <td style={{ padding: "20px 10px", textAlign: "center" }}>
+                      <WebGLVisibilityWrapper isAbsolute={false}>
+            <SpecularButton size="sm" radius={10} tint="#ffffff" tintOpacity={0} blur={0} textColor="#f5f5f5" lineColor="#8b5cf6" baseColor="#3b2b5c" intensity={1} shineSize={10} shineFade={40} thickness={1.5} speed={0.35} followMouse proximity={250} onClick={onOpenModal}>
+                        Contact Sales
                       </SpecularButton>
           </WebGLVisibilityWrapper>
                     </td>

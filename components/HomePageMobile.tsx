@@ -363,9 +363,9 @@ const MobileTestimonialSingleCard = () => {
           </div>
 
           {/* Profile Circle Avatar Top Right */}
-          <div className="absolute -top-4 -right-2.5 w-[84px] h-[84px] rounded-full border-[3px] border-[#0A0A0B] shadow-[0_4px_12px_rgba(0,0,0,0.5)] overflow-hidden z-20 bg-[#0A0A0B]">
+          <div className="absolute -top-3 -right-1 w-[92px] h-[92px] rounded-full border-[3px] border-[#0A0A0B] shadow-[0_4px_12px_rgba(0,0,0,0.5)] overflow-hidden z-20 bg-[#0A0A0B]">
             <div className="w-full h-full bg-gradient-to-br from-[#4F46E5] to-[#7C3AED] flex items-center justify-center">
-              <span className="text-white font-bold text-[24px] tracking-tight">{t.initials}</span>
+              <span className="text-white font-bold text-[26px] tracking-tight">{t.initials}</span>
             </div>
           </div>
 

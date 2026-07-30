@@ -55,7 +55,7 @@ export function Footer() {
 
 			<div className="w-full max-w-7xl mx-auto flex flex-col flex-1">
 				{/* Middle Section */}
-				<div className="flex flex-col lg:flex-row w-full justify-center gap-12 lg:gap-32 relative" style={{ paddingTop: '1.75rem', marginBottom: '0' }}>
+				<div className="flex flex-col lg:flex-row w-full justify-center gap-12 lg:gap-16 relative" style={{ paddingTop: '1.75rem', marginBottom: '0' }}>
 
 					{/* Left CTA */}
 					<AnimatedContainer delay={0.2} className="w-full lg:w-[400px] shrink-0 flex flex-col items-start pl-3 sm:pl-0">

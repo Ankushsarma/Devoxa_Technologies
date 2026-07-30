@@ -53,7 +53,7 @@ export function Footer() {
 		>
 			<div className="bg-foreground/20 absolute top-0 right-1/2 left-1/2 h-px w-1/3 -translate-x-1/2 -translate-y-1/2 rounded-full blur" />
 
-			<div className="w-full max-w-7xl mx-auto flex flex-col flex-1">
+			<div className="w-full flex flex-col flex-1">
 				{/* Middle Section */}
 				<div className="flex flex-col lg:flex-row w-full justify-end gap-12 lg:gap-32 relative" style={{ paddingTop: '1.75rem', marginBottom: '0' }}>
 

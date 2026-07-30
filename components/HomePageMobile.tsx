@@ -363,14 +363,14 @@ const MobileTestimonialSingleCard = () => {
           </div>
 
           {/* Profile Circle Avatar Top Right */}
-          <div className="absolute -top-4 -right-2 w-[76px] h-[76px] rounded-full border-[3px] border-[#0A0A0B] shadow-[0_4px_12px_rgba(0,0,0,0.5)] overflow-hidden z-20 bg-[#0A0A0B]">
+          <div className="absolute -top-4 -right-2.5 w-[84px] h-[84px] rounded-full border-[3px] border-[#0A0A0B] shadow-[0_4px_12px_rgba(0,0,0,0.5)] overflow-hidden z-20 bg-[#0A0A0B]">
             <div className="w-full h-full bg-gradient-to-br from-[#4F46E5] to-[#7C3AED] flex items-center justify-center">
-              <span className="text-white font-bold text-[22px] tracking-tight">{t.initials}</span>
+              <span className="text-white font-bold text-[24px] tracking-tight">{t.initials}</span>
             </div>
           </div>
 
           {/* Content Body */}
-          <div className="flex flex-col h-full relative z-0 justify-start gap-2" style={{ padding: '20px 24px 20px 24px', paddingTop: '110px' }}>
+          <div className="flex flex-col h-full relative z-0 justify-start gap-2" style={{ padding: '20px 24px 20px 24px', paddingTop: '116px' }}>
             <div className="flex gap-1 mb-1" style={{ paddingLeft: '28px' }}>
               {[1, 2, 3, 4, 5].map(starI => (
                 <svg key={starI} className="w-4 h-4 text-[#FBBF24]" fill="currentColor" viewBox="0 0 20 20">

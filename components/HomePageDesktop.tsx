@@ -245,6 +245,7 @@ function DesktopNav({ user, role, loading, logout, scrolled }: any) {
       <div className="hidden md:flex items-center rounded-full bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.08)] backdrop-blur-md shadow-lg">
         <PillNav
           logo={null}
+          showLogo={false}
           onMobileMenuClick={() => {}}
           items={[
             { label: 'Solutions', href: '#solutions' },

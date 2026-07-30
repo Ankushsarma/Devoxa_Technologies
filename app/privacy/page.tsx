@@ -24,6 +24,8 @@ import {
 import Particles from "@/components/Particles";
 import ShinyText from "@/components/ShinyText";
 import ConsultationModal from "@/components/ConsultationModal";
+import { Footer } from "@/components/ui/footer-section";
+import { FooterMobile } from "@/components/ui/footer-section-mobile";
 
 export default function PrivacyPolicy() {
   const [activeSection, setActiveSection] = useState("section-1");
@@ -78,7 +80,7 @@ export default function PrivacyPolicy() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#050506] text-white selection:bg-purple-500 selection:text-white font-sans relative overflow-x-hidden pb-20">
+    <div className="min-h-screen bg-[#050506] text-white selection:bg-purple-500 selection:text-white font-sans relative overflow-x-hidden">
       
       {/* Responsive Header Navigation (Transparent) */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-transparent border-none outline-none">
@@ -442,6 +444,14 @@ export default function PrivacyPolicy() {
 
       {/* Consultation Modal */}
       <ConsultationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+
+      {/* Global Shared Footer */}
+      <div className="hidden lg:block">
+        <Footer />
+      </div>
+      <div className="block lg:hidden">
+        <FooterMobile />
+      </div>
     </div>
   );
 }

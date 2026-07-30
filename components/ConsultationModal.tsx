@@ -99,11 +99,11 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-md p-4 sm:p-6"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-md p-3 sm:p-4 md:p-6"
       onClick={handleBackdropClick}
     >
       <div 
-        className="relative w-full max-w-[850px] max-h-[92vh] overflow-y-auto rounded-[1.5rem] sm:rounded-[2rem] shadow-2xl flex flex-col md:flex-row"
+        className="relative w-full max-w-[850px] max-h-[85vh] overflow-y-auto rounded-[1.5rem] sm:rounded-[2rem] shadow-2xl flex flex-col md:flex-row"
         style={{ background: "#141415", border: "1px solid rgba(255,255,255,0.08)" }}
         role="dialog"
         aria-modal="true"
@@ -117,17 +117,17 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
         </button>
 
         {/* Left Branding Panel */}
-        <div className="md:w-2/5 p-6 md:p-8 relative overflow-hidden flex flex-col justify-center"
+        <div className="md:w-2/5 p-5 md:p-6 relative overflow-hidden flex flex-col justify-center"
              style={{ background: "linear-gradient(135deg, #2D1B69 0%, #170B3B 100%)", flexShrink: 0 }}>
           {/* Decorative elements */}
           <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-[#7C5CFC] blur-[80px] opacity-30 pointer-events-none"></div>
           <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 rounded-full bg-[#E879F9] blur-[80px] opacity-20 pointer-events-none"></div>
           
           <div className="relative z-10">
-            <h3 className="text-2xl sm:text-3xl font-semibold text-white mb-3 font-serif leading-tight">
+            <h3 className="text-xl sm:text-2xl font-semibold text-white mb-2 font-serif leading-tight">
               Ready to build <br/>something <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a78bfa] to-[#f472b6]">extraordinary?</span>
             </h3>
-            <p className="text-sm text-purple-200/70 leading-relaxed mb-6">
+            <p className="text-[13px] sm:text-sm text-purple-200/70 leading-relaxed mb-4">
               Fill out the form and our team of experts will review your request and get back to you within 24 hours.
             </p>
 
@@ -169,60 +169,60 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
         </div>
 
         {/* Right Form Panel */}
-        <div className="md:w-3/5 p-6 md:p-8 relative bg-[#141415] bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)]" style={{ flexShrink: 0 }}>
+        <div className="md:w-3/5 p-5 md:p-6 relative bg-[#141415] bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)]" style={{ flexShrink: 0 }}>
           <div className="bg-white/20 absolute top-0 right-1/2 left-1/2 h-px w-1/3 -translate-x-1/2 -translate-y-1/2 rounded-full blur z-0" />
-          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5 relative z-10">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4 relative z-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <div>
-                <label className="block text-[11px] font-semibold text-[#8981A6] mb-1.5 tracking-wider">NAME <span className="text-red-400">*</span></label>
+                <label className="block text-[10px] sm:text-[11px] font-semibold text-[#8981A6] mb-1 tracking-wider">NAME <span className="text-red-400">*</span></label>
                 <input
                   required
                   type="text"
                   value={formState.name}
                   onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                  className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder-white/20 focus:border-[#a78bfa] focus:bg-white/10 focus:outline-none transition-all"
+                  className="w-full rounded-xl bg-white/5 border border-white/10 px-3.5 py-2.5 text-sm text-white placeholder-white/20 focus:border-[#a78bfa] focus:bg-white/10 focus:outline-none transition-all"
                   placeholder="John Doe"
                 />
               </div>
               <div>
-                <label className="block text-[11px] font-semibold text-[#8981A6] mb-1.5 tracking-wider">EMAIL <span className="text-red-400">*</span></label>
+                <label className="block text-[10px] sm:text-[11px] font-semibold text-[#8981A6] mb-1 tracking-wider">EMAIL <span className="text-red-400">*</span></label>
                 <input
                   required
                   type="email"
                   value={formState.email}
                   onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                  className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder-white/20 focus:border-[#a78bfa] focus:bg-white/10 focus:outline-none transition-all"
+                  className="w-full rounded-xl bg-white/5 border border-white/10 px-3.5 py-2.5 text-sm text-white placeholder-white/20 focus:border-[#a78bfa] focus:bg-white/10 focus:outline-none transition-all"
                   placeholder="john@devoxa.tech"
                 />
               </div>
               <div>
-                <label className="block text-[11px] font-semibold text-[#8981A6] mb-1.5 tracking-wider">PHONE</label>
+                <label className="block text-[10px] sm:text-[11px] font-semibold text-[#8981A6] mb-1 tracking-wider">PHONE</label>
                 <input
                   type="tel"
                   value={formState.phone}
                   onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
-                  className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder-white/20 focus:border-[#a78bfa] focus:bg-white/10 focus:outline-none transition-all"
+                  className="w-full rounded-xl bg-white/5 border border-white/10 px-3.5 py-2.5 text-sm text-white placeholder-white/20 focus:border-[#a78bfa] focus:bg-white/10 focus:outline-none transition-all"
                   placeholder="+1 (555) 000-0000"
                 />
               </div>
               <div>
-                <label className="block text-[11px] font-semibold text-[#8981A6] mb-1.5 tracking-wider">COMPANY</label>
+                <label className="block text-[10px] sm:text-[11px] font-semibold text-[#8981A6] mb-1 tracking-wider">COMPANY</label>
                 <input
                   type="text"
                   value={formState.company}
                   onChange={(e) => setFormState({ ...formState, company: e.target.value })}
-                  className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder-white/20 focus:border-[#a78bfa] focus:bg-white/10 focus:outline-none transition-all"
+                  className="w-full rounded-xl bg-white/5 border border-white/10 px-3.5 py-2.5 text-sm text-white placeholder-white/20 focus:border-[#a78bfa] focus:bg-white/10 focus:outline-none transition-all"
                   placeholder="Devoxa"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-[11px] font-semibold text-[#8981A6] mb-1.5 tracking-wider">PROJECT DETAILS</label>
+              <label className="block text-[10px] sm:text-[11px] font-semibold text-[#8981A6] mb-1 tracking-wider">PROJECT DETAILS</label>
               <textarea
                 value={formState.message}
                 onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder-white/20 focus:border-[#a78bfa] focus:bg-white/10 focus:outline-none transition-all resize-none h-24"
+                className="w-full rounded-xl bg-white/5 border border-white/10 px-3.5 py-2.5 text-sm text-white placeholder-white/20 focus:border-[#a78bfa] focus:bg-white/10 focus:outline-none transition-all resize-none h-20"
                 placeholder="Tell us about your goals, timeline, and what you're looking to achieve..."
               />
             </div>
@@ -230,7 +230,7 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full mt-2 rounded-xl py-3.5 text-sm font-bold text-white shadow-lg hover:shadow-xl transition-all disabled:opacity-70 disabled:cursor-not-allowed hover:-translate-y-0.5"
+              className="w-full mt-1 sm:mt-2 rounded-xl py-3 text-[13px] sm:text-sm font-bold text-white shadow-lg hover:shadow-xl transition-all disabled:opacity-70 disabled:cursor-not-allowed hover:-translate-y-0.5"
               style={{
                 background: "linear-gradient(135deg, #7C5CFC, #E879F9)",
                 boxShadow: "0 8px 24px rgba(124,92,252,0.25)"

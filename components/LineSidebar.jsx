@@ -95,14 +95,26 @@ const LineSidebar = ({
       if (!list) return;
       const rect = list.getBoundingClientRect();
       const pointerY = e.clientY - rect.top;
-      const ease = FALLOFF_CURVES[falloff] ?? FALLOFF_CURVES.linear;
+      let closestIdx = -1;
+      let minDistance = Infinity;
       const items = itemRefs.current;
       for (let i = 0; i < items.length; i++) {
         const el = items[i];
         if (!el) continue;
         const center = el.offsetTop + el.offsetHeight / 2;
         const distance = Math.abs(pointerY - center);
-        targetsRef.current[i] = ease(Math.max(0, 1 - distance / proximityRadius));
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestIdx = i;
+        }
+      }
+
+      for (let i = 0; i < items.length; i++) {
+        if (minDistance <= proximityRadius) {
+          targetsRef.current[i] = i === closestIdx ? 1 : 0;
+        } else {
+          targetsRef.current[i] = 0;
+        }
       }
       startLoop();
     },

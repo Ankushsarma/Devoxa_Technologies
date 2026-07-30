@@ -28,7 +28,7 @@ export default function AgencySection({ onOpenModal }: { onOpenModal: () => void
   ]
 
   return (
-    <section className="vx-float" style={{ padding: "clamp(80px, 12vh, 160px) 0" }}>
+    <section className="vx-float agency-section-wrapper" style={{ padding: "clamp(80px, 12vh, 160px) 0" }}>
       <div className="wrap" style={{ position: "relative", zIndex: 1, maxWidth: "1300px", margin: "0 auto", padding: "0 24px" }}>
         <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "60px" }}>
           
@@ -132,6 +132,9 @@ export default function AgencySection({ onOpenModal }: { onOpenModal: () => void
           <div style={{ flex: "1 1 500px" }}>
             <style dangerouslySetInnerHTML={{__html: `
               @media (max-width: 768px) {
+                .agency-section-wrapper {
+                  padding: 80px 0 20px 0 !important;
+                }
                 .agency-circles-grid {
                   grid-template-columns: repeat(3, 1fr) !important;
                   max-width: 320px !important;

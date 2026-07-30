@@ -513,8 +513,8 @@ const MobileServicePackages = ({ onOpenModal }: { onOpenModal?: () => void }) =>
                 border: isActive ? "1px solid #a855f7" : "1px solid rgba(168, 85, 247, 0.25)",
                 boxShadow: isActive ? "0 4px 18px rgba(139, 92, 246, 0.5)" : "none",
                 borderRadius: "9999px",
-                padding: "9px 4px",
-                fontSize: "clamp(9px, 2.7vw, 11px)",
+                padding: "8px 2px",
+                fontSize: "clamp(8px, 2.3vw, 10px)",
                 fontWeight: 800,
                 letterSpacing: "0.4px",
                 textTransform: "uppercase",
@@ -1475,7 +1475,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
           />
           </WebGLVisibilityWrapper>
         </div>
-        <div className="wrap" style={{ position: "relative", zIndex: 1, padding: "0 16px" }}>
+        <div className="wrap" style={{ position: "relative", zIndex: 1, padding: "0 32px" }}>
           <div className="section-head reveal in flex flex-col items-start text-left" style={{ marginBottom: "24px" }}>
             <div 
               style={{

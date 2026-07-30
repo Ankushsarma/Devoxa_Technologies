@@ -125,7 +125,7 @@ export function FooterMobile() {
 									fontSize={0.75}
 									smoothing={100}
 									defaultActive={null}
-									onItemClick={(index) => {
+									onItemClick={(index: number) => {
 										window.location.href = section.links[index].href;
 									}}
 								/>

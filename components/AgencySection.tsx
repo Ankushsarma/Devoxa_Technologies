@@ -12,11 +12,11 @@ export default function AgencySection({ onOpenModal }: { onOpenModal: () => void
 
   const circles = [
     { type: "image", src: "/tpl-saas-software.jpg", color: "#7c3aed", objPos: "left center" },
-    { type: "color", color: "#a78bfa" },
+    { type: "image", src: "/dashboard_mockup_1.png", color: "#a78bfa", objPos: "center" },
     { type: "image", src: "/tpl-automation-saas.jpg", color: "#8b5cf6", objPos: "left center" },
-    { type: "color", color: "#7c3aed" },
+    { type: "image", src: "/task_app_mockup.png", color: "#7c3aed", objPos: "center" },
     
-    { type: "color", color: "#8b5cf6" },
+    { type: "image", src: "/ai_platform_mockup.png", color: "#8b5cf6", objPos: "center" },
     { type: "image", src: "/tpl-task-management.jpg", color: "#a78bfa", objPos: "center" },
     { type: "color", color: "#7c3aed" },
     { type: "image", src: "/tpl-fintech-saas.jpg", color: "#8b5cf6", objPos: "left center" },
@@ -146,7 +146,7 @@ export default function AgencySection({ onOpenModal }: { onOpenModal: () => void
                 }
               }
               @keyframes pulse-fade {
-                0%, 100% { opacity: 0; }
+                0%, 100% { opacity: 0.4; }
                 50% { opacity: 1; }
               }
               @keyframes circle-breathe {

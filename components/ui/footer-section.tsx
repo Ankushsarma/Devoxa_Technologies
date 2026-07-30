@@ -48,6 +48,7 @@ const footerLinks: FooterSection[] = [
 export function Footer() {
 	return (
 		<footer
+			id="footer"
 			className="md:rounded-t-6xl relative w-full flex flex-col justify-start rounded-t-4xl border-t border-white/10 bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)] px-6 sm:px-8 pb-4"
 			style={{ paddingTop: '0' }}
 		>

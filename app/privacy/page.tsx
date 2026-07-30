@@ -105,8 +105,8 @@ export default function PrivacyPolicy() {
           {/* Right Actions */}
           <div className="flex items-center gap-5">
             <Link 
-              href="/" 
-              className="px-4.5 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-gray-300 hover:text-white hover:bg-white/10 transition-all flex items-center gap-2"
+              href="/#footer" 
+              className="px-4.5 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-gray-300 hover:text-white hover:bg-white/10 active:scale-95 transition-all flex items-center gap-2"
             >
               <ArrowLeft className="w-3.5 h-3.5 text-purple-400" />
               <span>Return to Home</span>

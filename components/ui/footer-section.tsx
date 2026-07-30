@@ -39,8 +39,8 @@ const footerLinks: FooterSection[] = [
 		links: [
 			{ title: 'Privacy Policy', href: '/privacy' },
 			{ title: 'Terms of Service', href: '/terms' },
-			{ title: 'Cookie Policy', href: '#' },
-			{ title: 'Security', href: '#' },
+			{ title: 'Cookie Policy', href: '/cookie' },
+			{ title: 'Security', href: '/security' },
 		],
 	},
 ];
@@ -48,17 +48,18 @@ const footerLinks: FooterSection[] = [
 export function Footer() {
 	return (
 		<footer
-			className="md:rounded-t-6xl relative w-full flex flex-col justify-start rounded-t-4xl border-t border-white/10 bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)] px-6 sm:px-8 pb-10"
+			id="footer"
+			className="md:rounded-t-6xl relative w-full flex flex-col justify-start rounded-t-4xl border-t border-white/10 bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)] px-6 sm:px-8 pb-4"
 			style={{ paddingTop: '0' }}
 		>
 			<div className="bg-foreground/20 absolute top-0 right-1/2 left-1/2 h-px w-1/3 -translate-x-1/2 -translate-y-1/2 rounded-full blur" />
 
-			<div className="w-full max-w-7xl mx-auto flex flex-col flex-1">
+			<div className="w-full flex flex-col flex-1">
 				{/* Middle Section */}
-				<div className="grid w-full gap-8 lg:gap-12 lg:grid-cols-12 relative" style={{ paddingTop: '1.75rem', marginBottom: '0' }}>
+				<div className="flex flex-col lg:flex-row w-full justify-center gap-12 lg:gap-48 xl:gap-64 relative" style={{ paddingTop: '1.75rem', marginBottom: '0' }}>
 
 					{/* Left CTA */}
-					<AnimatedContainer delay={0.2} className="lg:col-span-4 lg:col-start-2 flex flex-col items-start pl-3 sm:pl-0">
+					<AnimatedContainer delay={0.2} className="w-full lg:w-[400px] shrink-0 flex flex-col items-start pl-3 sm:pl-0">
 						<h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-white mb-2 leading-tight">
 							Let's build something<br />
 							amazing <span className="text-[#a78bfa]">together.</span>
@@ -101,7 +102,7 @@ export function Footer() {
 					</AnimatedContainer>
 
 					{/* Middle Links */}
-					<div className="lg:col-span-6 lg:col-start-7 grid grid-cols-2 sm:grid-cols-3 gap-6 lg:gap-8 pt-4 lg:pt-2">
+					<div className="w-full lg:w-fit shrink-0 grid grid-cols-2 sm:grid-cols-3 gap-10 lg:gap-16 pt-4 lg:pt-2">
 						{footerLinks.map((section: FooterSection, index: number) => (
 							<AnimatedContainer key={section.label} delay={0.3 + index * 0.1}>
 								<div className="mb-6 md:mb-0">
@@ -123,7 +124,7 @@ export function Footer() {
 										markerGap={8}
 										tickScale={0.5}
 										scaleTick={true}
-										itemGap={12}
+										itemGap={24}
 										fontSize={0.8}
 										smoothing={100}
 										defaultActive={null}
@@ -138,10 +139,10 @@ export function Footer() {
 				</div>
 
 				{/* Bottom Wrapper */}
-				<div className="mt-8 w-full flex flex-col relative">
+				<div className="mt-2 w-full flex flex-col relative">
 					{/* Massive Watermark */}
 					<AnimatedContainer delay={0.5} className="w-full flex justify-center items-center overflow-hidden pointer-events-none select-none my-2">
-						<span className="text-[18vw] sm:text-[15vw] font-bold leading-[0.75] tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-white/30 to-transparent">
+						<span className="text-[14vw] sm:text-[11vw] font-bold leading-[0.75] tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-white/30 to-transparent">
 							DEVOXA
 						</span>
 					</AnimatedContainer>

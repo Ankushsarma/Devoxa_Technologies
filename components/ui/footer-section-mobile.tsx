@@ -39,8 +39,8 @@ const footerLinks: FooterSection[] = [
 		links: [
 			{ title: 'Privacy Policy', href: '/privacy' },
 			{ title: 'Terms of Service', href: '/terms' },
-			{ title: 'Cookie Policy', href: '#' },
-			{ title: 'Security', href: '#' },
+			{ title: 'Cookie Policy', href: '/cookie' },
+			{ title: 'Security', href: '/security' },
 		],
 	},
 ];

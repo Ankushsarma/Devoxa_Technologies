@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState, useRef, useLayoutEffect } from "react"
 import { useAuth } from "@/context/auth-context"
 import { toast } from "sonner"
 import Image from "next/image"
@@ -154,13 +154,44 @@ export default function HomePageDesktop() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
+  // Custom scroll restoration logic (Synchronous to prevent flash + handles layout shifts)
+  useLayoutEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+
+    const savedScroll = sessionStorage.getItem("homeScroll")
+    if (savedScroll) {
+      const target = parseInt(savedScroll, 10);
+      window.scrollTo({ top: target, behavior: "instant" })
+      
+      // Re-apply after layout shifts to ensure it doesn't get stuck at the top
+      setTimeout(() => window.scrollTo({ top: target, behavior: "instant" }), 50)
+      setTimeout(() => window.scrollTo({ top: target, behavior: "instant" }), 150)
+      
+      // Reveal page with a smooth fade
+      setTimeout(() => {
+        document.documentElement.classList.remove("scroll-restoring");
+        document.documentElement.classList.add("scroll-restoring-done");
+      }, 160);
+    } else {
+      document.documentElement.classList.remove("scroll-restoring");
+    }
+
+    const handleBeforeUnload = () => {
+      sessionStorage.setItem("homeScroll", window.scrollY.toString())
+    }
+    window.addEventListener("beforeunload", handleBeforeUnload)
+    
+    return () => window.removeEventListener("beforeunload", handleBeforeUnload)
+  }, [])
+
   // Fix hash routing after layout shifts
   useEffect(() => {
     if (window.location.hash) {
       const isReload = window.performance && window.performance.navigation && window.performance.navigation.type === 1;
       if (isReload && !window.location.search.includes('from=login')) {
         window.history.replaceState(null, '', window.location.pathname + window.location.search);
-        window.scrollTo(0, 0);
         return;
       }
 
@@ -245,6 +276,7 @@ function DesktopNav({ user, role, loading, logout, scrolled }: any) {
       <div className="hidden md:flex items-center rounded-full bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.08)] backdrop-blur-md shadow-lg">
         <PillNav
           logo={null}
+          showLogo={false}
           onMobileMenuClick={() => {}}
           items={[
             { label: 'Solutions', href: '#solutions' },
@@ -319,7 +351,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
     <>
       <section id="hero" className="nx vx-float pt-24 md:pt-32">
         <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0 }}>
-          <WebGLVisibilityWrapper>
+          <WebGLVisibilityWrapper isAbsolute={false}>
             <Particles
             className=""
             particleColors={["#ffffff", "#a78bfa", "#c084fc"]}
@@ -482,7 +514,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       <div style={{ position: "relative", backgroundColor: "#0d0d11", overflow: "hidden" }}>
         {/* Shared Light Pillar Background */}
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 0.8, pointerEvents: 'none' }}>
-          <WebGLVisibilityWrapper>
+          <WebGLVisibilityWrapper isAbsolute={false}>
             <LightPillar
             topColor="#5227FF"
             bottomColor="#FF9FFC"
@@ -592,7 +624,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         {/* Magic Rings Background */}
         <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0, overflow: "hidden", pointerEvents: "none" }}>
           <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "100vw", height: "100vw", minWidth: "1000px", minHeight: "1000px", opacity: 0.4 }}>
-            <WebGLVisibilityWrapper>
+            <WebGLVisibilityWrapper isAbsolute={false}>
             <MagicRings
               color="#A855F7"
               colorTwo="#6366F1"
@@ -634,7 +666,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       {/* Recent Projects */}
       <section id="recent-projects" className="scroll-mt-32 vx-float" style={{ padding: "80px 0 60px", position: "relative", zIndex: 10 }}>
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1, background: 'var(--bg-void)' }}>
-          <WebGLVisibilityWrapper>
+          <WebGLVisibilityWrapper isAbsolute={false}>
             <LiquidEther
             colors={[ '#5227FF', '#FF9FFC', '#B497CF' ]}
             mouseForce={20}
@@ -703,7 +735,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       {/* Pricing */}
       <section id="pricing" className="scroll-mt-32 light-sec vx-float" style={{ padding: "100px 0", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, opacity: 1 }}>
-          <WebGLVisibilityWrapper>
+          <WebGLVisibilityWrapper isAbsolute={false}>
             <LightRays
             raysOrigin="top-center"
             raysColor="#8b5cf6"
@@ -760,21 +792,21 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                   <tr>
                     <td></td>
                     <td style={{ padding: "20px 10px", textAlign: "center" }}>
-                      <WebGLVisibilityWrapper>
+                      <WebGLVisibilityWrapper isAbsolute={false}>
             <SpecularButton size="sm" radius={10} tint="#ffffff" tintOpacity={0} blur={0} textColor="#f5f5f5" lineColor="#8b5cf6" baseColor="#3b2b5c" intensity={1} shineSize={10} shineFade={40} thickness={1.5} speed={0.35} followMouse proximity={250} onClick={onOpenModal}>
                         Contact Sales
                       </SpecularButton>
           </WebGLVisibilityWrapper>
                     </td>
                     <td style={{ padding: "20px 10px", textAlign: "center" }}>
-                      <WebGLVisibilityWrapper>
+                      <WebGLVisibilityWrapper isAbsolute={false}>
             <SpecularButton size="sm" radius={10} tint="#ffffff" tintOpacity={0} blur={0} textColor="#f5f5f5" lineColor="#8b5cf6" baseColor="#3b2b5c" intensity={1} shineSize={10} shineFade={40} thickness={1.5} speed={0.35} followMouse proximity={250} onClick={onOpenModal}>
                         Get Started
                       </SpecularButton>
           </WebGLVisibilityWrapper>
                     </td>
                     <td style={{ padding: "20px 10px", textAlign: "center" }}>
-                      <WebGLVisibilityWrapper>
+                      <WebGLVisibilityWrapper isAbsolute={false}>
             <SpecularButton size="sm" radius={10} tint="#ffffff" tintOpacity={0} blur={0} textColor="#f5f5f5" lineColor="#8b5cf6" baseColor="#201a30" intensity={1} shineSize={10} shineFade={40} thickness={1.5} speed={0.35} followMouse proximity={250} onClick={onOpenModal}>
                         Get Started
                       </SpecularButton>
@@ -791,7 +823,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       {/* Industries */}
       <section id="industries" className="scroll-mt-32 light-sec vx-float" style={{ padding: "100px 0", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, opacity: 0.5 }}>
-          <WebGLVisibilityWrapper>
+          <WebGLVisibilityWrapper isAbsolute={false}>
             <SideRays
             speed={2}
             rayColor1="#a78bfa"
@@ -811,7 +843,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
           <div className="section-head reveal in">
             <span className="eyebrow">Industries</span>
             <h2>Industries We Serve</h2>
-            <p>Our tailored IT solutions empower diverse sectors to thrive in the digital age.</p>
+            <p>Our custom IT solutions empower forward-thinking organizations to <span className="text-white font-medium">innovate</span>, <span className="text-purple-300 font-medium">scale seamlessly</span>, and dominate in today's rapidly evolving digital landscape.</p>
           </div>
           <div className="ind-grid">
             <BorderGlow className="ind-card reveal in" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>
@@ -819,8 +851,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               <div className="ind-label">Technology & SaaS</div>
               <div className="ind-desc">Scalable platforms built for rapid growth</div>
               <div className="ind-meta">
-                <div className="ind-dot-row"><span className="ind-dot"></span><span className="ind-count">40+ projects</span></div>
-                <div className="ind-arrow"><ArrowRight size={14} /></div>
+                <span className="text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore Solutions <ArrowRight size={14} className="inline-block ml-1" /></span>
               </div>
             </BorderGlow>
             <BorderGlow className="ind-card reveal in delay-[100ms]" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>
@@ -828,8 +859,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               <div className="ind-label">Finance & Banking</div>
               <div className="ind-desc">Secure systems for regulated industries</div>
               <div className="ind-meta">
-                <div className="ind-dot-row"><span className="ind-dot"></span><span className="ind-count">25+ projects</span></div>
-                <div className="ind-arrow"><ArrowRight size={14} /></div>
+                <span className="text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore Solutions <ArrowRight size={14} className="inline-block ml-1" /></span>
               </div>
             </BorderGlow>
             <BorderGlow className="ind-card reveal in delay-[200ms]" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>
@@ -837,8 +867,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               <div className="ind-label">Healthcare</div>
               <div className="ind-desc">Compliant, patient-first digital tools</div>
               <div className="ind-meta">
-                <div className="ind-dot-row"><span className="ind-dot"></span><span className="ind-count">18+ projects</span></div>
-                <div className="ind-arrow"><ArrowRight size={14} /></div>
+                <span className="text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore Solutions <ArrowRight size={14} className="inline-block ml-1" /></span>
               </div>
             </BorderGlow>
             <BorderGlow className="ind-card reveal in" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>
@@ -846,8 +875,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               <div className="ind-label">Retail & E-commerce</div>
               <div className="ind-desc">Storefronts that convert and scale</div>
               <div className="ind-meta">
-                <div className="ind-dot-row"><span className="ind-dot"></span><span className="ind-count">32+ projects</span></div>
-                <div className="ind-arrow"><ArrowRight size={14} /></div>
+                <span className="text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore Solutions <ArrowRight size={14} className="inline-block ml-1" /></span>
               </div>
             </BorderGlow>
             <BorderGlow className="ind-card reveal in delay-[100ms]" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>
@@ -855,8 +883,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               <div className="ind-label">Education</div>
               <div className="ind-desc">Learning platforms built to engage</div>
               <div className="ind-meta">
-                <div className="ind-dot-row"><span className="ind-dot"></span><span className="ind-count">15+ projects</span></div>
-                <div className="ind-arrow"><ArrowRight size={14} /></div>
+                <span className="text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore Solutions <ArrowRight size={14} className="inline-block ml-1" /></span>
               </div>
             </BorderGlow>
             <BorderGlow className="ind-card reveal in delay-[200ms]" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>
@@ -864,8 +891,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               <div className="ind-label">Manufacturing</div>
               <div className="ind-desc">Automation for modern production lines</div>
               <div className="ind-meta">
-                <div className="ind-dot-row"><span className="ind-dot"></span><span className="ind-count">20+ projects</span></div>
-                <div className="ind-arrow"><ArrowRight size={14} /></div>
+                <span className="text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore Solutions <ArrowRight size={14} className="inline-block ml-1" /></span>
               </div>
             </BorderGlow>
           </div>

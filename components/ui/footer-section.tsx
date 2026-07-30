@@ -58,7 +58,7 @@ export function Footer() {
 				<div className="grid w-full gap-8 lg:gap-12 lg:grid-cols-12 relative" style={{ paddingTop: '1.75rem', marginBottom: '0' }}>
 
 					{/* Left CTA */}
-					<AnimatedContainer delay={0.2} className="lg:col-span-4 lg:col-start-2 flex flex-col items-start pl-3 sm:pl-0 lg:border-r lg:border-white/10 lg:pr-12">
+					<AnimatedContainer delay={0.2} className="lg:col-span-4 lg:col-start-2 flex flex-col items-start pl-3 sm:pl-0">
 						<h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-white mb-2 leading-tight">
 							Let's build something<br />
 							amazing <span className="text-[#a78bfa]">together.</span>
@@ -103,7 +103,7 @@ export function Footer() {
 					{/* Middle Links */}
 					<div className="lg:col-span-6 lg:col-start-7 grid grid-cols-2 sm:grid-cols-3 gap-6 lg:gap-8 pt-4 lg:pt-2">
 						{footerLinks.map((section: FooterSection, index: number) => (
-							<AnimatedContainer key={section.label} delay={0.3 + index * 0.1} className="sm:border-l sm:border-white/10 sm:pl-6 first:sm:border-l-0 first:sm:pl-0">
+							<AnimatedContainer key={section.label} delay={0.3 + index * 0.1}>
 								<div className="mb-6 md:mb-0">
 									<h3 className="text-white text-xs font-semibold tracking-wider uppercase flex flex-col mb-4">
 										{section.label}

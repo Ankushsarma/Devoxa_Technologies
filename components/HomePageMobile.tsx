@@ -1350,7 +1350,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       {/* How it works */}
-      <section id="how-it-works" className="scroll-mt-32 vx-float" style={{ background: "var(--bg-deep)", padding: "100px 0", position: "relative", overflow: "hidden" }}>
+      <section id="how-it-works" className="scroll-mt-32 vx-float" style={{ background: "var(--bg-deep)", padding: "60px 0 40px", position: "relative", overflow: "hidden" }}>
         {/* Magic Rings Background */}
         <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0, overflow: "hidden", pointerEvents: "none" }}>
           <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "100vw", height: "100vw", minWidth: "1000px", minHeight: "1000px", opacity: 0.4 }}>

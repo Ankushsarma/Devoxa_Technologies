@@ -53,9 +53,9 @@ export function Footer() {
 		>
 			<div className="bg-foreground/20 absolute top-0 right-1/2 left-1/2 h-px w-1/3 -translate-x-1/2 -translate-y-1/2 rounded-full blur" />
 
-			<div className="w-full max-w-7xl mx-auto flex flex-col flex-1 border border-dashed border-gray-500/50 p-2">
+			<div className="w-full flex flex-col flex-1 border border-dashed border-gray-500/50 p-2">
 				{/* Middle Section */}
-				<div className="flex flex-col lg:flex-row w-full justify-center gap-12 lg:gap-32 relative border border-dashed border-gray-500/50 p-2" style={{ paddingTop: '1.75rem', marginBottom: '0' }}>
+				<div className="flex flex-col lg:flex-row w-full justify-between gap-12 lg:gap-32 relative border border-dashed border-gray-500/50 p-2" style={{ paddingTop: '1.75rem', marginBottom: '0' }}>
 
 					{/* Left CTA */}
 					<AnimatedContainer delay={0.2} className="w-full lg:w-[400px] shrink-0 flex flex-col items-start pl-3 sm:pl-0 border border-dashed border-gray-500/50 p-2">

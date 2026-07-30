@@ -227,7 +227,7 @@ const MobileProjectCarousel = ({ projects }: { projects: any[] }) => {
 
                   {/* Centered Company/Project Name Overlay */}
                   <div className="absolute bottom-3 left-0 right-0 px-4 flex flex-col items-center justify-center text-center">
-                    <h3 className="text-xl font-bold text-white tracking-wider font-mono lowercase drop-shadow-md">
+                    <h3 className="text-xl font-bold text-white tracking-wider font-mono drop-shadow-md">
                       {item.title}
                     </h3>
                   </div>

@@ -133,12 +133,12 @@ export default function AgencySection({ onOpenModal }: { onOpenModal: () => void
             <style dangerouslySetInnerHTML={{__html: `
               @media (max-width: 768px) {
                 .agency-circles-grid {
-                  grid-template-columns: repeat(2, 1fr) !important;
-                  max-width: 285px !important;
+                  grid-template-columns: repeat(3, 1fr) !important;
+                  max-width: 320px !important;
                   margin: 0 auto !important;
-                  gap: 14px !important;
+                  gap: 12px !important;
                 }
-                .agency-circle-item:nth-child(n+5) {
+                .agency-circle-item:nth-child(n+7) {
                   display: none;
                 }
                 .circle-image {

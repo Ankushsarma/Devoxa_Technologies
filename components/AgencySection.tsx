@@ -144,9 +144,6 @@ export default function AgencySection({ onOpenModal }: { onOpenModal: () => void
                 .agency-circle-item:nth-child(n+7) {
                   display: none;
                 }
-                .circle-image {
-                  opacity: 1 !important;
-                }
               }
               @keyframes pulse-fade {
                 0%, 100% { opacity: 0; }

@@ -903,8 +903,8 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         {/* Animated glowing orb in background */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-purple-600/20 blur-[120px] rounded-[100%] pointer-events-none mix-blend-screen" />
         
-        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-          <div className="section-head reveal in relative z-10 mb-20 flex flex-col items-center text-center w-full">
+        <div className="wrap relative w-full z-10 mx-auto px-4 md:px-6 lg:px-8">
+          <div className="section-head reveal in relative z-10 mb-20 flex flex-col items-center text-center w-full mx-auto">
             <span className="eyebrow" style={{ margin: '0 auto 16px', display: 'inline-block' }}>What Our Clients Say</span>
             <h2 style={{ margin: '0 auto 20px', textAlign: 'center' }}>Trusted by businesses across India</h2>
             <p style={{ margin: '0 auto', textAlign: 'center', maxWidth: '600px' }}>

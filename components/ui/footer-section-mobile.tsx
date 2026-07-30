@@ -73,7 +73,7 @@ export function FooterMobile() {
 							</div>
 							<span className="text-xs tracking-wide">8544005858</span>
 						</a>
-						<a href="mailto:support@devoxatechnologies.com" className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-300 w-full overflow-hidden">
+						<a href="mailto:support@devoxatechnologies.com" className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-300 w-full sm:w-auto overflow-hidden">
 							<div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10 shrink-0">
 								<Mail className="w-3.5 h-3.5 text-[#a78bfa]" />
 							</div>

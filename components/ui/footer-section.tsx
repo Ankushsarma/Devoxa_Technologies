@@ -128,7 +128,7 @@ export function Footer() {
 										fontSize={0.8}
 										smoothing={100}
 										defaultActive={null}
-										onItemClick={(index) => {
+										onItemClick={(index: number) => {
 											window.location.href = section.links[index].href;
 										}}
 									/>

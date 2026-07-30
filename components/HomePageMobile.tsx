@@ -6,7 +6,7 @@ import { toast } from "sonner"
 import Image from "next/image"
 import WebGLVisibilityWrapper from '@/components/WebGLVisibilityWrapper';
 import Link from "next/link"
-import { Search, BarChart3, Layers, Code2, Zap, ArrowRight, ArrowLeft, Quote, CheckCircle, X, Youtube, Twitter, Instagram, Linkedin, Phone, Building2, ChevronDown, ChevronUp } from "lucide-react"
+import { Users, Layout, Shield, Search, ArrowRight, ArrowLeft, Activity, Menu, Code2, Zap, Layers, BarChart3, Database, CheckCircle, X, Youtube, Twitter, Instagram, Linkedin, Phone, Building2, ChevronDown, ChevronUp } from "lucide-react"
 import FAQAccordion from '@/components/FAQAccordion';
 import ShinyText from '@/components/ShinyText';
 import TextType from '@/components/TextType';
@@ -26,6 +26,9 @@ import SpotlightCard from "@/components/SpotlightCard"
 import Particles from "@/components/Particles"
 import PillNav from "@/components/PillNav"
 import { FooterMobile } from "@/components/ui/footer-section-mobile"
+
+
+
 const AnimatedCounter = ({ end, duration = 2000, suffix = "", decimals = 0 }: { end: number, duration?: number, suffix?: string, decimals?: number }) => {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
@@ -84,7 +87,8 @@ const AnimatedProcessWorkflow = () => {
   ];
 
   return (
-    <div className="relative w-full max-w-lg mx-auto py-4">
+    <div className="w-full flex justify-center">
+      <div className="relative w-full max-w-lg md:max-w-2xl mx-auto py-4">
       {/* Glowing Connecting Timeline Line */}
       <div className="absolute left-[38px] top-8 bottom-8 w-[2px] bg-gradient-to-b from-purple-500 via-fuchsia-500 to-indigo-500 opacity-40 pointer-events-none z-0" />
       
@@ -95,7 +99,7 @@ const AnimatedProcessWorkflow = () => {
             <div
               key={idx}
               onClick={() => setActiveStep(idx)}
-              className={`relative flex items-center gap-4 p-4 rounded-2xl cursor-pointer transition-all duration-500 border ${
+              className={`relative flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-2xl cursor-pointer transition-all duration-500 border ${
                 isActive
                   ? "bg-gradient-to-r from-purple-950/80 via-slate-900/90 to-purple-950/60 border-purple-500/70 shadow-[0_0_30px_rgba(139,92,246,0.35)] scale-[1.02]"
                   : "bg-[#0d0d11]/80 border-white/10 hover:border-purple-500/30 hover:bg-white/[0.04]"
@@ -123,12 +127,12 @@ const AnimatedProcessWorkflow = () => {
               </div>
 
               {/* Step Content */}
-              <div className="flex flex-col flex-1 min-w-0">
-                <div className="flex items-center justify-between gap-2 mb-1">
-                  <h4 className={`text-base font-bold transition-colors ${isActive ? "text-white" : "text-gray-200"}`}>
+              <div className="flex flex-col flex-1 min-w-0 pr-1">
+                <div className="flex items-center justify-between gap-2 mb-1.5">
+                  <h4 className={`text-[15px] sm:text-base font-bold transition-colors truncate ${isActive ? "text-white" : "text-gray-200"}`}>
                     {step.title}
                   </h4>
-                  <span className={`text-xs font-mono font-bold px-2 py-0.5 rounded-md ${
+                  <span className={`text-[10px] sm:text-xs font-mono font-bold px-1.5 py-0.5 rounded-md shrink-0 ${
                     isActive 
                       ? "bg-purple-500/20 text-purple-300 border border-purple-500/40" 
                       : "bg-white/5 text-gray-400 border border-white/5"
@@ -136,7 +140,7 @@ const AnimatedProcessWorkflow = () => {
                     0{idx + 1}
                   </span>
                 </div>
-                <p className="text-xs sm:text-sm text-gray-300 font-light leading-relaxed">
+                <p className="text-[11.5px] sm:text-sm text-gray-300 font-light leading-relaxed">
                   {step.desc}
                 </p>
               </div>
@@ -144,6 +148,7 @@ const AnimatedProcessWorkflow = () => {
           );
         })}
       </div>
+    </div>
     </div>
   );
 };
@@ -153,9 +158,7 @@ const MobileProjectCarousel = ({ projects }: { projects: any[] }) => {
     { title: "Lionscott", category: "Fitness & Wellness", image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=800" },
     { title: "AG Home", category: "Real Estate & Living", image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" },
     { title: "Cab Partner", category: "Mobility & Transport", image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=800&q=80" },
-    { title: "Smart Rent", category: "SaaS Platform", image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80" },
-    { title: "Fintech SaaS", category: "Financial Tech", image: "/tpl-fintech-saas.jpg" },
-    { title: "Automation SaaS", category: "AI & Workflow", image: "/tpl-automation-saas.jpg" }
+    { title: "Smart Rent", category: "SaaS Platform", image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80" }
   ];
 
   const items = projects && projects.length > 0
@@ -226,7 +229,7 @@ const MobileProjectCarousel = ({ projects }: { projects: any[] }) => {
 
                   {/* Centered Company/Project Name Overlay */}
                   <div className="absolute bottom-3 left-0 right-0 px-4 flex flex-col items-center justify-center text-center">
-                    <h3 className="text-xl font-bold text-white tracking-wider font-mono lowercase drop-shadow-md">
+                    <h3 className="text-xl font-bold text-white tracking-wider font-mono drop-shadow-md">
                       {item.title}
                     </h3>
                   </div>
@@ -277,7 +280,6 @@ const MobileProjectCarousel = ({ projects }: { projects: any[] }) => {
 
 const MobileTestimonialSingleCard = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [fadeState, setFadeState] = useState(true);
 
   const testimonials = [
     {
@@ -313,28 +315,15 @@ const MobileTestimonialSingleCard = () => {
   ];
 
   const handleNext = () => {
-    setFadeState(false);
-    setTimeout(() => {
-      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-      setFadeState(true);
-    }, 250);
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
   };
 
   const handlePrev = () => {
-    setFadeState(false);
-    setTimeout(() => {
-      setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-      setFadeState(true);
-    }, 250);
+    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
   const handleSelect = (idx: number) => {
-    if (idx === currentIndex) return;
-    setFadeState(false);
-    setTimeout(() => {
-      setCurrentIndex(idx);
-      setFadeState(true);
-    }, 250);
+    setCurrentIndex(idx);
   };
 
   useEffect(() => {
@@ -344,37 +333,47 @@ const MobileTestimonialSingleCard = () => {
     return () => clearInterval(timer);
   }, [currentIndex]);
 
-  const t = testimonials[currentIndex];
-
   return (
     <div className="w-full flex flex-col items-center justify-center px-6 pt-6">
-      {/* Centered Single Card (Exact 100% Original Card Design - Fixed 300px Height) */}
-      <div className="relative w-full max-w-[340px] sm:max-w-[378px] mx-auto" style={{ height: "300px" }}>
-        <SpotlightCard className="group relative w-full h-full rounded-[24px] bg-[#0A0A0B] border border-[rgba(255,255,255,0.08)] shadow-[0_10px_30px_rgba(0,0,0,0.6)] flex flex-col transition-all duration-300 overflow-visible" style={{ height: "300px" }} spotlightColor="rgba(79, 70, 229, 0.15)">
+      {/* Centered Sliding Cards Container */}
+      <div className="relative w-full max-w-[340px] sm:max-w-[378px] mx-auto overflow-hidden" style={{ height: "320px", padding: "10px 0" }}>
+        <div className="relative w-full h-[300px] flex items-center justify-center">
+        {testimonials.map((t, idx) => {
+          const isActive = idx === currentIndex;
+          const isPrev = idx === (currentIndex - 1 + testimonials.length) % testimonials.length;
+
+          return (
+            <div
+              key={idx}
+              className={`absolute inset-0 w-full h-full flex flex-col items-center justify-center transition-all duration-700 ease-out ${
+                isActive
+                  ? "opacity-100 z-20 scale-100 translate-x-0"
+                  : isPrev
+                  ? "opacity-0 -translate-x-full pointer-events-none scale-90"
+                  : "opacity-0 translate-x-full pointer-events-none scale-90"
+              }`}
+            >
+        <SpotlightCard className="group relative w-[90%] sm:w-[92%] max-w-[300px] sm:max-w-[340px] mx-auto h-[300px] rounded-[24px] bg-[#0A0A0B] border border-[rgba(255,255,255,0.08)] shadow-[0_10px_30px_rgba(0,0,0,0.6)] flex flex-col transition-all duration-300 overflow-visible" spotlightColor="rgba(79, 70, 229, 0.15)">
           
-          {/* Left Ribbon Banner with Triangular Fold (Increased for Mobile Balance) */}
+          {/* Left Ribbon Banner with Triangular Fold */}
           <div 
-            className={`absolute top-4 -left-5 bg-gradient-to-r from-[#4F46E5] to-[#7C3AED] rounded-r-[15px] rounded-tl-[15px] rounded-bl-none px-7 z-20 shadow-lg min-w-[235px] max-w-[245px] flex flex-col justify-center items-center text-center transition-all duration-300 ${
-              fadeState ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
-            }`} 
-            style={{ paddingTop: '1.05rem', paddingBottom: '1.05rem' }}
+            className="absolute top-4 -left-5 bg-gradient-to-r from-[#4F46E5] to-[#7C3AED] rounded-r-[15px] rounded-tl-[15px] rounded-bl-none px-4 sm:px-5 z-20 shadow-lg min-w-[190px] max-w-[210px] flex flex-col justify-center items-center text-center" 
+            style={{ paddingTop: '0.85rem', paddingBottom: '0.85rem' }}
           >
-            <div className="absolute top-full left-0 w-0 h-0" style={{ borderTop: '22px solid #1E1B4B', borderLeft: '22px solid transparent' }}></div>
-            <h3 className="text-white font-semibold text-[16.5px] leading-tight mb-0.5 whitespace-nowrap relative z-10">{t.name}</h3>
-            <p className="text-white/90 text-[13.5px] font-medium whitespace-nowrap relative z-10">{t.title}</p>
+            <div className="absolute top-full left-0 w-0 h-0" style={{ borderTop: '18px solid #1E1B4B', borderLeft: '18px solid transparent' }}></div>
+            <h3 className="text-white font-semibold text-[14.5px] leading-tight mb-0.5 whitespace-nowrap relative z-10">{t.name}</h3>
+            <p className="text-white/90 text-[12px] font-medium whitespace-nowrap relative z-10">{t.title}</p>
           </div>
 
-          {/* Profile Circle Avatar Top Right (Increased for Mobile Balance) */}
-          <div className="absolute -top-5 -right-2.5 w-[96px] h-[96px] rounded-full border-[3px] border-[#0A0A0B] shadow-[0_4px_12px_rgba(0,0,0,0.5)] overflow-hidden z-20 bg-[#0A0A0B]">
-            <div className={`w-full h-full bg-gradient-to-br from-[#4F46E5] to-[#7C3AED] flex items-center justify-center transition-all duration-300 ${
-              fadeState ? "opacity-100 scale-100" : "opacity-0 scale-90"
-            }`}>
-              <span className="text-white font-bold text-[28px] tracking-tight">{t.initials}</span>
+          {/* Profile Circle Avatar Top Right */}
+          <div className="absolute -top-3 -right-1 w-[92px] h-[92px] rounded-full border-[3px] border-[#0A0A0B] shadow-[0_4px_12px_rgba(0,0,0,0.5)] overflow-hidden z-20 bg-[#0A0A0B]">
+            <div className="w-full h-full bg-gradient-to-br from-[#4F46E5] to-[#7C3AED] flex items-center justify-center">
+              <span className="text-white font-bold text-[26px] tracking-tight">{t.initials}</span>
             </div>
           </div>
 
           {/* Content Body */}
-          <div className="flex flex-col h-full relative z-0 justify-start gap-2" style={{ padding: '20px 24px 20px 24px', paddingTop: '124px' }}>
+          <div className="flex flex-col h-full relative z-0 justify-start gap-2" style={{ padding: '20px 24px 20px 24px', paddingTop: '116px' }}>
             <div className="flex gap-1 mb-1" style={{ paddingLeft: '28px' }}>
               {[1, 2, 3, 4, 5].map(starI => (
                 <svg key={starI} className="w-4 h-4 text-[#FBBF24]" fill="currentColor" viewBox="0 0 20 20">
@@ -386,9 +385,7 @@ const MobileTestimonialSingleCard = () => {
             <div className="relative flex items-center" style={{ height: "120px", overflow: "hidden" }}>
               <div className="absolute left-0 top-1 bottom-1 w-[3px] bg-gradient-to-b from-[#4F46E5] to-[#7C3AED] rounded-full shadow-[0_0_8px_rgba(79,70,229,0.3)]"></div>
               <p 
-                className={`text-[#8981A6] text-[14px] sm:text-[15px] leading-[1.65] font-sans transition-all duration-300 w-full ${
-                  fadeState ? "opacity-100 translate-x-0" : "opacity-0 translate-x-3"
-                }`} 
+                className="text-[#8981A6] text-[14px] sm:text-[15px] leading-[1.65] font-sans w-full" 
                 style={{ paddingLeft: '28px' }}
               >
                 "{t.content}"
@@ -397,6 +394,10 @@ const MobileTestimonialSingleCard = () => {
           </div>
 
         </SpotlightCard>
+            </div>
+          );
+        })}
+        </div>
       </div>
 
       {/* Navigation Controls & Dot Indicators below Centered Card */}
@@ -513,8 +514,8 @@ const MobileServicePackages = ({ onOpenModal }: { onOpenModal?: () => void }) =>
                 border: isActive ? "1px solid #a855f7" : "1px solid rgba(168, 85, 247, 0.25)",
                 boxShadow: isActive ? "0 4px 18px rgba(139, 92, 246, 0.5)" : "none",
                 borderRadius: "9999px",
-                padding: "9px 4px",
-                fontSize: "clamp(9px, 2.7vw, 11px)",
+                padding: "8px 1px",
+                fontSize: "clamp(7.5px, 2.1vw, 9px)",
                 fontWeight: 800,
                 letterSpacing: "0.4px",
                 textTransform: "uppercase",
@@ -950,7 +951,6 @@ function MobileNav({ user, role, loading, logout, scrolled }: any) {
           <div className="flex flex-col text-left">
             <div className="flex items-center gap-1.5">
               <span className="font-serif text-[16px] font-extrabold tracking-tight text-white leading-tight">Devoxa</span>
-              <span className="text-[9px] px-1.5 py-0.2 rounded bg-purple-500/20 text-purple-300 font-mono border border-purple-500/30 font-bold">PRO</span>
             </div>
             <span className="text-[9px] font-mono font-semibold tracking-wider text-gray-400 uppercase">Technologies</span>
           </div>
@@ -1351,7 +1351,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       {/* How it works */}
-      <section id="how-it-works" className="scroll-mt-32 vx-float" style={{ background: "var(--bg-deep)", padding: "100px 0", position: "relative", overflow: "hidden" }}>
+      <section id="how-it-works" className="scroll-mt-32 vx-float" style={{ background: "var(--bg-deep)", padding: "60px 0 40px", position: "relative", overflow: "hidden" }}>
         {/* Magic Rings Background */}
         <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0, overflow: "hidden", pointerEvents: "none" }}>
           <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "100vw", height: "100vw", minWidth: "1000px", minHeight: "1000px", opacity: 0.4 }}>
@@ -1440,7 +1440,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
             </div>
           </div>
 
-          <div className="reveal in w-full">
+          <div className="reveal in w-full flex justify-center">
             <MobileProjectCarousel projects={projects} />
           </div>
         </div>
@@ -1476,7 +1476,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
           />
           </WebGLVisibilityWrapper>
         </div>
-        <div className="wrap" style={{ position: "relative", zIndex: 1, padding: "0 16px" }}>
+        <div className="wrap" style={{ position: "relative", zIndex: 1, padding: "0 32px" }}>
           <div className="section-head reveal in flex flex-col items-start text-left" style={{ marginBottom: "24px" }}>
             <div 
               style={{
@@ -1497,7 +1497,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
             >
               <span style={{ color: "#a855f7", fontSize: "10px" }}>◆</span> PARTNERSHIP MODELS
             </div>
-            <h2 style={{ fontSize: "clamp(28px, 8vw, 36px)", fontWeight: 900, color: "#ffffff", marginBottom: "8px", letterSpacing: "-0.5px" }}>
+            <h2 style={{ fontSize: "clamp(22px, 6.5vw, 28px)", fontWeight: 900, color: "#ffffff", marginBottom: "8px", letterSpacing: "-0.5px", whiteSpace: "nowrap" }}>
               SERVICE <span style={{ color: "#a855f7", fontWeight: 900 }}>PACKAGES</span>
             </h2>
             <p style={{ color: "#94a3b8", fontSize: "14px", lineHeight: "1.6", fontWeight: 400, maxWidth: "440px", margin: 0 }}>
@@ -1546,53 +1546,53 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               Our custom IT solutions empower forward-thinking organizations to <span className="text-white font-medium">innovate</span>, <span className="text-purple-300 font-medium">scale seamlessly</span>, and dominate in today's rapidly evolving digital landscape.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 w-full mt-6">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 px-2 sm:px-4 w-full mt-6">
             <BorderGlow className="ind-card reveal in" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>
-              <div className="ind-img-wrap"><img src="/tech-saas-cover.png" alt="Technology & SaaS" /></div>
-              <div className="ind-label">Technology & SaaS</div>
-              <div className="ind-desc">Scalable platforms built for rapid growth</div>
+              <div className="ind-img-wrap !aspect-video"><img src="/tech-saas-cover.png" alt="Technology & SaaS" /></div>
+              <div className="ind-label !text-xs sm:!text-sm">Technology & SaaS</div>
+              <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Scalable platforms built for rapid growth</div>
               <div className="ind-meta">
-                <span className="text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore Solutions <ArrowRight size={14} className="inline-block ml-1" /></span>
+                <span className="text-[10px] sm:text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
               </div>
             </BorderGlow>
             <BorderGlow className="ind-card reveal in delay-[100ms]" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>
-              <div className="ind-img-wrap"><img src="/finance-banking-cover.png" alt="Finance & Banking" /></div>
-              <div className="ind-label">Finance & Banking</div>
-              <div className="ind-desc">Secure systems for regulated industries</div>
+              <div className="ind-img-wrap !aspect-video"><img src="/finance-banking-cover.png" alt="Finance & Banking" /></div>
+              <div className="ind-label !text-xs sm:!text-sm">Finance & Banking</div>
+              <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Secure systems for regulated industries</div>
               <div className="ind-meta">
-                <span className="text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore Solutions <ArrowRight size={14} className="inline-block ml-1" /></span>
+                <span className="text-[10px] sm:text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
               </div>
             </BorderGlow>
             <BorderGlow className="ind-card reveal in delay-[200ms]" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>
-              <div className="ind-img-wrap"><img src="/healthcare-cover.png" alt="Healthcare" /></div>
-              <div className="ind-label">Healthcare</div>
-              <div className="ind-desc">Compliant, patient-first digital tools</div>
+              <div className="ind-img-wrap !aspect-video"><img src="/healthcare-cover.png" alt="Healthcare" /></div>
+              <div className="ind-label !text-xs sm:!text-sm">Healthcare</div>
+              <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Compliant, patient-first digital tools</div>
               <div className="ind-meta">
-                <span className="text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore Solutions <ArrowRight size={14} className="inline-block ml-1" /></span>
+                <span className="text-[10px] sm:text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
               </div>
             </BorderGlow>
             <BorderGlow className="ind-card reveal in" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>
-              <div className="ind-img-wrap"><img src="/shopix-ecommerce.png" alt="Retail & E-commerce Dashboard" /></div>
-              <div className="ind-label">Retail & E-commerce</div>
-              <div className="ind-desc">Storefronts that convert and scale</div>
+              <div className="ind-img-wrap !aspect-video"><img src="/shopix-ecommerce.png" alt="Retail & E-commerce Dashboard" /></div>
+              <div className="ind-label !text-xs sm:!text-sm">Retail & E-commerce</div>
+              <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Storefronts that convert and scale</div>
               <div className="ind-meta">
-                <span className="text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore Solutions <ArrowRight size={14} className="inline-block ml-1" /></span>
+                <span className="text-[10px] sm:text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
               </div>
             </BorderGlow>
             <BorderGlow className="ind-card reveal in delay-[100ms]" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>
-              <div className="ind-img-wrap"><img src="/education-cover.png" alt="Education" /></div>
-              <div className="ind-label">Education</div>
-              <div className="ind-desc">Learning platforms built to engage</div>
+              <div className="ind-img-wrap !aspect-video"><img src="/education-cover.png" alt="Education" /></div>
+              <div className="ind-label !text-xs sm:!text-sm">Education</div>
+              <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Learning platforms built to engage</div>
               <div className="ind-meta">
-                <span className="text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore Solutions <ArrowRight size={14} className="inline-block ml-1" /></span>
+                <span className="text-[10px] sm:text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
               </div>
             </BorderGlow>
             <BorderGlow className="ind-card reveal in delay-[200ms]" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>
-              <div className="ind-img-wrap"><img src="/manufacturing-cover.png" alt="Manufacturing" /></div>
-              <div className="ind-label">Manufacturing</div>
-              <div className="ind-desc">Automation for modern production lines</div>
+              <div className="ind-img-wrap !aspect-video"><img src="/manufacturing-cover.png" alt="Manufacturing" /></div>
+              <div className="ind-label !text-xs sm:!text-sm">Manufacturing</div>
+              <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Automation for modern production lines</div>
               <div className="ind-meta">
-                <span className="text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore Solutions <ArrowRight size={14} className="inline-block ml-1" /></span>
+                <span className="text-[10px] sm:text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
               </div>
             </BorderGlow>
           </div>

@@ -149,6 +149,10 @@ export default function AgencySection({ onOpenModal }: { onOpenModal: () => void
                 0%, 100% { opacity: 0; }
                 50% { opacity: 1; }
               }
+              @keyframes circle-breathe {
+                0%, 100% { transform: translateY(0) scale(1); }
+                50% { transform: translateY(-10px) scale(1.03); }
+              }
               .circle-image {
                 opacity: 0;
                 transition: opacity 0.4s ease-in-out, transform 0.4s ease;
@@ -177,7 +181,9 @@ export default function AgencySection({ onOpenModal }: { onOpenModal: () => void
                     backgroundColor: circle.color,
                     position: "relative",
                     overflow: "hidden",
-                    cursor: circle.type === "image" ? "pointer" : "default"
+                    cursor: circle.type === "image" ? "pointer" : "default",
+                    animation: mounted ? `circle-breathe ${4 + (index % 3)}s ease-in-out infinite ${(index * 0.2)}s` : 'none',
+                    boxShadow: "0 10px 30px -10px rgba(0,0,0,0.5)"
                   }}
                 >
                   {circle.type === "image" && (

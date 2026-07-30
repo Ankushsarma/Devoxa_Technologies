@@ -172,7 +172,7 @@ function AnimatedContainer({ className, style, delay = 0.1, children }: ViewAnim
 		<motion.div
 			initial={{ filter: 'blur(4px)', opacity: 0 }}
 			whileInView={{ filter: 'blur(0px)', opacity: 1 }}
-			viewport={{ once: true }}
+			viewport={{ once: true, amount: 0.1, margin: "50px" }}
 			transition={{ delay, duration: 0.8 }}
 			className={className}
 			style={style}

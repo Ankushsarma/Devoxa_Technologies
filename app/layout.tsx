@@ -88,7 +88,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           dangerouslySetInnerHTML={{
             __html: `
               try {
-                if (sessionStorage.getItem("homeScroll") || sessionStorage.getItem("homeMobileScroll")) {
+                if (window.location.pathname === '/' && (sessionStorage.getItem("homeScroll") || sessionStorage.getItem("homeMobileScroll"))) {
                   document.documentElement.classList.add("scroll-restoring");
                 }
               } catch (e) {}

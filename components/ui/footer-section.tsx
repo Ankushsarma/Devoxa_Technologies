@@ -123,7 +123,7 @@ export function Footer() {
 										markerGap={8}
 										tickScale={0.5}
 										scaleTick={true}
-										itemGap={12}
+										itemGap={24}
 										fontSize={0.8}
 										smoothing={100}
 										defaultActive={null}

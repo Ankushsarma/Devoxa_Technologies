@@ -181,7 +181,7 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
                   value={formState.name}
                   onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                   className="w-full rounded-xl bg-white/5 border border-white/10 px-3.5 py-2.5 text-sm text-white placeholder-white/20 focus:border-[#a78bfa] focus:bg-white/10 focus:outline-none transition-all"
-                  placeholder="John Doe"
+                  placeholder="Rahul Sharma"
                 />
               </div>
               <div>
@@ -192,7 +192,7 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
                   value={formState.email}
                   onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                   className="w-full rounded-xl bg-white/5 border border-white/10 px-3.5 py-2.5 text-sm text-white placeholder-white/20 focus:border-[#a78bfa] focus:bg-white/10 focus:outline-none transition-all"
-                  placeholder="john@devoxa.tech"
+                  placeholder="rahul@devoxa.tech"
                 />
               </div>
               <div>
@@ -202,7 +202,7 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
                   value={formState.phone}
                   onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
                   className="w-full rounded-xl bg-white/5 border border-white/10 px-3.5 py-2.5 text-sm text-white placeholder-white/20 focus:border-[#a78bfa] focus:bg-white/10 focus:outline-none transition-all"
-                  placeholder="+1 (555) 000-0000"
+                  placeholder="+91 98765 43210"
                 />
               </div>
               <div>

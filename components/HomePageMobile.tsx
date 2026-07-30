@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState, useRef, useLayoutEffect } from "react"
 import { useAuth } from "@/context/auth-context"
 import { toast } from "sonner"
 import Image from "next/image"
@@ -666,20 +666,22 @@ export default function HomePageMobile() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
-  // Custom scroll restoration logic
-  useEffect(() => {
+  // Custom scroll restoration logic (Synchronous to prevent flash)
+  useLayoutEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+
+    const savedScroll = sessionStorage.getItem("homeMobileScroll")
+    if (savedScroll) {
+      window.scrollTo({ top: parseInt(savedScroll, 10), behavior: "instant" })
+    }
+
     const handleBeforeUnload = () => {
       sessionStorage.setItem("homeMobileScroll", window.scrollY.toString())
     }
     window.addEventListener("beforeunload", handleBeforeUnload)
     
-    const savedScroll = sessionStorage.getItem("homeMobileScroll")
-    if (savedScroll) {
-      setTimeout(() => {
-        window.scrollTo({ top: parseInt(savedScroll, 10), behavior: "instant" })
-      }, 100)
-    }
-
     return () => window.removeEventListener("beforeunload", handleBeforeUnload)
   }, [])
 

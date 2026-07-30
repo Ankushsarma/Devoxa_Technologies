@@ -6,7 +6,7 @@ import { toast } from "sonner"
 import Image from "next/image"
 import WebGLVisibilityWrapper from '@/components/WebGLVisibilityWrapper';
 import Link from "next/link"
-import { Search, BarChart3, Layers, Code2, Zap, ArrowRight, ArrowLeft, Quote, CheckCircle, X, Youtube, Twitter, Instagram, Linkedin, Phone, Building2, ChevronDown, ChevronUp } from "lucide-react"
+import { Users, Layout, Shield, Search, ArrowRight, ArrowLeft, Activity, Menu, Code2, Zap, Layers, BarChart3, Database, CheckCircle, X, Youtube, Twitter, Instagram, Linkedin, Phone, Building2, ChevronDown, ChevronUp } from "lucide-react"
 import FAQAccordion from '@/components/FAQAccordion';
 import ShinyText from '@/components/ShinyText';
 import TextType from '@/components/TextType';
@@ -26,6 +26,9 @@ import SpotlightCard from "@/components/SpotlightCard"
 import Particles from "@/components/Particles"
 import PillNav from "@/components/PillNav"
 import { FooterMobile } from "@/components/ui/footer-section-mobile"
+
+
+
 const AnimatedCounter = ({ end, duration = 2000, suffix = "", decimals = 0 }: { end: number, duration?: number, suffix?: string, decimals?: number }) => {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement>(null);

@@ -79,12 +79,14 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en" suppressHydrationWarning>
       <head>
 
-        <script
+        <Script
+          id="json-ld"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <style dangerouslySetInnerHTML={{ __html: `html.scroll-restoring body { opacity: 0; } html.scroll-restoring-done body { transition: opacity 0.4s ease-out; opacity: 1; }` }} />
-        <script
+        <Script
+          id="scroll-restore"
           dangerouslySetInnerHTML={{
             __html: `
               try {

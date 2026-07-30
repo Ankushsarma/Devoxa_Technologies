@@ -950,7 +950,6 @@ function MobileNav({ user, role, loading, logout, scrolled }: any) {
           <div className="flex flex-col text-left">
             <div className="flex items-center gap-1.5">
               <span className="font-serif text-[16px] font-extrabold tracking-tight text-white leading-tight">Devoxa</span>
-              <span className="text-[9px] px-1.5 py-0.2 rounded bg-purple-500/20 text-purple-300 font-mono border border-purple-500/30 font-bold">PRO</span>
             </div>
             <span className="text-[9px] font-mono font-semibold tracking-wider text-gray-400 uppercase">Technologies</span>
           </div>

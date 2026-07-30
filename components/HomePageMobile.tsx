@@ -1496,7 +1496,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
             >
               <span style={{ color: "#a855f7", fontSize: "10px" }}>◆</span> PARTNERSHIP MODELS
             </div>
-            <h2 style={{ fontSize: "clamp(28px, 8vw, 36px)", fontWeight: 900, color: "#ffffff", marginBottom: "8px", letterSpacing: "-0.5px" }}>
+            <h2 style={{ fontSize: "clamp(22px, 6.5vw, 28px)", fontWeight: 900, color: "#ffffff", marginBottom: "8px", letterSpacing: "-0.5px", whiteSpace: "nowrap" }}>
               SERVICE <span style={{ color: "#a855f7", fontWeight: 900 }}>PACKAGES</span>
             </h2>
             <p style={{ color: "#94a3b8", fontSize: "14px", lineHeight: "1.6", fontWeight: 400, maxWidth: "440px", margin: 0 }}>

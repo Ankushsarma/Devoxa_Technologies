@@ -666,7 +666,7 @@ export default function HomePageMobile() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
-  // Custom scroll restoration logic (Synchronous to prevent flash)
+  // Custom scroll restoration logic (Synchronous to prevent flash + handles layout shifts)
   useLayoutEffect(() => {
     if ('scrollRestoration' in window.history) {
       window.history.scrollRestoration = 'manual';
@@ -674,7 +674,20 @@ export default function HomePageMobile() {
 
     const savedScroll = sessionStorage.getItem("homeMobileScroll")
     if (savedScroll) {
-      window.scrollTo({ top: parseInt(savedScroll, 10), behavior: "instant" })
+      const target = parseInt(savedScroll, 10);
+      window.scrollTo({ top: target, behavior: "instant" })
+      
+      // Re-apply after layout shifts to ensure it doesn't get stuck at the top
+      setTimeout(() => window.scrollTo({ top: target, behavior: "instant" }), 50)
+      setTimeout(() => window.scrollTo({ top: target, behavior: "instant" }), 150)
+      
+      // Reveal page with a smooth fade
+      setTimeout(() => {
+        document.documentElement.classList.remove("scroll-restoring");
+        document.documentElement.classList.add("scroll-restoring-done");
+      }, 160);
+    } else {
+      document.documentElement.classList.remove("scroll-restoring");
     }
 
     const handleBeforeUnload = () => {
@@ -691,7 +704,6 @@ export default function HomePageMobile() {
       const isReload = window.performance && window.performance.navigation && window.performance.navigation.type === 1;
       if (isReload && !window.location.search.includes('from=login')) {
         window.history.replaceState(null, '', window.location.pathname + window.location.search);
-        window.scrollTo(0, 0);
         return;
       }
 

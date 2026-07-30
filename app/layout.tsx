@@ -83,6 +83,18 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <style dangerouslySetInnerHTML={{ __html: `html.scroll-restoring body { opacity: 0; } html.scroll-restoring-done body { transition: opacity 0.4s ease-out; opacity: 1; }` }} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                if (sessionStorage.getItem("homeScroll") || sessionStorage.getItem("homeMobileScroll")) {
+                  document.documentElement.classList.add("scroll-restoring");
+                }
+              } catch (e) {}
+            `
+          }}
+        />
       </head>
       <body suppressHydrationWarning className={`${inter.variable} ${serif.variable} ${mono.variable} antialiased bg-background text-foreground font-sans selection:bg-black selection:text-white overflow-x-hidden`}>
         <ErrorSuppressor />

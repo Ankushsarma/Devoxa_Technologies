@@ -1544,7 +1544,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 px-2 sm:px-4 w-full mt-6">
-            <BorderGlow className="ind-card reveal in" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>
+            <BorderGlow className="ind-card reveal in" borderRadius={20} animated={true} colors={['#c084fc', '#f472b6', '#38bdf8']}>
               <div className="ind-img-wrap !aspect-video"><img src="/tech-saas-cover.png" alt="Technology & SaaS" /></div>
               <div className="ind-label !text-xs sm:!text-sm">Technology & SaaS</div>
               <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Scalable platforms built for rapid growth</div>
@@ -1552,7 +1552,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                 <span className="text-[10px] sm:text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
               </div>
             </BorderGlow>
-            <BorderGlow className="ind-card reveal in delay-[100ms]" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>
+            <BorderGlow className="ind-card reveal in delay-[100ms]" borderRadius={20} animated={true} colors={['#c084fc', '#f472b6', '#38bdf8']}>
               <div className="ind-img-wrap !aspect-video"><img src="/finance-banking-cover.png" alt="Finance & Banking" /></div>
               <div className="ind-label !text-xs sm:!text-sm">Finance & Banking</div>
               <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Secure systems for regulated industries</div>
@@ -1560,7 +1560,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                 <span className="text-[10px] sm:text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
               </div>
             </BorderGlow>
-            <BorderGlow className="ind-card reveal in delay-[200ms]" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>
+            <BorderGlow className="ind-card reveal in delay-[200ms]" borderRadius={20} animated={true} colors={['#c084fc', '#f472b6', '#38bdf8']}>
               <div className="ind-img-wrap !aspect-video"><img src="/healthcare-cover.png" alt="Healthcare" /></div>
               <div className="ind-label !text-xs sm:!text-sm">Healthcare</div>
               <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Compliant, patient-first digital tools</div>
@@ -1568,7 +1568,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                 <span className="text-[10px] sm:text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
               </div>
             </BorderGlow>
-            <BorderGlow className="ind-card reveal in" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>
+            <BorderGlow className="ind-card reveal in" borderRadius={20} animated={true} colors={['#c084fc', '#f472b6', '#38bdf8']}>
               <div className="ind-img-wrap !aspect-video"><img src="/shopix-ecommerce.png" alt="Retail & E-commerce Dashboard" /></div>
               <div className="ind-label !text-xs sm:!text-sm">Retail & E-commerce</div>
               <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Storefronts that convert and scale</div>
@@ -1576,7 +1576,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                 <span className="text-[10px] sm:text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
               </div>
             </BorderGlow>
-            <BorderGlow className="ind-card reveal in delay-[100ms]" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>
+            <BorderGlow className="ind-card reveal in delay-[100ms]" borderRadius={20} animated={true} colors={['#c084fc', '#f472b6', '#38bdf8']}>
               <div className="ind-img-wrap !aspect-video"><img src="/education-cover.png" alt="Education" /></div>
               <div className="ind-label !text-xs sm:!text-sm">Education</div>
               <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Learning platforms built to engage</div>
@@ -1584,7 +1584,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                 <span className="text-[10px] sm:text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
               </div>
             </BorderGlow>
-            <BorderGlow className="ind-card reveal in delay-[200ms]" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>
+            <BorderGlow className="ind-card reveal in delay-[200ms]" borderRadius={20} animated={true} colors={['#c084fc', '#f472b6', '#38bdf8']}>
               <div className="ind-img-wrap !aspect-video"><img src="/manufacturing-cover.png" alt="Manufacturing" /></div>
               <div className="ind-label !text-xs sm:!text-sm">Manufacturing</div>
               <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Automation for modern production lines</div>

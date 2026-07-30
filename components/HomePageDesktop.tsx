@@ -714,10 +714,10 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               items={projects.length > 0 ? projects.map((p: any) => {
                 let img = p.imageUrl || "/tpl-saas-software.jpg";
                 const t = p.title.toLowerCase();
-                if (t.includes('ag home')) img = 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80';
-                else if (t.includes('cab partner')) img = 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=800&q=80';
-                else if (t.includes('smart rent')) img = 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80';
-                else if (t.includes('lionscott')) img = 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=800';
+                if (t.includes('ag home')) img = 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=90';
+                else if (t.includes('cab partner')) img = 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1600&q=90';
+                else if (t.includes('smart rent')) img = 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1600&q=90';
+                else if (t.includes('lionscott')) img = 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1600&q=90';
                 return { image: img, text: p.title };
               }) : undefined}
               bend={0.6}
@@ -764,9 +764,9 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                 <thead>
                   <tr>
                     <th><span className="cmp-cat">Services & Features</span></th>
-                    <th>Enterprise Solutions</th>
-                    <th>Custom Application</th>
                     <th>Digital Presence</th>
+                    <th>Custom Application</th>
+                    <th>Enterprise Solutions</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -782,9 +782,9 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                   ].map((row, i) => (
                     <tr key={i}>
                       <th scope="row">{row.label}</th>
-                      <td>{row.ent ? <span className="cmp-check"><CheckCircle size={19} /></span> : <span className="cmp-x"><X size={18} /></span>}</td>
-                      <td>{row.pro ? <span className="cmp-check"><CheckCircle size={19} /></span> : <span className="cmp-x"><X size={18} /></span>}</td>
                       <td>{row.basic ? <span className="cmp-check"><CheckCircle size={19} /></span> : <span className="cmp-x"><X size={18} /></span>}</td>
+                      <td>{row.pro ? <span className="cmp-check"><CheckCircle size={19} /></span> : <span className="cmp-x"><X size={18} /></span>}</td>
+                      <td>{row.ent ? <span className="cmp-check"><CheckCircle size={19} /></span> : <span className="cmp-x"><X size={18} /></span>}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -793,22 +793,22 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                     <td></td>
                     <td style={{ padding: "20px 10px", textAlign: "center" }}>
                       <WebGLVisibilityWrapper isAbsolute={false}>
-            <SpecularButton size="sm" radius={10} tint="#ffffff" tintOpacity={0} blur={0} textColor="#f5f5f5" lineColor="#8b5cf6" baseColor="#3b2b5c" intensity={1} shineSize={10} shineFade={40} thickness={1.5} speed={0.35} followMouse proximity={250} onClick={onOpenModal}>
-                        Contact Sales
-                      </SpecularButton>
-          </WebGLVisibilityWrapper>
-                    </td>
-                    <td style={{ padding: "20px 10px", textAlign: "center" }}>
-                      <WebGLVisibilityWrapper isAbsolute={false}>
-            <SpecularButton size="sm" radius={10} tint="#ffffff" tintOpacity={0} blur={0} textColor="#f5f5f5" lineColor="#8b5cf6" baseColor="#3b2b5c" intensity={1} shineSize={10} shineFade={40} thickness={1.5} speed={0.35} followMouse proximity={250} onClick={onOpenModal}>
-                        Get Started
-                      </SpecularButton>
-          </WebGLVisibilityWrapper>
-                    </td>
-                    <td style={{ padding: "20px 10px", textAlign: "center" }}>
-                      <WebGLVisibilityWrapper isAbsolute={false}>
             <SpecularButton size="sm" radius={10} tint="#ffffff" tintOpacity={0} blur={0} textColor="#f5f5f5" lineColor="#8b5cf6" baseColor="#201a30" intensity={1} shineSize={10} shineFade={40} thickness={1.5} speed={0.35} followMouse proximity={250} onClick={onOpenModal}>
                         Get Started
+                      </SpecularButton>
+          </WebGLVisibilityWrapper>
+                    </td>
+                    <td style={{ padding: "20px 10px", textAlign: "center" }}>
+                      <WebGLVisibilityWrapper isAbsolute={false}>
+            <SpecularButton size="sm" radius={10} tint="#ffffff" tintOpacity={0} blur={0} textColor="#f5f5f5" lineColor="#8b5cf6" baseColor="#3b2b5c" intensity={1} shineSize={10} shineFade={40} thickness={1.5} speed={0.35} followMouse proximity={250} onClick={onOpenModal}>
+                        Get Started
+                      </SpecularButton>
+          </WebGLVisibilityWrapper>
+                    </td>
+                    <td style={{ padding: "20px 10px", textAlign: "center" }}>
+                      <WebGLVisibilityWrapper isAbsolute={false}>
+            <SpecularButton size="sm" radius={10} tint="#ffffff" tintOpacity={0} blur={0} textColor="#f5f5f5" lineColor="#8b5cf6" baseColor="#3b2b5c" intensity={1} shineSize={10} shineFade={40} thickness={1.5} speed={0.35} followMouse proximity={250} onClick={onOpenModal}>
+                        Contact Sales
                       </SpecularButton>
           </WebGLVisibilityWrapper>
                     </td>
@@ -903,8 +903,8 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         {/* Animated glowing orb in background */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-purple-600/20 blur-[120px] rounded-[100%] pointer-events-none mix-blend-screen" />
         
-        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-          <div className="section-head reveal in relative z-10 mb-20 flex flex-col items-center text-center w-full">
+        <div className="wrap relative w-full z-10 mx-auto px-4 md:px-6 lg:px-8">
+          <div className="section-head reveal in relative z-10 mb-20 flex flex-col items-center text-center w-full mx-auto">
             <span className="eyebrow" style={{ margin: '0 auto 16px', display: 'inline-block' }}>What Our Clients Say</span>
             <h2 style={{ margin: '0 auto 20px', textAlign: 'center' }}>Trusted by businesses across India</h2>
             <p style={{ margin: '0 auto', textAlign: 'center', maxWidth: '600px' }}>

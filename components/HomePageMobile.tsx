@@ -1543,7 +1543,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
             </h2>
 
             <p className="text-[#8981A6] text-xs sm:text-sm max-w-xl mx-auto leading-relaxed font-light text-center">
-              Our tailored IT solutions empower diverse sectors to innovate, scale seamlessly, and thrive in today's rapidly evolving digital landscape.
+              Our custom IT solutions empower forward-thinking organizations to <span className="text-white font-medium">innovate</span>, <span className="text-purple-300 font-medium">scale seamlessly</span>, and dominate in today's rapidly evolving digital landscape.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 w-full mt-6">

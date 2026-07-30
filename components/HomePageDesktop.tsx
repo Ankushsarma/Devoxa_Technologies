@@ -843,7 +843,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
           <div className="section-head reveal in">
             <span className="eyebrow">Industries</span>
             <h2>Industries We Serve</h2>
-            <p>Our tailored IT solutions empower diverse sectors to innovate, scale seamlessly, and thrive in today's rapidly evolving digital landscape.</p>
+            <p>Our custom IT solutions empower forward-thinking organizations to <span className="text-white font-medium">innovate</span>, <span className="text-purple-300 font-medium">scale seamlessly</span>, and dominate in today's rapidly evolving digital landscape.</p>
           </div>
           <div className="ind-grid">
             <BorderGlow className="ind-card reveal in" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>

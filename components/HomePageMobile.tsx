@@ -1440,7 +1440,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
             </div>
           </div>
 
-          <div className="reveal in w-full">
+          <div className="reveal in w-full flex justify-center">
             <MobileProjectCarousel projects={projects} />
           </div>
         </div>

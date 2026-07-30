@@ -354,23 +354,23 @@ const MobileTestimonialSingleCard = () => {
           
           {/* Left Ribbon Banner with Triangular Fold */}
           <div 
-            className="absolute top-4 -left-5 bg-gradient-to-r from-[#4F46E5] to-[#7C3AED] rounded-r-[15px] rounded-tl-[15px] rounded-bl-none px-7 z-20 shadow-lg min-w-[235px] max-w-[245px] flex flex-col justify-center items-center text-center" 
-            style={{ paddingTop: '1.05rem', paddingBottom: '1.05rem' }}
+            className="absolute top-4 -left-5 bg-gradient-to-r from-[#4F46E5] to-[#7C3AED] rounded-r-[15px] rounded-tl-[15px] rounded-bl-none px-4 sm:px-5 z-20 shadow-lg min-w-[190px] max-w-[210px] flex flex-col justify-center items-center text-center" 
+            style={{ paddingTop: '0.85rem', paddingBottom: '0.85rem' }}
           >
-            <div className="absolute top-full left-0 w-0 h-0" style={{ borderTop: '22px solid #1E1B4B', borderLeft: '22px solid transparent' }}></div>
-            <h3 className="text-white font-semibold text-[16.5px] leading-tight mb-0.5 whitespace-nowrap relative z-10">{t.name}</h3>
-            <p className="text-white/90 text-[13.5px] font-medium whitespace-nowrap relative z-10">{t.title}</p>
+            <div className="absolute top-full left-0 w-0 h-0" style={{ borderTop: '18px solid #1E1B4B', borderLeft: '18px solid transparent' }}></div>
+            <h3 className="text-white font-semibold text-[14.5px] leading-tight mb-0.5 whitespace-nowrap relative z-10">{t.name}</h3>
+            <p className="text-white/90 text-[12px] font-medium whitespace-nowrap relative z-10">{t.title}</p>
           </div>
 
           {/* Profile Circle Avatar Top Right */}
-          <div className="absolute -top-5 -right-2.5 w-[96px] h-[96px] rounded-full border-[3px] border-[#0A0A0B] shadow-[0_4px_12px_rgba(0,0,0,0.5)] overflow-hidden z-20 bg-[#0A0A0B]">
+          <div className="absolute -top-4 -right-2 w-[76px] h-[76px] rounded-full border-[3px] border-[#0A0A0B] shadow-[0_4px_12px_rgba(0,0,0,0.5)] overflow-hidden z-20 bg-[#0A0A0B]">
             <div className="w-full h-full bg-gradient-to-br from-[#4F46E5] to-[#7C3AED] flex items-center justify-center">
-              <span className="text-white font-bold text-[28px] tracking-tight">{t.initials}</span>
+              <span className="text-white font-bold text-[22px] tracking-tight">{t.initials}</span>
             </div>
           </div>
 
           {/* Content Body */}
-          <div className="flex flex-col h-full relative z-0 justify-start gap-2" style={{ padding: '20px 24px 20px 24px', paddingTop: '124px' }}>
+          <div className="flex flex-col h-full relative z-0 justify-start gap-2" style={{ padding: '20px 24px 20px 24px', paddingTop: '110px' }}>
             <div className="flex gap-1 mb-1" style={{ paddingLeft: '28px' }}>
               {[1, 2, 3, 4, 5].map(starI => (
                 <svg key={starI} className="w-4 h-4 text-[#FBBF24]" fill="currentColor" viewBox="0 0 20 20">

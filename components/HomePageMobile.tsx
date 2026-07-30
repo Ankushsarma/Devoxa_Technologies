@@ -666,6 +666,23 @@ export default function HomePageMobile() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
+  // Custom scroll restoration logic
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      sessionStorage.setItem("homeMobileScroll", window.scrollY.toString())
+    }
+    window.addEventListener("beforeunload", handleBeforeUnload)
+    
+    const savedScroll = sessionStorage.getItem("homeMobileScroll")
+    if (savedScroll) {
+      setTimeout(() => {
+        window.scrollTo({ top: parseInt(savedScroll, 10), behavior: "instant" })
+      }, 100)
+    }
+
+    return () => window.removeEventListener("beforeunload", handleBeforeUnload)
+  }, [])
+
   // Fix hash routing after layout shifts
   useEffect(() => {
     if (window.location.hash) {

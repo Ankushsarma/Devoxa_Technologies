@@ -154,6 +154,24 @@ export default function HomePageDesktop() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
+  // Custom scroll restoration logic
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      sessionStorage.setItem("homeScroll", window.scrollY.toString())
+    }
+    window.addEventListener("beforeunload", handleBeforeUnload)
+    
+    const savedScroll = sessionStorage.getItem("homeScroll")
+    if (savedScroll) {
+      // Delay slightly to ensure layout has painted
+      setTimeout(() => {
+        window.scrollTo({ top: parseInt(savedScroll, 10), behavior: "instant" })
+      }, 100)
+    }
+
+    return () => window.removeEventListener("beforeunload", handleBeforeUnload)
+  }, [])
+
   // Fix hash routing after layout shifts
   useEffect(() => {
     if (window.location.hash) {

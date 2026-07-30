@@ -55,7 +55,7 @@ export function Footer() {
 
 			<div className="w-full max-w-7xl mx-auto flex flex-col flex-1">
 				{/* Middle Section */}
-				<div className="flex flex-col lg:flex-row w-full justify-between gap-12 lg:gap-24 relative" style={{ paddingTop: '1.75rem', marginBottom: '0' }}>
+				<div className="flex flex-col lg:flex-row w-full justify-center gap-12 lg:gap-32 relative" style={{ paddingTop: '1.75rem', marginBottom: '0' }}>
 
 					{/* Left CTA */}
 					<AnimatedContainer delay={0.2} className="w-full lg:w-[400px] shrink-0 flex flex-col items-start pl-3 sm:pl-0">
@@ -101,7 +101,7 @@ export function Footer() {
 					</AnimatedContainer>
 
 					{/* Middle Links */}
-					<div className="w-full lg:w-[600px] shrink-0 grid grid-cols-2 sm:grid-cols-3 gap-6 lg:gap-8 pt-4 lg:pt-2">
+					<div className="w-full lg:w-fit shrink-0 grid grid-cols-2 sm:grid-cols-3 gap-10 lg:gap-16 pt-4 lg:pt-2">
 						{footerLinks.map((section: FooterSection, index: number) => (
 							<AnimatedContainer key={section.label} delay={0.3 + index * 0.1}>
 								<div className="mb-6 md:mb-0">

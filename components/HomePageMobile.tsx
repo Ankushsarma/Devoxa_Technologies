@@ -1521,8 +1521,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               <div className="ind-label">Technology & SaaS</div>
               <div className="ind-desc">Scalable platforms built for rapid growth</div>
               <div className="ind-meta">
-                <div className="ind-dot-row"><span className="ind-dot"></span><span className="ind-count">40+ projects</span></div>
-                <div className="ind-arrow"><ArrowRight size={14} /></div>
+                <span className="text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore Solutions <ArrowRight size={14} className="inline-block ml-1" /></span>
               </div>
             </BorderGlow>
             <BorderGlow className="ind-card reveal in delay-[100ms]" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>
@@ -1530,8 +1529,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               <div className="ind-label">Finance & Banking</div>
               <div className="ind-desc">Secure systems for regulated industries</div>
               <div className="ind-meta">
-                <div className="ind-dot-row"><span className="ind-dot"></span><span className="ind-count">25+ projects</span></div>
-                <div className="ind-arrow"><ArrowRight size={14} /></div>
+                <span className="text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore Solutions <ArrowRight size={14} className="inline-block ml-1" /></span>
               </div>
             </BorderGlow>
             <BorderGlow className="ind-card reveal in delay-[200ms]" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>
@@ -1539,8 +1537,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               <div className="ind-label">Healthcare</div>
               <div className="ind-desc">Compliant, patient-first digital tools</div>
               <div className="ind-meta">
-                <div className="ind-dot-row"><span className="ind-dot"></span><span className="ind-count">18+ projects</span></div>
-                <div className="ind-arrow"><ArrowRight size={14} /></div>
+                <span className="text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore Solutions <ArrowRight size={14} className="inline-block ml-1" /></span>
               </div>
             </BorderGlow>
             <BorderGlow className="ind-card reveal in" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>
@@ -1548,8 +1545,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               <div className="ind-label">Retail & E-commerce</div>
               <div className="ind-desc">Storefronts that convert and scale</div>
               <div className="ind-meta">
-                <div className="ind-dot-row"><span className="ind-dot"></span><span className="ind-count">32+ projects</span></div>
-                <div className="ind-arrow"><ArrowRight size={14} /></div>
+                <span className="text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore Solutions <ArrowRight size={14} className="inline-block ml-1" /></span>
               </div>
             </BorderGlow>
             <BorderGlow className="ind-card reveal in delay-[100ms]" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>
@@ -1557,8 +1553,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               <div className="ind-label">Education</div>
               <div className="ind-desc">Learning platforms built to engage</div>
               <div className="ind-meta">
-                <div className="ind-dot-row"><span className="ind-dot"></span><span className="ind-count">15+ projects</span></div>
-                <div className="ind-arrow"><ArrowRight size={14} /></div>
+                <span className="text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore Solutions <ArrowRight size={14} className="inline-block ml-1" /></span>
               </div>
             </BorderGlow>
             <BorderGlow className="ind-card reveal in delay-[200ms]" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>
@@ -1566,8 +1561,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               <div className="ind-label">Manufacturing</div>
               <div className="ind-desc">Automation for modern production lines</div>
               <div className="ind-meta">
-                <div className="ind-dot-row"><span className="ind-dot"></span><span className="ind-count">20+ projects</span></div>
-                <div className="ind-arrow"><ArrowRight size={14} /></div>
+                <span className="text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore Solutions <ArrowRight size={14} className="inline-block ml-1" /></span>
               </div>
             </BorderGlow>
           </div>

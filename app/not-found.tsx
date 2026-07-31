@@ -45,7 +45,7 @@ export default function NotFound() {
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
-        className="relative z-10 w-[95%] max-w-[1200px] bg-white/90 backdrop-blur-xl rounded-[40px] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] border border-white p-6 md:p-10 my-4 md:my-0 flex flex-col items-center"
+        className="relative z-10 w-[95%] max-w-[1200px] bg-white/90 backdrop-blur-xl rounded-[40px] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] border border-white p-6 md:p-10 my-4 md:my-0 flex flex-col items-center origin-center scale-[0.85] sm:scale-90 md:scale-[0.75] lg:scale-[0.85] xl:scale-95 2xl:scale-100"
       >
         
         {/* Floating Top 404 Badge */}

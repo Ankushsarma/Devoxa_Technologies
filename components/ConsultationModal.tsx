@@ -117,7 +117,7 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
         </button>
 
         {/* Left Branding Panel */}
-        <div className="md:w-2/5 p-5 md:p-6 relative overflow-hidden flex flex-col justify-center"
+        <div className="md:w-2/5 p-5 md:p-8 md:pr-16 relative overflow-hidden flex flex-col justify-center"
              style={{ background: "linear-gradient(135deg, #2D1B69 0%, #170B3B 100%)", flexShrink: 0 }}>
           {/* Decorative elements */}
           <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-[#7C5CFC] blur-[80px] opacity-30 pointer-events-none"></div>

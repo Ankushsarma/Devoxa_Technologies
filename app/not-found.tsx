@@ -42,64 +42,60 @@ export default function NotFound() {
         VOID
       </div>
 
-      {/* Flying Spacecrafts & Elements */}
+      {/* Abstract Modern Tech Elements (Scanning Lines & Crosshairs) */}
       <motion.div 
-        animate={{ x: ['-20vw', '120vw'], y: ['20vh', '10vh'] }}
-        transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-        className="absolute top-[20%] left-0 text-4xl opacity-50 z-0 pointer-events-none"
-      >
-        🚀
-      </motion.div>
+        animate={{ x: ['-20vw', '120vw'] }}
+        transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+        className="absolute top-[25%] left-0 w-48 h-[1px] bg-gradient-to-r from-transparent via-[#00F0FF] to-transparent opacity-50 z-0 pointer-events-none shadow-[0_0_8px_rgba(0,240,255,0.8)]"
+      />
 
       <motion.div 
-        animate={{ x: ['120vw', '-20vw'], y: ['70vh', '80vh'] }}
-        transition={{ duration: 25, repeat: Infinity, ease: "linear", delay: 5 }}
-        className="absolute bottom-[20%] right-0 text-5xl opacity-40 z-0 pointer-events-none"
+        animate={{ x: ['120vw', '-20vw'] }}
+        transition={{ duration: 20, repeat: Infinity, ease: "linear", delay: 3 }}
+        className="absolute bottom-[35%] right-0 w-64 h-[1px] bg-gradient-to-l from-transparent via-[#7857FF] to-transparent opacity-50 z-0 pointer-events-none shadow-[0_0_10px_rgba(120,87,255,0.8)]"
+      />
+      
+      <motion.div 
+        animate={{ x: ['-10vw', '110vw'], y: ['50vh', '45vh'], rotate: [0, 90] }}
+        transition={{ duration: 25, repeat: Infinity, ease: "linear", delay: 2 }}
+        className="absolute top-[50%] left-0 opacity-30 z-0 pointer-events-none text-[#00F0FF]"
       >
-        🛸
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2v20M2 12h20"/></svg>
       </motion.div>
       
       <motion.div 
-        animate={{ x: ['-20vw', '120vw'], y: ['50vh', '70vh'], rotate: [0, 360] }}
-        transition={{ duration: 35, repeat: Infinity, ease: "linear", delay: 2 }}
-        className="absolute top-[50%] left-0 text-3xl opacity-30 z-0 pointer-events-none"
+        animate={{ x: ['110vw', '-10vw'], y: ['30vh', '35vh'], rotate: [0, -90] }}
+        transition={{ duration: 35, repeat: Infinity, ease: "linear", delay: 8 }}
+        className="absolute top-[30%] right-0 opacity-20 z-0 pointer-events-none text-[#7857FF]"
       >
-        ☄️
-      </motion.div>
-      
-      <motion.div 
-        animate={{ x: ['120vw', '-20vw'], y: ['30vh', '20vh'], rotate: [0, -360] }}
-        transition={{ duration: 45, repeat: Infinity, ease: "linear", delay: 10 }}
-        className="absolute top-[30%] right-0 text-2xl opacity-20 z-0 pointer-events-none"
-      >
-        🛰️
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="8" strokeDasharray="2 2"/></svg>
       </motion.div>
 
       {/* Main Content */}
       <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-3xl transform scale-[0.75] md:scale-[0.85] lg:scale-90 xl:scale-95 origin-center">
         
-        {/* Animated 404 Text with Glitch/Glow Layers */}
+        {/* Animated 404 Text with Sharp Cyber Glitch Effects */}
         <div className="relative mb-6">
           <motion.h1 
             initial={{ scale: 0.5, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1, type: "spring", bounce: 0.6 }}
-            className="text-[8rem] md:text-[14rem] font-black leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-[#E8E4FF] to-[#3B3A4C]"
+            className="text-[8rem] md:text-[14rem] font-black leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-gray-500 relative z-10"
           >
             404
           </motion.h1>
           
           <motion.div 
-            animate={{ opacity: [0.3, 0.7, 0.3], scale: [1, 1.02, 1] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute inset-0 text-[8rem] md:text-[14rem] font-black leading-none tracking-tighter text-[#00F0FF] blur-2xl opacity-40 mix-blend-screen -z-10"
+            animate={{ x: [-3, 3, -3], opacity: [0.6, 0.9, 0.6] }}
+            transition={{ duration: 0.15, repeat: Infinity, repeatType: "mirror" }}
+            className="absolute inset-0 text-[8rem] md:text-[14rem] font-black leading-none tracking-tighter text-[#00F0FF] blur-[3px] mix-blend-screen opacity-80 -z-10"
           >
             404
           </motion.div>
           <motion.div 
-            animate={{ opacity: [0.2, 0.5, 0.2], scale: [1, 1.05, 1] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            className="absolute inset-0 text-[8rem] md:text-[14rem] font-black leading-none tracking-tighter text-[#7857FF] blur-3xl opacity-30 mix-blend-screen -z-10"
+            animate={{ opacity: [0.5, 1, 0.5] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute inset-0 text-[8rem] md:text-[14rem] font-black leading-none tracking-tighter text-[#7857FF] blur-[20px] opacity-100 mix-blend-screen -z-20"
           >
             404
           </motion.div>

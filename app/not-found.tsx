@@ -2,201 +2,131 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowRight, Compass, Globe, Bot, Satellite, TriangleAlert } from 'lucide-react';
-import Image from 'next/image';
+import { Home, ArrowLeft, Terminal } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 export default function NotFound() {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({
+        x: e.clientX,
+        y: e.clientY,
+      });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
   return (
-    <section className="h-screen max-h-screen w-screen overflow-hidden bg-[#F4F6FB] flex flex-col items-center justify-center font-sans text-black relative">
+    <section className="h-screen w-screen overflow-hidden bg-[#05050A] text-white flex flex-col items-center justify-center font-sans relative">
       
-      {/* --- Ambient Background Elements --- */}
-      {/* Light grid pattern (optional for the dotted bg in mockup) */}
-      <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:20px_20px] opacity-40"></div>
-
-      {/* Large Watermark 404 Numbers */}
-      <div className="absolute hidden md:flex left-[-8vw] top-1/2 -translate-y-1/2 text-[35vw] font-black text-[#E8EAF4] pointer-events-none select-none z-0">
-        4
-      </div>
-      <div className="absolute hidden md:flex right-[-8vw] top-1/2 -translate-y-1/2 text-[35vw] font-black text-[#E8EAF4] pointer-events-none select-none z-0">
-        4
-      </div>
-
-      {/* Floating 3D Planets (CSS representations) */}
+      {/* Dynamic Interactive Spotlight */}
       <motion.div 
-        animate={{ y: [0, -20, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-20 right-[15%] w-16 h-16 rounded-full bg-gradient-to-br from-pink-400 to-purple-600 shadow-[inset_-10px_-10px_20px_rgba(0,0,0,0.2)] z-0 hidden md:block"
-      >
-        <div className="absolute w-[140%] h-[10px] border-2 border-pink-300 rounded-[50%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-12 opacity-80"></div>
-      </motion.div>
+        className="absolute w-[800px] h-[800px] rounded-full blur-[150px] opacity-20 pointer-events-none z-0"
+        animate={{
+          x: mousePosition.x - 400,
+          y: mousePosition.y - 400,
+          background: "radial-gradient(circle, rgba(120,87,255,1) 0%, rgba(0,212,255,0) 60%)"
+        }}
+        transition={{ type: "tween", ease: "easeOut", duration: 0.2 }}
+      />
 
-      <motion.div 
-        animate={{ y: [0, 20, 0] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-20 left-[10%] w-24 h-24 rounded-full bg-gradient-to-br from-blue-400 to-indigo-600 shadow-[inset_-15px_-15px_30px_rgba(0,0,0,0.3)] z-0 hidden md:block"
-      >
-        <div className="absolute w-[150%] h-[15px] border-2 border-blue-300 rounded-[50%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-12 opacity-70"></div>
-      </motion.div>
-      
-      {/* Blurred distant planet */}
-      <div className="absolute bottom-10 right-[10%] w-20 h-20 rounded-full bg-purple-900/40 blur-xl z-0 hidden md:block"></div>
+      {/* Cyber Grid Background */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_70%_50%_at_50%_50%,#000_20%,transparent_100%)] pointer-events-none z-0"></div>
 
-
-      {/* --- Main Card Container --- */}
-      <motion.div 
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
-        className="relative z-10 w-[95%] xl:w-[90%] max-w-[1400px] bg-white/90 backdrop-blur-xl rounded-[40px] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] border border-white py-4 md:py-6 lg:py-8 px-6 md:px-12 lg:px-16 my-2 md:my-0 flex flex-col items-center"
-      >
+      {/* Main Content */}
+      <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-3xl">
         
-        {/* Floating Top 404 Badge */}
-        <div className="absolute -top-10 md:-top-12 bg-white/70 backdrop-blur-md shadow-[0_10px_40px_rgba(150,150,250,0.15),inset_0_2px_15px_rgba(255,255,255,1)] rounded-full px-8 md:px-12 py-3 md:py-4 border border-white/60 flex items-center justify-center z-20">
-          {/* Orbital Rings around the badge */}
-          <div className="absolute w-[160%] h-[160%] border-[1.5px] border-purple-200/50 rounded-full -rotate-12 pointer-events-none flex items-center justify-start">
-             <div className="w-2 h-2 rounded-full bg-purple-400 -ml-[4px] shadow-[0_0_10px_rgba(168,85,247,0.8)]"></div>
-          </div>
-          <div className="absolute w-[130%] h-[130%] border-[1.5px] border-pink-200/50 rounded-full rotate-45 pointer-events-none flex items-end justify-center">
-             <div className="w-1.5 h-1.5 rounded-full bg-pink-400 -mb-[3px] shadow-[0_0_8px_rgba(244,114,182,0.8)]"></div>
-          </div>
-          
-          <h1 className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-br from-[#714DF9] to-[#AD4BFF]">
+        {/* Animated 404 Text with Glitch/Glow Layers */}
+        <div className="relative mb-6">
+          <motion.h1 
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1, type: "spring", bounce: 0.6 }}
+            className="text-[8rem] md:text-[14rem] font-black leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-[#E8E4FF] to-[#3B3A4C]"
+          >
             404
-          </h1>
+          </motion.h1>
+          
+          <motion.div 
+            animate={{ opacity: [0.3, 0.7, 0.3], scale: [1, 1.02, 1] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute inset-0 text-[8rem] md:text-[14rem] font-black leading-none tracking-tighter text-[#00F0FF] blur-2xl opacity-40 mix-blend-screen -z-10"
+          >
+            404
+          </motion.div>
+          <motion.div 
+            animate={{ opacity: [0.2, 0.5, 0.2], scale: [1, 1.05, 1] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            className="absolute inset-0 text-[8rem] md:text-[14rem] font-black leading-none tracking-tighter text-[#7857FF] blur-3xl opacity-30 mix-blend-screen -z-10"
+          >
+            404
+          </motion.div>
         </div>
 
-        <div className="flex flex-col md:flex-row w-full mt-4 md:mt-5 gap-6 md:gap-0">
-          
-          {/* Left Content Side */}
-          <div className="w-full md:w-[55%] flex flex-col justify-center space-y-3 md:space-y-4 z-10">
-            
-            <div className="bg-[#F3F0FF] text-[#7857FF] rounded-full px-4 py-2 w-max font-semibold text-sm flex items-center gap-2.5 shadow-sm border border-[#EBE4FF]">
-              <div className="bg-[#7857FF] text-white rounded-sm w-4 h-4 flex items-center justify-center">
-                <TriangleAlert size={10} fill="currentColor" className="text-white" /> 
-              </div>
-              Oops! You're lost
-            </div>
-            
-            <h2 className="text-3xl md:text-4xl lg:text-5xl md:leading-tight font-extrabold text-[#1a1b2e] tracking-tight">
-              Looks like you've <br className="hidden md:block" />
-              wandered off <br className="hidden md:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7857FF] to-[#D754FF]">the map!</span>
-            </h2>
-            
-            <div className="relative">
-              <p className="text-gray-500 md:text-base font-medium leading-relaxed">
-                The page you're looking for doesn't exist <br className="hidden md:block" />
-                or has been moved to another galaxy. 🪐
-              </p>
-              {/* Little dashed arrow decoration */}
-              <svg className="absolute right-0 -bottom-2 hidden lg:block text-purple-300 w-32 h-16" fill="none" viewBox="0 0 120 60">
-                <path d="M10,50 Q60,60 90,30 T115,10" stroke="currentColor" strokeWidth="2" strokeDasharray="6,6" fill="none" />
-                <path d="M105,8 L116,8 L112,18" stroke="currentColor" strokeWidth="2" fill="none" />
-              </svg>
-            </div>
-            
-            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 pt-2">
-              <Link 
-                href="/" 
-                className="group w-full sm:w-auto bg-gradient-to-b from-[#7A50F9] to-[#512DE2] text-white rounded-[100px] pl-8 pr-2 py-2 font-bold text-lg flex items-center justify-between sm:justify-center gap-6 shadow-[0_15px_30px_rgba(91,61,245,0.3),inset_0_2px_4px_rgba(255,255,255,0.3)] transition-all hover:scale-[1.02] active:scale-95"
-              >
-                Take Me Home
-                <div className="bg-white text-[#5B3DF5] rounded-full p-2.5 shadow-sm group-hover:translate-x-1 transition-transform">
-                  <ArrowRight size={20} strokeWidth={3} />
-                </div>
-              </Link>
-              
-              <Link 
-                href="/" 
-                className="w-full sm:w-auto text-[#7857FF] font-bold flex items-center justify-center gap-3 hover:text-[#5B3DF5] transition-colors"
-              >
-                <div className="text-[#7857FF] p-1.5 border border-[#7857FF]/30 rounded-full flex items-center justify-center bg-[#F3F0FF]">
-                  <Compass size={18} />
-                </div>
-                Explore Our Website
-              </Link>
-            </div>
-
-          </div>
-          
-          {/* Right Image Side */}
-          <div className="w-full md:w-[45%] relative flex justify-center items-center mt-6 md:mt-0">
-            {/* Soft glow behind robot */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-purple-200/50 rounded-full blur-[60px] z-0"></div>
-            
-            <motion.div
-              animate={{ y: [0, -15, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="relative z-10"
-            >
-              {/* If image missing, we can use an emoji or the image we created. We assume public/images/robot-404.png exists */}
-              <div className="relative w-[220px] h-[220px] md:w-[280px] md:h-[280px] lg:w-[320px] lg:h-[320px]">
-                <Image 
-                  src="/images/robot-404.png" 
-                  alt="Cute lost 3D robot looking at a map" 
-                  fill 
-                  className="object-contain drop-shadow-2xl"
-                  priority
-                />
-              </div>
-            </motion.div>
-            
-            {/* Floating Speech Bubble */}
-            <motion.div 
-              animate={{ y: [0, -10, 0], opacity: [0.9, 1, 0.9] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute right-0 md:-right-8 top-[15%] md:top-[25%] bg-white rounded-2xl p-4 shadow-xl text-sm md:text-base text-gray-700 font-semibold z-20 border border-purple-50 after:content-[''] after:absolute after:bottom-[-10px] after:left-6 after:border-l-[10px] after:border-l-transparent after:border-r-[10px] after:border-r-transparent after:border-t-[10px] after:border-t-white"
-            >
-              Should I take<br/>you home? 🏚️
-            </motion.div>
+        {/* Text Content */}
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#7857FF]/10 border border-[#7857FF]/30 text-[#A893FF] text-sm font-semibold mb-6">
+            <Terminal size={14} />
+            <span>SYSTEM_ERROR_CODE_404</span>
           </div>
 
-        </div>
-
-        {/* --- Bottom Feature Cards --- */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-0 bg-[#FAFBFF] rounded-[24px] p-3 md:p-4 mt-4 md:mt-5 border border-indigo-50/50 shadow-inner">
-          
-          <div className="flex items-center gap-4 md:pr-6 md:border-r border-indigo-100">
-            <div className="bg-gradient-to-br from-[#F5F0FF] to-[#EBE3FF] p-3 rounded-2xl shadow-sm border border-white">
-              <Globe className="text-[#A274FF]" size={24} />
-            </div>
-            <div>
-              <h4 className="font-bold text-[#1a1b2e] mb-0.5 text-sm">Lost in Space?</h4>
-              <p className="text-[11px] text-gray-500 font-medium leading-relaxed">Let's get you back<br/>to the right place.</p>
-            </div>
-          </div>
-          
-          <div className="flex items-center gap-4 md:px-6 md:border-r border-indigo-100">
-            <div className="bg-gradient-to-br from-[#EEF2FF] to-[#E0E7FF] p-3 rounded-2xl shadow-sm border border-white">
-              <Bot className="text-[#5B3DF5]" size={24} />
-            </div>
-            <div>
-              <h4 className="font-bold text-[#1a1b2e] mb-0.5 text-sm">Something Missing?</h4>
-              <p className="text-[11px] text-gray-500 font-medium leading-relaxed">Maybe what you need<br/>was moved or removed.</p>
-            </div>
-          </div>
-          
-          <div className="flex items-center gap-4 md:pl-6">
-            <div className="bg-gradient-to-br from-[#F3F4FF] to-[#E6EBFF] p-3 rounded-2xl shadow-sm border border-white">
-              <Satellite className="text-[#6366F1]" size={24} />
-            </div>
-            <div>
-              <h4 className="font-bold text-[#1a1b2e] mb-0.5 text-sm">Still Need Help?</h4>
-              <p className="text-[11px] text-gray-500 font-medium leading-relaxed">Contact our team,<br/>we're here for you.</p>
-            </div>
-          </div>
-
-        </div>
-
-        {/* --- Bottom Footer Text --- */}
-        <div className="flex items-center gap-4 mt-4 md:mt-6 w-full justify-center opacity-80">
-          <div className="h-[2px] w-12 md:w-32 bg-gradient-to-r from-transparent to-purple-200"></div>
-          <p className="text-xs md:text-sm text-gray-500 text-center font-medium">
-            We'd give you an award for finding this dead end,<br className="hidden md:block"/>
-            but we're out of budget. 🏆
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 tracking-tight">
+            Signal Lost in the <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00F0FF] to-[#7857FF]">Void</span>
+          </h2>
+          <p className="text-gray-400 text-base md:text-xl max-w-xl mx-auto mb-10 leading-relaxed">
+            The coordinates you provided lead to an empty sector. 
+            The data has either been deleted, moved, or never existed in this timeline.
           </p>
-          <div className="h-[2px] w-12 md:w-32 bg-gradient-to-l from-transparent to-purple-200"></div>
-        </div>
+        </motion.div>
+
+        {/* Action Buttons */}
+        <motion.div 
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+          className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full"
+        >
+          <Link 
+            href="/"
+            className="group relative inline-flex items-center justify-center px-8 py-4 font-bold text-white transition-all duration-200 bg-gradient-to-r from-[#5B3DF5] to-[#7857FF] rounded-full focus:outline-none hover:shadow-[0_0_30px_rgba(120,87,255,0.4)] overflow-hidden"
+          >
+            <span className="relative z-10 flex items-center gap-2">
+              <Home size={18} className="group-hover:scale-110 transition-transform" />
+              Return to Base
+            </span>
+          </Link>
+
+          <button 
+            onClick={() => window.history.back()}
+            className="inline-flex items-center justify-center px-8 py-4 font-bold text-gray-300 transition-all duration-200 bg-transparent border border-gray-700/50 rounded-full hover:bg-white/5 hover:text-white focus:outline-none hover:border-gray-500 backdrop-blur-sm"
+          >
+            <ArrowLeft size={18} className="mr-2" />
+            Go Back
+          </button>
+        </motion.div>
         
-      </motion.div>
+      </div>
+      
+      {/* Decorative Floating Geometry */}
+      <motion.div 
+        animate={{ y: [0, -30, 0], rotate: [0, 90, 0] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-[20%] left-[10%] md:left-[15%] w-16 h-16 rounded-2xl border border-[#7857FF]/20 bg-[#7857FF]/5 backdrop-blur-xl hidden md:block"
+      />
+      <motion.div 
+        animate={{ y: [0, 40, 0], rotate: [0, -90, 0] }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        className="absolute bottom-[20%] right-[10%] md:right-[15%] w-24 h-24 rounded-full border border-[#00F0FF]/20 bg-[#00F0FF]/5 backdrop-blur-xl hidden md:block"
+      />
+
     </section>
   );
 }

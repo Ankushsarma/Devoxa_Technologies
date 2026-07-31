@@ -26,6 +26,7 @@ import SpotlightCard from "@/components/SpotlightCard"
 import Particles from "@/components/Particles"
 import PillNav from "@/components/PillNav"
 import { FooterMobile } from "@/components/ui/footer-section-mobile"
+import { CuteRobot } from "@/components/ui/CuteRobot"
 
 
 
@@ -1075,6 +1076,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
 
             {/* Headline */}
             <h1 style={{ 
+              position: "relative",
               fontFamily: "var(--font-mono, monospace)", 
               fontSize: "36px", 
               fontWeight: 700, 
@@ -1084,6 +1086,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               marginBottom: "24px",
               textTransform: "uppercase"
             }}>
+              <CuteRobot />
               <span style={{ 
                 display: "block", 
                 marginBottom: "8px",

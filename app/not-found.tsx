@@ -37,10 +37,22 @@ export default function NotFound() {
       {/* Deep Space Background */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#150D3A] via-[#05050A] to-[#000000] -z-20"></div>
 
-      {/* Dense Starfield Particles */}
-      <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.3)_1px,transparent_1px)] bg-[size:30px_30px] opacity-50 z-0"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.4)_1.5px,transparent_1.5px)] bg-[size:80px_80px] opacity-40 z-0" style={{ backgroundPosition: '40px 40px' }}></div>
-      <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.2)_2px,transparent_2px)] bg-[size:150px_150px] opacity-20 z-0" style={{ backgroundPosition: '70px 70px' }}></div>
+      {/* Dense Starfield Particles - Traveling through space */}
+      <motion.div 
+        animate={{ backgroundPosition: ["0px 0px", "300px 300px"] }}
+        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+        className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.3)_1px,transparent_1px)] bg-[size:30px_30px] opacity-50 z-0"
+      />
+      <motion.div 
+        animate={{ backgroundPosition: ["40px 40px", "840px 840px"] }}
+        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+        className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.4)_1.5px,transparent_1.5px)] bg-[size:80px_80px] opacity-40 z-0"
+      />
+      <motion.div 
+        animate={{ backgroundPosition: ["70px 70px", "1570px 1570px"] }}
+        transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+        className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.2)_2px,transparent_2px)] bg-[size:150px_150px] opacity-20 z-0"
+      />
 
       {/* Abstract Orbiting Satellites / Cosmic Elements */}
       <motion.div 
@@ -147,19 +159,19 @@ export default function NotFound() {
         
       </div>
       
-      {/* Decorative Left Planet */}
+      {/* Realistic Background Planet - Slow Rotation */}
       <motion.div 
-        animate={{ y: [0, -40, 0], rotate: [0, 180, 360] }}
-        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-        className="absolute top-[15%] left-[5%] md:left-[10%] w-20 h-20 md:w-32 md:h-32 rounded-full bg-gradient-to-tr from-[#7857FF] to-[#00F0FF] opacity-60 blur-[1px] shadow-[inset_-10px_-10px_20px_rgba(0,0,0,0.6),_0_0_30px_rgba(120,87,255,0.4)] hidden md:block pointer-events-none z-0"
-      />
-      
-      {/* Decorative Right Planet */}
-      <motion.div 
-        animate={{ y: [0, 50, 0], rotate: [360, 180, 0] }}
-        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-        className="absolute bottom-[15%] right-[5%] md:right-[10%] w-24 h-24 md:w-40 md:h-40 rounded-full bg-gradient-to-bl from-[#FF3366] to-[#7857FF] opacity-50 blur-[2px] shadow-[inset_-15px_-15px_30px_rgba(0,0,0,0.7),_0_0_40px_rgba(255,51,102,0.3)] hidden md:block pointer-events-none z-0"
-      />
+        animate={{ rotate: 360 }}
+        transition={{ duration: 240, repeat: Infinity, ease: "linear" }}
+        className="absolute -top-[20%] -right-[10%] w-[70vw] h-[70vw] md:w-[50vw] md:h-[50vw] rounded-full opacity-30 z-0 pointer-events-none mix-blend-screen"
+        style={{
+          background: "radial-gradient(circle at 30% 30%, rgba(120,87,255,0.2) 0%, rgba(0,0,0,0) 70%)",
+          boxShadow: "inset -20px -20px 60px rgba(0,0,0,0.8), inset 20px 20px 60px rgba(0,240,255,0.1)"
+        }}
+      >
+        <div className="absolute top-[20%] left-[20%] w-[15%] h-[15%] rounded-full bg-black/30 blur-md" />
+        <div className="absolute top-[50%] left-[60%] w-[20%] h-[20%] rounded-full bg-black/20 blur-lg" />
+      </motion.div>
 
     </section>
   );

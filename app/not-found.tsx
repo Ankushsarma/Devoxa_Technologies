@@ -63,7 +63,7 @@ export default function NotFound() {
       <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-3xl transform scale-[0.55] sm:scale-[0.60] md:scale-[0.65] lg:scale-[0.70] xl:scale-[0.75] origin-center mt-8">
         
         {/* Animated 404 Text with Sharp Cyber Glitch Effects */}
-        <div className="relative mb-6">
+        <div className="relative mb-6 flex items-center justify-center">
           <motion.h1 
             initial={{ scale: 0.5, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -86,6 +86,17 @@ export default function NotFound() {
             className="absolute inset-0 text-[7rem] md:text-[11rem] font-black leading-none tracking-tighter text-[#7857FF] blur-[20px] opacity-100 mix-blend-screen -z-20"
           >
             404
+          </motion.div>
+
+          {/* Orbiting UFO around 404 */}
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+            className="absolute inset-0 z-30 pointer-events-none flex items-center justify-center"
+          >
+            <div className="text-5xl md:text-6xl translate-x-[150px] md:translate-x-[240px] rotate-90 drop-shadow-[0_0_15px_rgba(0,240,255,0.8)]">
+              🛸
+            </div>
           </motion.div>
         </div>
 

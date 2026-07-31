@@ -21,7 +21,7 @@ export default function NotFound() {
   }, []);
 
   return (
-    <section className="h-screen w-screen overflow-hidden bg-[#05050A] text-white flex flex-col items-center justify-center font-sans relative">
+    <section className="h-screen w-screen overflow-hidden bg-[#05050A] text-white flex flex-col items-center justify-center font-mono relative">
       
       {/* Dynamic Interactive Spotlight */}
       <motion.div 
@@ -113,11 +113,10 @@ export default function NotFound() {
           </div>
 
           <h2 className="text-3xl md:text-5xl font-bold mb-4 tracking-tight">
-            Signal Lost in the <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00F0FF] to-[#7857FF]">Void</span>
+            You just glitch'd the <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00F0FF] to-[#7857FF]">Matrix</span>
           </h2>
           <p className="text-gray-400 text-base md:text-xl max-w-xl mx-auto mb-10 leading-relaxed">
-            The coordinates you provided lead to an empty sector. 
-            The data has either been deleted, moved, or never existed in this timeline.
+            We asked the AI, bribed the IT guy with coffee, and even searched inside a black hole. Result: This page simply doesn't exist. You might want to slowly back away before something explodes! 💥
           </p>
         </motion.div>
 

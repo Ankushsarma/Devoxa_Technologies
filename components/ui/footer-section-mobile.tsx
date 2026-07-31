@@ -45,20 +45,19 @@ const footerLinks: FooterSection[] = [
 	},
 ];
 
-export function FooterMobile({ style, compact = false }: { style?: React.CSSProperties, compact?: boolean }) {
+export function FooterMobile() {
 	return (
 		<footer
 			className="relative w-full flex flex-col justify-start rounded-t-3xl border-t border-white/10 bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)] overflow-hidden"
-			style={{ paddingTop: "56px", paddingBottom: "32px", paddingLeft: "20px", paddingRight: "20px", ...style }}
+			style={{ paddingTop: "56px", paddingBottom: "32px", paddingLeft: "20px", paddingRight: "20px" }}
 		>
 			<div className="bg-foreground/20 absolute top-0 right-1/2 left-1/2 h-px w-1/3 -translate-x-1/2 -translate-y-1/2 rounded-full blur" />
 
 			<div className="w-full max-w-2xl md:max-w-4xl mx-auto flex flex-col gap-8 px-2 sm:px-6">
 
 				{/* Left CTA */}
-				{!compact && (
-					<AnimatedContainer delay={0.2} className="flex flex-col items-start sm:items-center text-left sm:text-center w-full">
-						<h2 className="text-2xl sm:text-3xl font-serif text-white leading-tight mb-3">
+				<AnimatedContainer delay={0.2} className="flex flex-col items-start sm:items-center text-left sm:text-center w-full">
+					<h2 className="text-2xl sm:text-3xl font-serif text-white leading-tight mb-3">
 						Let's build something<br />
 						amazing <span className="text-[#a78bfa]">together.</span>
 					</h2>
@@ -98,7 +97,6 @@ export function FooterMobile({ style, compact = false }: { style?: React.CSSProp
 						</a>
 					</div>
 				</AnimatedContainer>
-				)}
 
 				{/* Middle Links Grid */}
 				<div className="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-6 border-t border-white/5">

@@ -45,11 +45,11 @@ const footerLinks: FooterSection[] = [
 	},
 ];
 
-export function Footer({ className = "" }: { className?: string }) {
+export function Footer({ className = "pb-4" }: { className?: string }) {
 	return (
 		<footer
 			id="footer"
-			className={`md:rounded-t-6xl relative w-full flex flex-col justify-start rounded-t-4xl border-t border-white/10 bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)] px-6 sm:px-8 pb-4 ${className}`}
+			className={`md:rounded-t-6xl relative w-full flex flex-col justify-start rounded-t-4xl border-t border-white/10 bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)] px-6 sm:px-8 ${className}`}
 			style={{ paddingTop: '0' }}
 		>
 			<div className="bg-foreground/20 absolute top-0 right-1/2 left-1/2 h-px w-1/3 -translate-x-1/2 -translate-y-1/2 rounded-full blur" />

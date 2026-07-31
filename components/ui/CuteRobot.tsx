@@ -6,39 +6,43 @@ import { motion } from 'framer-motion';
 export function CuteRobot() {
   return (
     <motion.div
-      initial={{ x: 0, y: 0 }} // Start on top of "BUILD"
+      initial={{ x: 0, y: 0, opacity: 1 }} 
       animate={{
-        x: [0, 80, 0], // Jump from "BUILD" to "FUTURE" and back
-        y: [0, -50, 35, -50, 0], // Higher parabolic jump
-        rotate: [0, 15, 0, -15, 0], // Tilt during jump
-        scaleX: [1, 1.15, 0.85, 1.15, 1], // Squash and stretch (horizontal)
-        scaleY: [1, 0.85, 1.2, 0.85, 1], // Squash and stretch (vertical)
+        x:       [0, 90, 90, 90, 90, 90, 105, 120, 120, 120, 120, 120, 220, 220, 0],
+        y:       [0, 0,  0,  0,  0,  0,  -40, 50,  50,  50,  50,  50,  50,  50,  0],
+        rotate:  [0, 0,  0,  25, 0,  0,  180, 90,  90,  110, 70,  0,   0,   0,   0],
+        scaleX:  [1, 1,  1,  1,  1,  1.1, 0.8, 1.4, 1.4, 1,   1,   1,   1,   1,   1],
+        scaleY:  [1, 1,  1,  1,  1,  0.8, 1.2, 0.5, 0.5, 1,   1,   1,   1,   1,   1],
+        opacity: [1, 1,  1,  1,  1,  1,   1,   1,   1,   1,   1,   1,   1,   0,   1]
       }}
       transition={{
-        duration: 2.5,
+        duration: 10,
         repeat: Infinity,
         repeatType: "loop",
-        times: [0, 0.4, 0.5, 0.9, 1], // Snappy jump timing
+        times: [0, 0.15, 0.25, 0.30, 0.40, 0.45, 0.475, 0.50, 0.55, 0.60, 0.62, 0.65, 0.90, 0.95, 1],
         ease: "easeInOut"
       }}
       style={{
         position: 'absolute',
         top: -45, 
-        left: '25%', 
-        width: '60px',
-        height: '70px',
+        left: '15%', 
+        width: '55px',
+        height: '65px',
         zIndex: 10,
         pointerEvents: 'none'
       }}
     >
       <style dangerouslySetInnerHTML={{__html: `
-        @keyframes blink {
-          0%, 42%, 46%, 100% { transform: scaleY(1); }
-          43%, 45% { transform: scaleY(0.1); } /* Double blink */
+        @keyframes eyeExpression {
+          0%, 15%, 17%, 39% { transform: scaleY(1); rx: 4; }
+          16% { transform: scaleY(0.1); rx: 4; } /* Quick blink */
+          40%, 45% { transform: scaleY(0.15); rx: 10; } /* Long happy squint */
+          46%, 60%, 62%, 80%, 82%, 100% { transform: scaleY(1); rx: 4; }
+          61%, 81% { transform: scaleY(0.1); rx: 4; } /* Quick blinks */
         }
         @keyframes lookAround {
           0%, 20% { transform: translateX(0); }
-          25%, 45% { transform: translateX(-5px); }
+          25%, 35% { transform: translateX(-5px); }
           50%, 70% { transform: translateX(5px); }
           75%, 100% { transform: translateX(0); }
         }
@@ -46,33 +50,25 @@ export function CuteRobot() {
           0%, 100% { transform: scaleY(1) translateY(0); }
           50% { transform: scaleY(1.05) translateY(-2px); }
         }
-        @keyframes headTilt {
-          0%, 100% { transform: rotate(0deg); }
-          25% { transform: rotate(-8deg); }
-          75% { transform: rotate(8deg); }
-        }
         @keyframes earWiggle {
-          0%, 100% { transform: rotate(0deg); }
-          20%, 60% { transform: rotate(15deg); }
-          40%, 80% { transform: rotate(-15deg); }
+          0%, 59% { transform: rotate(0deg); }
+          60%, 62%, 64% { transform: rotate(25deg); }
+          61%, 63% { transform: rotate(-25deg); }
+          65%, 100% { transform: rotate(0deg); }
         }
         .robot-eye {
-          animation: blink 3.5s infinite;
+          animation: eyeExpression 10s infinite;
           transform-origin: center;
         }
         .robot-eyes-container {
-          animation: lookAround 5s infinite;
+          animation: lookAround 10s infinite;
         }
         .robot-body {
-          animation: panting 0.8s infinite ease-in-out;
-          transform-origin: bottom center;
-        }
-        .robot-head {
-          animation: headTilt 4s infinite ease-in-out;
+          animation: panting 0.6s infinite ease-in-out;
           transform-origin: bottom center;
         }
         .robot-ear {
-          animation: earWiggle 2s infinite ease-in-out;
+          animation: earWiggle 10s infinite ease-in-out;
           transform-origin: right center;
         }
       `}} />

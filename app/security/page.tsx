@@ -136,7 +136,14 @@ export default function SecurityPolicy() {
             <span className="font-serif text-lg font-bold tracking-tight text-white">Devoxa</span>
           </Link>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <Link 
+              href="/#footer" 
+              className="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-[11px] font-semibold text-gray-300 hover:text-white hover:bg-white/10 active:scale-95 transition-all flex items-center gap-1.5"
+            >
+              <ArrowLeft className="w-3.5 h-3.5 text-purple-400" />
+              <span>Back</span>
+            </Link>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="w-9 h-9 rounded-full bg-purple-950/80 border border-purple-500/30 flex items-center justify-center text-white"

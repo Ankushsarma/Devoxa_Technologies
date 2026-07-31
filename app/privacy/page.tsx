@@ -24,8 +24,7 @@ import {
 import Particles from "@/components/Particles";
 import ShinyText from "@/components/ShinyText";
 import ConsultationModal from "@/components/ConsultationModal";
-import { Footer } from "@/components/ui/footer-section";
-import { FooterMobile } from "@/components/ui/footer-section-mobile";
+
 
 export default function PrivacyPolicy() {
   const [activeSection, setActiveSection] = useState("section-1");
@@ -445,13 +444,7 @@ export default function PrivacyPolicy() {
       {/* Consultation Modal */}
       <ConsultationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
-      {/* Global Shared Footer */}
-      <div className="hidden lg:block">
-        <Footer />
-      </div>
-      <div className="block lg:hidden">
-        <FooterMobile />
-      </div>
+
     </div>
   );
 }

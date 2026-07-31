@@ -1063,7 +1063,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         </div>
       </section>
 
-      <Footer style={{ paddingTop: '0px' }} middleSectionClassName="!pt-[98px] pb-[80px]" />
+      <Footer style={{ paddingTop: '0px' }} middleSectionStyle={{ paddingTop: '50px', paddingBottom: '30px' }} />
     </>
   )
 }

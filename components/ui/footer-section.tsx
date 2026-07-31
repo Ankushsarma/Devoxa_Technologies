@@ -45,7 +45,7 @@ const footerLinks: FooterSection[] = [
 	},
 ];
 
-export function Footer({ className = "pb-4", style, middleSectionClassName = "" }: { className?: string, style?: React.CSSProperties, middleSectionClassName?: string }) {
+export function Footer({ className = "pb-4", style, middleSectionClassName = "", middleSectionStyle }: { className?: string, style?: React.CSSProperties, middleSectionClassName?: string, middleSectionStyle?: React.CSSProperties }) {
 	return (
 		<footer
 			id="footer"
@@ -59,7 +59,7 @@ export function Footer({ className = "pb-4", style, middleSectionClassName = "" 
 
 			<div className="w-full flex flex-col flex-1">
 				{/* Middle Section */}
-				<div className={`flex flex-col lg:flex-row w-full justify-center gap-12 lg:gap-48 xl:gap-64 relative border-4 border-green-500/80 pt-7 mb-0 ${middleSectionClassName}`}>
+				<div className={`flex flex-col lg:flex-row w-full justify-center gap-12 lg:gap-48 xl:gap-64 relative border-4 border-green-500/80 pt-7 mb-0 ${middleSectionClassName}`} style={middleSectionStyle}>
 					{/* TEMPORARY LABEL 2 */}
 					<div className="absolute top-0 left-2 bg-green-600 text-white text-xs px-2 py-1 font-bold z-50">2. Middle Section</div>
 
@@ -88,9 +88,9 @@ export function Footer({ className = "pb-4", style, middleSectionClassName = "" 
 								<span className="text-xs sm:text-sm tracking-wide truncate">support@devoxatechnologies.com</span>
 							</a>
 						</div>
-						
+
 						{/* Social Media Icons */}
-						<div className="flex text-gray-400 mt-5 gap-3 sm:gap-5">
+						<div className="flex text-gray-400 gap-3 sm:gap-5" style={{ marginTop: '16px' }}>
 							<a href="#" className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center hover:text-white hover:border-white/30 transition-all">
 								<Youtube className="size-4" />
 							</a>

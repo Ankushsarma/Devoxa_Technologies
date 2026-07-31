@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Home, ArrowLeft, Satellite } from 'lucide-react';
+import { Home, ArrowLeft, Satellite, Rocket } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export default function NotFound() {
@@ -88,14 +88,14 @@ export default function NotFound() {
             404
           </motion.div>
 
-          {/* Orbiting UFO around 404 */}
+          {/* Orbiting Rocket around 404 */}
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
             className="absolute inset-0 z-30 pointer-events-none flex items-center justify-center"
           >
-            <div className="text-5xl md:text-6xl translate-x-[150px] md:translate-x-[240px] rotate-90 drop-shadow-[0_0_15px_rgba(0,240,255,0.8)]">
-              🛸
+            <div className="translate-x-[150px] md:translate-x-[240px] rotate-90">
+              <Rocket className="w-12 h-12 md:w-16 md:h-16 text-[#00F0FF] drop-shadow-[0_0_15px_rgba(0,240,255,1)]" />
             </div>
           </motion.div>
         </div>
@@ -147,16 +147,18 @@ export default function NotFound() {
         
       </div>
       
-      {/* Decorative Floating Geometry */}
+      {/* Decorative Left Planet */}
       <motion.div 
-        animate={{ y: [0, -30, 0], rotate: [0, 90, 0] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-[20%] left-[10%] md:left-[15%] w-16 h-16 rounded-2xl border border-[#7857FF]/20 bg-[#7857FF]/5 backdrop-blur-xl hidden md:block"
+        animate={{ y: [0, -40, 0], rotate: [0, 180, 360] }}
+        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+        className="absolute top-[15%] left-[5%] md:left-[10%] w-20 h-20 md:w-32 md:h-32 rounded-full bg-gradient-to-tr from-[#7857FF] to-[#00F0FF] opacity-60 blur-[1px] shadow-[inset_-10px_-10px_20px_rgba(0,0,0,0.6),_0_0_30px_rgba(120,87,255,0.4)] hidden md:block pointer-events-none z-0"
       />
+      
+      {/* Decorative Right Planet */}
       <motion.div 
-        animate={{ y: [0, 40, 0], rotate: [0, -90, 0] }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="absolute bottom-[20%] right-[10%] md:right-[15%] w-24 h-24 rounded-full border border-[#00F0FF]/20 bg-[#00F0FF]/5 backdrop-blur-xl hidden md:block"
+        animate={{ y: [0, 50, 0], rotate: [360, 180, 0] }}
+        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+        className="absolute bottom-[15%] right-[5%] md:right-[10%] w-24 h-24 md:w-40 md:h-40 rounded-full bg-gradient-to-bl from-[#FF3366] to-[#7857FF] opacity-50 blur-[2px] shadow-[inset_-15px_-15px_30px_rgba(0,0,0,0.7),_0_0_40px_rgba(255,51,102,0.3)] hidden md:block pointer-events-none z-0"
       />
 
     </section>

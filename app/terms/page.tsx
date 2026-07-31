@@ -22,7 +22,7 @@ import {
 } from "lucide-react";
 import Particles from "@/components/Particles";
 import ShinyText from "@/components/ShinyText";
-import { Footer } from "@/components/ui/footer-section";
+
 import ConsultationModal from "@/components/ConsultationModal";
 
 export default function TermsOfService() {
@@ -422,8 +422,7 @@ export default function TermsOfService() {
         </div>
       </section>
 
-      {/* Shared Reusable Desktop Footer Component */}
-      <Footer />
+
 
       {/* Consultation Modal */}
       <ConsultationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />

@@ -8,216 +8,194 @@ export function CuteRobot() {
     <motion.div
       initial={{ x: 0, y: 0, opacity: 1 }} 
       animate={{
-        //          1    2    3    4    5    6    7    8    9    10   11   12   13   14   15   16   17   18   19
-        x:       [  0,  40,  40,  40,  40,  40,  50,  60,  60,  60,  60, 100, 160, 160, 160, 160, 240, 240,   0],
-        y:       [-55, -55, -55, -55, -55, -40,-100,  15,   0,   0,  15, -50,  50,  50,  50,  50,  50,  50, -55],
-        rotateY: [ 60,  60,  60,   0,   0,  60,  60,  60,  60,   0,  60,  60,  60,  60,  60,  60,  60,  60,  60],
-        rotate:  [  0,   0,  25,   0,   0,   0,   0,   0,   0,   0,   0,   0,  90,  90, 110,   0,   0,   0,   0],
-        scaleX:  [  1,   1,   1,   1,   1,   1, 0.9,   1,   1,   1,   1, 0.9,   1,   1,   1,   1,   1,   1,   1],
-        scaleY:  [  1,   1,   1,   1,   1,   1, 1.1,   1,   1,   1,   1, 1.1,   1,   1,   1,   1,   1,   1,   1],
-        opacity: [  1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   0,   1]
+        //          1    2    3    4    5    6    7    8    9    10   11   12   13   14   15   16   17   18
+        x:       [  0,  40,  40,  40,  40,  40,  50,  60,  60,  60, 100, 160, 160, 160, 160, 240, 240,   0],
+        y:       [-55, -55, -55, -55, -55, -55, -85,   0,   0,   0, -30,  50,  50,  50,  50,  50,  50, -55],
+        rotateY: [ 60,  60,  60,   0,   0,   0,   0,   0,   0,  60,  60,  60,  60,  60,  60,  60,  60,  60],
+        rotate:  [  0,   0,  25,   0,   0,   0,   0,   0,   0,   0,   0,  90,  90, 110,   0,   0,   0,   0],
+        scaleX:  [  1,   1,   1,   1,   1, 1.1, 0.9, 1.1,   1, 1.1, 0.9, 1.2, 1.2,   1,   1,   1,   1,   1],
+        scaleY:  [  1,   1,   1,   1,   1, 0.8, 1.1, 0.9,   1, 0.8, 1.1, 0.7, 0.7,   1,   1,   1,   1,   1],
+        opacity: [  1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   0,   1]
       }}
       transition={{
         duration: 14,
         repeat: Infinity,
         repeatType: "loop",
-        //      1     2     3     4     5     6     7     8     9     10    11    12    13    14    15    16    17    18    19
-        times: [0.0, 0.10, 0.15, 0.20, 0.25, 0.28, 0.30, 0.32, 0.35, 0.40, 0.43, 0.45, 0.48, 0.52, 0.55, 0.65, 0.90, 0.95, 1.0],
+        //      1     2     3     4     5     6     7     8     9     10    11    12    13    14    15    16    17    18
+        times: [0.0, 0.10, 0.15, 0.20, 0.25, 0.28, 0.30, 0.32, 0.40, 0.43, 0.45, 0.48, 0.52, 0.55, 0.65, 0.90, 0.95, 1.0],
         ease: "easeInOut"
       }}
       style={{
         position: 'absolute',
-        top: -70, 
+        top: -45, 
         left: '10%', 
-        width: '66px',
-        height: '80px',
+        width: '55px',
+        height: '65px',
         zIndex: 10,
         pointerEvents: 'none',
         transformStyle: 'preserve-3d'
       }}
     >
       <style dangerouslySetInnerHTML={{__html: `
-        @keyframes leftThigh {
-          0% { transform: rotate(-25deg); }
-          2.5% { transform: rotate(25deg); }
-          5% { transform: rotate(-25deg); }
-          7.5% { transform: rotate(25deg); }
-          10%, 25% { transform: rotate(0deg); }
-          28% { transform: rotate(-50deg); }
-          30% { transform: rotate(-10deg); }
-          32% { transform: rotate(-50deg); }
-          35%, 40% { transform: rotate(0deg); }
-          43% { transform: rotate(-50deg); }
-          45% { transform: rotate(10deg); }
-          48%, 89% { transform: rotate(0deg); } 
-          90% { transform: rotate(-25deg); }
-          92.5% { transform: rotate(25deg); }
-          95%, 100% { transform: rotate(0deg); }
+        @keyframes eyeExpression {
+          0%, 19% { transform: scale(1, 1); rx: 4; }
+          20%, 25% { transform: scale(1, 0.15); rx: 10; } /* Smile */
+          26%, 44% { transform: scale(1, 1); rx: 4; }
+          45%, 48% { transform: scale(1.3, 1.3); rx: 10; } /* Shocked jump */
+          49%, 54% { transform: scale(1, 0); rx: 4; } /* Faceplant pain */
+          55%, 100% { transform: scale(1, 1); rx: 4; }
         }
-        @keyframes rightThigh {
-          0% { transform: rotate(25deg); }
-          2.5% { transform: rotate(-25deg); }
-          5% { transform: rotate(25deg); }
-          7.5% { transform: rotate(-25deg); }
-          10%, 25% { transform: rotate(0deg); }
-          28% { transform: rotate(-50deg); }
-          30% { transform: rotate(-10deg); }
-          32% { transform: rotate(-50deg); }
-          35%, 40% { transform: rotate(0deg); }
-          43% { transform: rotate(-50deg); }
-          45% { transform: rotate(10deg); }
-          48%, 89% { transform: rotate(0deg); } 
-          90% { transform: rotate(25deg); }
-          92.5% { transform: rotate(-25deg); }
-          95%, 100% { transform: rotate(0deg); }
+        @keyframes lookAround {
+          0%, 100% { transform: translateX(0); }
         }
-        @keyframes leftCalf {
-          0% { transform: rotate(5deg); }
-          2.5% { transform: rotate(30deg); }
-          5% { transform: rotate(5deg); }
-          7.5% { transform: rotate(30deg); }
-          10%, 25% { transform: rotate(0deg); }
-          28% { transform: rotate(100deg); }
-          30% { transform: rotate(20deg); }
-          32% { transform: rotate(100deg); }
-          35%, 40% { transform: rotate(0deg); }
-          43% { transform: rotate(100deg); }
-          45% { transform: rotate(20deg); }
-          48%, 89% { transform: rotate(0deg); } 
-          90% { transform: rotate(5deg); }
-          92.5% { transform: rotate(30deg); }
-          95%, 100% { transform: rotate(0deg); }
+        @keyframes panting {
+          0%, 100% { transform: scaleY(1) translateY(0); }
+          50% { transform: scaleY(1.05) translateY(-2px); }
         }
-        @keyframes rightCalf {
-          0% { transform: rotate(30deg); }
-          2.5% { transform: rotate(5deg); }
-          5% { transform: rotate(30deg); }
-          7.5% { transform: rotate(5deg); }
-          10%, 25% { transform: rotate(0deg); }
-          28% { transform: rotate(100deg); }
-          30% { transform: rotate(20deg); }
-          32% { transform: rotate(100deg); }
-          35%, 40% { transform: rotate(0deg); }
-          43% { transform: rotate(100deg); }
-          45% { transform: rotate(20deg); }
-          48%, 89% { transform: rotate(0deg); } 
-          90% { transform: rotate(30deg); }
-          92.5% { transform: rotate(5deg); }
-          95%, 100% { transform: rotate(0deg); }
+        @keyframes earWiggle {
+          0%, 54% { transform: rotate(0deg); }
+          55%, 57%, 59% { transform: rotate(25deg); }
+          56%, 58%, 60% { transform: rotate(-25deg); }
+          61%, 100% { transform: rotate(0deg); }
         }
-        @keyframes leftArm {
-          0% { transform: rotate(30deg); }
-          2.5% { transform: rotate(-30deg); }
-          5% { transform: rotate(30deg); }
-          7.5% { transform: rotate(-30deg); }
-          10%, 25% { transform: rotate(0deg); }
-          28% { transform: rotate(-80deg); }
-          30% { transform: rotate(150deg); }
-          32% { transform: rotate(-40deg); }
-          35%, 40% { transform: rotate(0deg); }
-          43% { transform: rotate(-80deg); }
-          45% { transform: rotate(150deg); }
-          48%, 89% { transform: rotate(0deg); }
-          90% { transform: rotate(30deg); }
-          92.5% { transform: rotate(-30deg); }
-          95%, 100% { transform: rotate(0deg); }
+        @keyframes armFlailLeft {
+          0%, 27% { transform: rotate(0deg); }
+          28%, 29% { transform: rotate(130deg); }
+          30%, 31% { transform: rotate(-60deg); }
+          32%, 42% { transform: rotate(0deg); }
+          43%, 44% { transform: rotate(130deg); }
+          45%, 46% { transform: rotate(-60deg); }
+          47%, 48% { transform: rotate(130deg); }
+          49%, 100% { transform: rotate(0deg); }
         }
-        @keyframes rightArm {
-          0% { transform: rotate(-30deg); }
-          2.5% { transform: rotate(30deg); }
-          5% { transform: rotate(-30deg); }
-          7.5% { transform: rotate(30deg); }
-          10%, 25% { transform: rotate(0deg); }
-          28% { transform: rotate(80deg); }
-          30% { transform: rotate(-150deg); }
-          32% { transform: rotate(40deg); }
-          35%, 40% { transform: rotate(0deg); }
-          43% { transform: rotate(80deg); }
-          45% { transform: rotate(-150deg); }
-          48%, 89% { transform: rotate(0deg); }
-          90% { transform: rotate(-30deg); }
-          92.5% { transform: rotate(30deg); }
-          95%, 100% { transform: rotate(0deg); }
+        @keyframes armFlailRight {
+          0%, 27% { transform: rotate(0deg); }
+          28%, 29% { transform: rotate(-130deg); }
+          30%, 31% { transform: rotate(60deg); }
+          32%, 42% { transform: rotate(0deg); }
+          43%, 44% { transform: rotate(-130deg); }
+          45%, 46% { transform: rotate(60deg); }
+          47%, 48% { transform: rotate(-130deg); }
+          49%, 100% { transform: rotate(0deg); }
         }
-        @keyframes visorScan {
-          0%, 100% { transform: scaleX(1); opacity: 1; }
-          10%, 90% { transform: scaleX(0.5) translateX(-5px); opacity: 0.8; }
-          50% { transform: scaleX(0.5) translateX(5px); opacity: 0.8; }
-          45%, 52% { transform: scaleX(1.5) scaleY(1.5); opacity: 1; fill: #ef4444; } /* Red shock eye! */
+        @keyframes deepSigh {
+          0%, 54% { transform: scale(1); }
+          55%, 58% { transform: scale(1.05, 1.15) translateY(-5px); } /* Inhale deeply */
+          59%, 63% { transform: scale(1.02, 0.95) translateY(2px); } /* Exhale heavily */
+          64%, 100% { transform: scale(1); }
         }
-        .anim-left-thigh { animation: leftThigh 14s infinite ease-in-out; }
-        .anim-right-thigh { animation: rightThigh 14s infinite ease-in-out; }
-        .anim-left-calf { animation: leftCalf 14s infinite ease-in-out; }
-        .anim-right-calf { animation: rightCalf 14s infinite ease-in-out; }
-        .anim-left-arm { animation: leftArm 14s infinite ease-in-out; }
-        .anim-right-arm { animation: rightArm 14s infinite ease-in-out; }
-        .anim-visor { animation: visorScan 14s infinite ease-in-out; transform-origin: center; }
+        .robot-eye {
+          animation: eyeExpression 14s infinite;
+          transform-origin: center;
+        }
+        .robot-eyes-container {
+          animation: lookAround 14s infinite;
+        }
+        .robot-body {
+          animation: panting 0.6s infinite ease-in-out;
+          transform-origin: bottom center;
+        }
+        .robot-heave {
+          animation: deepSigh 14s infinite ease-in-out;
+          transform-origin: bottom center;
+        }
+        .robot-arm-left {
+          animation: armFlailLeft 14s infinite;
+          transform-origin: 30px 75px;
+        }
+        .robot-arm-right {
+          animation: armFlailRight 14s infinite;
+          transform-origin: 70px 75px;
+        }
+        .robot-ear {
+          animation: earWiggle 14s infinite ease-in-out;
+          transform-origin: right center;
+        }
       `}} />
       
-      <svg viewBox="0 0 100 120" width="100%" height="100%" style={{ filter: 'drop-shadow(0 15px 20px rgba(0,0,0,0.5))' }}>
+      <svg viewBox="0 0 100 120" width="100%" height="100%" style={{ filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.4))' }}>
         <defs>
-          <linearGradient id="metal-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#e2e8f0" />
-            <stop offset="50%" stopColor="#94a3b8" />
-            <stop offset="100%" stopColor="#475569" />
+          <radialGradient id="head-grad" cx="30%" cy="30%" r="80%" fx="30%" fy="30%">
+            <stop offset="0%" stopColor="#a5b1c2" />
+            <stop offset="50%" stopColor="#778492" />
+            <stop offset="100%" stopColor="#3d444b" />
+          </radialGradient>
+          
+          <radialGradient id="body-grad" cx="30%" cy="30%" r="80%" fx="30%" fy="30%">
+            <stop offset="0%" stopColor="#838e9a" />
+            <stop offset="70%" stopColor="#4a525b" />
+            <stop offset="100%" stopColor="#2c3238" />
+          </radialGradient>
+
+          <radialGradient id="screen-grad" cx="50%" cy="50%" r="70%" fx="50%" fy="50%">
+            <stop offset="0%" stopColor="#3a3f47" />
+            <stop offset="60%" stopColor="#1a1d21" />
+            <stop offset="100%" stopColor="#0a0c0e" />
+          </radialGradient>
+
+          <linearGradient id="screen-glass" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="rgba(255,255,255,0.4)" />
+            <stop offset="40%" stopColor="rgba(255,255,255,0.05)" />
+            <stop offset="100%" stopColor="rgba(255,255,255,0)" />
           </linearGradient>
-          <linearGradient id="dark-metal" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#475569" />
-            <stop offset="100%" stopColor="#1e293b" />
-          </linearGradient>
+
+          <filter id="inner-shadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feOffset dx="0" dy="4"/>
+            <feGaussianBlur stdDeviation="3" result="offset-blur"/>
+            <feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse"/>
+            <feFlood floodColor="black" floodOpacity="0.7" result="color"/>
+            <feComposite operator="in" in="color" in2="inverse" result="shadow"/>
+            <feComposite operator="over" in="shadow" in2="SourceGraphic"/>
+          </filter>
         </defs>
 
-        <g transform="translate(50, 50)">
-          {/* Right Arm (Back) */}
-          <g className="anim-right-arm" style={{ transformOrigin: '0px -15px' }}>
-            <rect x="-6" y="-15" width="12" height="35" rx="6" fill="url(#dark-metal)" />
-            <circle cx="0" cy="-10" r="8" fill="#1e293b" />
-          </g>
+        {/* Ground Shadow that scales with jump */}
+        <ellipse cx="50" cy="105" rx="24" ry="5" fill="rgba(0,0,0,0.5)" filter="blur(2px)" />
 
-          {/* Right Leg (Back) */}
-          <g className="anim-right-thigh" style={{ transformOrigin: '0px 10px' }}>
-            <rect x="-7" y="10" width="14" height="25" rx="5" fill="url(#dark-metal)" />
-            <circle cx="0" cy="10" r="6" fill="#0f172a" />
-            <g className="anim-right-calf" style={{ transformOrigin: '0px 32px' }}>
-              <rect x="-6" y="32" width="12" height="25" rx="4" fill="url(#dark-metal)" />
-              <circle cx="0" cy="32" r="5" fill="#0f172a" />
-              <path d="M -6 57 L 12 57 L 10 50 L -6 50 Z" fill="#1e293b" />
+        <g className="robot-body">
+          <g className="robot-heave">
+            {/* Body */}
+            <path d="M 35 70 Q 50 65 65 70 C 70 70, 72 85, 65 95 C 60 105, 55 105, 50 100 C 45 105, 40 105, 35 95 C 28 85, 30 70, 35 70 Z" fill="url(#body-grad)" />
+            {/* Body Highlight */}
+            <path d="M 38 72 Q 50 68 62 72 Q 50 85 38 72" fill="rgba(255,255,255,0.15)" />
+            
+            {/* Left Arm (Paw) */}
+            <g className="robot-arm-left">
+              <path d="M 32 75 Q 22 80 25 90 Q 28 95 32 90" fill="url(#body-grad)" stroke="#3a4047" strokeWidth="1" />
+              <path d="M 31 77 Q 24 82 26 88" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" strokeLinecap="round" fill="none" />
             </g>
-          </g>
-
-          {/* Left Leg (Front) */}
-          <g className="anim-left-thigh" style={{ transformOrigin: '0px 10px' }}>
-            <rect x="-8" y="10" width="16" height="25" rx="6" fill="url(#metal-grad)" />
-            <circle cx="0" cy="10" r="7" fill="#334155" />
-            <g className="anim-left-calf" style={{ transformOrigin: '0px 32px' }}>
-              <rect x="-7" y="32" width="14" height="25" rx="5" fill="url(#metal-grad)" />
-              <circle cx="0" cy="32" r="6" fill="#334155" />
-              <path d="M -7 57 L 15 57 L 12 50 L -7 50 Z" fill="url(#metal-grad)" />
+            
+            {/* Right Arm (Paw) */}
+            <g className="robot-arm-right">
+              <path d="M 68 75 Q 78 80 75 90 Q 72 95 68 90" fill="url(#body-grad)" stroke="#3a4047" strokeWidth="1" />
+              <path d="M 69 77 Q 76 82 74 88" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" strokeLinecap="round" fill="none" />
             </g>
-          </g>
 
-          {/* Torso */}
-          <g className="torso">
-            <path d="M -15 -20 L 15 -20 L 18 15 L -18 15 Z" fill="url(#metal-grad)" />
-            {/* Chest Core Light */}
-            <circle cx="0" cy="-2" r="6" fill="#e0f2fe" style={{ filter: 'drop-shadow(0 0 5px #38bdf8)' }} />
-            <circle cx="0" cy="-2" r="3" fill="#ffffff" />
-            <path d="M -10 -15 L 10 -15 L 12 -5 L -12 -5 Z" fill="rgba(255,255,255,0.2)" />
-          </g>
+            <g className="robot-head">
+              {/* Small arm/ear left (Puppy Ear Wiggle) */}
+              <rect className="robot-ear" x="5" y="35" width="22" height="26" rx="6" fill="url(#body-grad)" />
+              {/* Ear Highlight */}
+              <rect className="robot-ear" x="6" y="36" width="20" height="10" rx="4" fill="rgba(255,255,255,0.2)" pointerEvents="none" />
+              
+              {/* Head Casing */}
+              <rect x="15" y="10" width="70" height="60" rx="22" fill="url(#head-grad)" />
+              {/* Head Bevel Highlight */}
+              <rect x="16" y="11" width="68" height="58" rx="20" fill="none" stroke="rgba(255,255,255,0.6)" strokeWidth="1.5" />
+              <rect x="15" y="10" width="70" height="60" rx="22" fill="none" stroke="rgba(0,0,0,0.5)" strokeWidth="2" />
+              
+              {/* Screen Face Base with Inner Shadow */}
+              <rect x="25" y="20" width="50" height="40" rx="14" fill="url(#screen-grad)" filter="url(#inner-shadow)" />
 
-          {/* Head */}
-          <g className="head" style={{ transformOrigin: '0px -25px' }}>
-            <rect x="-18" y="-50" width="36" height="28" rx="6" fill="url(#metal-grad)" />
-            <rect x="-14" y="-45" width="28" height="15" rx="3" fill="#0f172a" />
-            {/* LED Visor Eye */}
-            <rect className="anim-visor" x="-10" y="-41" width="20" height="6" rx="3" fill="#38bdf8" style={{ filter: 'drop-shadow(0 0 6px #0ea5e9)' }} />
-          </g>
+              {/* Screen Glass Reflection */}
+              <rect x="25" y="20" width="50" height="25" rx="14" fill="url(#screen-glass)" />
+              <path d="M 25 35 Q 50 45 75 35 L 75 25 Q 50 15 25 25 Z" fill="rgba(255,255,255,0.1)" />
 
-          {/* Left Arm (Front) */}
-          <g className="anim-left-arm" style={{ transformOrigin: '0px -15px' }}>
-            <rect x="-7" y="-15" width="14" height="38" rx="7" fill="url(#metal-grad)" />
-            <circle cx="0" cy="-10" r="9" fill="#334155" />
-            <circle cx="0" cy="-10" r="4" fill="#94a3b8" />
+              {/* Eyes (Animated) */}
+              <g className="robot-eyes-container">
+                <rect className="robot-eye" x="40" y="32" width="10" height="12" rx="4" fill="#ffffff" style={{ filter: 'drop-shadow(0px 0px 8px rgba(255,255,255,1))' }} />
+                <rect className="robot-eye" x="55" y="32" width="10" height="12" rx="4" fill="#ffffff" style={{ filter: 'drop-shadow(0px 0px 8px rgba(255,255,255,1))' }} />
+              </g>
+            </g>
           </g>
         </g>
       </svg>

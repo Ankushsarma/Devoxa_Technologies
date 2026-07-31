@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Home, ArrowLeft, Terminal } from 'lucide-react';
+import { Home, ArrowLeft, Satellite } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export default function NotFound() {
@@ -34,41 +34,33 @@ export default function NotFound() {
         transition={{ type: "tween", ease: "easeOut", duration: 0.2 }}
       />
 
-      {/* Cyber Grid Background */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_70%_50%_at_50%_50%,#000_20%,transparent_100%)] pointer-events-none z-0"></div>
+      {/* Deep Space Background */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#10092B] via-[#05050A] to-[#000000] -z-20"></div>
+
+      {/* Starfield Particles */}
+      <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.15)_1px,transparent_1px)] bg-[size:40px_40px] opacity-40 z-0"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.2)_1px,transparent_1px)] bg-[size:100px_100px] opacity-30 z-0" style={{ backgroundPosition: '20px 20px' }}></div>
 
       {/* Massive Watermark */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[28vw] font-black text-white/[0.02] pointer-events-none select-none z-0 tracking-widest whitespace-nowrap">
         VOID
       </div>
 
-      {/* Abstract Modern Tech Elements (Scanning Lines & Crosshairs) */}
+      {/* Abstract Orbiting Satellites / Cosmic Elements */}
       <motion.div 
-        animate={{ x: ['-20vw', '120vw'] }}
-        transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-        className="absolute top-[25%] left-0 w-48 h-[1px] bg-gradient-to-r from-transparent via-[#00F0FF] to-transparent opacity-50 z-0 pointer-events-none shadow-[0_0_8px_rgba(0,240,255,0.8)]"
-      />
+        animate={{ rotate: 360 }}
+        transition={{ duration: 150, repeat: Infinity, ease: "linear" }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vw] h-[120vw] md:w-[80vw] md:h-[80vw] border-[0.5px] border-white/5 rounded-full z-0 pointer-events-none"
+      >
+        <div className="absolute top-[10%] left-[10%] w-2 h-2 bg-[#00F0FF] rounded-full shadow-[0_0_10px_#00F0FF]"></div>
+      </motion.div>
 
       <motion.div 
-        animate={{ x: ['120vw', '-20vw'] }}
-        transition={{ duration: 20, repeat: Infinity, ease: "linear", delay: 3 }}
-        className="absolute bottom-[35%] right-0 w-64 h-[1px] bg-gradient-to-l from-transparent via-[#7857FF] to-transparent opacity-50 z-0 pointer-events-none shadow-[0_0_10px_rgba(120,87,255,0.8)]"
-      />
-      
-      <motion.div 
-        animate={{ x: ['-10vw', '110vw'], y: ['50vh', '45vh'], rotate: [0, 90] }}
-        transition={{ duration: 25, repeat: Infinity, ease: "linear", delay: 2 }}
-        className="absolute top-[50%] left-0 opacity-30 z-0 pointer-events-none text-[#00F0FF]"
+        animate={{ rotate: -360 }}
+        transition={{ duration: 200, repeat: Infinity, ease: "linear" }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150vw] h-[150vw] md:w-[110vw] md:h-[110vw] border-[0.5px] border-white/5 rounded-full z-0 pointer-events-none"
       >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2v20M2 12h20"/></svg>
-      </motion.div>
-      
-      <motion.div 
-        animate={{ x: ['110vw', '-10vw'], y: ['30vh', '35vh'], rotate: [0, -90] }}
-        transition={{ duration: 35, repeat: Infinity, ease: "linear", delay: 8 }}
-        className="absolute top-[30%] right-0 opacity-20 z-0 pointer-events-none text-[#7857FF]"
-      >
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="8" strokeDasharray="2 2"/></svg>
+        <div className="absolute bottom-[20%] right-[15%] w-3 h-3 bg-[#7857FF] rounded-full shadow-[0_0_15px_#7857FF]"></div>
       </motion.div>
 
       {/* Main Content */}
@@ -108,15 +100,15 @@ export default function NotFound() {
           transition={{ delay: 0.3, duration: 0.8 }}
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#7857FF]/10 border border-[#7857FF]/30 text-[#A893FF] text-sm font-semibold mb-6">
-            <Terminal size={14} />
-            <span>SYSTEM_ERROR_CODE_404</span>
+            <Satellite size={14} />
+            <span>SATELLITE_UPLINK_FAILED_404</span>
           </div>
 
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 tracking-tight">
-            Connection to <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00F0FF] to-[#7857FF]">Sector 404</span> Lost
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 tracking-tight leading-snug">
+            Signal Lost Somewhere in the <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00F0FF] to-[#7857FF]">Galaxy.</span>
           </h2>
           <p className="text-gray-400 text-base md:text-xl max-w-xl mx-auto mb-10 leading-relaxed">
-            The data packet you requested could not be found on this server. It may have been encrypted, relocated, or permanently purged from our active archives. Please return to the mainframe.
+            We detected your request leaving Earth successfully, but it never returned. Our satellites are still searching the cosmos for your missing page.
           </p>
         </motion.div>
 

@@ -45,20 +45,20 @@ export default function NotFound() {
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
-        className="relative z-10 w-[95%] max-w-[1200px] bg-white/90 backdrop-blur-xl rounded-[40px] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] border border-white p-6 md:p-10 my-4 md:my-0 flex flex-col items-center origin-center scale-[0.85] sm:scale-90 md:scale-[0.75] lg:scale-[0.85] xl:scale-95 2xl:scale-100"
+        className="relative z-10 w-[95%] max-w-[1000px] bg-white/90 backdrop-blur-xl rounded-[40px] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] border border-white p-4 md:p-8 my-4 md:my-0 flex flex-col items-center origin-center scale-[0.70] sm:scale-[0.75] md:scale-[0.65] lg:scale-[0.75] xl:scale-[0.85] 2xl:scale-95"
       >
         
         {/* Floating Top 404 Badge */}
-        <div className="absolute -top-12 md:-top-16 bg-white/70 backdrop-blur-md shadow-[0_10px_40px_rgba(150,150,250,0.15),inset_0_2px_15px_rgba(255,255,255,1)] rounded-full px-12 md:px-16 py-5 md:py-7 border border-white/60 flex items-center justify-center z-20">
+        <div className="absolute -top-10 md:-top-12 bg-white/70 backdrop-blur-md shadow-[0_10px_40px_rgba(150,150,250,0.15),inset_0_2px_15px_rgba(255,255,255,1)] rounded-full px-8 md:px-12 py-3 md:py-4 border border-white/60 flex items-center justify-center z-20">
           {/* Orbital Rings around the badge */}
           <div className="absolute w-[160%] h-[160%] border-[1.5px] border-purple-200/50 rounded-full -rotate-12 pointer-events-none flex items-center justify-start">
-             <div className="w-2.5 h-2.5 rounded-full bg-purple-400 -ml-[5px] shadow-[0_0_10px_rgba(168,85,247,0.8)]"></div>
+             <div className="w-2 h-2 rounded-full bg-purple-400 -ml-[4px] shadow-[0_0_10px_rgba(168,85,247,0.8)]"></div>
           </div>
           <div className="absolute w-[130%] h-[130%] border-[1.5px] border-pink-200/50 rounded-full rotate-45 pointer-events-none flex items-end justify-center">
-             <div className="w-2 h-2 rounded-full bg-pink-400 -mb-[4px] shadow-[0_0_8px_rgba(244,114,182,0.8)]"></div>
+             <div className="w-1.5 h-1.5 rounded-full bg-pink-400 -mb-[3px] shadow-[0_0_8px_rgba(244,114,182,0.8)]"></div>
           </div>
           
-          <h1 className="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-br from-[#714DF9] to-[#AD4BFF]">
+          <h1 className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-br from-[#714DF9] to-[#AD4BFF]">
             404
           </h1>
         </div>
@@ -75,7 +75,7 @@ export default function NotFound() {
               Oops! You're lost
             </div>
             
-            <h2 className="text-4xl md:text-5xl lg:text-6xl md:leading-[1.1] font-extrabold text-[#1a1b2e] tracking-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl md:leading-[1.1] font-extrabold text-[#1a1b2e] tracking-tight">
               Looks like you've <br className="hidden md:block" />
               wandered off <br className="hidden md:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7857FF] to-[#D754FF]">the map!</span>
@@ -128,7 +128,7 @@ export default function NotFound() {
               className="relative z-10"
             >
               {/* If image missing, we can use an emoji or the image we created. We assume public/images/robot-404.png exists */}
-              <div className="relative w-[250px] h-[250px] md:w-[350px] md:h-[350px]">
+              <div className="relative w-[220px] h-[220px] md:w-[280px] md:h-[280px]">
                 <Image 
                   src="/images/robot-404.png" 
                   alt="Cute lost 3D robot looking at a map" 
@@ -152,35 +152,35 @@ export default function NotFound() {
         </div>
 
         {/* --- Bottom Feature Cards --- */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-0 bg-[#FAFBFF] rounded-[30px] p-4 md:p-6 mt-8 md:mt-10 border border-indigo-50/50 shadow-inner">
+        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-0 bg-[#FAFBFF] rounded-[24px] p-3 md:p-5 mt-6 md:mt-8 border border-indigo-50/50 shadow-inner">
           
-          <div className="flex items-center gap-5 md:pr-8 md:border-r border-indigo-100">
-            <div className="bg-gradient-to-br from-[#F5F0FF] to-[#EBE3FF] p-4 rounded-2xl shadow-sm border border-white">
-              <Globe className="text-[#A274FF]" size={32} />
+          <div className="flex items-center gap-4 md:pr-6 md:border-r border-indigo-100">
+            <div className="bg-gradient-to-br from-[#F5F0FF] to-[#EBE3FF] p-3 rounded-2xl shadow-sm border border-white">
+              <Globe className="text-[#A274FF]" size={24} />
             </div>
             <div>
-              <h4 className="font-extrabold text-[#1a1b2e] mb-1">Lost in Space?</h4>
-              <p className="text-[13px] text-gray-500 font-medium leading-relaxed">Let's get you back<br/>to the right place.</p>
+              <h4 className="font-bold text-[#1a1b2e] mb-0.5 text-sm">Lost in Space?</h4>
+              <p className="text-[11px] text-gray-500 font-medium leading-relaxed">Let's get you back<br/>to the right place.</p>
             </div>
           </div>
           
-          <div className="flex items-center gap-5 md:px-8 md:border-r border-indigo-100">
-            <div className="bg-gradient-to-br from-[#EEF2FF] to-[#E0E7FF] p-4 rounded-2xl shadow-sm border border-white">
-              <Bot className="text-[#5B3DF5]" size={32} />
+          <div className="flex items-center gap-4 md:px-6 md:border-r border-indigo-100">
+            <div className="bg-gradient-to-br from-[#EEF2FF] to-[#E0E7FF] p-3 rounded-2xl shadow-sm border border-white">
+              <Bot className="text-[#5B3DF5]" size={24} />
             </div>
             <div>
-              <h4 className="font-extrabold text-[#1a1b2e] mb-1">Something Missing?</h4>
-              <p className="text-[13px] text-gray-500 font-medium leading-relaxed">Maybe what you need<br/>was moved or removed.</p>
+              <h4 className="font-bold text-[#1a1b2e] mb-0.5 text-sm">Something Missing?</h4>
+              <p className="text-[11px] text-gray-500 font-medium leading-relaxed">Maybe what you need<br/>was moved or removed.</p>
             </div>
           </div>
           
-          <div className="flex items-center gap-5 md:pl-8">
-            <div className="bg-gradient-to-br from-[#F3F4FF] to-[#E6EBFF] p-4 rounded-2xl shadow-sm border border-white">
-              <Satellite className="text-[#6366F1]" size={32} />
+          <div className="flex items-center gap-4 md:pl-6">
+            <div className="bg-gradient-to-br from-[#F3F4FF] to-[#E6EBFF] p-3 rounded-2xl shadow-sm border border-white">
+              <Satellite className="text-[#6366F1]" size={24} />
             </div>
             <div>
-              <h4 className="font-extrabold text-[#1a1b2e] mb-1">Still Need Help?</h4>
-              <p className="text-[13px] text-gray-500 font-medium leading-relaxed">Contact our team,<br/>we're here for you.</p>
+              <h4 className="font-bold text-[#1a1b2e] mb-0.5 text-sm">Still Need Help?</h4>
+              <p className="text-[11px] text-gray-500 font-medium leading-relaxed">Contact our team,<br/>we're here for you.</p>
             </div>
           </div>
 

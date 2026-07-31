@@ -8,101 +8,107 @@ export function CuteRobot() {
     <motion.div
       initial={{ x: 0, y: 0, opacity: 1 }} 
       animate={{
-        x:       [0, 90, 90, 90, 90, 90, 105, 120, 120, 120, 120, 120, 220, 220, 0],
-        y:       [0, 0,  0,  0,  0,  0,  -40, 50,  50,  50,  50,  50,  50,  50,  0],
-        rotate:  [5, 5,  0,  25, 0,  0,  180, 90,  90,  110, 70,  0,   5,   5,   0],
-        scaleX:  [1, 1,  1,  1,  1,  1.2, 0.8, 1.4, 1.4, 1,   1,   1,   1,   1,   1],
-        scaleY:  [1, 1,  1,  1,  1,  0.6, 1.2, 0.5, 0.5, 1,   1,   1,   1,   1,   1],
-        opacity: [1, 1,  1,  1,  1,  1,   1,   1,   1,   1,   1,   1,   1,   0,   1]
+        //          1    2    3    4    5    6    7    8    9    10   11   12   13   14   15   16   17   18
+        x:       [  0,  40,  40,  40,  40,  40,  50,  60,  60,  60, 100, 160, 160, 160, 160, 240, 240,   0],
+        y:       [-55, -55, -55, -55, -55, -55, -85,   0,   0,   0, -30,  50,  50,  50,  50,  50,  50, -55],
+        rotateY: [ 60,  60,  60,   0,   0,   0,   0,   0,   0,  60,  60,  60,  60,  60,  60,  60,  60,  60],
+        rotate:  [  0,   0,  25,   0,   0,   0,   0,   0,   0,   0,   0,  90,  90, 110,   0,   0,   0,   0],
+        scaleX:  [  1,   1,   1,   1,   1, 1.2, 0.8, 1.2,   1, 1.2, 0.8, 1.4, 1.4,   1,   1,   1,   1,   1],
+        scaleY:  [  1,   1,   1,   1,   1, 0.6, 1.2, 0.8,   1, 0.6, 1.2, 0.5, 0.5,   1,   1,   1,   1,   1],
+        opacity: [  1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   0,   1]
       }}
       transition={{
-        duration: 10,
+        duration: 14,
         repeat: Infinity,
         repeatType: "loop",
-        times: [0, 0.15, 0.25, 0.30, 0.40, 0.45, 0.475, 0.50, 0.55, 0.60, 0.62, 0.65, 0.90, 0.95, 1],
+        //      1     2     3     4     5     6     7     8     9     10    11    12    13    14    15    16    17    18
+        times: [0.0, 0.10, 0.15, 0.20, 0.25, 0.28, 0.30, 0.32, 0.40, 0.43, 0.45, 0.48, 0.52, 0.55, 0.65, 0.90, 0.95, 1.0],
         ease: "easeInOut"
       }}
       style={{
         position: 'absolute',
         top: -45, 
-        left: '15%', 
+        left: '10%', 
         width: '55px',
         height: '65px',
         zIndex: 10,
-        pointerEvents: 'none'
+        pointerEvents: 'none',
+        transformStyle: 'preserve-3d'
       }}
     >
       <style dangerouslySetInnerHTML={{__html: `
         @keyframes eyeExpression {
-          0%, 15%, 17%, 39% { transform: scale(1, 1); rx: 4; }
-          16% { transform: scale(1, 0.1); rx: 4; } /* Quick blink */
-          40%, 44% { transform: scale(1, 0.15); rx: 10; } /* Long happy squint/smile */
-          45%, 49% { transform: scale(1.3, 1.3); rx: 10; } /* Shocked/Wide eyes during jump/fall! */
-          50%, 54% { transform: scale(1, 0); rx: 4; } /* Closed eyes in pain after faceplant */
-          55%, 60%, 62%, 80%, 82%, 100% { transform: scale(1, 1); rx: 4; }
-          61%, 81% { transform: scale(1, 0.1); rx: 4; } /* Quick blinks */
+          0%, 19% { transform: scale(1, 1); rx: 4; }
+          20%, 25% { transform: scale(1, 0.15); rx: 10; } /* Smile */
+          26%, 44% { transform: scale(1, 1); rx: 4; }
+          45%, 48% { transform: scale(1.3, 1.3); rx: 10; } /* Shocked jump */
+          49%, 54% { transform: scale(1, 0); rx: 4; } /* Faceplant pain */
+          55%, 100% { transform: scale(1, 1); rx: 4; }
         }
         @keyframes lookAround {
-          0%, 20% { transform: translateX(0); }
-          25%, 35% { transform: translateX(-5px); }
-          50%, 70% { transform: translateX(5px); }
-          75%, 100% { transform: translateX(0); }
+          0%, 100% { transform: translateX(0); }
         }
         @keyframes panting {
           0%, 100% { transform: scaleY(1) translateY(0); }
           50% { transform: scaleY(1.05) translateY(-2px); }
         }
         @keyframes earWiggle {
-          0%, 59% { transform: rotate(0deg); }
-          60%, 62%, 64% { transform: rotate(25deg); }
-          61%, 63% { transform: rotate(-25deg); }
-          65%, 100% { transform: rotate(0deg); }
+          0%, 54% { transform: rotate(0deg); }
+          55%, 57%, 59% { transform: rotate(25deg); }
+          56%, 58%, 60% { transform: rotate(-25deg); }
+          61%, 100% { transform: rotate(0deg); }
         }
         @keyframes armFlailLeft {
-          0%, 44% { transform: rotate(0deg); }
-          45%, 46% { transform: rotate(130deg); }
-          47%, 48% { transform: rotate(-60deg); }
-          49%, 50% { transform: rotate(130deg); }
-          51%, 100% { transform: rotate(0deg); }
+          0%, 27% { transform: rotate(0deg); }
+          28%, 29% { transform: rotate(130deg); }
+          30%, 31% { transform: rotate(-60deg); }
+          32%, 42% { transform: rotate(0deg); }
+          43%, 44% { transform: rotate(130deg); }
+          45%, 46% { transform: rotate(-60deg); }
+          47%, 48% { transform: rotate(130deg); }
+          49%, 100% { transform: rotate(0deg); }
         }
         @keyframes armFlailRight {
-          0%, 44% { transform: rotate(0deg); }
-          45%, 46% { transform: rotate(-130deg); }
-          47%, 48% { transform: rotate(60deg); }
-          49%, 50% { transform: rotate(-130deg); }
-          51%, 100% { transform: rotate(0deg); }
+          0%, 27% { transform: rotate(0deg); }
+          28%, 29% { transform: rotate(-130deg); }
+          30%, 31% { transform: rotate(60deg); }
+          32%, 42% { transform: rotate(0deg); }
+          43%, 44% { transform: rotate(-130deg); }
+          45%, 46% { transform: rotate(60deg); }
+          47%, 48% { transform: rotate(-130deg); }
+          49%, 100% { transform: rotate(0deg); }
         }
         @keyframes deepSigh {
-          0%, 64% { transform: scale(1); }
-          65%, 67% { transform: scale(1.05, 1.15) translateY(-5px); } /* Inhale deeply */
-          68%, 70% { transform: scale(1.02, 0.95) translateY(2px); } /* Exhale heavily */
-          71%, 100% { transform: scale(1); }
+          0%, 54% { transform: scale(1); }
+          55%, 58% { transform: scale(1.05, 1.15) translateY(-5px); } /* Inhale deeply */
+          59%, 63% { transform: scale(1.02, 0.95) translateY(2px); } /* Exhale heavily */
+          64%, 100% { transform: scale(1); }
         }
         .robot-eye {
-          animation: eyeExpression 10s infinite;
+          animation: eyeExpression 14s infinite;
           transform-origin: center;
         }
         .robot-eyes-container {
-          animation: lookAround 10s infinite;
+          animation: lookAround 14s infinite;
         }
         .robot-body {
           animation: panting 0.6s infinite ease-in-out;
           transform-origin: bottom center;
         }
         .robot-heave {
-          animation: deepSigh 10s infinite ease-in-out;
+          animation: deepSigh 14s infinite ease-in-out;
           transform-origin: bottom center;
         }
         .robot-arm-left {
-          animation: armFlailLeft 10s infinite;
+          animation: armFlailLeft 14s infinite;
           transform-origin: 30px 75px;
         }
         .robot-arm-right {
-          animation: armFlailRight 10s infinite;
+          animation: armFlailRight 14s infinite;
           transform-origin: 70px 75px;
         }
         .robot-ear {
-          animation: earWiggle 10s infinite ease-in-out;
+          animation: earWiggle 14s infinite ease-in-out;
           transform-origin: right center;
         }
       `}} />

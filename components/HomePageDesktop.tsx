@@ -205,7 +205,7 @@ export default function HomePageDesktop() {
         }
 
         if (el) {
-          const y = el.getBoundingClientRect().top + window.scrollY - 20;
+          const y = el.getBoundingClientRect().top + window.scrollY - 100;
           window.scrollTo({ top: y, behavior: 'smooth' });
         }
 
@@ -563,7 +563,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </div>
 
       {/* Solutions */}
-      <section id="solutions" className="scroll-mt-32 light-sec vx-float" style={{ padding: "clamp(40px, 6vh, 80px) 0", position: "relative", overflow: "hidden" }}>
+      <section id="solutions" className="scroll-mt-32 light-sec vx-float" style={{ paddingBottom: "clamp(40px, 6vh, 80px)", paddingTop: "0px", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: "50%", left: "-10%", width: "40%", height: "60%", background: "radial-gradient(circle, rgba(139,92,246,0.08) 0%, rgba(0,0,0,0) 70%)", filter: "blur(60px)", pointerEvents: "none" }}></div>
         <div className="wrap">
           <div className="sol-split reveal in" style={{ display: "flex", alignItems: "center", gap: "clamp(40px, 5vw, 60px)", flexWrap: "wrap" }}>

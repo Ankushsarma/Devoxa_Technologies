@@ -159,28 +159,56 @@ export default function NotFound() {
         
       </div>
       
-      {/* Highly Visible Realistic Planet */}
+      {/* Cartoon Planets */}
+      
+      {/* Planet with Ring (Saturn style) */}
       <motion.div 
-        animate={{ rotate: 360 }}
-        transition={{ duration: 150, repeat: Infinity, ease: "linear" }}
-        className="absolute top-[-5%] left-[-10%] w-64 h-64 md:w-[400px] md:h-[400px] rounded-full z-0 pointer-events-none shadow-[inset_-20px_-20px_60px_rgba(0,0,0,0.9),_0_0_50px_rgba(120,87,255,0.3)]"
-        style={{
-          background: "radial-gradient(circle at 30% 30%, #5B3DF5 0%, #150D3A 50%, #000 100%)",
-        }}
+        animate={{ y: [-20, 20, -20], rotate: [0, 5, 0] }}
+        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-[10%] right-[10%] md:right-[15%] w-32 h-32 md:w-48 md:h-48 z-0 pointer-events-none drop-shadow-[0_0_20px_rgba(120,87,255,0.4)]"
       >
-        <div className="absolute top-[25%] left-[25%] w-[15%] h-[15%] rounded-full bg-black/40 blur-[2px]" />
-        <div className="absolute top-[60%] left-[50%] w-[25%] h-[25%] rounded-full bg-black/30 blur-[4px]" />
+        <svg viewBox="0 0 100 100" className="w-full h-full text-[#7857FF]">
+           <path d="M 10 50 A 40 15 0 0 1 90 50" fill="none" stroke="#00F0FF" strokeWidth="3" />
+           <circle cx="50" cy="50" r="28" fill="currentColor" />
+           <path d="M 10 50 A 40 15 0 0 0 90 50" fill="none" stroke="#00F0FF" strokeWidth="6" />
+        </svg>
       </motion.div>
 
-      {/* Orbiting Satellite in Background */}
+      {/* Small Cyan Cartoon Planet */}
       <motion.div 
-        animate={{ rotate: -360 }}
-        transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vw] h-[120vw] md:w-[70vw] md:h-[70vw] rounded-full z-0 pointer-events-none border border-white/5"
+        animate={{ y: [0, -30, 0], x: [0, 20, 0] }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-[20%] left-[10%] md:left-[15%] w-16 h-16 md:w-24 md:h-24 rounded-full bg-gradient-to-tr from-[#00F0FF] to-[#150D3A] shadow-[0_0_20px_rgba(0,240,255,0.4)] z-0 pointer-events-none"
+      />
+
+      {/* Tiny Pink Moon */}
+      <motion.div 
+        animate={{ y: [0, 40, 0], x: [0, -20, 0] }}
+        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-[30%] left-[5%] md:left-[25%] w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-tr from-[#FF3366] to-[#7857FF] shadow-[0_0_15px_rgba(255,51,102,0.4)] z-0 pointer-events-none"
+      />
+
+      {/* Random Moving Satellites */}
+      <motion.div 
+        animate={{ x: ['-20vw', '120vw'], y: ['20vh', '80vh'] }}
+        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        className="absolute top-0 left-0 text-[#A893FF] opacity-60 pointer-events-none z-0"
       >
-        <div className="absolute -top-[20px] left-[50%] -translate-x-1/2 text-[#00F0FF] opacity-80 drop-shadow-[0_0_10px_#00F0FF]">
-          <Satellite size={40} />
-        </div>
+        <Satellite size={32} />
+      </motion.div>
+      <motion.div 
+        animate={{ x: ['120vw', '-20vw'], y: ['60vh', '10vh'] }}
+        transition={{ duration: 30, repeat: Infinity, ease: "linear", delay: 5 }}
+        className="absolute top-0 left-0 text-[#00F0FF] opacity-50 pointer-events-none z-0 rotate-[45deg]"
+      >
+        <Satellite size={24} />
+      </motion.div>
+      <motion.div 
+        animate={{ x: ['-20vw', '120vw'], y: ['90vh', '30vh'] }}
+        transition={{ duration: 35, repeat: Infinity, ease: "linear", delay: 15 }}
+        className="absolute top-0 left-0 text-[#FF3366] opacity-40 pointer-events-none z-0 -rotate-[30deg]"
+      >
+        <Satellite size={28} />
       </motion.div>
 
     </section>

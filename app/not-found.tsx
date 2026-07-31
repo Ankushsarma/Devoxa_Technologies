@@ -37,8 +37,46 @@ export default function NotFound() {
       {/* Cyber Grid Background */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_70%_50%_at_50%_50%,#000_20%,transparent_100%)] pointer-events-none z-0"></div>
 
+      {/* Massive Watermark */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[28vw] font-black text-white/[0.02] pointer-events-none select-none z-0 tracking-widest whitespace-nowrap">
+        VOID
+      </div>
+
+      {/* Flying Spacecrafts & Elements */}
+      <motion.div 
+        animate={{ x: ['-20vw', '120vw'], y: ['20vh', '10vh'] }}
+        transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+        className="absolute top-[20%] left-0 text-4xl opacity-50 z-0 pointer-events-none"
+      >
+        🚀
+      </motion.div>
+
+      <motion.div 
+        animate={{ x: ['120vw', '-20vw'], y: ['70vh', '80vh'] }}
+        transition={{ duration: 25, repeat: Infinity, ease: "linear", delay: 5 }}
+        className="absolute bottom-[20%] right-0 text-5xl opacity-40 z-0 pointer-events-none"
+      >
+        🛸
+      </motion.div>
+      
+      <motion.div 
+        animate={{ x: ['-20vw', '120vw'], y: ['50vh', '70vh'], rotate: [0, 360] }}
+        transition={{ duration: 35, repeat: Infinity, ease: "linear", delay: 2 }}
+        className="absolute top-[50%] left-0 text-3xl opacity-30 z-0 pointer-events-none"
+      >
+        ☄️
+      </motion.div>
+      
+      <motion.div 
+        animate={{ x: ['120vw', '-20vw'], y: ['30vh', '20vh'], rotate: [0, -360] }}
+        transition={{ duration: 45, repeat: Infinity, ease: "linear", delay: 10 }}
+        className="absolute top-[30%] right-0 text-2xl opacity-20 z-0 pointer-events-none"
+      >
+        🛰️
+      </motion.div>
+
       {/* Main Content */}
-      <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-3xl">
+      <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-3xl transform scale-[0.75] md:scale-[0.85] lg:scale-90 xl:scale-95 origin-center">
         
         {/* Animated 404 Text with Glitch/Glow Layers */}
         <div className="relative mb-6">

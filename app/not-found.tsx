@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowRight, Compass, Globe, Bot, Satellite } from 'lucide-react';
+import { ArrowRight, Compass, Globe, Bot, Satellite, TriangleAlert } from 'lucide-react';
 import Image from 'next/image';
 
 export default function NotFound() {
@@ -49,12 +49,16 @@ export default function NotFound() {
       >
         
         {/* Floating Top 404 Badge */}
-        <div className="absolute -top-12 md:-top-16 bg-white shadow-[0_15px_35px_rgba(150,150,250,0.15)] rounded-full px-10 md:px-14 py-4 md:py-6 border border-purple-50 flex items-center justify-center z-20">
+        <div className="absolute -top-12 md:-top-16 bg-white/70 backdrop-blur-md shadow-[0_10px_40px_rgba(150,150,250,0.15),inset_0_2px_15px_rgba(255,255,255,1)] rounded-full px-12 md:px-16 py-5 md:py-7 border border-white/60 flex items-center justify-center z-20">
           {/* Orbital Rings around the badge */}
-          <div className="absolute w-[140%] h-[140%] border border-purple-200/50 rounded-full -rotate-12 pointer-events-none"></div>
-          <div className="absolute w-[120%] h-[120%] border border-pink-200/50 rounded-full rotate-45 pointer-events-none"></div>
+          <div className="absolute w-[160%] h-[160%] border-[1.5px] border-purple-200/50 rounded-full -rotate-12 pointer-events-none flex items-center justify-start">
+             <div className="w-2.5 h-2.5 rounded-full bg-purple-400 -ml-[5px] shadow-[0_0_10px_rgba(168,85,247,0.8)]"></div>
+          </div>
+          <div className="absolute w-[130%] h-[130%] border-[1.5px] border-pink-200/50 rounded-full rotate-45 pointer-events-none flex items-end justify-center">
+             <div className="w-2 h-2 rounded-full bg-pink-400 -mb-[4px] shadow-[0_0_8px_rgba(244,114,182,0.8)]"></div>
+          </div>
           
-          <h1 className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+          <h1 className="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-br from-[#714DF9] to-[#AD4BFF]">
             404
           </h1>
         </div>
@@ -64,8 +68,11 @@ export default function NotFound() {
           {/* Left Content Side */}
           <div className="w-full md:w-[55%] flex flex-col justify-center space-y-4 md:space-y-6 z-10">
             
-            <div className="bg-[#F3F0FF] text-[#7857FF] rounded-full px-4 py-2 w-max font-semibold text-sm flex items-center gap-2 shadow-sm">
-              <span className="text-base">⚠️</span> Oops! You're lost
+            <div className="bg-[#F3F0FF] text-[#7857FF] rounded-full px-4 py-2 w-max font-semibold text-sm flex items-center gap-2.5 shadow-sm border border-[#EBE4FF]">
+              <div className="bg-[#7857FF] text-white rounded-sm w-4 h-4 flex items-center justify-center">
+                <TriangleAlert size={10} fill="currentColor" className="text-white" /> 
+              </div>
+              Oops! You're lost
             </div>
             
             <h2 className="text-4xl md:text-5xl lg:text-6xl md:leading-[1.1] font-extrabold text-[#1a1b2e] tracking-tight">
@@ -80,28 +87,30 @@ export default function NotFound() {
                 or has been moved to another galaxy. 🪐
               </p>
               {/* Little dashed arrow decoration */}
-              <svg className="absolute -right-4 -top-6 hidden lg:block text-purple-300 w-24 h-12" fill="none" viewBox="0 0 100 50">
-                <path d="M10,40 Q40,60 60,30 T95,15" stroke="currentColor" strokeWidth="2" strokeDasharray="5,5" fill="none" />
-                <path d="M90,10 L98,13 L93,20" stroke="currentColor" strokeWidth="2" fill="none" />
+              <svg className="absolute right-0 -bottom-2 hidden lg:block text-purple-300 w-32 h-16" fill="none" viewBox="0 0 120 60">
+                <path d="M10,50 Q60,60 90,30 T115,10" stroke="currentColor" strokeWidth="2" strokeDasharray="6,6" fill="none" />
+                <path d="M105,8 L116,8 L112,18" stroke="currentColor" strokeWidth="2" fill="none" />
               </svg>
             </div>
             
             <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 pt-4">
               <Link 
                 href="/" 
-                className="group w-full sm:w-auto bg-gradient-to-r from-[#5B3DF5] to-[#7E45FE] text-white rounded-[100px] px-8 py-4 font-bold text-lg flex items-center justify-between sm:justify-center gap-4 hover:shadow-[0_15px_30px_rgba(91,61,245,0.3)] transition-all hover:scale-105 active:scale-95"
+                className="group w-full sm:w-auto bg-gradient-to-b from-[#7A50F9] to-[#512DE2] text-white rounded-[100px] pl-8 pr-2 py-2 font-bold text-lg flex items-center justify-between sm:justify-center gap-6 shadow-[0_15px_30px_rgba(91,61,245,0.3),inset_0_2px_4px_rgba(255,255,255,0.3)] transition-all hover:scale-[1.02] active:scale-95"
               >
                 Take Me Home
-                <div className="bg-white text-[#5B3DF5] rounded-full p-1.5 group-hover:translate-x-1 transition-transform">
+                <div className="bg-white text-[#5B3DF5] rounded-full p-2.5 shadow-sm group-hover:translate-x-1 transition-transform">
                   <ArrowRight size={20} strokeWidth={3} />
                 </div>
               </Link>
               
               <Link 
                 href="/" 
-                className="w-full sm:w-auto text-[#5B3DF5] font-bold flex items-center justify-center gap-2 hover:text-[#4221d6] transition-colors bg-white px-6 py-4 rounded-full border border-purple-100 shadow-sm hover:shadow-md"
+                className="w-full sm:w-auto text-[#7857FF] font-bold flex items-center justify-center gap-3 hover:text-[#5B3DF5] transition-colors"
               >
-                <Compass size={20} className="text-[#967CFF]" />
+                <div className="text-[#7857FF] p-1.5 border border-[#7857FF]/30 rounded-full flex items-center justify-center bg-[#F3F0FF]">
+                  <Compass size={18} />
+                </div>
                 Explore Our Website
               </Link>
             </div>

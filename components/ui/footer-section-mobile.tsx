@@ -45,28 +45,33 @@ const footerLinks: FooterSection[] = [
 	},
 ];
 
-export function FooterMobile() {
+interface FooterMobileProps {
+	compact?: boolean;
+	style?: React.CSSProperties;
+}
+
+export function FooterMobile({ compact = false, style }: FooterMobileProps) {
 	return (
 		<footer
 			className="relative w-full flex flex-col justify-start rounded-t-3xl border-t border-white/10 bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)] overflow-hidden"
-			style={{ paddingTop: "56px", paddingBottom: "32px", paddingLeft: "20px", paddingRight: "20px" }}
+			style={{ paddingTop: "56px", paddingBottom: "32px", paddingLeft: "20px", paddingRight: "20px", ...style }}
 		>
 			<div className="bg-foreground/20 absolute top-0 right-1/2 left-1/2 h-px w-1/3 -translate-x-1/2 -translate-y-1/2 rounded-full blur" />
 
-			<div className="w-full max-w-2xl md:max-w-4xl mx-auto flex flex-col gap-8 px-2 sm:px-6">
+			<div className={`w-full max-w-2xl md:max-w-4xl mx-auto flex flex-col ${compact ? 'gap-4' : 'gap-8'} px-2 sm:px-6`}>
 
 				{/* Left CTA */}
 				<AnimatedContainer delay={0.2} className="flex flex-col items-start sm:items-center text-left sm:text-center w-full">
-					<h2 className="text-2xl sm:text-3xl font-serif text-white leading-tight mb-3">
+					<h2 className={`${compact ? 'text-xl' : 'text-2xl sm:text-3xl'} font-serif text-white leading-tight ${compact ? 'mb-1' : 'mb-3'}`}>
 						Let's build something<br />
 						amazing <span className="text-[#a78bfa]">together.</span>
 					</h2>
-					<p className="text-gray-400 text-xs sm:text-sm leading-relaxed max-w-xs sm:max-w-sm mb-0">
+					<p className={`text-gray-400 text-xs sm:text-sm leading-relaxed max-w-xs sm:max-w-sm ${compact ? 'mb-2' : 'mb-0'}`}>
 						We partner with ambitious businesses to design, build and scale digital products that drive real impact.
 					</p>
 
 					{/* Contact Info */}
-					<div className="flex flex-col sm:flex-row w-full gap-4 sm:justify-center mt-5 mb-4">
+					<div className={`flex flex-col sm:flex-row w-full ${compact ? 'gap-2 mt-2 mb-2' : 'gap-4 mt-5 mb-4'} sm:justify-center`}>
 						<a href="tel:8544005858" className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-300">
 							<div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10 shrink-0">
 								<Phone className="w-3.5 h-3.5 text-[#a78bfa]" />
@@ -82,7 +87,7 @@ export function FooterMobile() {
 					</div>
 
 					{/* Social Media Icons */}
-					<div className="flex text-gray-400 gap-8 sm:gap-10 w-full justify-center items-center mt-4 mb-3">
+					<div className={`flex text-gray-400 ${compact ? 'gap-6 mt-2 mb-1' : 'gap-8 sm:gap-10 mt-4 mb-3'} w-full justify-center items-center`}>
 						<a href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:text-white hover:border-white/30 transition-all bg-white/5">
 							<Youtube className="size-4" />
 						</a>
@@ -99,7 +104,7 @@ export function FooterMobile() {
 				</AnimatedContainer>
 
 				{/* Middle Links Grid */}
-				<div className="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-6 border-t border-white/5">
+				<div className={`grid grid-cols-2 sm:grid-cols-3 ${compact ? 'gap-4 pt-4' : 'gap-6 pt-6'} border-t border-white/5`}>
 					{footerLinks.map((section: FooterSection, index: number) => (
 						<AnimatedContainer key={section.label} delay={0.3 + index * 0.1}>
 							<div>

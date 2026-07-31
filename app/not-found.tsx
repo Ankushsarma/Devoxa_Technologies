@@ -2,105 +2,161 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { AlertTriangle, ArrowRight, Compass } from 'lucide-react';
+import CuteRobot from '@/components/ui/CuteRobot';
 
 export default function NotFound() {
   return (
-    <section className="h-screen w-screen overflow-hidden bg-[#fafafa] flex flex-col items-center justify-center font-sans text-black relative">
+    <section className="min-h-screen w-full overflow-hidden bg-[#f4f7ff] flex flex-col items-center justify-center font-sans relative px-4 py-10">
       
-      {/* Ambient Premium Glowing Background Orbs */}
-      <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-purple-400/30 rounded-full blur-[120px] pointer-events-none animate-pulse" style={{ animationDuration: '6s' }} />
-      <div className="absolute bottom-[-20%] right-[-10%] w-[700px] h-[700px] bg-emerald-400/20 rounded-full blur-[150px] pointer-events-none animate-pulse" style={{ animationDuration: '8s' }} />
-      <div className="absolute top-[30%] left-[50%] w-[400px] h-[400px] bg-blue-500/20 rounded-full blur-[120px] pointer-events-none -translate-x-1/2 animate-pulse" style={{ animationDuration: '7s' }} />
-
-      {/* Massive Background Watermark with Pulse */}
-      <motion.div 
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 0.04, scale: 1 }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
-        className="absolute inset-0 flex items-center justify-center pointer-events-none"
-      >
-        <h1 className="text-[30vw] font-black tracking-tighter select-none bg-clip-text text-transparent bg-gradient-to-br from-black to-gray-500">
+      {/* Background Ambience */}
+      <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-[#e0d6ff] rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-[#d6e2ff] rounded-full blur-[100px] pointer-events-none" />
+      
+      {/* Huge Background Watermark */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0">
+        <h1 className="text-[35vw] font-black tracking-tighter text-white drop-shadow-md">
           404
         </h1>
-      </motion.div>
-
-      {/* Flying UFO */}
-      <motion.div 
-        className="absolute top-20 text-5xl md:text-7xl z-20 pointer-events-none drop-shadow-2xl"
-        initial={{ x: '-20vw', y: 0, rotate: -15 }}
-        animate={{ 
-          x: '120vw', 
-          y: [0, -40, 20, -20, 0], 
-          rotate: [-15, 10, -5, 15, -15] 
-        }}
-        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-      >
-        🛸
-      </motion.div>
-
-      {/* Floating Planet */}
-      <motion.div 
-        className="absolute top-[15%] right-[12%] text-6xl md:text-8xl opacity-80 drop-shadow-xl"
-        animate={{ y: [0, -30, 0], rotate: [0, 10, -10, 0] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      >
-        🪐
-      </motion.div>
-
-      <div className="container mx-auto max-w-4xl text-center flex flex-col items-center justify-center h-full relative z-10 px-4">
-        
-        {/* GIF Background Container with Mix Blend Multiply to remove white background! */}
-        <motion.div 
-          initial={{ y: -50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, type: "spring", bounce: 0.5 }}
-          className="relative h-[250px] md:h-[350px] w-full max-w-[600px] mx-auto bg-center bg-no-repeat bg-contain mix-blend-multiply drop-shadow-2xl"
-          style={{ backgroundImage: 'url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif)' }}
-        />
-        
-        <motion.div 
-          initial={{ y: 50, opacity: 0, scale: 0.95 }}
-          animate={{ y: 0, opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2, type: "spring", bounce: 0.4 }}
-          className="space-y-4 md:space-y-6 relative z-10 p-6 md:p-10 rounded-3xl -mt-4 bg-white/40 backdrop-blur-xl border border-white/50 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.15)] ring-1 ring-black/5"
-        >
-          
-          <h3 className="text-4xl md:text-5xl font-black bg-clip-text text-transparent bg-gradient-to-r from-violet-600 via-pink-600 to-orange-500 tracking-tight" style={{ backgroundSize: '200% auto', animation: 'gradientMove 4s ease infinite' }}>
-            Congratulations! You broke the internet. 🎉
-          </h3>
-          
-          <div className="space-y-3">
-            <p className="text-gray-700 text-lg md:text-xl font-medium max-w-lg mx-auto">
-              Just kidding. But seriously, the page you're looking for doesn't exist. Maybe our cute robot took it for a walk? 🤖🐕
-            </p>
-            <p className="text-gray-500 text-sm md:text-base font-medium">
-              We'd give you an award for finding this dead end, but we're out of budget. 🏆
-            </p>
-          </div>
-          
-          <div className="pt-6">
-            <Link 
-              href="/" 
-              className="group inline-flex items-center justify-center px-8 md:px-10 py-4 bg-gradient-to-r from-gray-900 to-black hover:from-black hover:to-gray-800 text-white font-bold text-lg rounded-2xl transition-all duration-300 hover:scale-[1.05] active:scale-95 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)] overflow-hidden relative ring-2 ring-transparent hover:ring-white/20"
-            >
-              <span className="absolute inset-0 w-full h-full rounded-lg opacity-30 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-              <span className="relative flex items-center gap-2">
-                Flee to Safety <span className="group-hover:translate-x-3 transition-transform duration-300">🏃‍♂️💨</span>
-              </span>
-            </Link>
-          </div>
-        </motion.div>
-
       </div>
       
-      {/* Dynamic Gradient Animation for Text */}
-      <style dangerouslySetInnerHTML={{__html: `
-        @keyframes gradientMove {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-      `}} />
+      {/* Floating 3D Planets (Emojis scaled up for ambient effect) */}
+      <motion.div className="absolute top-[15%] right-[5%] z-20 text-6xl drop-shadow-xl" animate={{ y: [0, -20, 0], rotate: [0, 5, -5, 0] }} transition={{ duration: 6, repeat: Infinity }}>
+        🪐
+      </motion.div>
+      <motion.div className="absolute bottom-[10%] left-[5%] z-20 text-7xl drop-shadow-xl" animate={{ y: [0, -30, 0], rotate: [0, 10, -10, 0] }} transition={{ duration: 8, repeat: Infinity }}>
+        🌍
+      </motion.div>
+
+      {/* Main Content Card */}
+      <div className="relative z-10 w-full max-w-[1100px] bg-white/80 backdrop-blur-3xl rounded-[40px] shadow-[0_20px_80px_-20px_rgba(0,0,0,0.05)] border border-white p-8 md:p-12 flex flex-col">
+        
+        {/* Top Section (Left and Right) */}
+        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-0">
+          
+          {/* Left Column - Text content */}
+          <div className="w-full lg:w-[55%] flex flex-col items-start text-left space-y-6">
+            
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#f0ecff] text-[#6b4cff] rounded-full text-sm font-semibold shadow-sm">
+              <AlertTriangle className="w-4 h-4" />
+              Oops! You're lost
+            </div>
+            
+            {/* Heading */}
+            <h2 className="text-5xl lg:text-[4.5rem] font-extrabold text-[#1c1c28] leading-[1.1] tracking-tight">
+              Looks like you've <br/>
+              wandered off <br/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6b4cff] to-[#b24cff]">the map!</span>
+            </h2>
+            
+            {/* Description */}
+            <p className="text-gray-500 text-lg max-w-[400px]">
+              The page you're looking for doesn't exist or has been moved to another galaxy. 🪐
+            </p>
+            
+            {/* Buttons */}
+            <div className="flex flex-wrap items-center gap-6 pt-4">
+              <Link href="/" className="group inline-flex items-center gap-4 px-6 py-4 bg-gradient-to-r from-[#4c24e8] to-[#6b4cff] hover:from-[#3f1bc4] hover:to-[#5536e0] text-white font-semibold rounded-full shadow-lg shadow-[#6b4cff]/40 transition-all hover:scale-105 active:scale-95">
+                Take Me Home
+                <div className="bg-white text-[#6b4cff] rounded-full p-[6px] group-hover:translate-x-1 transition-transform">
+                  <ArrowRight className="w-5 h-5" />
+                </div>
+              </Link>
+              
+              <Link href="/" className="inline-flex items-center gap-2 text-[#6b4cff] font-semibold hover:text-[#4c24e8] transition-colors">
+                <Compass className="w-5 h-5" />
+                Explore Our Website
+              </Link>
+            </div>
+            
+          </div>
+          
+          {/* Right Column - Robot & Graphic */}
+          <div className="w-full lg:w-[45%] relative flex justify-center items-center min-h-[400px]">
+            {/* 404 Floating Bubble behind robot */}
+            <motion.div 
+              className="absolute top-0 w-[220px] h-[220px] rounded-full border-2 border-purple-100 bg-white shadow-[0_0_50px_rgba(107,76,255,0.15)] flex items-center justify-center z-0"
+              animate={{ y: [-15, 15, -15] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#6b4cff] to-[#b24cff] font-black text-7xl">404</span>
+            </motion.div>
+
+            {/* Sparkles around robot */}
+            <div className="absolute top-[20%] left-[10%] text-yellow-400 text-2xl animate-pulse">✨</div>
+            <div className="absolute bottom-[30%] right-[10%] text-yellow-400 text-2xl animate-pulse" style={{ animationDelay: '1s'}}>✨</div>
+            
+            {/* Robot Component Container - We scale it down slightly so it fits beautifully */}
+            <div className="relative z-10 w-[320px] h-[320px] flex items-end justify-center">
+              <div className="scale-75 origin-bottom">
+                <CuteRobot />
+              </div>
+            </div>
+
+            {/* Speech Bubble */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.5, type: 'spring', bounce: 0.5 }}
+              className="absolute top-[15%] right-[-10%] bg-white shadow-xl shadow-gray-200/50 rounded-2xl p-4 text-sm font-semibold text-gray-600 z-20 border border-gray-100"
+            >
+              Should I take <br/> you home? 🏠
+              <div className="absolute bottom-[-6px] left-[20px] w-4 h-4 bg-white border-b border-r border-gray-100 rotate-45"></div>
+            </motion.div>
+
+          </div>
+          
+        </div>
+        
+        {/* Bottom Info Cards Section */}
+        <div className="mt-16 pt-8 border-t border-gray-100/50 grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          {/* Card 1 */}
+          <div className="flex items-center gap-4 p-4 rounded-2xl hover:bg-gray-50/80 transition-colors cursor-pointer group">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#f4f0ff] to-white flex items-center justify-center flex-shrink-0 shadow-sm border border-purple-50 group-hover:scale-110 transition-transform">
+              <span className="text-2xl drop-shadow-sm">🪐</span>
+            </div>
+            <div>
+              <h4 className="font-bold text-[#1c1c28]">Lost in Space?</h4>
+              <p className="text-gray-400 text-xs mt-1 leading-relaxed">Let's get you back to the right place.</p>
+            </div>
+          </div>
+          
+          {/* Card 2 */}
+          <div className="flex items-center gap-4 p-4 rounded-2xl hover:bg-gray-50/80 transition-colors cursor-pointer group">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#f0f5ff] to-white flex items-center justify-center flex-shrink-0 shadow-sm border border-blue-50 group-hover:scale-110 transition-transform">
+              <span className="text-2xl drop-shadow-sm">🤖</span>
+            </div>
+            <div>
+              <h4 className="font-bold text-[#1c1c28]">Something Missing?</h4>
+              <p className="text-gray-400 text-xs mt-1 leading-relaxed">Maybe what you need was moved or removed.</p>
+            </div>
+          </div>
+          
+          {/* Card 3 */}
+          <div className="flex items-center gap-4 p-4 rounded-2xl hover:bg-gray-50/80 transition-colors cursor-pointer group">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#f8f0ff] to-white flex items-center justify-center flex-shrink-0 shadow-sm border border-pink-50 group-hover:scale-110 transition-transform">
+              <span className="text-2xl drop-shadow-sm">🛰️</span>
+            </div>
+            <div>
+              <h4 className="font-bold text-[#1c1c28]">Still Need Help?</h4>
+              <p className="text-gray-400 text-xs mt-1 leading-relaxed">Contact our team, we're here for you.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* Footer Text */}
+      <div className="mt-10 relative z-10 text-center">
+        <p className="text-gray-500 font-medium text-sm">
+          We'd give you an award for finding this dead end, 
+          but we're out of budget. 🏆
+        </p>
+      </div>
+
     </section>
   );
 }

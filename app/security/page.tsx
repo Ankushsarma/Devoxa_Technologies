@@ -136,6 +136,10 @@ export default function SecurityPolicy() {
           </Link>
 
           <div className="flex items-center gap-3">
+            <Link href="/" className="px-3 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:text-white hover:bg-white/10 active:scale-95 transition-all gap-1.5">
+              <ArrowLeft className="w-3.5 h-3.5" />
+              <span className="text-xs font-semibold">Back</span>
+            </Link>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="w-9 h-9 rounded-full bg-purple-950/80 border border-purple-500/30 flex items-center justify-center text-white"

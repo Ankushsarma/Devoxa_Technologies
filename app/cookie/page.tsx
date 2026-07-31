@@ -453,8 +453,8 @@ export default function CookiePolicy() {
       <div className="hidden lg:block">
         <Footer />
       </div>
-      <div className="block lg:hidden mt-12 sm:mt-16">
-        <FooterMobile compact={true} style={{ paddingTop: '30px', paddingBottom: '10px' }} />
+      <div className="block lg:hidden">
+        <FooterMobile />
       </div>
     </div>
   );

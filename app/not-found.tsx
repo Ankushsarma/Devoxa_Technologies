@@ -45,7 +45,7 @@ export default function NotFound() {
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
-        className="relative z-10 w-[95%] xl:w-[90%] max-w-[1400px] bg-white/90 backdrop-blur-xl rounded-[40px] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] border border-white p-6 md:p-8 lg:p-10 my-4 md:my-0 flex flex-col items-center"
+        className="relative z-10 w-[95%] xl:w-[90%] max-w-[1400px] bg-white/90 backdrop-blur-xl rounded-[40px] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] border border-white py-4 md:py-6 lg:py-8 px-6 md:px-12 lg:px-16 my-2 md:my-0 flex flex-col items-center"
       >
         
         {/* Floating Top 404 Badge */}
@@ -63,10 +63,10 @@ export default function NotFound() {
           </h1>
         </div>
 
-        <div className="flex flex-col md:flex-row w-full mt-8 md:mt-6 gap-8 md:gap-0">
+        <div className="flex flex-col md:flex-row w-full mt-4 md:mt-5 gap-6 md:gap-0">
           
           {/* Left Content Side */}
-          <div className="w-full md:w-[55%] flex flex-col justify-center space-y-4 md:space-y-6 z-10">
+          <div className="w-full md:w-[55%] flex flex-col justify-center space-y-3 md:space-y-4 z-10">
             
             <div className="bg-[#F3F0FF] text-[#7857FF] rounded-full px-4 py-2 w-max font-semibold text-sm flex items-center gap-2.5 shadow-sm border border-[#EBE4FF]">
               <div className="bg-[#7857FF] text-white rounded-sm w-4 h-4 flex items-center justify-center">
@@ -75,14 +75,14 @@ export default function NotFound() {
               Oops! You're lost
             </div>
             
-            <h2 className="text-4xl md:text-5xl lg:text-6xl md:leading-[1.1] font-extrabold text-[#1a1b2e] tracking-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl md:leading-tight font-extrabold text-[#1a1b2e] tracking-tight">
               Looks like you've <br className="hidden md:block" />
               wandered off <br className="hidden md:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7857FF] to-[#D754FF]">the map!</span>
             </h2>
             
             <div className="relative">
-              <p className="text-gray-500 md:text-lg font-medium leading-relaxed">
+              <p className="text-gray-500 md:text-base font-medium leading-relaxed">
                 The page you're looking for doesn't exist <br className="hidden md:block" />
                 or has been moved to another galaxy. 🪐
               </p>
@@ -93,7 +93,7 @@ export default function NotFound() {
               </svg>
             </div>
             
-            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 pt-4">
+            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 pt-2">
               <Link 
                 href="/" 
                 className="group w-full sm:w-auto bg-gradient-to-b from-[#7A50F9] to-[#512DE2] text-white rounded-[100px] pl-8 pr-2 py-2 font-bold text-lg flex items-center justify-between sm:justify-center gap-6 shadow-[0_15px_30px_rgba(91,61,245,0.3),inset_0_2px_4px_rgba(255,255,255,0.3)] transition-all hover:scale-[1.02] active:scale-95"
@@ -128,7 +128,7 @@ export default function NotFound() {
               className="relative z-10"
             >
               {/* If image missing, we can use an emoji or the image we created. We assume public/images/robot-404.png exists */}
-              <div className="relative w-[250px] h-[250px] md:w-[350px] md:h-[350px] lg:w-[400px] lg:h-[400px]">
+              <div className="relative w-[220px] h-[220px] md:w-[280px] md:h-[280px] lg:w-[320px] lg:h-[320px]">
                 <Image 
                   src="/images/robot-404.png" 
                   alt="Cute lost 3D robot looking at a map" 
@@ -152,7 +152,7 @@ export default function NotFound() {
         </div>
 
         {/* --- Bottom Feature Cards --- */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-0 bg-[#FAFBFF] rounded-[24px] p-3 md:p-5 mt-6 md:mt-8 border border-indigo-50/50 shadow-inner">
+        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-0 bg-[#FAFBFF] rounded-[24px] p-3 md:p-4 mt-4 md:mt-5 border border-indigo-50/50 shadow-inner">
           
           <div className="flex items-center gap-4 md:pr-6 md:border-r border-indigo-100">
             <div className="bg-gradient-to-br from-[#F5F0FF] to-[#EBE3FF] p-3 rounded-2xl shadow-sm border border-white">
@@ -187,7 +187,7 @@ export default function NotFound() {
         </div>
 
         {/* --- Bottom Footer Text --- */}
-        <div className="flex items-center gap-4 mt-6 md:mt-8 w-full justify-center opacity-80">
+        <div className="flex items-center gap-4 mt-4 md:mt-6 w-full justify-center opacity-80">
           <div className="h-[2px] w-12 md:w-32 bg-gradient-to-r from-transparent to-purple-200"></div>
           <p className="text-xs md:text-sm text-gray-500 text-center font-medium">
             We'd give you an award for finding this dead end,<br className="hidden md:block"/>

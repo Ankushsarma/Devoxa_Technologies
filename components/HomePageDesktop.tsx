@@ -1063,7 +1063,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         </div>
       </section>
 
-      <Footer className="pb-16 lg:pb-32 xl:pb-40" />
+      <Footer className="pb-[120px] lg:pb-[200px] xl:pb-[280px]" />
     </>
   )
 }

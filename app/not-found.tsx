@@ -45,7 +45,7 @@ export default function NotFound() {
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
-        className="relative z-10 w-[95%] max-w-[1000px] bg-white/90 backdrop-blur-xl rounded-[40px] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] border border-white p-4 md:p-8 my-4 md:my-0 flex flex-col items-center origin-center scale-[0.70] sm:scale-[0.75] md:scale-[0.65] lg:scale-[0.75] xl:scale-[0.85] 2xl:scale-95"
+        className="relative z-10 w-[95%] xl:w-[90%] max-w-[1400px] bg-white/90 backdrop-blur-xl rounded-[40px] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] border border-white p-6 md:p-8 lg:p-10 my-4 md:my-0 flex flex-col items-center"
       >
         
         {/* Floating Top 404 Badge */}
@@ -75,7 +75,7 @@ export default function NotFound() {
               Oops! You're lost
             </div>
             
-            <h2 className="text-3xl md:text-4xl lg:text-5xl md:leading-[1.1] font-extrabold text-[#1a1b2e] tracking-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl md:leading-[1.1] font-extrabold text-[#1a1b2e] tracking-tight">
               Looks like you've <br className="hidden md:block" />
               wandered off <br className="hidden md:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7857FF] to-[#D754FF]">the map!</span>
@@ -128,7 +128,7 @@ export default function NotFound() {
               className="relative z-10"
             >
               {/* If image missing, we can use an emoji or the image we created. We assume public/images/robot-404.png exists */}
-              <div className="relative w-[220px] h-[220px] md:w-[280px] md:h-[280px]">
+              <div className="relative w-[250px] h-[250px] md:w-[350px] md:h-[350px] lg:w-[400px] lg:h-[400px]">
                 <Image 
                   src="/images/robot-404.png" 
                   alt="Cute lost 3D robot looking at a map" 

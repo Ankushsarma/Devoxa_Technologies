@@ -23,7 +23,9 @@ import {
 import Particles from "@/components/Particles";
 import ShinyText from "@/components/ShinyText";
 import { Footer } from "@/components/ui/footer-section";
+import { FooterMobile } from "@/components/ui/footer-section-mobile";
 import ConsultationModal from "@/components/ConsultationModal";
+import FloatingScrollButton from "@/components/FloatingScrollButton";
 
 export default function TermsOfService() {
   const [activeSection, setActiveSection] = useState("terms-1");
@@ -423,10 +425,16 @@ export default function TermsOfService() {
       </section>
 
       {/* Shared Reusable Desktop Footer Component */}
-      <Footer />
+      <div className="hidden lg:block">
+        <Footer />
+      </div>
+      <div className="block lg:hidden">
+        <FooterMobile />
+      </div>
 
       {/* Consultation Modal */}
       <ConsultationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <FloatingScrollButton />
     </div>
   );
 }

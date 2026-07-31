@@ -26,6 +26,7 @@ import ShinyText from "@/components/ShinyText";
 import ConsultationModal from "@/components/ConsultationModal";
 import { Footer } from "@/components/ui/footer-section";
 import { FooterMobile } from "@/components/ui/footer-section-mobile";
+import FloatingScrollButton from "@/components/FloatingScrollButton";
 
 export default function SecurityPolicy() {
   const [activeSection, setActiveSection] = useState("section-1");
@@ -452,6 +453,7 @@ export default function SecurityPolicy() {
       <div className="block lg:hidden">
         <FooterMobile />
       </div>
+      <FloatingScrollButton />
     </div>
   );
 }

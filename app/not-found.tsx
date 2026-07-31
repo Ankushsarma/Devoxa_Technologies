@@ -113,10 +113,10 @@ export default function NotFound() {
           </div>
 
           <h2 className="text-3xl md:text-5xl font-bold mb-4 tracking-tight">
-            You just glitch'd the <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00F0FF] to-[#7857FF]">Matrix</span>
+            Connection to <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00F0FF] to-[#7857FF]">Sector 404</span> Lost
           </h2>
           <p className="text-gray-400 text-base md:text-xl max-w-xl mx-auto mb-10 leading-relaxed">
-            We asked the AI, bribed the IT guy with coffee, and even searched inside a black hole. Result: This page simply doesn't exist. You might want to slowly back away before something explodes! 💥
+            The data packet you requested could not be found on this server. It may have been encrypted, relocated, or permanently purged from our active archives. Please return to the mainframe.
           </p>
         </motion.div>
 

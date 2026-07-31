@@ -72,7 +72,7 @@ export default function NotFound() {
       </motion.div>
 
       {/* Main Content */}
-      <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-3xl transform scale-[0.75] md:scale-[0.85] lg:scale-90 xl:scale-95 origin-center">
+      <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-3xl transform scale-[0.60] sm:scale-[0.65] md:scale-[0.70] lg:scale-[0.75] xl:scale-[0.80] origin-center">
         
         {/* Animated 404 Text with Sharp Cyber Glitch Effects */}
         <div className="relative mb-6">

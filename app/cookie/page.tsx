@@ -6,7 +6,7 @@ import {
   ShieldCheck, 
   FileText, 
   Lock, 
-  Eye, 
+  Eye, Info, Settings, Database, Sliders, RefreshCw, 
   Share2, 
   UserCheck, 
   Mail, 
@@ -27,7 +27,7 @@ import ConsultationModal from "@/components/ConsultationModal";
 import { Footer } from "@/components/ui/footer-section";
 import { FooterMobile } from "@/components/ui/footer-section-mobile";
 
-export default function PrivacyPolicy() {
+export default function CookiePolicy() {
   const [activeSection, setActiveSection] = useState("section-1");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -70,13 +70,13 @@ export default function PrivacyPolicy() {
   };
 
   const navItems = [
-    { id: "section-1", title: "1. Information We Collect", icon: Eye },
-    { id: "section-2", title: "2. How We Use Information", icon: Layers },
-    { id: "section-3", title: "3. Cookies & Tracking", icon: FileText },
-    { id: "section-4", title: "4. Third-Party Sharing", icon: Share2 },
-    { id: "section-5", title: "5. Data Security & Storage", icon: Lock },
-    { id: "section-6", title: "6. Your Privacy Rights", icon: UserCheck },
-    { id: "section-7", title: "7. Contact Legal Team", icon: Mail },
+    { id: "section-1", title: "1. What Are Cookies?", icon: Info },
+    { id: "section-2", title: "2. How We Use Cookies", icon: Settings },
+    { id: "section-3", title: "3. Types of Cookies", icon: Database },
+    { id: "section-4", title: "4. Third-Party Cookies", icon: Share2 },
+    { id: "section-5", title: "5. Managing Your Cookies", icon: Sliders },
+    { id: "section-6", title: "6. Policy Updates", icon: RefreshCw },
+    { id: "section-7", title: "7. Contact Us", icon: Mail },
   ];
 
   return (
@@ -190,11 +190,11 @@ export default function PrivacyPolicy() {
           </div>
 
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-6">
-            <ShinyText text="Privacy Policy" color="#ffffff" shineColor="#8b5cf6" speed={3} />
+            <ShinyText text="Cookie Policy" color="#ffffff" shineColor="#8b5cf6" speed={3} />
           </h1>
 
           <p className="text-gray-300 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed font-light mb-8">
-            Your trust is fundamental to us. Learn how Devoxa Technologies collects, protects, and handles your personal information across our platforms.
+            Understand how Devoxa Technologies uses cookies and similar technologies to provide, customize, evaluate, improve, and protect our services.
           </p>
 
           {/* Metadata Badges */}
@@ -221,7 +221,7 @@ export default function PrivacyPolicy() {
               <div className="bg-[#0c0817]/90 border border-purple-500/20 rounded-3xl p-6 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.6)]">
                 <h3 className="text-xs font-mono font-bold tracking-widest text-purple-300 uppercase mb-4 pb-3 border-b border-white/10 flex items-center justify-between">
                   <span>TABLE OF CONTENTS</span>
-                  <FileText className="w-4 h-4 text-purple-400" />
+                  <Database className="w-4 h-4 text-purple-400" />
                 </h3>
                 <nav className="space-y-1.5">
                   {navItems.map((item) => {
@@ -274,7 +274,7 @@ export default function PrivacyPolicy() {
             {/* Introduction Callout Card */}
             <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-purple-950/50 via-[#0c0817] to-indigo-950/50 border border-purple-500/30 text-gray-200 text-sm sm:text-base leading-relaxed backdrop-blur-xl shadow-lg">
               <p className="font-light">
-                At <strong className="text-white font-semibold">Devoxa Technologies Pvt. Ltd.</strong>, accessible from <Link href="/" className="text-purple-300 hover:underline">devoxatechnologies.com</Link>, one of our main priorities is the privacy of our visitors and clients. This Privacy Policy document outlines the types of information that is collected and recorded by Devoxa Technologies and how we utilize it.
+                At <strong className="text-white font-semibold">Devoxa Technologies Pvt. Ltd.</strong>, accessible from <Link href="/" className="text-purple-300 hover:underline">devoxatechnologies.com</Link>, one of our main priorities is the privacy of our visitors and clients. This Cookie Policy document outlines the types of information that is collected and recorded by Devoxa Technologies and how we utilize it.
               </p>
             </div>
 
@@ -282,14 +282,14 @@ export default function PrivacyPolicy() {
             <div id="section-1" className="scroll-mt-32 p-6 sm:p-8 rounded-3xl bg-[#0c0817]/80 border border-purple-500/20 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-purple-500/40 transition-all duration-300 space-y-4">
               <div className="flex items-center gap-3 border-b border-white/10 pb-4">
                 <div className="w-9 h-9 rounded-2xl bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-purple-300 shrink-0 shadow-inner">
-                  <Eye className="w-4 h-4" />
+                  <Info className="w-4 h-4" />
                 </div>
                 <h2 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
-                  1. Information We Collect
+                  1. What Are Cookies?
                 </h2>
               </div>
               <p className="text-gray-300 text-xs sm:text-sm leading-relaxed font-light">
-                We collect personal information that you voluntarily provide to us when expressing an interest in our IT services, custom software development, website design, or mobile applications.
+                Cookies are small text files that are stored on your device when you visit our website. They help us recognize your device and remember your preferences.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
                 <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-1 hover:border-purple-500/30 transition-colors">
@@ -315,14 +315,14 @@ export default function PrivacyPolicy() {
             <div id="section-2" className="scroll-mt-32 p-6 sm:p-8 rounded-3xl bg-[#0c0817]/80 border border-purple-500/20 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-purple-500/40 transition-all duration-300 space-y-4">
               <div className="flex items-center gap-3 border-b border-white/10 pb-4">
                 <div className="w-9 h-9 rounded-2xl bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-purple-300 shrink-0 shadow-inner">
-                  <Layers className="w-4 h-4" />
+                  <Settings className="w-4 h-4" />
                 </div>
                 <h2 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
                   2. How We Use Your Information
                 </h2>
               </div>
               <p className="text-gray-300 text-xs sm:text-sm leading-relaxed font-light">
-                Devoxa Technologies processes collected data strictly for legitimate operational and contractual fulfillment purposes:
+                We use cookies for a variety of reasons, including to operate our website, enhance your experience, and analyze how our services are used:
               </p>
               <ul className="space-y-2.5 pt-1">
                 {[
@@ -344,10 +344,10 @@ export default function PrivacyPolicy() {
             <div id="section-3" className="scroll-mt-32 p-6 sm:p-8 rounded-3xl bg-[#0c0817]/80 border border-purple-500/20 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-purple-500/40 transition-all duration-300 space-y-4">
               <div className="flex items-center gap-3 border-b border-white/10 pb-4">
                 <div className="w-9 h-9 rounded-2xl bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-purple-300 shrink-0 shadow-inner">
-                  <FileText className="w-4 h-4" />
+                  <Database className="w-4 h-4" />
                 </div>
                 <h2 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
-                  3. Cookies & Tracking Technologies
+                  3. Types of Cookies Technologies
                 </h2>
               </div>
               <p className="text-gray-300 text-xs sm:text-sm leading-relaxed font-light">
@@ -374,10 +374,10 @@ export default function PrivacyPolicy() {
             <div id="section-5" className="scroll-mt-32 p-6 sm:p-8 rounded-3xl bg-[#0c0817]/80 border border-purple-500/20 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-purple-500/40 transition-all duration-300 space-y-4">
               <div className="flex items-center gap-3 border-b border-white/10 pb-4">
                 <div className="w-9 h-9 rounded-2xl bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-purple-300 shrink-0 shadow-inner">
-                  <Lock className="w-4 h-4" />
+                  <Sliders className="w-4 h-4" />
                 </div>
                 <h2 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
-                  5. Data Security & Storage
+                  5. Managing Your Cookies
                 </h2>
               </div>
               <p className="text-gray-300 text-xs sm:text-sm leading-relaxed font-light">
@@ -389,10 +389,10 @@ export default function PrivacyPolicy() {
             <div id="section-6" className="scroll-mt-32 p-6 sm:p-8 rounded-3xl bg-[#0c0817]/80 border border-purple-500/20 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-purple-500/40 transition-all duration-300 space-y-4">
               <div className="flex items-center gap-3 border-b border-white/10 pb-4">
                 <div className="w-9 h-9 rounded-2xl bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-purple-300 shrink-0 shadow-inner">
-                  <UserCheck className="w-4 h-4" />
+                  <RefreshCw className="w-4 h-4" />
                 </div>
                 <h2 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
-                  6. Your Privacy Rights
+                  6. Policy Updates
                 </h2>
               </div>
               <p className="text-gray-300 text-xs sm:text-sm leading-relaxed font-light">
@@ -411,7 +411,7 @@ export default function PrivacyPolicy() {
                 </h2>
               </div>
               <p className="text-gray-300 text-xs sm:text-sm leading-relaxed font-light">
-                If you have questions regarding this Privacy Policy or wish to exercise your data privacy rights, please get in touch:
+                If you have questions regarding this Cookie Policy or wish to exercise your data privacy rights, please get in touch:
               </p>
 
               <div className="p-5 rounded-2xl bg-gradient-to-r from-purple-950/60 to-indigo-950/60 border border-purple-500/40 space-y-3.5">

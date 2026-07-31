@@ -245,7 +245,7 @@ const PillNav = ({
         el = document.getElementById(targetId + '-mobile');
       }
       if (el) {
-        const y = el.getBoundingClientRect().top + window.scrollY - 100;
+        const y = el.getBoundingClientRect().top + window.scrollY - 20;
         window.scrollTo({ top: y, behavior: 'smooth' });
       }
     }

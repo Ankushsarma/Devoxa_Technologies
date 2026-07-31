@@ -458,7 +458,7 @@ export default function PrivacyPolicy() {
         <Footer />
       </div>
       <div className="block lg:hidden">
-        <FooterMobile />
+        <FooterMobile compact={true} />
       </div>
       <FloatingScrollButton />
     </div>

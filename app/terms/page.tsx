@@ -436,7 +436,7 @@ export default function TermsOfService() {
         <Footer />
       </div>
       <div className="block lg:hidden">
-        <FooterMobile />
+        <FooterMobile compact={true} />
       </div>
 
       {/* Consultation Modal */}

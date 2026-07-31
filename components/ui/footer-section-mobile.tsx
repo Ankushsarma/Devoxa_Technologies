@@ -45,15 +45,15 @@ const footerLinks: FooterSection[] = [
 	},
 ];
 
-export function FooterMobile() {
+export function FooterMobile({ compact = false }: { compact?: boolean } = {}) {
 	return (
 		<footer
 			className="relative w-full flex flex-col justify-start rounded-t-3xl border-t border-white/10 bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)] overflow-hidden"
-			style={{ paddingTop: "38px", paddingBottom: "0px", paddingLeft: "20px", paddingRight: "20px" }}
+			style={{ paddingTop: compact ? "16px" : "38px", paddingBottom: "0px", paddingLeft: "20px", paddingRight: "20px" }}
 		>
 			<div className="bg-foreground/20 absolute top-0 right-1/2 left-1/2 h-px w-1/3 -translate-x-1/2 -translate-y-1/2 rounded-full blur" />
 
-			<div className="w-full max-w-2xl md:max-w-4xl mx-auto flex flex-col gap-8 px-2 sm:px-6">
+			<div className={`w-full max-w-2xl md:max-w-4xl mx-auto flex flex-col ${compact ? 'gap-5' : 'gap-8'} px-2 sm:px-6`}>
 
 				{/* Left CTA */}
 				<AnimatedContainer delay={0.2} className="flex flex-col items-start sm:items-center text-left sm:text-center w-full">
@@ -99,7 +99,7 @@ export function FooterMobile() {
 				</AnimatedContainer>
 
 				{/* Middle Links Grid */}
-				<div className="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-6 border-t border-white/5">
+				<div className={`grid grid-cols-2 sm:grid-cols-3 gap-6 ${compact ? 'pt-4' : 'pt-6'} border-t border-white/5`}>
 					{footerLinks.map((section: FooterSection, index: number) => (
 						<AnimatedContainer key={section.label} delay={0.3 + index * 0.1}>
 							<div>

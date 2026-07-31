@@ -23,6 +23,7 @@ import {
 import Particles from "@/components/Particles";
 import ShinyText from "@/components/ShinyText";
 import { Footer } from "@/components/ui/footer-section";
+import { FooterMobile } from "@/components/ui/footer-section-mobile";
 import ConsultationModal from "@/components/ConsultationModal";
 
 export default function TermsOfService() {
@@ -426,8 +427,13 @@ export default function TermsOfService() {
         </div>
       </section>
 
-      {/* Shared Reusable Desktop Footer Component */}
-      <Footer />
+      {/* Global Shared Footer */}
+      <div className="hidden lg:block">
+        <Footer />
+      </div>
+      <div className="block lg:hidden">
+        <FooterMobile compact={true} style={{ paddingTop: '30px', paddingBottom: '10px' }} />
+      </div>
 
       {/* Consultation Modal */}
       <ConsultationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />

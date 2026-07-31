@@ -454,7 +454,7 @@ export default function PrivacyPolicy() {
         <Footer />
       </div>
       <div className="block lg:hidden">
-        <FooterMobile />
+        <FooterMobile compact={true} style={{ paddingTop: '30px', paddingBottom: '10px' }} />
       </div>
     </div>
   );

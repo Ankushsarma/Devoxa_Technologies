@@ -159,18 +159,28 @@ export default function NotFound() {
         
       </div>
       
-      {/* Realistic Background Planet - Slow Rotation */}
+      {/* Highly Visible Realistic Planet */}
       <motion.div 
         animate={{ rotate: 360 }}
-        transition={{ duration: 240, repeat: Infinity, ease: "linear" }}
-        className="absolute -top-[20%] -right-[10%] w-[70vw] h-[70vw] md:w-[50vw] md:h-[50vw] rounded-full opacity-30 z-0 pointer-events-none mix-blend-screen"
+        transition={{ duration: 150, repeat: Infinity, ease: "linear" }}
+        className="absolute top-[-5%] left-[-10%] w-64 h-64 md:w-[400px] md:h-[400px] rounded-full z-0 pointer-events-none shadow-[inset_-20px_-20px_60px_rgba(0,0,0,0.9),_0_0_50px_rgba(120,87,255,0.3)]"
         style={{
-          background: "radial-gradient(circle at 30% 30%, rgba(120,87,255,0.2) 0%, rgba(0,0,0,0) 70%)",
-          boxShadow: "inset -20px -20px 60px rgba(0,0,0,0.8), inset 20px 20px 60px rgba(0,240,255,0.1)"
+          background: "radial-gradient(circle at 30% 30%, #5B3DF5 0%, #150D3A 50%, #000 100%)",
         }}
       >
-        <div className="absolute top-[20%] left-[20%] w-[15%] h-[15%] rounded-full bg-black/30 blur-md" />
-        <div className="absolute top-[50%] left-[60%] w-[20%] h-[20%] rounded-full bg-black/20 blur-lg" />
+        <div className="absolute top-[25%] left-[25%] w-[15%] h-[15%] rounded-full bg-black/40 blur-[2px]" />
+        <div className="absolute top-[60%] left-[50%] w-[25%] h-[25%] rounded-full bg-black/30 blur-[4px]" />
+      </motion.div>
+
+      {/* Orbiting Satellite in Background */}
+      <motion.div 
+        animate={{ rotate: -360 }}
+        transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vw] h-[120vw] md:w-[70vw] md:h-[70vw] rounded-full z-0 pointer-events-none border border-white/5"
+      >
+        <div className="absolute -top-[20px] left-[50%] -translate-x-1/2 text-[#00F0FF] opacity-80 drop-shadow-[0_0_10px_#00F0FF]">
+          <Satellite size={40} />
+        </div>
       </motion.div>
 
     </section>

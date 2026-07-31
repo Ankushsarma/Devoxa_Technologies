@@ -49,19 +49,16 @@ export function Footer({ className = "pb-4", style, middleSectionClassName = "",
 	return (
 		<footer
 			id="footer"
-			className={`md:rounded-t-6xl relative w-full flex flex-col justify-start rounded-t-4xl border-4 border-red-500/80 bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)] px-6 sm:px-8 ${className}`}
+			className={`md:rounded-t-6xl relative w-full flex flex-col justify-start rounded-t-4xl border-t border-white/10 bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)] px-6 sm:px-8 ${className}`}
 			style={{ paddingTop: '0', ...style }}
 		>
-			{/* TEMPORARY LABEL 1 */}
-			<div className="absolute top-2 left-2 bg-red-600 text-white text-xs px-2 py-1 font-bold z-50">1. Footer Container</div>
+
 
 			<div className="bg-foreground/20 absolute top-0 right-1/2 left-1/2 h-px w-1/3 -translate-x-1/2 -translate-y-1/2 rounded-full blur" />
 
 			<div className="w-full flex flex-col flex-1">
 				{/* Middle Section */}
-				<div className={`flex flex-col lg:flex-row w-full justify-center gap-12 lg:gap-48 xl:gap-64 relative border-4 border-green-500/80 pt-7 mb-0 ${middleSectionClassName}`} style={middleSectionStyle}>
-					{/* TEMPORARY LABEL 2 */}
-					<div className="absolute top-0 left-2 bg-green-600 text-white text-xs px-2 py-1 font-bold z-50">2. Middle Section</div>
+				<div className={`flex flex-col lg:flex-row w-full justify-center gap-12 lg:gap-48 xl:gap-64 relative pt-7 mb-0 ${middleSectionClassName}`} style={middleSectionStyle}>
 
 					{/* Left CTA */}
 					<AnimatedContainer delay={0.2} className="w-full lg:w-[400px] shrink-0 flex flex-col items-start pl-3 sm:pl-0">
@@ -144,9 +141,7 @@ export function Footer({ className = "pb-4", style, middleSectionClassName = "",
 				</div>
 
 				{/* Bottom Wrapper */}
-				<div className="mt-2 w-full flex flex-col relative border-4 border-blue-500/80">
-					{/* TEMPORARY LABEL 3 */}
-					<div className="absolute top-0 right-2 bg-blue-600 text-white text-xs px-2 py-1 font-bold z-50">3. Bottom Section</div>
+				<div className="mt-2 w-full flex flex-col relative">
 
 					{/* Massive Watermark */}
 					<AnimatedContainer delay={0.5} className="w-full flex justify-center items-center overflow-hidden pointer-events-none select-none my-2">

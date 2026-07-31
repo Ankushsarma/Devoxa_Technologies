@@ -205,7 +205,8 @@ export default function HomePageDesktop() {
         }
 
         if (el) {
-          el.scrollIntoView({ behavior: 'smooth' })
+          const y = el.getBoundingClientRect().top + window.scrollY - 100;
+          window.scrollTo({ top: y, behavior: 'smooth' });
         }
 
         // Only strip search params if from=login was present

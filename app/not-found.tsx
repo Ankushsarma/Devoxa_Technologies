@@ -35,16 +35,12 @@ export default function NotFound() {
       />
 
       {/* Deep Space Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#10092B] via-[#05050A] to-[#000000] -z-20"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#150D3A] via-[#05050A] to-[#000000] -z-20"></div>
 
-      {/* Starfield Particles */}
-      <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.15)_1px,transparent_1px)] bg-[size:40px_40px] opacity-40 z-0"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.2)_1px,transparent_1px)] bg-[size:100px_100px] opacity-30 z-0" style={{ backgroundPosition: '20px 20px' }}></div>
-
-      {/* Massive Watermark */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[28vw] font-black text-white/[0.02] pointer-events-none select-none z-0 tracking-widest whitespace-nowrap">
-        VOID
-      </div>
+      {/* Dense Starfield Particles */}
+      <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.3)_1px,transparent_1px)] bg-[size:30px_30px] opacity-50 z-0"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.4)_1.5px,transparent_1.5px)] bg-[size:80px_80px] opacity-40 z-0" style={{ backgroundPosition: '40px 40px' }}></div>
+      <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.2)_2px,transparent_2px)] bg-[size:150px_150px] opacity-20 z-0" style={{ backgroundPosition: '70px 70px' }}></div>
 
       {/* Abstract Orbiting Satellites / Cosmic Elements */}
       <motion.div 
@@ -64,7 +60,7 @@ export default function NotFound() {
       </motion.div>
 
       {/* Main Content */}
-      <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-3xl transform scale-[0.60] sm:scale-[0.65] md:scale-[0.70] lg:scale-[0.75] xl:scale-[0.80] origin-center">
+      <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-3xl transform scale-[0.55] sm:scale-[0.60] md:scale-[0.65] lg:scale-[0.70] xl:scale-[0.75] origin-center mt-8">
         
         {/* Animated 404 Text with Sharp Cyber Glitch Effects */}
         <div className="relative mb-6">
@@ -72,7 +68,7 @@ export default function NotFound() {
             initial={{ scale: 0.5, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1, type: "spring", bounce: 0.6 }}
-            className="text-[8rem] md:text-[14rem] font-black leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-gray-500 relative z-10"
+            className="text-[7rem] md:text-[11rem] font-black leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-gray-500 relative z-10"
           >
             404
           </motion.h1>
@@ -80,14 +76,14 @@ export default function NotFound() {
           <motion.div 
             animate={{ x: [-3, 3, -3], opacity: [0.6, 0.9, 0.6] }}
             transition={{ duration: 0.15, repeat: Infinity, repeatType: "mirror" }}
-            className="absolute inset-0 text-[8rem] md:text-[14rem] font-black leading-none tracking-tighter text-[#00F0FF] blur-[3px] mix-blend-screen opacity-80 -z-10"
+            className="absolute inset-0 text-[7rem] md:text-[11rem] font-black leading-none tracking-tighter text-[#00F0FF] blur-[3px] mix-blend-screen opacity-80 -z-10"
           >
             404
           </motion.div>
           <motion.div 
             animate={{ opacity: [0.5, 1, 0.5] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute inset-0 text-[8rem] md:text-[14rem] font-black leading-none tracking-tighter text-[#7857FF] blur-[20px] opacity-100 mix-blend-screen -z-20"
+            className="absolute inset-0 text-[7rem] md:text-[11rem] font-black leading-none tracking-tighter text-[#7857FF] blur-[20px] opacity-100 mix-blend-screen -z-20"
           >
             404
           </motion.div>

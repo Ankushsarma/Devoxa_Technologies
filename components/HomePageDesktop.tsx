@@ -143,7 +143,7 @@ export default function HomePageDesktop() {
   useEffect(() => {
     fetch("/api/projects").then(r => r.json()).then(d => { if (d.projects) setProjects(d.projects) }).catch(() => { })
   }, [])
-  
+
   // Modal state
   const [isModalOpen, setIsModalOpen] = useState(false)
 
@@ -164,11 +164,11 @@ export default function HomePageDesktop() {
     if (savedScroll) {
       const target = parseInt(savedScroll, 10);
       window.scrollTo({ top: target, behavior: "instant" })
-      
+
       // Re-apply after layout shifts to ensure it doesn't get stuck at the top
       setTimeout(() => window.scrollTo({ top: target, behavior: "instant" }), 50)
       setTimeout(() => window.scrollTo({ top: target, behavior: "instant" }), 150)
-      
+
       // Reveal page with a smooth fade
       setTimeout(() => {
         document.documentElement.classList.remove("scroll-restoring");
@@ -182,7 +182,7 @@ export default function HomePageDesktop() {
       sessionStorage.setItem("homeScroll", window.scrollY.toString())
     }
     window.addEventListener("beforeunload", handleBeforeUnload)
-    
+
     return () => window.removeEventListener("beforeunload", handleBeforeUnload)
   }, [])
 
@@ -242,7 +242,7 @@ function DesktopNav({ user, role, loading, logout, scrolled }: any) {
 
   useEffect(() => {
     const sections = ['hero', 'solutions', 'how-it-works', 'recent-projects', 'pricing', 'faq'];
-    
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -271,13 +271,13 @@ function DesktopNav({ user, role, loading, logout, scrolled }: any) {
         </div>
         <Link href="#">Devoxa Technologies</Link>
       </div>
-      
+
       {/* 2nd Part: Capsule Navigation */}
       <div className="hidden md:flex items-center rounded-full bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.08)] backdrop-blur-md shadow-lg">
         <PillNav
           logo={null}
           showLogo={false}
-          onMobileMenuClick={() => {}}
+          onMobileMenuClick={() => { }}
           items={[
             { label: 'Solutions', href: '#solutions' },
             { label: 'Process', href: '#how-it-works' },
@@ -353,23 +353,23 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0 }}>
           <WebGLVisibilityWrapper isAbsolute={false}>
             <Particles
-            className=""
-            particleColors={["#ffffff", "#a78bfa", "#c084fc"]}
-            particleCount={950}
-            particleSpread={25}
-            speed={0.1}
-            particleBaseSize={150}
-            moveParticlesOnHover={true}
-            alphaParticles={false}
-            disableRotation={false}
-          />
+              className=""
+              particleColors={["#ffffff", "#a78bfa", "#c084fc"]}
+              particleCount={950}
+              particleSpread={25}
+              speed={0.1}
+              particleBaseSize={150}
+              moveParticlesOnHover={true}
+              alphaParticles={false}
+              disableRotation={false}
+            />
           </WebGLVisibilityWrapper>
         </div>
         <div className="nx-overlay" style={{ zIndex: 1, position: "absolute", inset: 0, background: "rgba(5, 5, 6, 0.4)" }} />
         <div className="nx-noise" style={{ zIndex: 2, position: "absolute", inset: 0 }} />
         <div className="nx-inner" style={{ minHeight: "max(100vh, 750px)", alignItems: "flex-start", display: "flex", flexDirection: "column", justifyContent: "flex-start", paddingLeft: "clamp(50px, 12vw, 150px)", paddingTop: "clamp(160px, 20vh, 220px)", paddingBottom: "100px" }}>
           <div style={{ width: "100%", maxWidth: "clamp(480px, 45vw, 680px)", textAlign: "left", position: "relative", zIndex: 10, marginBottom: "auto" }}>
-            
+
             {/* Eyebrow */}
             <div style={{ display: "flex", alignItems: "center", marginBottom: "clamp(12px, 1.5vh, 16px)", position: "relative" }}>
               <div style={{ position: "absolute", left: "-10px", top: "-5px", width: "40px", height: "30px", backgroundColor: "#7c3aed", zIndex: -1 }}></div>
@@ -379,18 +379,18 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
             </div>
 
             {/* Headline */}
-            <h1 style={{ 
-              fontFamily: "var(--font-mono, monospace)", 
-              fontSize: "clamp(32px, 4.5vw, 60px)", 
-              fontWeight: 700, 
-              color: "#fff", 
-              lineHeight: 1.1, 
-              letterSpacing: "clamp(2px, 0.3vw, 6px)", 
+            <h1 style={{
+              fontFamily: "var(--font-mono, monospace)",
+              fontSize: "clamp(32px, 4.5vw, 60px)",
+              fontWeight: 700,
+              color: "#fff",
+              lineHeight: 1.1,
+              letterSpacing: "clamp(2px, 0.3vw, 6px)",
               marginBottom: "clamp(20px, 3vh, 32px)",
               textTransform: "uppercase"
             }}>
-              <span className="animate-shine" style={{ 
-                display: "block", 
+              <span className="animate-shine" style={{
+                display: "block",
                 marginBottom: "clamp(4px, 1vh, 8px)",
                 backgroundImage: "linear-gradient(120deg, rgba(255, 255, 255, 0.7) 40%, #fff 50%, rgba(255, 255, 255, 0.7) 60%)",
                 backgroundSize: "200% auto",
@@ -398,28 +398,28 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                 color: "transparent",
                 backgroundClip: "text"
               }}>BUILD THE</span>
-              <img 
-                src="/untitled-logotype.png" 
-                alt="FUTURE" 
-                style={{ 
-                  width: "100%", 
-                  maxWidth: "clamp(320px, 35vw, 500px)", 
-                  height: "auto", 
+              <img
+                src="/untitled-logotype.png"
+                alt="FUTURE"
+                style={{
+                  width: "100%",
+                  maxWidth: "clamp(320px, 35vw, 500px)",
+                  height: "auto",
                   display: "block"
-                }} 
+                }}
               />
             </h1>
 
             {/* Subtext */}
-            <div style={{ 
-              borderLeft: "2px solid rgba(255,255,255,0.4)", 
-              paddingLeft: "clamp(16px, 1.5vw, 24px)", 
+            <div style={{
+              borderLeft: "2px solid rgba(255,255,255,0.4)",
+              paddingLeft: "clamp(16px, 1.5vw, 24px)",
               marginBottom: "clamp(32px, 4vh, 48px)"
             }}>
-              <p style={{ 
-                fontSize: "clamp(13px, 1.1vw, 15px)", 
-                color: "#8981A6", 
-                lineHeight: 1.8, 
+              <p style={{
+                fontSize: "clamp(13px, 1.1vw, 15px)",
+                color: "#8981A6",
+                lineHeight: 1.8,
                 maxWidth: "clamp(350px, 32vw, 440px)",
                 fontWeight: 400
               }}>
@@ -429,15 +429,15 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
 
             {/* Buttons */}
             <div style={{ display: "flex", gap: "clamp(12px, 1vw, 16px)", flexWrap: "wrap" }}>
-              <button 
+              <button
                 onClick={onOpenModal}
-                style={{ 
-                  background: "linear-gradient(135deg, #7c3aed, #a78bfa)", 
-                  color: "#fff", 
-                  padding: "clamp(10px, 1vw, 12px) clamp(20px, 2vw, 28px)", 
-                  fontSize: "clamp(10px, 0.8vw, 12px)", 
-                  fontWeight: 700, 
-                  letterSpacing: "1px", 
+                style={{
+                  background: "linear-gradient(135deg, #7c3aed, #a78bfa)",
+                  color: "#fff",
+                  padding: "clamp(10px, 1vw, 12px) clamp(20px, 2vw, 28px)",
+                  fontSize: "clamp(10px, 0.8vw, 12px)",
+                  fontWeight: 700,
+                  letterSpacing: "1px",
                   textTransform: "uppercase",
                   cursor: "pointer",
                   transition: "all 0.3s ease",
@@ -453,16 +453,16 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               >
                 START PROJECT <ArrowRight size={16} />
               </button>
-              <a 
+              <a
                 href="#solutions"
-                style={{ 
-                  backgroundColor: "transparent", 
-                  color: "#fff", 
-                  border: "1px solid rgba(255,255,255,0.15)", 
-                  padding: "clamp(10px, 1vw, 12px) clamp(20px, 2vw, 28px)", 
-                  fontSize: "clamp(10px, 0.8vw, 12px)", 
-                  fontWeight: 600, 
-                  letterSpacing: "1px", 
+                style={{
+                  backgroundColor: "transparent",
+                  color: "#fff",
+                  border: "1px solid rgba(255,255,255,0.15)",
+                  padding: "clamp(10px, 1vw, 12px) clamp(20px, 2vw, 28px)",
+                  fontSize: "clamp(10px, 0.8vw, 12px)",
+                  fontWeight: 600,
+                  letterSpacing: "1px",
                   textTransform: "uppercase",
                   cursor: "pointer",
                   transition: "all 0.3s ease",
@@ -478,7 +478,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                 View Services <ArrowRight size={16} />
               </a>
             </div>
-            
+
           </div>
         </div>
       </section>
@@ -516,22 +516,22 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 0.8, pointerEvents: 'none' }}>
           <WebGLVisibilityWrapper isAbsolute={false}>
             <LightPillar
-            topColor="#5227FF"
-            bottomColor="#FF9FFC"
-            intensity={1}
-            rotationSpeed={0.3}
-            glowAmount={0.002}
-            pillarWidth={3}
-            pillarHeight={0.4}
-            noiseIntensity={0.5}
-            pillarRotation={25}
-            interactive={false}
-            mixBlendMode="screen"
-            quality="high"
-          />
+              topColor="#5227FF"
+              bottomColor="#FF9FFC"
+              intensity={1}
+              rotationSpeed={0.3}
+              glowAmount={0.002}
+              pillarWidth={3}
+              pillarHeight={0.4}
+              noiseIntensity={0.5}
+              pillarRotation={25}
+              interactive={false}
+              mixBlendMode="screen"
+              quality="high"
+            />
           </WebGLVisibilityWrapper>
         </div>
-        
+
         <div style={{ position: "relative", zIndex: 1 }}>
           <AgencySection onOpenModal={onOpenModal} />
 
@@ -594,7 +594,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               </ul>
             </div>
             <div className="sol-img-modern" style={{ flex: "1 1 450px", perspective: "1200px" }}>
-              <div 
+              <div
                 style={{
                   position: "relative",
                   borderRadius: "24px",
@@ -625,33 +625,33 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0, overflow: "hidden", pointerEvents: "none" }}>
           <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "100vw", height: "100vw", minWidth: "1000px", minHeight: "1000px", opacity: 0.4 }}>
             <WebGLVisibilityWrapper isAbsolute={false}>
-            <MagicRings
-              color="#A855F7"
-              colorTwo="#6366F1"
-              ringCount={6}
-              speed={1}
-              attenuation={10}
-              lineThickness={2}
-              baseRadius={0.35}
-              radiusStep={0.1}
-              scaleRate={0.1}
-              opacity={1}
-              blur={0}
-              noiseAmount={0.1}
-              rotation={0}
-              ringGap={1.5}
-              fadeIn={0.7}
-              fadeOut={0.5}
-              followMouse={false}
-              mouseInfluence={0.2}
-              hoverScale={1.2}
-              parallax={0.05}
-              clickBurst={false}
-            />
-          </WebGLVisibilityWrapper>
+              <MagicRings
+                color="#A855F7"
+                colorTwo="#6366F1"
+                ringCount={6}
+                speed={1}
+                attenuation={10}
+                lineThickness={2}
+                baseRadius={0.35}
+                radiusStep={0.1}
+                scaleRate={0.1}
+                opacity={1}
+                blur={0}
+                noiseAmount={0.1}
+                rotation={0}
+                ringGap={1.5}
+                fadeIn={0.7}
+                fadeOut={0.5}
+                followMouse={false}
+                mouseInfluence={0.2}
+                hoverScale={1.2}
+                parallax={0.05}
+                clickBurst={false}
+              />
+            </WebGLVisibilityWrapper>
           </div>
         </div>
-        
+
         <div className="wrap" style={{ position: "relative", zIndex: 1 }}>
           <div className="section-head reveal in" style={{ margin: "0 auto 80px", textAlign: "center" }}>
             <span className="eyebrow" style={{ margin: "0 0 16px 0" }}>Our Process</span>
@@ -668,41 +668,41 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1, background: 'var(--bg-void)' }}>
           <WebGLVisibilityWrapper isAbsolute={false}>
             <LiquidEther
-            colors={[ '#5227FF', '#FF9FFC', '#B497CF' ]}
-            mouseForce={20}
-            cursorSize={100}
-            isViscous
-            viscous={10}
-            iterationsViscous={4}
-            iterationsPoisson={4}
-            resolution={0.25}
-            isBounce={false}
-            autoDemo
-            autoSpeed={0.5}
-            autoIntensity={2.2}
-            takeoverDuration={0.25}
-            autoResumeDelay={3000}
-            autoRampDuration={0.6}
-          />
+              colors={['#5227FF', '#FF9FFC', '#B497CF']}
+              mouseForce={20}
+              cursorSize={100}
+              isViscous
+              viscous={10}
+              iterationsViscous={4}
+              iterationsPoisson={4}
+              resolution={0.25}
+              isBounce={false}
+              autoDemo
+              autoSpeed={0.5}
+              autoIntensity={2.2}
+              takeoverDuration={0.25}
+              autoResumeDelay={3000}
+              autoRampDuration={0.6}
+            />
           </WebGLVisibilityWrapper>
         </div>
         <div className="wrap" style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 20px" }}>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", marginBottom: "80px", position: "relative" }}>
             {/* Subtle glow behind the text */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[100px] bg-purple-600/30 blur-[80px] rounded-full pointer-events-none" />
-            
+
             <div className="section-head reveal in" style={{ margin: 0, display: "flex", flexDirection: "column", alignItems: "center" }}>
               <div className="group relative inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md overflow-hidden mb-8 transition-all duration-300 hover:bg-white/10 hover:border-purple-500/30">
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-fuchsia-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <Layers className="w-4 h-4 text-purple-400 group-hover:text-purple-300 transition-colors" />
                 <span className="text-xs font-bold text-white tracking-[0.15em] uppercase">Our Portfolio</span>
               </div>
-              
+
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 tracking-tight leading-[1.15]">
                 Crafting Digital <br className="hidden md:block" />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-300 to-purple-400 animate-gradient bg-300%">Masterpieces</span>
               </h2>
-              
+
               <p className="text-[#8981A6] text-base md:text-lg max-w-2xl mx-auto leading-loose font-light mt-2">
                 Explore our curated collection of next-generation digital experiences. We blend cutting-edge technology with world-class design to build scalable solutions that dominate the market.
               </p>
@@ -737,19 +737,19 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, opacity: 1 }}>
           <WebGLVisibilityWrapper isAbsolute={false}>
             <LightRays
-            raysOrigin="top-center"
-            raysColor="#8b5cf6"
-            raysSpeed={1.5}
-            lightSpread={1.2}
-            rayLength={3.5}
-            followMouse={true}
-            mouseInfluence={0.15}
-            noiseAmount={0.03}
-            distortion={0}
-            pulsating={true}
-            fadeDistance={1}
-            saturation={1}
-          />
+              raysOrigin="top-center"
+              raysColor="#8b5cf6"
+              raysSpeed={1.5}
+              lightSpread={1.2}
+              rayLength={3.5}
+              followMouse={true}
+              mouseInfluence={0.15}
+              noiseAmount={0.03}
+              distortion={0}
+              pulsating={true}
+              fadeDistance={1}
+              saturation={1}
+            />
           </WebGLVisibilityWrapper>
         </div>
         <div className="wrap" style={{ position: "relative", zIndex: 1 }}>
@@ -793,24 +793,24 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                     <td></td>
                     <td style={{ padding: "20px 10px", textAlign: "center" }}>
                       <WebGLVisibilityWrapper isAbsolute={false}>
-            <SpecularButton size="sm" radius={10} tint="#ffffff" tintOpacity={0} blur={0} textColor="#f5f5f5" lineColor="#8b5cf6" baseColor="#201a30" intensity={1} shineSize={10} shineFade={40} thickness={1.5} speed={0.35} followMouse proximity={250} onClick={onOpenModal}>
-                        Get Started
-                      </SpecularButton>
-          </WebGLVisibilityWrapper>
+                        <SpecularButton size="sm" radius={10} tint="#ffffff" tintOpacity={0} blur={0} textColor="#f5f5f5" lineColor="#8b5cf6" baseColor="#201a30" intensity={1} shineSize={10} shineFade={40} thickness={1.5} speed={0.35} followMouse proximity={250} onClick={onOpenModal}>
+                          Get Started
+                        </SpecularButton>
+                      </WebGLVisibilityWrapper>
                     </td>
                     <td style={{ padding: "20px 10px", textAlign: "center" }}>
                       <WebGLVisibilityWrapper isAbsolute={false}>
-            <SpecularButton size="sm" radius={10} tint="#ffffff" tintOpacity={0} blur={0} textColor="#f5f5f5" lineColor="#8b5cf6" baseColor="#3b2b5c" intensity={1} shineSize={10} shineFade={40} thickness={1.5} speed={0.35} followMouse proximity={250} onClick={onOpenModal}>
-                        Get Started
-                      </SpecularButton>
-          </WebGLVisibilityWrapper>
+                        <SpecularButton size="sm" radius={10} tint="#ffffff" tintOpacity={0} blur={0} textColor="#f5f5f5" lineColor="#8b5cf6" baseColor="#3b2b5c" intensity={1} shineSize={10} shineFade={40} thickness={1.5} speed={0.35} followMouse proximity={250} onClick={onOpenModal}>
+                          Get Started
+                        </SpecularButton>
+                      </WebGLVisibilityWrapper>
                     </td>
                     <td style={{ padding: "20px 10px", textAlign: "center" }}>
                       <WebGLVisibilityWrapper isAbsolute={false}>
-            <SpecularButton size="sm" radius={10} tint="#ffffff" tintOpacity={0} blur={0} textColor="#f5f5f5" lineColor="#8b5cf6" baseColor="#3b2b5c" intensity={1} shineSize={10} shineFade={40} thickness={1.5} speed={0.35} followMouse proximity={250} onClick={onOpenModal}>
-                        Contact Sales
-                      </SpecularButton>
-          </WebGLVisibilityWrapper>
+                        <SpecularButton size="sm" radius={10} tint="#ffffff" tintOpacity={0} blur={0} textColor="#f5f5f5" lineColor="#8b5cf6" baseColor="#3b2b5c" intensity={1} shineSize={10} shineFade={40} thickness={1.5} speed={0.35} followMouse proximity={250} onClick={onOpenModal}>
+                          Contact Sales
+                        </SpecularButton>
+                      </WebGLVisibilityWrapper>
                     </td>
                   </tr>
                 </tfoot>
@@ -825,18 +825,18 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, opacity: 0.5 }}>
           <WebGLVisibilityWrapper isAbsolute={false}>
             <SideRays
-            speed={2}
-            rayColor1="#a78bfa"
-            rayColor2="#7c3aed"
-            intensity={1.2}
-            spread={2}
-            origin="top-right"
-            tilt={-10}
-            saturation={1.5}
-            blend={0.75}
-            falloff={1.6}
-            opacity={1}
-          />
+              speed={2}
+              rayColor1="#a78bfa"
+              rayColor2="#7c3aed"
+              intensity={1.2}
+              spread={2}
+              origin="top-right"
+              tilt={-10}
+              saturation={1.5}
+              blend={0.75}
+              falloff={1.6}
+              opacity={1}
+            />
           </WebGLVisibilityWrapper>
         </div>
         <div className="wrap" style={{ position: "relative", zIndex: 1 }}>
@@ -902,7 +902,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       <section className="scroll-mt-32 testimonials-section vx-float relative z-10 py-24 overflow-hidden" style={{ background: "var(--bg-void)" }}>
         {/* Animated glowing orb in background */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-purple-600/20 blur-[120px] rounded-[100%] pointer-events-none mix-blend-screen" />
-        
+
         <div className="wrap relative w-full z-10 mx-auto px-4 md:px-6 lg:px-8">
           <div className="section-head reveal in relative z-10 mb-20 flex flex-col items-center text-center w-full mx-auto">
             <span className="eyebrow" style={{ margin: '0 auto 16px', display: 'inline-block' }}>What Our Clients Say</span>
@@ -949,7 +949,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                   ].map((t, i) => (
                     <div key={i} className="w-[85vw] md:w-[378px] shrink-0">
                       <SpotlightCard className="group relative w-full h-full rounded-[24px] bg-[#0A0A0B] border border-[rgba(255,255,255,0.08)] shadow-[0_4px_20px_rgba(0,0,0,0.4)] hover:shadow-[0_12px_30px_rgba(79,70,229,0.2)] hover:-translate-y-1.5 transition-all duration-300 ease-out flex flex-col" spotlightColor="rgba(79, 70, 229, 0.15)">
-                        
+
                         <div className="absolute top-4 -left-6 bg-gradient-to-r from-[#4F46E5] to-[#7C3AED] rounded-r-[16px] rounded-tl-[16px] rounded-bl-none px-8 z-20 shadow-lg min-w-[260px] flex flex-col justify-center items-center text-center" style={{ paddingTop: '1.25rem', paddingBottom: '1.25rem' }}>
                           <div className="absolute top-full left-0 w-0 h-0" style={{ borderTop: '24px solid #1E1B4B', borderLeft: '24px solid transparent' }}></div>
                           <h3 className="text-white font-semibold text-[17px] leading-tight mb-0.5 whitespace-nowrap relative z-10">{t.name}</h3>
@@ -970,7 +970,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                               </svg>
                             ))}
                           </div>
-                          
+
                           <div className="relative">
                             <div className="absolute left-0 top-1 bottom-1 w-[3px] bg-gradient-to-b from-[#4F46E5] to-[#7C3AED] rounded-full shadow-[0_0_8px_rgba(79,70,229,0.3)]"></div>
                             <p className="text-[#8981A6] text-[16px] leading-[1.8] font-sans" style={{ paddingLeft: '32px' }}>
@@ -995,7 +995,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             <div className="lg:col-span-5 relative">
               {/* Dot Image Watermark Effect */}
-              <div 
+              <div
                 className="absolute -top-12 -left-12 w-[350px] h-[350px] pointer-events-none opacity-80 z-0"
                 style={{
                   backgroundImage: 'radial-gradient(rgba(139, 92, 246, 0.6) 2px, transparent 2px)',
@@ -1033,9 +1033,9 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         <div className="wrap relative z-10">
           <div className="max-w-5xl mx-auto flex flex-col items-center text-center" style={{ gap: '2.5rem' }}>
             <span className="text-[#a78bfa] font-mono text-sm md:text-base uppercase tracking-[0.25em] block font-semibold drop-shadow-[0_0_8px_rgba(167,139,250,0.5)]" style={{ margin: 0 }}>Ready to start?</span>
-            
+
             <h2 className="text-4xl md:text-5xl lg:text-5xl font-bold tracking-tighter text-white leading-[1.1]" style={{ margin: 0 }}>
-              <TextType 
+              <TextType
                 text={[
                   "Ready to Transform Your Business?",
                   "Ready to Scale Your Startup?",
@@ -1048,14 +1048,14 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                 cursorCharacter="_"
                 className="inline-block"
                 variableSpeed={false}
-                onSentenceComplete={() => {}}
+                onSentenceComplete={() => { }}
               />
             </h2>
-            
+
             <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-light" style={{ margin: 0 }}>
               Join hundreds of forward-thinking companies that have accelerated their growth with our professional IT services. Let's build something extraordinary together.
             </p>
-            
+
             <button className="nx-cta" onClick={onOpenModal} style={{ margin: 0 }}>
               Schedule a Free Consultation
             </button>
@@ -1063,7 +1063,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         </div>
       </section>
 
-      <Footer style={{ paddingTop: '150px' }} />
+      <Footer style={{ paddingTop: '0px' }} middleSectionClassName="!pt-[98px] pb-[80px]" />
     </>
   )
 }

@@ -22,7 +22,8 @@ import {
 } from "lucide-react";
 import Particles from "@/components/Particles";
 import ShinyText from "@/components/ShinyText";
-
+import { Footer } from "@/components/ui/footer-section";
+import { FooterMobile } from "@/components/ui/footer-section-mobile";
 import ConsultationModal from "@/components/ConsultationModal";
 
 export default function TermsOfService() {
@@ -426,6 +427,17 @@ export default function TermsOfService() {
 
       {/* Consultation Modal */}
       <ConsultationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+
+      {/* Desktop Footer */}
+      <div className="hidden lg:block w-full mt-20">
+        <Footer style={{ paddingTop: '0px' }} middleSectionStyle={{ paddingTop: '50px', paddingBottom: '30px' }} />
+      </div>
+
+      {/* Mobile Footer */}
+      <div className="block lg:hidden w-full mt-10">
+        <FooterMobile />
+      </div>
+
     </div>
   );
 }

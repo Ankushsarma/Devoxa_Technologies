@@ -1106,6 +1106,29 @@ function MobileNav({ user, role, loading, logout, scrolled }: any) {
 function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: () => void }) {
   const [activeService, setActiveService] = useState<ServiceDetails | null>(null)
   const [activeCardRect, setActiveCardRect] = useState<DOMRect | null>(null)
+
+  const handleCardClick = (e: React.MouseEvent<HTMLDivElement>, serviceKey: string) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    
+    // Check if card is comfortably visible in the viewport
+    const isVisible = rect.top >= 100 && rect.bottom <= (window.innerHeight - 100);
+    
+    if (!isVisible) {
+      // Scroll smoothly so the card is centered
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      
+      // Wait for the smooth scroll to finish before opening modal
+      setTimeout(() => {
+        setActiveCardRect(card.getBoundingClientRect());
+        setActiveService(servicesData[serviceKey]);
+      }, 450);
+    } else {
+      setActiveCardRect(rect);
+      setActiveService(servicesData[serviceKey]);
+    }
+  };
+
   return (
     <>
       <section id="hero" className="nx vx-float pt-24 md:pt-32" style={{ height: "auto", minHeight: "100vh" }}>
@@ -1233,35 +1256,35 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
           </div>
           
           <div className="grid grid-cols-1 min-[375px]:grid-cols-2 gap-4 mb-16 mx-auto w-full relative z-20" style={{ flexShrink: 0, marginTop: "80px" }}>
-            <GlowingCard delay={0.1} onClick={(e) => { setActiveService(servicesData["Web App Dev"]); setActiveCardRect(e.currentTarget.getBoundingClientRect()); }}>
+            <GlowingCard delay={0.1} onClick={(e) => handleCardClick(e, "Web App Dev")}>
               <div className="hc-icon shrink-0"><Code2 size={28} strokeWidth={1.5} /></div>
               <div className="flex flex-col gap-1">
                 <h4 className="hc-title !m-0">Web App Dev</h4>
                 <p className="hc-desc !m-0">Custom-built, scalable web applications</p>
               </div>
             </GlowingCard>
-            <GlowingCard delay={0.2} onClick={(e) => { setActiveService(servicesData["Automation"]); setActiveCardRect(e.currentTarget.getBoundingClientRect()); }}>
+            <GlowingCard delay={0.2} onClick={(e) => handleCardClick(e, "Automation")}>
               <div className="hc-icon shrink-0"><Zap size={28} strokeWidth={1.5} /></div>
               <div className="flex flex-col gap-1">
                 <h4 className="hc-title !m-0">Automation</h4>
                 <p className="hc-desc !m-0">Streamline workflows and cut manual work</p>
               </div>
             </GlowingCard>
-            <GlowingCard active delay={0.3} className="min-[375px]:col-span-2" onClick={(e) => { setActiveService(servicesData["IT Consultation"]); setActiveCardRect(e.currentTarget.getBoundingClientRect()); }}>
+            <GlowingCard active delay={0.3} className="min-[375px]:col-span-2" onClick={(e) => handleCardClick(e, "IT Consultation")}>
               <div className="hc-icon shrink-0"><Layers size={28} strokeWidth={1.5} /></div>
               <div className="flex flex-col gap-1">
                 <h4 className="hc-title !m-0">IT Consultation</h4>
                 <p className="hc-desc !m-0">Strategic guidance for your tech stack</p>
               </div>
             </GlowingCard>
-            <GlowingCard delay={0.4} onClick={(e) => { setActiveService(servicesData["CRM CMS"]); setActiveCardRect(e.currentTarget.getBoundingClientRect()); }}>
+            <GlowingCard delay={0.4} onClick={(e) => handleCardClick(e, "CRM CMS")}>
               <div className="hc-icon shrink-0"><BarChart3 size={28} strokeWidth={1.5} /></div>
               <div className="flex flex-col gap-1">
                 <h4 className="hc-title !m-0">CRM CMS</h4>
                 <p className="hc-desc !m-0">Manage customers and content in one place</p>
               </div>
             </GlowingCard>
-            <GlowingCard delay={0.5} onClick={(e) => { setActiveService(servicesData["UI UX Branding"]); setActiveCardRect(e.currentTarget.getBoundingClientRect()); }}>
+            <GlowingCard delay={0.5} onClick={(e) => handleCardClick(e, "UI UX Branding")}>
               <div className="hc-icon shrink-0"><Search size={28} strokeWidth={1.5} /></div>
               <div className="flex flex-col gap-1">
                 <h4 className="hc-title !m-0">UI UX Branding</h4>

@@ -163,9 +163,9 @@ export default function NotFound() {
           transition={{ delay: 0.5, duration: 0.8 }}
           className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full"
         >
-          <Link href="/" passHref legacyBehavior>
-            <motion.a 
-              whileTap={{ scale: 0.95 }}
+          <motion.div whileTap={{ scale: 0.95 }}>
+            <Link 
+              href="/"
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="group relative inline-flex items-center justify-center px-8 py-4 font-bold text-white transition-all duration-200 bg-gradient-to-r from-[#5B3DF5] to-[#7857FF] rounded-full focus:outline-none hover:shadow-[0_0_30px_rgba(120,87,255,0.4)] overflow-hidden cursor-pointer"
             >
@@ -173,8 +173,8 @@ export default function NotFound() {
                 <Home size={18} className="group-hover:scale-110 transition-transform" />
                 Return to Base
               </span>
-            </motion.a>
-          </Link>
+            </Link>
+          </motion.div>
 
           <motion.button 
             whileTap={{ scale: 0.95 }}

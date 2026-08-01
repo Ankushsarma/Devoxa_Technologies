@@ -115,7 +115,7 @@ export function Chat({ chatId, receiverId, className, title, subtitle }: { chatI
                             const isMe = msg.senderId === user?.id
                             return (
                                 <div key={msg._id} className={`flex ${isMe ? "justify-end" : "justify-start"}`}>
-                                    <div className={`max-w-[85%] px-4 py-2.5 text-sm font-sans rounded-2xl shadow-sm ${isMe ? "bg-[#1A1A1A] text-white rounded-tr-sm" : "bg-neutral-50 text-neutral-900 border border-neutral-100 rounded-tl-sm"}`}>
+                                    <div className={`max-w-[85%] px-4 py-2.5 text-sm font-sans rounded-2xl shadow-sm ${isMe ? "bg-[#1A1A1A] text-[#FFFFFF] rounded-tr-sm" : "bg-neutral-50 text-neutral-900 border border-neutral-100 rounded-tl-sm"}`}>
                                         {!isMe && (
                                             <p className="text-[10px] font-bold text-[#C5A880] mb-1 tracking-wide uppercase">{msg.senderName || 'Developer'}</p>
                                         )}
@@ -150,7 +150,7 @@ export function Chat({ chatId, receiverId, className, title, subtitle }: { chatI
                         <button
                             type="submit"
                             disabled={!newMessage.trim()}
-                            className="w-8 h-8 flex items-center justify-center bg-[#C5A880] hover:bg-[#B0926A] text-white rounded-lg transition-colors disabled:opacity-50 disabled:hover:bg-[#C5A880]"
+                            className="w-8 h-8 flex items-center justify-center bg-[#C5A880] hover:bg-[#B0926A] text-[#FFFFFF] rounded-lg transition-colors disabled:opacity-50 disabled:hover:bg-[#C5A880]"
                         >
                             <Send className="w-3.5 h-3.5 ml-0.5" />
                         </button>

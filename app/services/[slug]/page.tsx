@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import { getServiceBySlug } from "@/lib/services-data";
 import Link from "next/link";
+import { Footer } from "@/components/ui/footer-section";
+import { FooterMobile } from "@/components/ui/footer-section-mobile";
 
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -11,9 +13,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   }
 
   return (
-    <main className="bg-[#fafafa] text-studio-black font-sans selection:bg-black selection:text-white min-h-screen flex flex-col">
+    <main className="bg-[#fafafa] text-studio-black font-sans selection:bg-black selection:text-[#FFFFFF] min-h-screen flex flex-col">
       {/* Minimal Navigation */}
-      <nav className="w-full bg-transparent px-8 md:px-16 py-8 flex justify-between items-center fixed top-0 z-50 mix-blend-difference text-white">
+      <nav className="w-full bg-transparent px-8 md:px-16 py-8 flex justify-between items-center fixed top-0 z-50 mix-blend-difference text-[#FFFFFF]">
         <div className="font-serif text-2xl font-medium tracking-tight italic flex items-center gap-4">
           <Link href="/">Devoxa Technologies</Link>
         </div>
@@ -73,18 +75,18 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </section>
 
         {/* Process Section */}
-        <section className="px-8 md:px-16 pt-16 md:pt-20 pb-24 md:pb-32 bg-studio-black text-white">
+        <section className="px-8 md:px-16 pt-16 md:pt-20 pb-24 md:pb-32 bg-studio-black text-[#FFFFFF]">
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-20 gap-8">
               <h2 className="text-xs uppercase tracking-[0.2em] font-mono text-neutral-500">Methodology</h2>
               <p className="font-serif text-4xl md:text-5xl italic text-neutral-300">Our structured approach.</p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16 border-t border-white/10 pt-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16 border-t border-[#8B2FD1]/15 pt-16">
               {service.process.map((step, idx) => (
                 <div key={idx} className="group flex flex-col">
-                  <span className="font-mono text-[10px] text-neutral-500 mb-6 tracking-widest border border-white/10 px-3 py-1 rounded-full self-start group-hover:border-white/30 transition-colors">PHASE {step.phase}</span>
-                  <h3 className="font-serif text-2xl mb-4 text-white group-hover:text-neutral-300 transition-colors">{step.title}</h3>
+                  <span className="font-mono text-[10px] text-neutral-500 mb-6 tracking-widest border border-[#8B2FD1]/15 px-3 py-1 rounded-full self-start group-hover:border-white/30 transition-colors">PHASE {step.phase}</span>
+                  <h3 className="font-serif text-2xl mb-4 text-[#FFFFFF] group-hover:text-neutral-300 transition-colors">{step.title}</h3>
                   <p className="text-neutral-400 font-light text-sm leading-relaxed">{step.description}</p>
                 </div>
               ))}
@@ -97,11 +99,21 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       <footer className="px-8 md:px-16 py-32 text-center bg-[#fafafa]">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-serif text-5xl md:text-7xl mb-12 italic tracking-tight text-black">Ready to elevate your digital presence?</h2>
-          <a href="/#contact" className="bg-black text-white px-10 py-5 rounded-full font-mono text-[11px] uppercase tracking-[0.2em] hover:bg-neutral-800 hover:scale-105 transition-all duration-300 inline-block shadow-lg shadow-black/10">
+          <a href="/#contact" className="bg-black text-[#FFFFFF] px-10 py-5 rounded-full font-mono text-[11px] uppercase tracking-[0.2em] hover:bg-neutral-800 hover:scale-105 transition-all duration-300 inline-block shadow-lg shadow-black/10">
             Start a project —
           </a>
         </div>
       </footer>
+
+      {/* Desktop Footer */}
+      <div className="hidden lg:block w-full">
+        <Footer style={{ paddingTop: '0px' }} middleSectionStyle={{ paddingTop: '50px', paddingBottom: '30px' }} />
+      </div>
+
+      {/* Mobile Footer */}
+      <div className="block lg:hidden w-full">
+        <FooterMobile />
+      </div>
     </main>
   );
 }

@@ -120,43 +120,43 @@ export default function AdminDashboard() {
                 <div className="flex flex-wrap gap-2 mb-8 border-b border-border pb-4">
                     <button
                         onClick={() => setActiveTab("leads")}
-                        className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${activeTab === "leads" ? "bg-studio-black text-white shadow-md" : "text-secondary hover:bg-neutral-100 hover:text-foreground"}`}
+                        className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${activeTab === "leads" ? "bg-studio-black text-[#FFFFFF] shadow-md" : "text-secondary hover:bg-neutral-100 hover:text-foreground"}`}
                     >
                         Project Leads <span className="ml-1 opacity-70">({leads.length})</span>
                     </button>
                     <button
                         onClick={() => setActiveTab("users")}
-                        className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${activeTab === "users" ? "bg-studio-black text-white shadow-md" : "text-secondary hover:bg-neutral-100 hover:text-foreground"}`}
+                        className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${activeTab === "users" ? "bg-studio-black text-[#FFFFFF] shadow-md" : "text-secondary hover:bg-neutral-100 hover:text-foreground"}`}
                     >
                         All Profiles <span className="ml-1 opacity-70">({users.length})</span>
                     </button>
                     <button
                         onClick={() => setActiveTab("notice-board")}
-                        className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${activeTab === "notice-board" ? "bg-studio-black text-white shadow-md" : "text-secondary hover:bg-neutral-100 hover:text-foreground"}`}
+                        className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${activeTab === "notice-board" ? "bg-studio-black text-[#FFFFFF] shadow-md" : "text-secondary hover:bg-neutral-100 hover:text-foreground"}`}
                     >
                         Task Board <span className="ml-1 opacity-70">({tasks.length})</span>
                     </button>
                     <button
                         onClick={() => setActiveTab("assets")}
-                        className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${activeTab === "assets" ? "bg-studio-black text-white shadow-md" : "text-secondary hover:bg-neutral-100 hover:text-foreground"}`}
+                        className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${activeTab === "assets" ? "bg-studio-black text-[#FFFFFF] shadow-md" : "text-secondary hover:bg-neutral-100 hover:text-foreground"}`}
                     >
                         Assets
                     </button>
                     <button
                         onClick={() => setActiveTab("logs")}
-                        className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${activeTab === "logs" ? "bg-studio-black text-white shadow-md" : "text-secondary hover:bg-neutral-100 hover:text-foreground"}`}
+                        className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${activeTab === "logs" ? "bg-studio-black text-[#FFFFFF] shadow-md" : "text-secondary hover:bg-neutral-100 hover:text-foreground"}`}
                     >
                         Visitor Log
                     </button>
                     <button
                         onClick={() => setActiveTab("projects")}
-                        className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all active:scale-95 ${activeTab === "projects" ? "bg-studio-black text-white shadow-md" : "text-secondary hover:bg-neutral-100 hover:text-foreground"}`}
+                        className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all active:scale-95 ${activeTab === "projects" ? "bg-studio-black text-[#FFFFFF] shadow-md" : "text-secondary hover:bg-neutral-100 hover:text-foreground"}`}
                     >
                         Portfolio <span className="ml-1 opacity-70\">({projects.length})</span>
                     </button>
                     <button
                         onClick={() => setActiveTab("global-notice")}
-                        className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${activeTab === "global-notice" ? "bg-studio-black text-white shadow-md" : "text-secondary hover:bg-neutral-100 hover:text-foreground"}`}
+                        className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${activeTab === "global-notice" ? "bg-studio-black text-[#FFFFFF] shadow-md" : "text-secondary hover:bg-neutral-100 hover:text-foreground"}`}
                     >
                         <span className="flex items-center gap-2"><Rss className="w-3.5 h-3.5" />Global Notice</span>
                     </button>
@@ -214,7 +214,7 @@ export default function AdminDashboard() {
                                                                     setAccepting(null)
                                                                 }
                                                             }}
-                                                            className="w-full whitespace-nowrap bg-black text-white text-xs font-medium px-4 py-2.5 rounded-lg shadow-sm hover:shadow-md hover:bg-neutral-800 hover:-translate-y-0.5 active:scale-95 active:translate-y-0 transition-all duration-200 disabled:opacity-50 disabled:hover:translate-y-0 disabled:active:scale-100"
+                                                            className="w-full whitespace-nowrap bg-black text-[#FFFFFF] text-xs font-medium px-4 py-2.5 rounded-lg shadow-sm hover:shadow-md hover:bg-neutral-800 hover:-translate-y-0.5 active:scale-95 active:translate-y-0 transition-all duration-200 disabled:opacity-50 disabled:hover:translate-y-0 disabled:active:scale-100"
                                                         >
                                                             {accepting === lead._id ? "Accepting..." : "Accept Client"}
                                                         </button>
@@ -327,7 +327,7 @@ export default function AdminDashboard() {
                                     {users.map((u) => (
                                         <div key={u._id || u.id} className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-4 items-center p-5 md:p-6 bg-white border border-neutral-200 hover:border-studio-black transition-all rounded-2xl shadow-sm group">
                                             <div className="col-span-6 flex items-center gap-4">
-                                                <div className="w-12 h-12 rounded-xl bg-neutral-100 flex items-center justify-center font-bold text-lg text-studio-black group-hover:bg-studio-black group-hover:text-white transition-colors shrink-0">
+                                                <div className="w-12 h-12 rounded-xl bg-neutral-100 flex items-center justify-center font-bold text-lg text-studio-black group-hover:bg-studio-black group-hover:text-[#FFFFFF] transition-colors shrink-0">
                                                     {u.name?.[0]?.toUpperCase()}
                                                 </div>
                                                 <div className="truncate">
@@ -405,7 +405,7 @@ export default function AdminDashboard() {
                                                 </SelectContent>
                                             </Select>
                                         </div>
-                                        <button disabled={creatingUser} className="w-full bg-studio-black text-white text-xs font-mono uppercase tracking-widest py-4 rounded-xl hover:bg-neutral-800 hover:-translate-y-0.5 active:scale-95 transition-all disabled:opacity-50 mt-4 border border-studio-black shadow-sm">
+                                        <button disabled={creatingUser} className="w-full bg-studio-black text-[#FFFFFF] text-xs font-mono uppercase tracking-widest py-4 rounded-xl hover:bg-neutral-800 hover:-translate-y-0.5 active:scale-95 transition-all disabled:opacity-50 mt-4 border border-studio-black shadow-sm">
                                             {creatingUser ? "Creating..." : "Create Account"}
                                         </button>
                                     </form>
@@ -445,7 +445,7 @@ export default function AdminDashboard() {
                                                     {task.description && <p className="text-xs text-neutral-500 line-clamp-2 mt-1.5">{task.description}</p>}
                                                 </div>
                                                 <div className="mt-5 pt-4 border-t border-neutral-100 flex items-center gap-2.5">
-                                                    <div className="w-6 h-6 rounded-full bg-studio-black text-white flex items-center justify-center text-[10px] font-bold">
+                                                    <div className="w-6 h-6 rounded-full bg-studio-black text-[#FFFFFF] flex items-center justify-center text-[10px] font-bold">
                                                         {task.assignedTo?.name?.[0]?.toUpperCase() || "?"}
                                                     </div>
                                                     <span className="text-xs font-semibold text-neutral-700">{task.assignedTo?.name || "Unassigned"}</span>
@@ -528,7 +528,7 @@ export default function AdminDashboard() {
                                             </Select>
                                         </div>
                                     </div>
-                                    <button disabled={creatingTask} className="w-full bg-studio-black text-white text-sm font-bold p-3 rounded-xl hover:bg-neutral-800 hover:-translate-y-0.5 active:scale-95 transition-all shadow-lg shadow-black/10 disabled:opacity-50 mt-4">
+                                    <button disabled={creatingTask} className="w-full bg-studio-black text-[#FFFFFF] text-sm font-bold p-3 rounded-xl hover:bg-neutral-800 hover:-translate-y-0.5 active:scale-95 transition-all shadow-lg shadow-black/10 disabled:opacity-50 mt-4">
                                         {creatingTask ? "Assigning..." : "Assign Task"}
                                     </button>
                                 </form>
@@ -597,7 +597,7 @@ export default function AdminDashboard() {
                                         />
                                         <label
                                             htmlFor="pitch-deck-upload"
-                                            className={`flex items-center justify-center w-full py-4 rounded-xl font-medium text-sm transition-all cursor-pointer border ${uploading ? 'bg-neutral-100 text-neutral-400 border-neutral-200' : 'bg-studio-black text-white border-studio-black hover:bg-neutral-800 hover:scale-[1.02] active:scale-95 shadow-md'}`}
+                                            className={`flex items-center justify-center w-full py-4 rounded-xl font-medium text-sm transition-all cursor-pointer border ${uploading ? 'bg-neutral-100 text-neutral-400 border-neutral-200' : 'bg-studio-black text-[#FFFFFF] border-studio-black hover:bg-neutral-800 hover:scale-[1.02] active:scale-95 shadow-md'}`}
                                         >
                                             {uploading ? "Uploading..." : "Upload New PDF"}
                                         </label>
@@ -702,7 +702,7 @@ export default function AdminDashboard() {
                                                             } else alert("Error saving MOM")
                                                         } finally { setSendingMom(false) }
                                                     }}
-                                                    className="w-full py-3.5 rounded-xl font-medium text-xs font-mono uppercase tracking-widest transition-all bg-black text-white hover:bg-neutral-800 disabled:opacity-40 disabled:cursor-not-allowed shadow-md hover:shadow-lg"
+                                                    className="w-full py-3.5 rounded-xl font-medium text-xs font-mono uppercase tracking-widest transition-all bg-black text-[#FFFFFF] hover:bg-neutral-800 disabled:opacity-40 disabled:cursor-not-allowed shadow-md hover:shadow-lg"
                                                 >
                                                     {sendingMom ? "Sending..." : "Send on Mail"}
                                                 </button>
@@ -790,7 +790,7 @@ export default function AdminDashboard() {
                                         <label className="label-mono block text-neutral-500 mb-2">Visit URL <span className="normal-case opacity-50 ml-1 font-sans">(optional)</span></label>
                                         <input type="url" value={projectForm.visitUrl} onChange={e => setProjectForm({ ...projectForm, visitUrl: e.target.value })} className="w-full bg-white border border-neutral-200 h-12 rounded-xl focus:outline-none focus:border-black px-4 font-serif text-sm transition-colors" placeholder="https://..." />
                                     </div>
-                                    <button disabled={savingProject} className="w-full py-4 rounded-xl font-medium text-xs font-mono uppercase tracking-widest transition-all bg-black text-white hover:bg-neutral-800 disabled:opacity-40 shadow-md mt-4">
+                                    <button disabled={savingProject} className="w-full py-4 rounded-xl font-medium text-xs font-mono uppercase tracking-widest transition-all bg-black text-[#FFFFFF] hover:bg-neutral-800 disabled:opacity-40 shadow-md mt-4">
                                         {savingProject ? 'Publishing...' : 'Publish to Homepage'}
                                     </button>
                                 </form>

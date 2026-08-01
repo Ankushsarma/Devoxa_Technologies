@@ -23,7 +23,7 @@ export default function ProductGrid({ products }: ProductGridProps) {
         {products.map((product) => (
           <div 
             key={product.id} 
-            className="flex flex-col bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:border-[#a78bfa] transition-colors duration-300"
+            className="flex flex-col bg-transparent border border-[#8B2FD1]/15 rounded-xl overflow-hidden hover:border-[#8B2FD1] transition-colors duration-300"
           >
             {/* Product Image Placeholder */}
             <div className="aspect-square bg-white/10 w-full relative">
@@ -34,7 +34,7 @@ export default function ProductGrid({ products }: ProductGridProps) {
                   className="w-full h-full object-cover"
                 />
               ) : (
-                <div className="w-full h-full flex items-center justify-center text-white/30 text-sm">
+                <div className="w-full h-full flex items-center justify-center text-[#FFFFFF]/30 text-sm">
                   No Image
                 </div>
               )}
@@ -42,15 +42,15 @@ export default function ProductGrid({ products }: ProductGridProps) {
 
             {/* Product Details */}
             <div className="p-5 flex flex-col flex-1">
-              <h3 className="text-lg font-semibold text-white mb-2">{product.name}</h3>
+              <h3 className="text-lg font-semibold text-[#FFFFFF] mb-2">{product.name}</h3>
               {product.description && (
-                <p className="text-sm text-gray-400 mb-4 flex-1 line-clamp-2">
+                <p className="text-sm text-[#FFFFFF]/60 mb-4 flex-1 line-clamp-2">
                   {product.description}
                 </p>
               )}
               <div className="mt-auto flex items-center justify-between">
-                <span className="text-lg font-bold text-[#a78bfa]">{product.price}</span>
-                <button className="px-4 py-2 bg-white/10 hover:bg-[#a78bfa] hover:text-white text-sm font-medium text-gray-200 rounded-lg transition-colors">
+                <span className="text-lg font-bold text-[#8B2FD1]">{product.price}</span>
+                <button className="px-4 py-2 bg-white/10 hover:bg-[#8B2FD1] hover:text-[#FFFFFF] text-sm font-medium text-[#FFFFFF] rounded-lg transition-colors">
                   Add to cart
                 </button>
               </div>

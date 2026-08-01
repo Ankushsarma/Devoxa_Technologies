@@ -110,7 +110,7 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
       >
         <button
           onClick={onClose}
-          className="absolute right-4 top-4 z-20 rounded-full p-2 text-white/50 hover:bg-white/10 hover:text-white transition-colors"
+          className="absolute right-4 top-4 z-20 rounded-full p-2 text-[#FFFFFF]/50 hover:bg-white/10 hover:text-[#FFFFFF] transition-colors"
           aria-label="Close modal"
         >
           <X size={20} />
@@ -124,34 +124,34 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
           <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 rounded-full bg-[#E879F9] blur-[80px] opacity-20 pointer-events-none"></div>
           
           <div className="relative z-10">
-            <h3 className="text-xl sm:text-2xl font-semibold text-white mb-2 font-serif leading-tight">
-              Ready to build <br/>something <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a78bfa] to-[#f472b6]">extraordinary?</span>
+            <h3 className="text-xl sm:text-2xl font-semibold text-[#FFFFFF] mb-2 font-serif leading-tight">
+              Ready to build <br/>something <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B2FD1] to-[#8B2FD1]">extraordinary?</span>
             </h3>
-            <p className="text-[13px] sm:text-sm text-purple-200/70 leading-relaxed mb-4">
+            <p className="text-[13px] sm:text-sm text-[#8B2FD1]/70 leading-relaxed mb-4">
               Fill out the form and our team of experts will review your request and get back to you within 24 hours.
             </p>
 
             <div className="space-y-6 hidden md:block">
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
-                  <svg className="w-5 h-5 text-[#a78bfa]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="w-10 h-10 rounded-full bg-transparent flex items-center justify-center border border-[#8B2FD1]/15">
+                  <svg className="w-5 h-5 text-[#8B2FD1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
                 <div>
-                  <h4 className="text-white text-sm font-medium">Quick Response</h4>
-                  <p className="text-purple-200/50 text-xs">Usually within 24 hours</p>
+                  <h4 className="text-[#FFFFFF] text-sm font-medium">Quick Response</h4>
+                  <p className="text-[#8B2FD1]/50 text-xs">Usually within 24 hours</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
-                  <svg className="w-5 h-5 text-[#a78bfa]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="w-10 h-10 rounded-full bg-transparent flex items-center justify-center border border-[#8B2FD1]/15">
+                  <svg className="w-5 h-5 text-[#8B2FD1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
                 </div>
                 <div>
-                  <h4 className="text-white text-sm font-medium">Strictly Confidential</h4>
-                  <p className="text-purple-200/50 text-xs">Your ideas are safe with us</p>
+                  <h4 className="text-[#FFFFFF] text-sm font-medium">Strictly Confidential</h4>
+                  <p className="text-[#8B2FD1]/50 text-xs">Your ideas are safe with us</p>
                 </div>
               </div>
             </div>
@@ -174,55 +174,55 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
           <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4 relative z-10">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <div>
-                <label className="block text-[10px] sm:text-[11px] font-semibold text-[#8981A6] mb-1 tracking-wider">NAME <span className="text-red-400">*</span></label>
+                <label className="block text-[10px] sm:text-[11px] font-semibold text-[#A8A5AD] mb-1 tracking-wider">NAME <span className="text-red-400">*</span></label>
                 <input
                   required
                   type="text"
                   value={formState.name}
                   onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                  className="w-full rounded-xl bg-white/5 border border-white/10 px-3.5 py-2.5 text-sm text-white placeholder-white/20 focus:border-[#a78bfa] focus:bg-white/10 focus:outline-none transition-all"
+                  className="w-full rounded-xl bg-transparent border border-[#8B2FD1]/15 px-3.5 py-2.5 text-sm text-[#FFFFFF] placeholder-white/20 focus:border-[#8B2FD1] focus:bg-white/10 focus:outline-none transition-all"
                   placeholder="Rahul Sharma"
                 />
               </div>
               <div>
-                <label className="block text-[10px] sm:text-[11px] font-semibold text-[#8981A6] mb-1 tracking-wider">EMAIL <span className="text-red-400">*</span></label>
+                <label className="block text-[10px] sm:text-[11px] font-semibold text-[#A8A5AD] mb-1 tracking-wider">EMAIL <span className="text-red-400">*</span></label>
                 <input
                   required
                   type="email"
                   value={formState.email}
                   onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                  className="w-full rounded-xl bg-white/5 border border-white/10 px-3.5 py-2.5 text-sm text-white placeholder-white/20 focus:border-[#a78bfa] focus:bg-white/10 focus:outline-none transition-all"
+                  className="w-full rounded-xl bg-transparent border border-[#8B2FD1]/15 px-3.5 py-2.5 text-sm text-[#FFFFFF] placeholder-white/20 focus:border-[#8B2FD1] focus:bg-white/10 focus:outline-none transition-all"
                   placeholder="rahul@devoxa.tech"
                 />
               </div>
               <div>
-                <label className="block text-[10px] sm:text-[11px] font-semibold text-[#8981A6] mb-1 tracking-wider">PHONE</label>
+                <label className="block text-[10px] sm:text-[11px] font-semibold text-[#A8A5AD] mb-1 tracking-wider">PHONE</label>
                 <input
                   type="tel"
                   value={formState.phone}
                   onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
-                  className="w-full rounded-xl bg-white/5 border border-white/10 px-3.5 py-2.5 text-sm text-white placeholder-white/20 focus:border-[#a78bfa] focus:bg-white/10 focus:outline-none transition-all"
+                  className="w-full rounded-xl bg-transparent border border-[#8B2FD1]/15 px-3.5 py-2.5 text-sm text-[#FFFFFF] placeholder-white/20 focus:border-[#8B2FD1] focus:bg-white/10 focus:outline-none transition-all"
                   placeholder="+91 98765 43210"
                 />
               </div>
               <div>
-                <label className="block text-[10px] sm:text-[11px] font-semibold text-[#8981A6] mb-1 tracking-wider">COMPANY</label>
+                <label className="block text-[10px] sm:text-[11px] font-semibold text-[#A8A5AD] mb-1 tracking-wider">COMPANY</label>
                 <input
                   type="text"
                   value={formState.company}
                   onChange={(e) => setFormState({ ...formState, company: e.target.value })}
-                  className="w-full rounded-xl bg-white/5 border border-white/10 px-3.5 py-2.5 text-sm text-white placeholder-white/20 focus:border-[#a78bfa] focus:bg-white/10 focus:outline-none transition-all"
+                  className="w-full rounded-xl bg-transparent border border-[#8B2FD1]/15 px-3.5 py-2.5 text-sm text-[#FFFFFF] placeholder-white/20 focus:border-[#8B2FD1] focus:bg-white/10 focus:outline-none transition-all"
                   placeholder="Devoxa"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-[10px] sm:text-[11px] font-semibold text-[#8981A6] mb-1 tracking-wider">PROJECT DETAILS</label>
+              <label className="block text-[10px] sm:text-[11px] font-semibold text-[#A8A5AD] mb-1 tracking-wider">PROJECT DETAILS</label>
               <textarea
                 value={formState.message}
                 onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                className="w-full rounded-xl bg-white/5 border border-white/10 px-3.5 py-2.5 text-sm text-white placeholder-white/20 focus:border-[#a78bfa] focus:bg-white/10 focus:outline-none transition-all resize-none h-20"
+                className="w-full rounded-xl bg-transparent border border-[#8B2FD1]/15 px-3.5 py-2.5 text-sm text-[#FFFFFF] placeholder-white/20 focus:border-[#8B2FD1] focus:bg-white/10 focus:outline-none transition-all resize-none h-20"
                 placeholder="Tell us about your goals, timeline, and what you're looking to achieve..."
               />
             </div>
@@ -230,7 +230,7 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full mt-1 sm:mt-2 rounded-xl py-3 text-[13px] sm:text-sm font-bold text-white shadow-lg hover:shadow-xl transition-all disabled:opacity-70 disabled:cursor-not-allowed hover:-translate-y-0.5"
+              className="w-full mt-1 sm:mt-2 rounded-xl py-3 text-[13px] sm:text-sm font-bold text-[#FFFFFF] shadow-lg hover:shadow-xl transition-all disabled:opacity-70 disabled:cursor-not-allowed hover:-translate-y-0.5"
               style={{
                 background: "linear-gradient(135deg, #7C5CFC, #E879F9)",
                 boxShadow: "0 8px 24px rgba(124,92,252,0.25)"

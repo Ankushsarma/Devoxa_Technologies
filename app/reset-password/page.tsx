@@ -106,7 +106,7 @@ function ResetPasswordForm() {
             <button
                 type="submit"
                 disabled={loading}
-                className="w-full py-2.5 mt-2 bg-studio-black hover:bg-neutral-800 text-white font-bold rounded-lg active:scale-[0.98] transition-all disabled:opacity-70 disabled:hover:bg-studio-black shadow-md shadow-neutral-800/25 flex items-center justify-center gap-2 text-sm"
+                className="w-full py-2.5 mt-2 bg-studio-black hover:bg-neutral-800 text-[#FFFFFF] font-bold rounded-lg active:scale-[0.98] transition-all disabled:opacity-70 disabled:hover:bg-studio-black shadow-md shadow-neutral-800/25 flex items-center justify-center gap-2 text-sm"
             >
                 {loading ? "Resetting..." : "Set New Password"} 
                 {!loading && <ArrowRight className="w-4 h-4" />}

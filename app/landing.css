@@ -516,13 +516,13 @@ body{margin:0;padding:0;background:#050506;}
           border: 1px dashed rgba(139, 92, 246, 0.3);
         }
         .hc-title {
-          font-size: clamp(14px, 1.4vw, 17px);
+          font-size: clamp(12px, 1.2vw, 15px);
           font-weight: 700;
           color: #fff;
           margin: 0;
         }
         .hc-desc {
-          font-size: clamp(12.5px, 1.1vw, 14.5px);
+          font-size: clamp(11px, 1vw, 13px);
           color: var(--text-mid);
           line-height: 1.5;
           margin: 0;

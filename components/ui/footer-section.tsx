@@ -62,9 +62,9 @@ export function Footer({ className = "pb-4", style, middleSectionClassName = "",
 
 					{/* Left CTA */}
 					<AnimatedContainer delay={0.2} className="w-full lg:w-[400px] shrink-0 flex flex-col items-start pl-3 sm:pl-0">
-						<h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-[#FFFFFF] mb-2 leading-tight">
+						<h2 className="text-[24px] sm:text-[28px] md:text-[32px] text-white mb-2 leading-[1.15]">
 							Let's build something<br />
-							amazing <span className="text-[#8B2FD1]">together.</span>
+							amazing <span className="font-stencilia uppercase text-[#a78bfa]">together.</span>
 						</h2>
 						<p className="text-[#FFFFFF]/60 text-xs sm:text-sm leading-relaxed max-w-sm">
 							We partner with ambitious businesses to design, build and scale digital products that drive real impact.

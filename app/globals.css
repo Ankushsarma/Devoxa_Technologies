@@ -2,38 +2,53 @@
 @import 'tw-animate-css';
 @import './landing.css';
 @custom-variant dark (&:is(.dark *));
+@font-face {
+  font-family: 'Lemon Milk';
+  src: url('/fonts/LEMONMILK-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Stencilia';
+  src: url('/fonts/Stencilia-A.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   /* Backgrounds */
-  --bg-void: #0A0710;
-  --bg-base: #0A0710;
-  --bg-elevated: #2B0F45;
-  --bg-glow: #5B1FA0;
+  --bg-void: #050506;
+  --bg-base: #0d0d11;
+  --bg-elevated: #170f2e;
+  --bg-glow: #241649;
 
   /* Text */
-  --text-primary: #FFFFFF;
-  --text-muted: #A8A5AD;
+  --text-primary: #ffffff;
+  --text-muted: #87868a;
 
   /* Accent (violet gradient) */
-  --accent-start: #8B2FD1;
-  --accent-end: #5B1FA0;
-  --accent-solid: #5B1FA0;
+  --accent-start: #7c3aed;
+  --accent-end: #a78bfa;
+  --accent-solid: #8b5cf6;
 
   /* Buttons */
-  --btn-primary-bg: #FFFFFF;
-  --btn-primary-text: #0D0D0D;
-  --btn-outline-border: rgba(139,47,209,0.4);
+  --btn-primary-bg: #ffffff;
+  --btn-primary-text: #0d0d11;
+  --btn-outline-border: rgba(255, 255, 255, 0.15);
 
   /* Legacy mappings for Tailwind/components */
-  --background: linear-gradient(to right, #08060E 0%, #08060E 20%, #1A0733 40%, #4A1890 62%, #7120C8 80%, #8B2FD1 100%) ;
-  --foreground: #FFFFFF;
-  --studio-black: #0A0710;
-  --studio-gray-light: #2B0F45;
-  --studio-gray-border: rgba(169, 79, 224, 0.15);
-  --studio-surface: #2B0F45;
-  --border: rgba(139,47,209,0.2);
-  --muted: #2B0F45;
-  --muted-foreground: rgba(234, 217, 247, 0.7);
+  --background: #050506;
+  --foreground: #ffffff;
+  --studio-black: #0d0d11;
+  --studio-gray-light: #170f2e;
+  --studio-gray-border: rgba(255, 255, 255, 0.08);
+  --studio-surface: #0d0d11;
+  --border: rgba(255, 255, 255, 0.08);
+  --muted: #170f2e;
+  --muted-foreground: #87868a;
 }
 
 @theme inline {
@@ -53,6 +68,8 @@
   --font-serif: var(--font-serif), 'EB Garamond', serif;
   --font-sans: var(--font-sans), 'Inter', sans-serif;
   --font-mono: var(--font-mono), 'JetBrains Mono', monospace;
+  --font-lemon: 'Lemon Milk', sans-serif;
+  --font-stencilia: 'Stencilia', sans-serif;
 
   /* Marquee Animation */
   --animate-marquee: marquee 60s linear infinite;
@@ -61,7 +78,8 @@
     0% {
       transform: translateX(0%);
     }
-    100% {
+
+    100% {
       transform: translateX(-50%);
     }
   }
@@ -80,6 +98,15 @@
     background-attachment: fixed;
     color: var(--foreground);
     @apply font-sans;
+  }
+
+  h2 {
+    font-family: var(--font-lemon) !important;
+    font-weight: normal !important;
+  }
+
+  .font-stencilia {
+    font-size: 1.15em;
   }
 
   * {

@@ -81,7 +81,7 @@ export default function SecurityPolicy() {
   return (
     <div className="min-h-screen bg-transparent text-[#FFFFFF] selection:bg-[#5B1FA0] selection:text-[#FFFFFF] font-sans relative overflow-x-hidden">
       
-      {/* Responsive Header Navigation (Transparent) */}
+      {/* Responsive Header Navigation */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-transparent border-none outline-none">
         
         {/* Desktop Header Navigation (lg:flex) */}
@@ -105,17 +105,17 @@ export default function SecurityPolicy() {
           <div className="flex items-center gap-5">
             <Link 
               href="/#footer" 
-              className="px-4.5 py-2 rounded-full bg-transparent border border-[#8B2FD1]/15 text-xs font-semibold text-[#FFFFFF]/70 hover:text-[#FFFFFF] hover:bg-white/10 active:scale-95 transition-all flex items-center gap-2"
+              className="px-4.5 py-2 rounded-full bg-[#0c0817] border border-purple-500/30 shadow-[0_0_10px_rgba(139,92,246,0.15)] text-xs font-semibold text-purple-100 hover:bg-[#140c27] hover:border-purple-500/60 hover:shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:text-white active:scale-95 transition-all flex items-center gap-2"
             >
               <ArrowLeft className="w-3.5 h-3.5 text-[#8B2FD1]" />
               <span>Return to Home</span>
             </Link>
-            <Link href="/login" className="text-xs font-mono font-semibold uppercase tracking-widest text-neutral-300 hover:text-[#FFFFFF] transition-colors">
+            <Link href="/login" className="px-4.5 py-2 rounded-full bg-[#0c0817] border border-purple-500/30 shadow-[0_0_10px_rgba(139,92,246,0.15)] text-xs font-mono font-semibold uppercase tracking-widest text-purple-100 hover:bg-[#140c27] hover:border-purple-500/60 hover:shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:text-white transition-all flex items-center">
               Login
             </Link>
             <button
               onClick={() => setIsModalOpen(true)}
-              className="border border-[#8B2FD1]/40 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#5B1FA0]/30 to-[#5B1FA0]/30 text-xs font-mono uppercase tracking-widest text-[#FFFFFF] hover:bg-gradient-to-r hover:from-[#5B1FA0] hover:to-[#5B1FA0] transition-all shadow-[0_0_40px_rgba(139,47,209,0.15)] flex items-center gap-2"
+              className="border border-purple-400/50 px-5 py-2.5 rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-600 text-xs font-mono uppercase tracking-widest text-white hover:from-violet-500 hover:to-fuchsia-500 transition-all shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:shadow-[0_0_30px_rgba(139,92,246,0.6)] flex items-center gap-2"
             >
               <Sparkles className="w-3.5 h-3.5 text-[#8B2FD1]" />
               <span>Book a call —</span>

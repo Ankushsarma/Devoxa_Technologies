@@ -45,17 +45,14 @@ export default function AgencySection({ onOpenModal }: { onOpenModal: () => void
 
             {/* Headline */}
             <h2 style={{ 
-              fontFamily: "var(--font-mono, monospace)", 
               fontSize: "clamp(24px, 3.5vw, 46px)", 
-              fontWeight: 700, 
               color: "#fff", 
               lineHeight: 1.3, 
               letterSpacing: "clamp(1px, 0.2vw, 4px)", 
-              marginBottom: "clamp(32px, 5vh, 48px)",
-              textTransform: "uppercase"
+              marginBottom: "clamp(32px, 5vh, 48px)"
             }}>
               <span style={{ whiteSpace: "nowrap" }}>We are more</span><br />
-              <span style={{ whiteSpace: "nowrap" }}>than an agency.</span>
+              <span style={{ whiteSpace: "nowrap" }}>than <span className="font-stencilia uppercase text-[#a78bfa]">an agency.</span></span>
             </h2>
             
             {/* Subtext */}

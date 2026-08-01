@@ -29,11 +29,9 @@ export default function TermsOfService() {
   const [activeSection, setActiveSection] = useState("terms-1");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
       const sections = [
         "terms-1",
         "terms-2",
@@ -82,8 +80,8 @@ export default function TermsOfService() {
   return (
     <div className="min-h-screen bg-[#050506] text-white selection:bg-purple-500 selection:text-white font-sans relative overflow-x-hidden">
       
-      {/* Responsive Header Navigation */}
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#050506]/90 backdrop-blur-md border-b border-white/10 shadow-sm' : 'bg-transparent border-none outline-none'}`}>
+      {/* Responsive Header Navigation (Transparent) */}
+      <header className="absolute top-0 left-0 right-0 z-50 bg-transparent border-none outline-none">
         
         {/* Desktop Header Navigation (lg:flex) */}
         <nav className="hidden lg:flex py-6 px-12 lg:px-16 justify-between items-center w-full bg-transparent border-none outline-none">

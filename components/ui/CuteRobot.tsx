@@ -29,8 +29,8 @@ export function CuteRobot() {
         position: 'absolute',
         top: -45, 
         left: '10%', 
-        width: '55px',
-        height: '65px',
+        width: '72px',
+        height: '85px',
         zIndex: 10,
         pointerEvents: 'none',
         transformStyle: 'preserve-3d'

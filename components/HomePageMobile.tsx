@@ -13,6 +13,7 @@ import TextType from '@/components/TextType';
 
 import LineWaves from "@/components/LineWaves"
 import ConsultationModal from "@/components/ConsultationModal"
+import SciFiServiceModal, { ServiceDetails } from "@/components/SciFiServiceModal"
 import AgencySection from "@/components/AgencySection"
 import LightPillar from "@/components/LightPillar"
 import MagicRings from "@/components/MagicRings"
@@ -610,7 +611,7 @@ const MobileServicePackages = ({ onOpenModal }: { onOpenModal?: () => void }) =>
   );
 };
 
-const GlowingCard = ({ children, active, delay, className }: { children: React.ReactNode, active?: boolean, delay: number, className?: string }) => {
+const GlowingCard = ({ children, active, delay, className, onClick }: { children: React.ReactNode, active?: boolean, delay: number, className?: string, onClick?: () => void }) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [opacity, setOpacity] = useState(0);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -627,7 +628,8 @@ const GlowingCard = ({ children, active, delay, className }: { children: React.R
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setOpacity(1)}
       onMouseLeave={() => setOpacity(0)}
-      className={`hero-card flex flex-col h-full ${active ? 'active' : ''} ${className || ''}`}
+      onClick={onClick}
+      className={`hero-card flex flex-col h-full ${active ? 'active' : ''} ${className || ''} ${onClick ? 'cursor-pointer' : ''}`}
       style={{
         animationDelay: `${delay}s`,
         minWidth: 0
@@ -647,6 +649,64 @@ const GlowingCard = ({ children, active, delay, className }: { children: React.R
   );
 };
 
+const servicesData: Record<string, ServiceDetails> = {
+  "Web App Dev": {
+    id: "web-app-dev",
+    title: "Web App Dev",
+    description: "Custom-built, highly scalable web applications designed to meet your specific business requirements and handle high traffic volumes.",
+    features: [
+      "Next.js & React Frontend Architecture",
+      "Scalable Node.js / Go Backend",
+      "Cloud-native deployment (AWS/GCP)",
+      "High Performance & SEO Optimized"
+    ]
+  },
+  "Automation": {
+    id: "automation",
+    title: "Automation",
+    description: "Streamline your workflows and eliminate repetitive manual tasks with custom automation scripts and AI-driven processes.",
+    features: [
+      "Custom Workflow Scripts",
+      "API Integration & Webhooks",
+      "AI-driven Task Automation",
+      "Data Syncing & Reporting"
+    ]
+  },
+  "IT Consultation": {
+    id: "it-consultation",
+    title: "IT Consultation",
+    description: "Expert strategic guidance to modernize your technology stack, improve security, and reduce operational costs.",
+    features: [
+      "Tech Stack Auditing & Modernization",
+      "Cloud Migration Strategy",
+      "Security & Compliance Reviews",
+      "Cost Optimization"
+    ]
+  },
+  "CRM CMS": {
+    id: "crm-cms",
+    title: "CRM CMS",
+    description: "Manage all your customer data, marketing pipelines, and content seamlessly in one unified platform.",
+    features: [
+      "Custom CRM Development",
+      "Headless CMS Integration",
+      "Lead Tracking & Pipelines",
+      "Automated Marketing Flows"
+    ]
+  },
+  "UI UX Branding": {
+    id: "ui-ux-branding",
+    title: "UI UX Branding",
+    description: "Crafting beautiful, intuitive interfaces that enhance user experience, build brand trust, and drive conversions.",
+    features: [
+      "User Research & Wireframing",
+      "High-Fidelity Prototyping",
+      "Brand Identity & Guidelines",
+      "Conversion Rate Optimization"
+    ]
+  }
+};
+
 export default function HomePageMobile() {
   const { user, role, loading, logout } = useAuth()
   const [scrolled, setScrolled] = useState(false)
@@ -659,6 +719,7 @@ export default function HomePageMobile() {
   
   // Modal state
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [activeService, setActiveService] = useState<ServiceDetails | null>(null)
 
   // Scroll listener for nav blur
   useEffect(() => {
@@ -1171,35 +1232,35 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
           </div>
           
           <div className="grid grid-cols-1 min-[375px]:grid-cols-2 gap-4 mb-16 mx-auto w-full relative z-20" style={{ flexShrink: 0, marginTop: "80px" }}>
-            <GlowingCard delay={0.1}>
+            <GlowingCard delay={0.1} onClick={() => setActiveService(servicesData["Web App Dev"])}>
               <div className="hc-icon shrink-0"><Code2 size={28} strokeWidth={1.5} /></div>
               <div className="flex flex-col gap-1">
                 <h4 className="hc-title !m-0">Web App Dev</h4>
                 <p className="hc-desc !m-0">Custom-built, scalable web applications</p>
               </div>
             </GlowingCard>
-            <GlowingCard delay={0.2}>
+            <GlowingCard delay={0.2} onClick={() => setActiveService(servicesData["Automation"])}>
               <div className="hc-icon shrink-0"><Zap size={28} strokeWidth={1.5} /></div>
               <div className="flex flex-col gap-1">
                 <h4 className="hc-title !m-0">Automation</h4>
                 <p className="hc-desc !m-0">Streamline workflows and cut manual work</p>
               </div>
             </GlowingCard>
-            <GlowingCard active delay={0.3} className="min-[375px]:col-span-2">
+            <GlowingCard active delay={0.3} className="min-[375px]:col-span-2" onClick={() => setActiveService(servicesData["IT Consultation"])}>
               <div className="hc-icon shrink-0"><Layers size={28} strokeWidth={1.5} /></div>
               <div className="flex flex-col gap-1">
                 <h4 className="hc-title !m-0">IT Consultation</h4>
                 <p className="hc-desc !m-0">Strategic guidance for your tech stack</p>
               </div>
             </GlowingCard>
-            <GlowingCard delay={0.4}>
+            <GlowingCard delay={0.4} onClick={() => setActiveService(servicesData["CRM CMS"])}>
               <div className="hc-icon shrink-0"><BarChart3 size={28} strokeWidth={1.5} /></div>
               <div className="flex flex-col gap-1">
                 <h4 className="hc-title !m-0">CRM CMS</h4>
                 <p className="hc-desc !m-0">Manage customers and content in one place</p>
               </div>
             </GlowingCard>
-            <GlowingCard delay={0.5}>
+            <GlowingCard delay={0.5} onClick={() => setActiveService(servicesData["UI UX Branding"])}>
               <div className="hc-icon shrink-0"><Search size={28} strokeWidth={1.5} /></div>
               <div className="flex flex-col gap-1">
                 <h4 className="hc-title !m-0">UI UX Branding</h4>
@@ -1697,6 +1758,12 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       <FooterMobile />
+
+      <SciFiServiceModal 
+        isOpen={!!activeService} 
+        service={activeService} 
+        onClose={() => setActiveService(null)} 
+      />
     </>
   )
 }

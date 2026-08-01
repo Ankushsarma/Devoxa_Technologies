@@ -13,6 +13,7 @@ import TextType from '@/components/TextType';
 
 import LineWaves from "@/components/LineWaves"
 import ConsultationModal from "@/components/ConsultationModal"
+import SciFiServiceModal, { ServiceDetails } from "@/components/SciFiServiceModal"
 import AgencySection from "@/components/AgencySection"
 import LightPillar from "@/components/LightPillar"
 import MagicRings from "@/components/MagicRings"
@@ -100,7 +101,7 @@ const AnimatedProcessWorkflow = () => {
   );
 };
 
-const GlowingCard = ({ children, active, delay }: { children: React.ReactNode, active?: boolean, delay: number }) => {
+const GlowingCard = ({ children, active, delay, onClick }: { children: React.ReactNode, active?: boolean, delay: number, onClick?: () => void }) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [opacity, setOpacity] = useState(0);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -117,7 +118,8 @@ const GlowingCard = ({ children, active, delay }: { children: React.ReactNode, a
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setOpacity(1)}
       onMouseLeave={() => setOpacity(0)}
-      className={`hero-card ${active ? 'active' : ''}`}
+      onClick={onClick}
+      className={`hero-card ${active ? 'active' : ''} ${onClick ? 'cursor-pointer' : ''}`}
       style={{ animationDelay: `${delay}s` }}
     >
       <div
@@ -134,6 +136,64 @@ const GlowingCard = ({ children, active, delay }: { children: React.ReactNode, a
   );
 };
 
+const servicesData: Record<string, ServiceDetails> = {
+  "Web App Dev": {
+    id: "web-app-dev",
+    title: "Web App Dev",
+    description: "Custom-built, highly scalable web applications designed to meet your specific business requirements and handle high traffic volumes.",
+    features: [
+      "Next.js & React Frontend Architecture",
+      "Scalable Node.js / Go Backend",
+      "Cloud-native deployment (AWS/GCP)",
+      "High Performance & SEO Optimized"
+    ]
+  },
+  "Automation": {
+    id: "automation",
+    title: "Automation",
+    description: "Streamline your workflows and eliminate repetitive manual tasks with custom automation scripts and AI-driven processes.",
+    features: [
+      "Custom Workflow Scripts",
+      "API Integration & Webhooks",
+      "AI-driven Task Automation",
+      "Data Syncing & Reporting"
+    ]
+  },
+  "IT Consultation": {
+    id: "it-consultation",
+    title: "IT Consultation",
+    description: "Expert strategic guidance to modernize your technology stack, improve security, and reduce operational costs.",
+    features: [
+      "Tech Stack Auditing & Modernization",
+      "Cloud Migration Strategy",
+      "Security & Compliance Reviews",
+      "Cost Optimization"
+    ]
+  },
+  "CRM CMS": {
+    id: "crm-cms",
+    title: "CRM CMS",
+    description: "Manage all your customer data, marketing pipelines, and content seamlessly in one unified platform.",
+    features: [
+      "Custom CRM Development",
+      "Headless CMS Integration",
+      "Lead Tracking & Pipelines",
+      "Automated Marketing Flows"
+    ]
+  },
+  "UI UX Branding": {
+    id: "ui-ux-branding",
+    title: "UI UX Branding",
+    description: "Crafting beautiful, intuitive interfaces that enhance user experience, build brand trust, and drive conversions.",
+    features: [
+      "User Research & Wireframing",
+      "High-Fidelity Prototyping",
+      "Brand Identity & Guidelines",
+      "Conversion Rate Optimization"
+    ]
+  }
+};
+
 export default function HomePageDesktop() {
   const { user, role, loading, logout } = useAuth()
   const [scrolled, setScrolled] = useState(false)
@@ -147,6 +207,7 @@ export default function HomePageDesktop() {
 
   // Modal state
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [activeService, setActiveService] = useState<ServiceDetails | null>(null)
 
   // Scroll listener for nav blur and WhatsApp button
   useEffect(() => {
@@ -521,27 +582,27 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       <div className="hero-cards-wrapper">
-        <GlowingCard delay={0.1}>
+        <GlowingCard delay={0.1} onClick={() => setActiveService(servicesData["Web App Dev"])}>
           <div className="hc-icon"><Code2 size={28} strokeWidth={1.5} /></div>
           <h4 className="hc-title">Web App Dev</h4>
           <p className="hc-desc">Custom-built, scalable web applications</p>
         </GlowingCard>
-        <GlowingCard delay={0.2}>
+        <GlowingCard delay={0.2} onClick={() => setActiveService(servicesData["Automation"])}>
           <div className="hc-icon"><Zap size={28} strokeWidth={1.5} /></div>
           <h4 className="hc-title">Automation</h4>
           <p className="hc-desc">Streamline workflows and cut manual work</p>
         </GlowingCard>
-        <GlowingCard active delay={0.3}>
+        <GlowingCard active delay={0.3} onClick={() => setActiveService(servicesData["IT Consultation"])}>
           <div className="hc-icon"><Layers size={28} strokeWidth={1.5} /></div>
           <h4 className="hc-title">IT Consultation</h4>
           <p className="hc-desc">Strategic guidance for your tech stack</p>
         </GlowingCard>
-        <GlowingCard delay={0.4}>
+        <GlowingCard delay={0.4} onClick={() => setActiveService(servicesData["CRM CMS"])}>
           <div className="hc-icon"><BarChart3 size={28} strokeWidth={1.5} /></div>
           <h4 className="hc-title">CRM CMS</h4>
           <p className="hc-desc">Manage customers and content in one place</p>
         </GlowingCard>
-        <GlowingCard delay={0.5}>
+        <GlowingCard delay={0.5} onClick={() => setActiveService(servicesData["UI UX Branding"])}>
           <div className="hc-icon"><Search size={28} strokeWidth={1.5} /></div>
           <h4 className="hc-title">UI UX Branding</h4>
           <p className="hc-desc">Interfaces that look sharp and convert</p>
@@ -1101,6 +1162,12 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       <Footer style={{ paddingTop: '0px' }} middleSectionStyle={{ paddingTop: '50px', paddingBottom: '30px' }} />
+
+      <SciFiServiceModal 
+        isOpen={!!activeService} 
+        service={activeService} 
+        onClose={() => setActiveService(null)} 
+      />
     </>
   )
 }

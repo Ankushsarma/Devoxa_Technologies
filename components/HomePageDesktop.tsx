@@ -811,8 +811,8 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                 </div>
               </div>
 
-              {/* Bullet Points - Clear Distance / Margin Top */}
-              <ul className="mt-9 sm:mt-10 flex flex-col gap-4 list-none p-0">
+              {/* Bullet Points - Shifted Down with Extra Space */}
+              <ul className="mt-14 sm:mt-16 flex flex-col gap-4 list-none p-0">
                 {[
                   "Custom software for your workflow",
                   "Scalable cloud infrastructure",

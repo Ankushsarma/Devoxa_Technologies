@@ -719,7 +719,6 @@ export default function HomePageMobile() {
   
   // Modal state
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [activeService, setActiveService] = useState<ServiceDetails | null>(null)
 
   // Scroll listener for nav blur
   useEffect(() => {
@@ -1105,6 +1104,7 @@ function MobileNav({ user, role, loading, logout, scrolled }: any) {
 }
 
 function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: () => void }) {
+  const [activeService, setActiveService] = useState<ServiceDetails | null>(null)
   return (
     <>
       <section id="hero" className="nx vx-float pt-24 md:pt-32" style={{ height: "auto", minHeight: "100vh" }}>

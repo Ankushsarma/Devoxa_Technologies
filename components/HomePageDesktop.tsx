@@ -796,7 +796,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               </p>
               
               {/* Stats Row - Clean without Border Lines */}
-              <div className="flex items-center gap-10 sm:gap-14 px-1" style={{ marginTop: "24px", marginBottom: "36px" }}>
+              <div className="flex items-center gap-10 sm:gap-14 px-1" style={{ marginTop: "20px", marginBottom: "16px" }}>
                 <div>
                   <div className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-1">120+</div>
                   <div className="text-[11px] text-purple-300/80 uppercase tracking-[0.18em] font-bold">Projects</div>
@@ -811,8 +811,8 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                 </div>
               </div>
 
-              {/* Bullet Points - Shifted Down with Explicit Inline Spacing */}
-              <ul className="flex flex-col gap-4.5 list-none p-0" style={{ marginTop: "54px", paddingTop: "12px" }}>
+              {/* Bullet Points - Balanced Space */}
+              <ul className="flex flex-col gap-4 list-none p-0" style={{ marginTop: "24px" }}>
                 {[
                   "Custom software for your workflow",
                   "Scalable cloud infrastructure",

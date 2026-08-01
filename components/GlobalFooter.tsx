@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { Footer as DesktopFooter } from "./ui/footer-section";
-import { Footer as MobileFooter } from "./ui/footer-section-mobile";
+import { FooterMobile as MobileFooter } from "./ui/footer-section-mobile";
 
 export default function GlobalFooter() {
   const pathname = usePathname();

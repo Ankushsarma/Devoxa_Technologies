@@ -246,18 +246,18 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
                 showCursor={true}
                 cursorCharacter="_"
                 loop={false}
-                className="text-xs sm:text-sm text-gray-300 font-light leading-relaxed"
+                className="text-[11px] sm:text-xs text-gray-300 font-light leading-relaxed"
               />
             </motion.div>
 
-            <div className="mt-5 flex flex-col gap-2.5">
+            <div className="mt-6 flex flex-col gap-2.5">
               {service.features.map((feature, idx) => (
                 <motion.div 
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.3 + (idx * 0.1) }}
                   key={idx} 
-                  className="flex items-start gap-3 text-xs sm:text-sm text-gray-300 font-light"
+                  className="flex items-start gap-3 text-[11px] sm:text-xs text-gray-300 font-light"
                 >
                   <div className="mt-[5px] shrink-0 text-[#00F0FF] drop-shadow-[0_0_8px_#00F0FF]">
                     <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

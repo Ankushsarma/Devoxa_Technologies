@@ -66,19 +66,19 @@ export default function DeveloperDashboard() {
                 <div className="flex flex-wrap gap-2 mb-8 border-b border-border pb-4">
                     <button
                         onClick={() => setActiveTab("projects")}
-                        className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${activeTab === "projects" ? "bg-studio-black text-white shadow-md" : "text-secondary hover:bg-neutral-100 hover:text-foreground"}`}
+                        className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${activeTab === "projects" ? "bg-studio-black text-[#FFFFFF] shadow-md" : "text-secondary hover:bg-neutral-100 hover:text-foreground"}`}
                     >
                         Assigned Projects <span className="ml-1 opacity-70">({assignments.length})</span>
                     </button>
                     <button
                         onClick={() => setActiveTab("notice-board")}
-                        className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${activeTab === "notice-board" ? "bg-studio-black text-white shadow-md" : "text-secondary hover:bg-neutral-100 hover:text-foreground"}`}
+                        className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${activeTab === "notice-board" ? "bg-studio-black text-[#FFFFFF] shadow-md" : "text-secondary hover:bg-neutral-100 hover:text-foreground"}`}
                     >
                         Task Board <span className="ml-1 opacity-70">({tasks.length})</span>
                     </button>
                     <button
                         onClick={() => setActiveTab("global-notice")}
-                        className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${activeTab === "global-notice" ? "bg-studio-black text-white shadow-md" : "text-secondary hover:bg-neutral-100 hover:text-foreground"}`}
+                        className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${activeTab === "global-notice" ? "bg-studio-black text-[#FFFFFF] shadow-md" : "text-secondary hover:bg-neutral-100 hover:text-foreground"}`}
                     >
                         <span className="flex items-center gap-2"><Rss className="w-3.5 h-3.5" />Global Notice</span>
                     </button>

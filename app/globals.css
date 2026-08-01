@@ -5,35 +5,35 @@
 
 :root {
   /* Backgrounds */
-  --bg-void: #050506;
-  --bg-base: #0d0d11;
-  --bg-elevated: #170f2e;
-  --bg-glow: #241649;
+  --bg-void: #0A0710;
+  --bg-base: #0A0710;
+  --bg-elevated: #2B0F45;
+  --bg-glow: #5B1FA0;
 
   /* Text */
-  --text-primary: #ffffff;
-  --text-muted: #87868a;
+  --text-primary: #FFFFFF;
+  --text-muted: #A8A5AD;
 
   /* Accent (violet gradient) */
-  --accent-start: #7c3aed;
-  --accent-end: #a78bfa;
-  --accent-solid: #8b5cf6;
+  --accent-start: #8B2FD1;
+  --accent-end: #5B1FA0;
+  --accent-solid: #5B1FA0;
 
   /* Buttons */
-  --btn-primary-bg: #ffffff;
-  --btn-primary-text: #0d0d11;
-  --btn-outline-border: rgba(255, 255, 255, 0.15);
+  --btn-primary-bg: #FFFFFF;
+  --btn-primary-text: #0D0D0D;
+  --btn-outline-border: rgba(139,47,209,0.4);
 
   /* Legacy mappings for Tailwind/components */
-  --background: #050506;
-  --foreground: #ffffff;
-  --studio-black: #0d0d11;
-  --studio-gray-light: #170f2e;
-  --studio-gray-border: rgba(255, 255, 255, 0.08);
-  --studio-surface: #0d0d11;
-  --border: rgba(255, 255, 255, 0.08);
-  --muted: #170f2e;
-  --muted-foreground: #87868a;
+  --background: linear-gradient(to right, #08060E 0%, #08060E 20%, #1A0733 40%, #4A1890 62%, #7120C8 80%, #8B2FD1 100%) ;
+  --foreground: #FFFFFF;
+  --studio-black: #0A0710;
+  --studio-gray-light: #2B0F45;
+  --studio-gray-border: rgba(169, 79, 224, 0.15);
+  --studio-surface: #2B0F45;
+  --border: rgba(139,47,209,0.2);
+  --muted: #2B0F45;
+  --muted-foreground: rgba(234, 217, 247, 0.7);
 }
 
 @theme inline {
@@ -61,26 +61,90 @@
     0% {
       transform: translateX(0%);
     }
-
-    100% {
+    100% {
       transform: translateX(-50%);
     }
   }
 }
 
 @layer base {
+  html {
+    background: linear-gradient(to right, #000000 0%, #03010A 25%, #050415 50%, #07051D 75%, #0B0829 100%);
+    min-height: 100%;
+  }
+
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: var(--background);
+    background: linear-gradient(to right, #000000 0%, #03010A 25%, #050415 50%, #07051D 75%, #0B0829 100%) fixed;
+    background-attachment: fixed;
     color: var(--foreground);
     @apply font-sans;
   }
 
   * {
-    border-color: rgba(255, 255, 255, 0.08);
+    border-color: rgba(169, 79, 224, 0.15);
+  }
+
+  /* ─── Plain wrapper sections: transparent so body gradient shows through ─── */
+  .vx,
+  .vx > section,
+  .vx .light-sec,
+  .vx .demos-section,
+  .vx .cta-banner,
+  .vx #services-collection {
+    background-color: transparent !important;
+  }
+
+  /* ─── HERO: original solid near-black #050506 ─── */
+  section#hero.nx,
+  .nx {
+    background: #050506 !important;
+  }
+
+  /* ─── ABOUT US wrapper + LightPillar zone: transparent to show gradient ─── */
+  .agency-section-wrapper,
+  .agency-pillar-wrapper {
+    background: transparent !important;
+    background-color: transparent !important;
+  }
+
+  /* ─── Our Process + Our Portfolio: original #050506 ─── */
+  section#how-it-works,
+  section#recent-projects {
+    background: #050506 !important;
+    background-color: #050506 !important;
+  }
+
+  /* ─── CARDS & PANELS: original #0d0d11 ─── */
+  .vx .trio .card,
+  .vx .hiw-card,
+  .vx .step-card,
+  .vx .ind-card,
+  .vx .cf-item,
+  .vx .demo-card,
+  .vx .price-card,
+  .vx .cart-mock,
+  .hero-card {
+    background: #0d0d11 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Active hero-card keeps original gradient */
+  .hero-card.active {
+    background: linear-gradient(135deg, #7c3aed, #8b5cf6) !important;
+  }
+
+  /* ─── FOOTER: original #050506 ─── */
+  footer,
+  footer > *,
+  [class*="footer"] {
+    background: #050506 !important;
+    background-color: #050506 !important;
   }
 }
+
 
 @layer utilities {
   .text-huge {
@@ -136,4 +200,72 @@
 }
 .animate-shine {
   animation: shine 3s linear infinite;
+}
+
+/* --- Exact User CSS for Industries We Serve Cards --- */
+.ind-grid .card {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+.ind-grid .card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.ind-grid .overlay {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 20px 18px 18px;
+  background: linear-gradient(180deg,
+    rgba(20,20,15,0) 0%,
+    rgba(20,20,15,0.55) 30%,
+    rgba(15,15,10,0.92) 65%,
+    rgba(10,10,8,0.98) 100%);
+}
+.ind-grid .title {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.ind-grid .desc {
+  color: rgba(255,255,255,0.82);
+  font-size: 12.5px;
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+.ind-grid .tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.ind-grid .tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+}
+.ind-grid .tag .icon { font-size: 12px; }
+.ind-grid .reserve-btn {
+  width: 100%;
+  background: #fff;
+  color: #111;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 13px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
 }

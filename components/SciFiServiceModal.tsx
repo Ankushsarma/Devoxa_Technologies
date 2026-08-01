@@ -228,12 +228,12 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
           </button>
 
           {/* Content Area */}
-          <div className="absolute inset-0 p-8 sm:p-10 flex flex-col justify-center gap-3 text-white">
+          <div className="absolute inset-0 pt-16 pb-8 pl-14 sm:pl-16 pr-8 flex flex-col justify-start gap-2 text-white pointer-events-auto">
             <motion.h3 
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-[#8b5cf6] drop-shadow-[0_0_10px_rgba(139,92,246,0.6)]"
+              className="text-xl sm:text-2xl font-black uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-[#8b5cf6] drop-shadow-[0_0_10px_rgba(139,92,246,0.6)]"
             >
               {service.title}
             </motion.h3>
@@ -242,22 +242,22 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="text-sm sm:text-base text-gray-300 max-w-sm leading-relaxed border-l-2 border-[#8b5cf6]/60 pl-4 mt-2"
+              className="text-xs sm:text-sm text-gray-300 max-w-sm leading-relaxed border-l-2 border-[#8b5cf6]/60 pl-3 mt-1"
             >
               {service.description}
             </motion.p>
 
-            <div className="mt-4 flex flex-col gap-3">
+            <div className="mt-2 flex flex-col gap-2">
               {service.features.map((feature, idx) => (
                 <motion.div 
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.3 + (idx * 0.1) }}
                   key={idx} 
-                  className="flex items-center gap-3 text-xs sm:text-sm text-purple-50"
+                  className="flex items-center gap-3 text-[11px] sm:text-xs text-purple-50"
                 >
-                  <div className="w-5 h-5 flex items-center justify-center rounded-[2px] bg-[#8b5cf6]/20 border border-[#8b5cf6]/50 shrink-0 shadow-[0_0_8px_rgba(139,92,246,0.3)]">
-                    <Check size={12} className="text-[#00F0FF]" />
+                  <div className="w-4 h-4 flex items-center justify-center rounded-[2px] bg-[#8b5cf6]/20 border border-[#8b5cf6]/50 shrink-0 shadow-[0_0_8px_rgba(139,92,246,0.3)]">
+                    <Check size={10} className="text-[#00F0FF]" />
                   </div>
                   {feature}
                 </motion.div>

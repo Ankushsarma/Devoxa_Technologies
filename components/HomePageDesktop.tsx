@@ -6,13 +6,14 @@ import { toast } from "sonner"
 import Image from "next/image"
 import WebGLVisibilityWrapper from '@/components/WebGLVisibilityWrapper';
 import Link from "next/link"
-import { Search, BarChart3, Layers, Code2, Zap, ArrowRight, ArrowLeft, Quote, CheckCircle, X, Youtube, Twitter, Instagram, Linkedin, Phone } from "lucide-react"
+import { Search, BarChart3, Layers, Code2, Zap, ArrowRight, ArrowLeft, Quote, CheckCircle, X, Youtube, Twitter, Instagram, Linkedin, Phone, ChevronUp, ChevronDown } from "lucide-react"
 import FAQAccordion from '@/components/FAQAccordion';
 import ShinyText from '@/components/ShinyText';
 import TextType from '@/components/TextType';
 
 import LineWaves from "@/components/LineWaves"
 import ConsultationModal from "@/components/ConsultationModal"
+import SciFiServiceModal, { ServiceDetails } from "@/components/SciFiServiceModal"
 import AgencySection from "@/components/AgencySection"
 import LightPillar from "@/components/LightPillar"
 import MagicRings from "@/components/MagicRings"
@@ -100,7 +101,7 @@ const AnimatedProcessWorkflow = () => {
   );
 };
 
-const GlowingCard = ({ children, active, delay }: { children: React.ReactNode, active?: boolean, delay: number }) => {
+const GlowingCard = ({ children, active, delay, onClick }: { children: React.ReactNode, active?: boolean, delay: number, onClick?: (e: React.MouseEvent<HTMLDivElement>) => void }) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [opacity, setOpacity] = useState(0);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -117,7 +118,8 @@ const GlowingCard = ({ children, active, delay }: { children: React.ReactNode, a
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setOpacity(1)}
       onMouseLeave={() => setOpacity(0)}
-      className={`hero-card ${active ? 'active' : ''}`}
+      onClick={onClick}
+      className={`hero-card ${active ? 'active' : ''} ${onClick ? 'cursor-pointer' : ''}`}
       style={{ animationDelay: `${delay}s` }}
     >
       <div
@@ -134,23 +136,157 @@ const GlowingCard = ({ children, active, delay }: { children: React.ReactNode, a
   );
 };
 
+const servicesData: Record<string, ServiceDetails> = {
+  "Web App Dev": {
+    id: "web-app-dev",
+    title: "Web App Dev",
+    description: "Custom-built, highly scalable web applications designed to meet your specific business requirements and handle high traffic volumes.",
+    features: [
+      "Next.js & React Frontend Architecture",
+      "Scalable Node.js / Go Backend",
+      "Cloud-native deployment (AWS/GCP)",
+      "High Performance & SEO\nOptimized"
+    ]
+  },
+  "Automation": {
+    id: "automation",
+    title: "Automation",
+    description: "Streamline your workflows and eliminate repetitive manual tasks with custom automation scripts and AI-driven processes.",
+    features: [
+      "Custom Workflow Scripts",
+      "API Integration & Webhooks",
+      "AI-driven Task Automation",
+      "Data Syncing & Reporting"
+    ]
+  },
+  "IT Consultation": {
+    id: "it-consultation",
+    title: "IT Consultation",
+    description: "Expert strategic guidance to modernize your technology stack, improve security, and reduce operational costs.",
+    features: [
+      "Tech Stack Auditing & Modernization",
+      "Cloud Migration Strategy",
+      "Security & Compliance Reviews",
+      "Cost Optimization"
+    ]
+  },
+  "CRM CMS": {
+    id: "crm-cms",
+    title: "CRM CMS",
+    description: "Manage all your customer data, marketing pipelines, and content seamlessly in one unified platform.",
+    features: [
+      "Custom CRM Development",
+      "Headless CMS Integration",
+      "Lead Tracking & Pipelines",
+      "Automated Marketing Flows"
+    ]
+  },
+  "UI UX Branding": {
+    id: "ui-ux-branding",
+    title: "UI UX Branding",
+    description: "Crafting beautiful, intuitive interfaces that enhance user experience, build brand trust, and drive conversions.",
+    features: [
+      "User Research & Wireframing",
+      "High-Fidelity Prototyping",
+      "Brand Identity & Guidelines",
+      "Conversion Rate Optimization"
+    ]
+
+  }
+};
+
+function FloatingScrollButtonDesktop() {
+  const [isScrolledDown, setIsScrolledDown] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroSection = document.querySelector("#hero");
+      if (heroSection) {
+        const rect = heroSection.getBoundingClientRect();
+        if (rect.bottom < window.innerHeight / 2) {
+          setIsScrolledDown(true);
+        } else {
+          setIsScrolledDown(false);
+        }
+      } else {
+        setIsScrolledDown(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleClick = () => {
+    if (isScrolledDown) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      const footerEl = document.querySelector("#footer");
+      if (footerEl) {
+        footerEl.scrollIntoView({ behavior: "smooth" });
+      } else {
+        window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+      }
+    }
+  };
+
+  return (
+    <button
+      type="button"
+      onClick={handleClick}
+      aria-label={isScrolledDown ? "Scroll to top" : "Scroll to footer"}
+      className="fixed bottom-10 right-8 z-40 w-12 h-12 rounded-full bg-gradient-to-tr from-violet-600 via-purple-600 to-fuchsia-600 p-[1.5px] shadow-[0_0_25px_rgba(147,51,234,0.65)] hover:shadow-[0_0_35px_rgba(168,85,247,0.85)] active:scale-90 transition-all duration-300 flex items-center justify-center cursor-pointer"
+    >
+      <div className="w-full h-full rounded-full bg-[#080514] flex items-center justify-center transition-colors hover:bg-purple-950/60">
+        {isScrolledDown ? (
+          <ChevronUp className="w-5 h-5 text-white animate-bounce" />
+        ) : (
+          <ChevronDown className="w-5 h-5 text-white animate-bounce" />
+        )}
+      </div>
+    </button>
+  );
+}
+
 export default function HomePageDesktop() {
   const { user, role, loading, logout } = useAuth()
   const [scrolled, setScrolled] = useState(false)
+  const [showWhatsApp, setShowWhatsApp] = useState(false)
   const [projects, setProjects] = useState<any[]>([])
 
   // Fetch projects for the Work section
   useEffect(() => {
-    fetch("/api/projects").then(r => r.json()).then(d => { if (d.projects) setProjects(d.projects) }).catch(() => { })
+    fetch("/api/projects")
+      .then(r => r.json())
+      .then(d => { 
+        if (d.projects) {
+          setProjects(d.projects);
+          setTimeout(() => {
+            const savedScroll = sessionStorage.getItem("homeScroll");
+            if (savedScroll) {
+              window.scrollTo({ top: parseInt(savedScroll, 10), behavior: "instant" });
+            }
+          }, 100);
+        }
+      })
+      .catch(() => { })
   }, [])
-  
+
   // Modal state
   const [isModalOpen, setIsModalOpen] = useState(false)
 
-  // Scroll listener for nav blur
+
+
+  // Scroll listener for nav blur and WhatsApp button
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50)
+    const onScroll = () => {
+      setScrolled(window.scrollY > 50)
+      // Show WhatsApp button when scrolled past 60% of viewport height (past hero section)
+      setShowWhatsApp(window.scrollY > window.innerHeight * 0.6)
+    }
     window.addEventListener("scroll", onScroll, { passive: true })
+    // Check initial state in case page is reloaded scrolled down
+    onScroll()
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
@@ -164,11 +300,11 @@ export default function HomePageDesktop() {
     if (savedScroll) {
       const target = parseInt(savedScroll, 10);
       window.scrollTo({ top: target, behavior: "instant" })
-      
+
       // Re-apply after layout shifts to ensure it doesn't get stuck at the top
       setTimeout(() => window.scrollTo({ top: target, behavior: "instant" }), 50)
       setTimeout(() => window.scrollTo({ top: target, behavior: "instant" }), 150)
-      
+
       // Reveal page with a smooth fade
       setTimeout(() => {
         document.documentElement.classList.remove("scroll-restoring");
@@ -182,8 +318,26 @@ export default function HomePageDesktop() {
       sessionStorage.setItem("homeScroll", window.scrollY.toString())
     }
     window.addEventListener("beforeunload", handleBeforeUnload)
-    
-    return () => window.removeEventListener("beforeunload", handleBeforeUnload)
+
+    // Capture-phase click listener to save scroll before Next.js client-side routing
+    const handleGlobalClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const link = target.closest('a');
+      if (link && link.href) {
+        try {
+          const url = new URL(link.href);
+          if (url.origin === window.location.origin && url.pathname !== window.location.pathname) {
+            sessionStorage.setItem("homeScroll", window.scrollY.toString());
+          }
+        } catch (err) {}
+      }
+    };
+    document.addEventListener("click", handleGlobalClick, true);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload)
+      document.removeEventListener("click", handleGlobalClick, true);
+    }
   }, [])
 
   // Fix hash routing after layout shifts
@@ -205,7 +359,8 @@ export default function HomePageDesktop() {
         }
 
         if (el) {
-          el.scrollIntoView({ behavior: 'smooth' })
+          const y = el.getBoundingClientRect().top + window.scrollY - 100;
+          window.scrollTo({ top: y, behavior: 'smooth' });
         }
 
         // Only strip search params if from=login was present
@@ -233,6 +388,35 @@ export default function HomePageDesktop() {
       </div>
 
       <ConsultationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+
+      <style dangerouslySetInnerHTML={{__html: `
+        @keyframes floatingWA {
+          0%, 100% { transform: translateY(0px) scale(1); }
+          50% { transform: translateY(-12px) scale(1.05); }
+        }
+        .whatsapp-float-btn {
+          animation: floatingWA 3s ease-in-out infinite;
+        }
+        .whatsapp-float-btn:hover {
+          animation: none;
+          transform: scale(1.1);
+        }
+      `}} />
+
+      {/* WhatsApp Floating Button - Desktop Only */}
+      <a
+        href="https://wa.me/918544005858?text=Hello!%20I%20want%20to%20inquire%20about%20your%20services."
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`hidden md:flex fixed bottom-6 left-6 z-50 bg-[#25D366] hover:bg-[#1ebd57] text-white p-3 rounded-full shadow-lg shadow-[#25d366]/40 transition-all duration-700 ease-in-out items-center justify-center cursor-pointer whatsapp-float-btn ${
+          showWhatsApp ? 'opacity-100 translate-y-0 visible' : 'opacity-0 translate-y-12 invisible'
+        }`}
+        aria-label="Chat on WhatsApp"
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor" width="36" height="36">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+      </a>
     </main>
   )
 }
@@ -242,7 +426,7 @@ function DesktopNav({ user, role, loading, logout, scrolled }: any) {
 
   useEffect(() => {
     const sections = ['hero', 'solutions', 'how-it-works', 'recent-projects', 'pricing', 'faq'];
-    
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -271,13 +455,13 @@ function DesktopNav({ user, role, loading, logout, scrolled }: any) {
         </div>
         <Link href="#">Devoxa Technologies</Link>
       </div>
-      
+
       {/* 2nd Part: Capsule Navigation */}
       <div className="hidden md:flex items-center rounded-full bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.08)] backdrop-blur-md shadow-lg">
         <PillNav
           logo={null}
           showLogo={false}
-          onMobileMenuClick={() => {}}
+          onMobileMenuClick={() => { }}
           items={[
             { label: 'Solutions', href: '#solutions' },
             { label: 'Process', href: '#how-it-works' },
@@ -347,29 +531,54 @@ function MobileNav({ user, role, loading, logout, scrolled }: any) {
 }
 
 function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: () => void }) {
+  const [activeService, setActiveService] = useState<ServiceDetails | null>(null)
+  const [activeCardRect, setActiveCardRect] = useState<DOMRect | null>(null)
+
+  const handleCardClick = (e: React.MouseEvent<HTMLDivElement>, serviceKey: string) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    
+    // Check if card is comfortably visible in the viewport (with 120px margin for headers/footers)
+    const isVisible = rect.top >= 120 && rect.bottom <= (window.innerHeight - 120);
+    
+    if (!isVisible) {
+      // Scroll smoothly so the card is centered
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      
+      // Wait for the smooth scroll to finish before opening modal to ensure line coordinates are correct
+      setTimeout(() => {
+        setActiveCardRect(card.getBoundingClientRect());
+        setActiveService(servicesData[serviceKey]);
+      }, 450);
+    } else {
+      setActiveCardRect(rect);
+      setActiveService(servicesData[serviceKey]);
+    }
+  };
+
   return (
     <>
       <section id="hero" className="nx vx-float pt-24 md:pt-32">
         <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0 }}>
           <WebGLVisibilityWrapper isAbsolute={false}>
             <Particles
-            className=""
-            particleColors={["#ffffff", "#a78bfa", "#c084fc"]}
-            particleCount={950}
-            particleSpread={25}
-            speed={0.1}
-            particleBaseSize={150}
-            moveParticlesOnHover={true}
-            alphaParticles={false}
-            disableRotation={false}
-          />
+              className=""
+              particleColors={["#ffffff", "#a78bfa", "#c084fc"]}
+              particleCount={950}
+              particleSpread={25}
+              speed={0.1}
+              particleBaseSize={150}
+              moveParticlesOnHover={true}
+              alphaParticles={false}
+              disableRotation={false}
+            />
           </WebGLVisibilityWrapper>
         </div>
         <div className="nx-overlay" style={{ zIndex: 1, position: "absolute", inset: 0, background: "rgba(5, 5, 6, 0.4)" }} />
         <div className="nx-noise" style={{ zIndex: 2, position: "absolute", inset: 0 }} />
         <div className="nx-inner" style={{ minHeight: "max(100vh, 750px)", alignItems: "flex-start", display: "flex", flexDirection: "column", justifyContent: "flex-start", paddingLeft: "clamp(50px, 12vw, 150px)", paddingTop: "clamp(160px, 20vh, 220px)", paddingBottom: "100px" }}>
           <div style={{ width: "100%", maxWidth: "clamp(480px, 45vw, 680px)", textAlign: "left", position: "relative", zIndex: 10, marginBottom: "auto" }}>
-            
+
             {/* Eyebrow */}
             <div style={{ display: "flex", alignItems: "center", marginBottom: "clamp(12px, 1.5vh, 16px)", position: "relative" }}>
               <div style={{ position: "absolute", left: "-10px", top: "-5px", width: "40px", height: "30px", backgroundColor: "#7c3aed", zIndex: -1 }}></div>
@@ -379,18 +588,18 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
             </div>
 
             {/* Headline */}
-            <h1 style={{ 
-              fontFamily: "var(--font-mono, monospace)", 
-              fontSize: "clamp(32px, 4.5vw, 60px)", 
-              fontWeight: 700, 
-              color: "#fff", 
-              lineHeight: 1.1, 
-              letterSpacing: "clamp(2px, 0.3vw, 6px)", 
+            <h1 style={{
+              fontFamily: "var(--font-mono, monospace)",
+              fontSize: "clamp(32px, 4.5vw, 60px)",
+              fontWeight: 700,
+              color: "#fff",
+              lineHeight: 1.1,
+              letterSpacing: "clamp(2px, 0.3vw, 6px)",
               marginBottom: "clamp(20px, 3vh, 32px)",
               textTransform: "uppercase"
             }}>
-              <span className="animate-shine" style={{ 
-                display: "block", 
+              <span className="animate-shine" style={{
+                display: "block",
                 marginBottom: "clamp(4px, 1vh, 8px)",
                 backgroundImage: "linear-gradient(120deg, rgba(255, 255, 255, 0.7) 40%, #fff 50%, rgba(255, 255, 255, 0.7) 60%)",
                 backgroundSize: "200% auto",
@@ -398,28 +607,28 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                 color: "transparent",
                 backgroundClip: "text"
               }}>BUILD THE</span>
-              <img 
-                src="/untitled-logotype.png" 
-                alt="FUTURE" 
-                style={{ 
-                  width: "100%", 
-                  maxWidth: "clamp(320px, 35vw, 500px)", 
-                  height: "auto", 
+              <img
+                src="/untitled-logotype.png"
+                alt="FUTURE"
+                style={{
+                  width: "100%",
+                  maxWidth: "clamp(320px, 35vw, 500px)",
+                  height: "auto",
                   display: "block"
-                }} 
+                }}
               />
             </h1>
 
             {/* Subtext */}
-            <div style={{ 
-              borderLeft: "2px solid rgba(255,255,255,0.4)", 
-              paddingLeft: "clamp(16px, 1.5vw, 24px)", 
+            <div style={{
+              borderLeft: "2px solid rgba(255,255,255,0.4)",
+              paddingLeft: "clamp(16px, 1.5vw, 24px)",
               marginBottom: "clamp(32px, 4vh, 48px)"
             }}>
-              <p style={{ 
-                fontSize: "clamp(13px, 1.1vw, 15px)", 
-                color: "#8981A6", 
-                lineHeight: 1.8, 
+              <p style={{
+                fontSize: "clamp(13px, 1.1vw, 15px)",
+                color: "#8981A6",
+                lineHeight: 1.8,
                 maxWidth: "clamp(350px, 32vw, 440px)",
                 fontWeight: 400
               }}>
@@ -429,15 +638,15 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
 
             {/* Buttons */}
             <div style={{ display: "flex", gap: "clamp(12px, 1vw, 16px)", flexWrap: "wrap" }}>
-              <button 
+              <button
                 onClick={onOpenModal}
-                style={{ 
-                  background: "linear-gradient(135deg, #7c3aed, #a78bfa)", 
-                  color: "#fff", 
-                  padding: "clamp(10px, 1vw, 12px) clamp(20px, 2vw, 28px)", 
-                  fontSize: "clamp(10px, 0.8vw, 12px)", 
-                  fontWeight: 700, 
-                  letterSpacing: "1px", 
+                style={{
+                  background: "linear-gradient(135deg, #7c3aed, #a78bfa)",
+                  color: "#fff",
+                  padding: "clamp(10px, 1vw, 12px) clamp(20px, 2vw, 28px)",
+                  fontSize: "clamp(10px, 0.8vw, 12px)",
+                  fontWeight: 700,
+                  letterSpacing: "1px",
                   textTransform: "uppercase",
                   cursor: "pointer",
                   transition: "all 0.3s ease",
@@ -453,16 +662,16 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               >
                 START PROJECT <ArrowRight size={16} />
               </button>
-              <a 
+              <a
                 href="#solutions"
-                style={{ 
-                  backgroundColor: "transparent", 
-                  color: "#fff", 
-                  border: "1px solid rgba(255,255,255,0.15)", 
-                  padding: "clamp(10px, 1vw, 12px) clamp(20px, 2vw, 28px)", 
-                  fontSize: "clamp(10px, 0.8vw, 12px)", 
-                  fontWeight: 600, 
-                  letterSpacing: "1px", 
+                style={{
+                  backgroundColor: "transparent",
+                  color: "#fff",
+                  border: "1px solid rgba(255,255,255,0.15)",
+                  padding: "clamp(10px, 1vw, 12px) clamp(20px, 2vw, 28px)",
+                  fontSize: "clamp(10px, 0.8vw, 12px)",
+                  fontWeight: 600,
+                  letterSpacing: "1px",
                   textTransform: "uppercase",
                   cursor: "pointer",
                   transition: "all 0.3s ease",
@@ -478,33 +687,33 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                 View Services <ArrowRight size={16} />
               </a>
             </div>
-            
+
           </div>
         </div>
       </section>
 
       <div className="hero-cards-wrapper">
-        <GlowingCard delay={0.1}>
+        <GlowingCard delay={0.1} onClick={(e) => handleCardClick(e, "Web App Dev")}>
           <div className="hc-icon"><Code2 size={28} strokeWidth={1.5} /></div>
           <h4 className="hc-title">Web App Dev</h4>
           <p className="hc-desc">Custom-built, scalable web applications</p>
         </GlowingCard>
-        <GlowingCard delay={0.2}>
+        <GlowingCard delay={0.2} onClick={(e) => handleCardClick(e, "Automation")}>
           <div className="hc-icon"><Zap size={28} strokeWidth={1.5} /></div>
           <h4 className="hc-title">Automation</h4>
           <p className="hc-desc">Streamline workflows and cut manual work</p>
         </GlowingCard>
-        <GlowingCard active delay={0.3}>
+        <GlowingCard active delay={0.3} onClick={(e) => handleCardClick(e, "IT Consultation")}>
           <div className="hc-icon"><Layers size={28} strokeWidth={1.5} /></div>
           <h4 className="hc-title">IT Consultation</h4>
           <p className="hc-desc">Strategic guidance for your tech stack</p>
         </GlowingCard>
-        <GlowingCard delay={0.4}>
+        <GlowingCard delay={0.4} onClick={(e) => handleCardClick(e, "CRM CMS")}>
           <div className="hc-icon"><BarChart3 size={28} strokeWidth={1.5} /></div>
           <h4 className="hc-title">CRM CMS</h4>
           <p className="hc-desc">Manage customers and content in one place</p>
         </GlowingCard>
-        <GlowingCard delay={0.5}>
+        <GlowingCard delay={0.5} onClick={(e) => handleCardClick(e, "UI UX Branding")}>
           <div className="hc-icon"><Search size={28} strokeWidth={1.5} /></div>
           <h4 className="hc-title">UI UX Branding</h4>
           <p className="hc-desc">Interfaces that look sharp and convert</p>
@@ -516,22 +725,22 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 0.8, pointerEvents: 'none' }}>
           <WebGLVisibilityWrapper isAbsolute={false}>
             <LightPillar
-            topColor="#5227FF"
-            bottomColor="#FF9FFC"
-            intensity={1}
-            rotationSpeed={0.3}
-            glowAmount={0.002}
-            pillarWidth={3}
-            pillarHeight={0.4}
-            noiseIntensity={0.5}
-            pillarRotation={25}
-            interactive={false}
-            mixBlendMode="screen"
-            quality="high"
-          />
+              topColor="#5227FF"
+              bottomColor="#FF9FFC"
+              intensity={1}
+              rotationSpeed={0.3}
+              glowAmount={0.002}
+              pillarWidth={3}
+              pillarHeight={0.4}
+              noiseIntensity={0.5}
+              pillarRotation={25}
+              interactive={false}
+              mixBlendMode="screen"
+              quality="high"
+            />
           </WebGLVisibilityWrapper>
         </div>
-        
+
         <div style={{ position: "relative", zIndex: 1 }}>
           <AgencySection onOpenModal={onOpenModal} />
 
@@ -562,7 +771,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </div>
 
       {/* Solutions */}
-      <section id="solutions" className="scroll-mt-32 light-sec vx-float" style={{ padding: "clamp(40px, 6vh, 80px) 0", position: "relative", overflow: "hidden" }}>
+      <section id="solutions" className="scroll-mt-32 light-sec vx-float" style={{ paddingBottom: "clamp(40px, 6vh, 80px)", paddingTop: "0px", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: "50%", left: "-10%", width: "40%", height: "60%", background: "radial-gradient(circle, rgba(139,92,246,0.08) 0%, rgba(0,0,0,0) 70%)", filter: "blur(60px)", pointerEvents: "none" }}></div>
         <div className="wrap">
           <div className="sol-split reveal in" style={{ display: "flex", alignItems: "center", gap: "clamp(40px, 5vw, 60px)", flexWrap: "wrap" }}>
@@ -572,7 +781,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                 <span style={{ fontSize: "11px", fontWeight: 700, color: "#a78bfa", letterSpacing: "1px", textTransform: "uppercase" }}>Why Choose Us</span>
               </div>
               <h2 style={{ fontSize: "clamp(26px, 3.2vw, 38px)", fontWeight: 800, lineHeight: 1.15, color: "#fff", marginBottom: "16px", letterSpacing: "-0.5px" }}>
-                Powerful IT Solutions for <span style={{ background: "linear-gradient(90deg, #7c3aed, #a78bfa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Modern Businesses</span>
+                Powerful IT Solutions for <span className="font-stencilia uppercase" style={{ background: "linear-gradient(90deg, #7c3aed, #a78bfa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Modern Businesses</span>
               </h2>
               <p style={{ fontSize: "15.5px", color: "rgba(255,255,255,0.7)", lineHeight: 1.6, marginBottom: "24px" }}>
                 We combine cutting-edge technology with affordable pricing to deliver enterprise-grade solutions that scale with your ambitions. No hidden fees, no jargon — just results.
@@ -594,7 +803,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               </ul>
             </div>
             <div className="sol-img-modern" style={{ flex: "1 1 450px", perspective: "1200px" }}>
-              <div 
+              <div
                 style={{
                   position: "relative",
                   borderRadius: "24px",
@@ -625,37 +834,37 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0, overflow: "hidden", pointerEvents: "none" }}>
           <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "100vw", height: "100vw", minWidth: "1000px", minHeight: "1000px", opacity: 0.4 }}>
             <WebGLVisibilityWrapper isAbsolute={false}>
-            <MagicRings
-              color="#A855F7"
-              colorTwo="#6366F1"
-              ringCount={6}
-              speed={1}
-              attenuation={10}
-              lineThickness={2}
-              baseRadius={0.35}
-              radiusStep={0.1}
-              scaleRate={0.1}
-              opacity={1}
-              blur={0}
-              noiseAmount={0.1}
-              rotation={0}
-              ringGap={1.5}
-              fadeIn={0.7}
-              fadeOut={0.5}
-              followMouse={false}
-              mouseInfluence={0.2}
-              hoverScale={1.2}
-              parallax={0.05}
-              clickBurst={false}
-            />
-          </WebGLVisibilityWrapper>
+              <MagicRings
+                color="#A855F7"
+                colorTwo="#6366F1"
+                ringCount={6}
+                speed={1}
+                attenuation={10}
+                lineThickness={2}
+                baseRadius={0.35}
+                radiusStep={0.1}
+                scaleRate={0.1}
+                opacity={1}
+                blur={0}
+                noiseAmount={0.1}
+                rotation={0}
+                ringGap={1.5}
+                fadeIn={0.7}
+                fadeOut={0.5}
+                followMouse={false}
+                mouseInfluence={0.2}
+                hoverScale={1.2}
+                parallax={0.05}
+                clickBurst={false}
+              />
+            </WebGLVisibilityWrapper>
           </div>
         </div>
-        
+
         <div className="wrap" style={{ position: "relative", zIndex: 1 }}>
           <div className="section-head reveal in" style={{ margin: "0 auto 80px", textAlign: "center" }}>
             <span className="eyebrow" style={{ margin: "0 0 16px 0" }}>Our Process</span>
-            <h2 style={{ textAlign: "center" }}>How Professional IT Services<br />Can Drive <span style={{ background: "linear-gradient(90deg,#7c3aed,#a78bfa)", WebkitBackgroundClip: "text", color: "transparent" }}>Success</span></h2>
+            <h2 style={{ textAlign: "center" }}>How Professional IT Services<br />Can Drive <span className="font-stencilia uppercase" style={{ background: "linear-gradient(90deg,#7c3aed,#a78bfa)", WebkitBackgroundClip: "text", color: "transparent" }}>Success</span></h2>
             <p style={{ margin: "0 auto", maxWidth: "600px" }}>From initial consultation to ongoing optimization, our streamlined process ensures every project delivers measurable business value.</p>
           </div>
 
@@ -668,41 +877,41 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1, background: 'var(--bg-void)' }}>
           <WebGLVisibilityWrapper isAbsolute={false}>
             <LiquidEther
-            colors={[ '#5227FF', '#FF9FFC', '#B497CF' ]}
-            mouseForce={20}
-            cursorSize={100}
-            isViscous
-            viscous={10}
-            iterationsViscous={4}
-            iterationsPoisson={4}
-            resolution={0.25}
-            isBounce={false}
-            autoDemo
-            autoSpeed={0.5}
-            autoIntensity={2.2}
-            takeoverDuration={0.25}
-            autoResumeDelay={3000}
-            autoRampDuration={0.6}
-          />
+              colors={['#5227FF', '#FF9FFC', '#B497CF']}
+              mouseForce={20}
+              cursorSize={100}
+              isViscous
+              viscous={10}
+              iterationsViscous={4}
+              iterationsPoisson={4}
+              resolution={0.25}
+              isBounce={false}
+              autoDemo
+              autoSpeed={0.5}
+              autoIntensity={2.2}
+              takeoverDuration={0.25}
+              autoResumeDelay={3000}
+              autoRampDuration={0.6}
+            />
           </WebGLVisibilityWrapper>
         </div>
         <div className="wrap" style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 20px" }}>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", marginBottom: "80px", position: "relative" }}>
             {/* Subtle glow behind the text */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[100px] bg-purple-600/30 blur-[80px] rounded-full pointer-events-none" />
-            
+
             <div className="section-head reveal in" style={{ margin: 0, display: "flex", flexDirection: "column", alignItems: "center" }}>
               <div className="group relative inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md overflow-hidden mb-8 transition-all duration-300 hover:bg-white/10 hover:border-purple-500/30">
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-fuchsia-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <Layers className="w-4 h-4 text-purple-400 group-hover:text-purple-300 transition-colors" />
                 <span className="text-xs font-bold text-white tracking-[0.15em] uppercase">Our Portfolio</span>
               </div>
-              
+
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 tracking-tight leading-[1.15]">
                 Crafting Digital <br className="hidden md:block" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-300 to-purple-400 animate-gradient bg-300%">Masterpieces</span>
+                <span className="font-stencilia uppercase text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-300 to-purple-400 animate-gradient bg-300%">Masterpieces</span>
               </h2>
-              
+
               <p className="text-[#8981A6] text-base md:text-lg max-w-2xl mx-auto leading-loose font-light mt-2">
                 Explore our curated collection of next-generation digital experiences. We blend cutting-edge technology with world-class design to build scalable solutions that dominate the market.
               </p>
@@ -737,25 +946,25 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, opacity: 1 }}>
           <WebGLVisibilityWrapper isAbsolute={false}>
             <LightRays
-            raysOrigin="top-center"
-            raysColor="#8b5cf6"
-            raysSpeed={1.5}
-            lightSpread={1.2}
-            rayLength={3.5}
-            followMouse={true}
-            mouseInfluence={0.15}
-            noiseAmount={0.03}
-            distortion={0}
-            pulsating={true}
-            fadeDistance={1}
-            saturation={1}
-          />
+              raysOrigin="top-center"
+              raysColor="#8b5cf6"
+              raysSpeed={1.5}
+              lightSpread={1.2}
+              rayLength={3.5}
+              followMouse={true}
+              mouseInfluence={0.15}
+              noiseAmount={0.03}
+              distortion={0}
+              pulsating={true}
+              fadeDistance={1}
+              saturation={1}
+            />
           </WebGLVisibilityWrapper>
         </div>
         <div className="wrap" style={{ position: "relative", zIndex: 1 }}>
           <div className="section-head reveal in">
             <span className="eyebrow">Partnership Models</span>
-            <h2>Service Packages</h2>
+            <h2>Service <span className="font-stencilia uppercase">Packages</span></h2>
             <p>Flexible engagement models designed to scale with your business needs and digital ambitions.</p>
           </div>
           <div className="scroll-shell">
@@ -793,24 +1002,24 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                     <td></td>
                     <td style={{ padding: "20px 10px", textAlign: "center" }}>
                       <WebGLVisibilityWrapper isAbsolute={false}>
-            <SpecularButton size="sm" radius={10} tint="#ffffff" tintOpacity={0} blur={0} textColor="#f5f5f5" lineColor="#8b5cf6" baseColor="#201a30" intensity={1} shineSize={10} shineFade={40} thickness={1.5} speed={0.35} followMouse proximity={250} onClick={onOpenModal}>
-                        Get Started
-                      </SpecularButton>
-          </WebGLVisibilityWrapper>
+                        <SpecularButton size="sm" radius={10} tint="#ffffff" tintOpacity={0} blur={0} textColor="#f5f5f5" lineColor="#8b5cf6" baseColor="#201a30" intensity={1} shineSize={10} shineFade={40} thickness={1.5} speed={0.35} followMouse proximity={250} onClick={onOpenModal}>
+                          Get Started
+                        </SpecularButton>
+                      </WebGLVisibilityWrapper>
                     </td>
                     <td style={{ padding: "20px 10px", textAlign: "center" }}>
                       <WebGLVisibilityWrapper isAbsolute={false}>
-            <SpecularButton size="sm" radius={10} tint="#ffffff" tintOpacity={0} blur={0} textColor="#f5f5f5" lineColor="#8b5cf6" baseColor="#3b2b5c" intensity={1} shineSize={10} shineFade={40} thickness={1.5} speed={0.35} followMouse proximity={250} onClick={onOpenModal}>
-                        Get Started
-                      </SpecularButton>
-          </WebGLVisibilityWrapper>
+                        <SpecularButton size="sm" radius={10} tint="#ffffff" tintOpacity={0} blur={0} textColor="#f5f5f5" lineColor="#8b5cf6" baseColor="#3b2b5c" intensity={1} shineSize={10} shineFade={40} thickness={1.5} speed={0.35} followMouse proximity={250} onClick={onOpenModal}>
+                          Get Started
+                        </SpecularButton>
+                      </WebGLVisibilityWrapper>
                     </td>
                     <td style={{ padding: "20px 10px", textAlign: "center" }}>
                       <WebGLVisibilityWrapper isAbsolute={false}>
-            <SpecularButton size="sm" radius={10} tint="#ffffff" tintOpacity={0} blur={0} textColor="#f5f5f5" lineColor="#8b5cf6" baseColor="#3b2b5c" intensity={1} shineSize={10} shineFade={40} thickness={1.5} speed={0.35} followMouse proximity={250} onClick={onOpenModal}>
-                        Contact Sales
-                      </SpecularButton>
-          </WebGLVisibilityWrapper>
+                        <SpecularButton size="sm" radius={10} tint="#ffffff" tintOpacity={0} blur={0} textColor="#f5f5f5" lineColor="#8b5cf6" baseColor="#3b2b5c" intensity={1} shineSize={10} shineFade={40} thickness={1.5} speed={0.35} followMouse proximity={250} onClick={onOpenModal}>
+                          Contact Sales
+                        </SpecularButton>
+                      </WebGLVisibilityWrapper>
                     </td>
                   </tr>
                 </tfoot>
@@ -825,24 +1034,24 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, opacity: 0.5 }}>
           <WebGLVisibilityWrapper isAbsolute={false}>
             <SideRays
-            speed={2}
-            rayColor1="#a78bfa"
-            rayColor2="#7c3aed"
-            intensity={1.2}
-            spread={2}
-            origin="top-right"
-            tilt={-10}
-            saturation={1.5}
-            blend={0.75}
-            falloff={1.6}
-            opacity={1}
-          />
+              speed={2}
+              rayColor1="#a78bfa"
+              rayColor2="#7c3aed"
+              intensity={1.2}
+              spread={2}
+              origin="top-right"
+              tilt={-10}
+              saturation={1.5}
+              blend={0.75}
+              falloff={1.6}
+              opacity={1}
+            />
           </WebGLVisibilityWrapper>
         </div>
         <div className="wrap" style={{ position: "relative", zIndex: 1 }}>
           <div className="section-head reveal in">
             <span className="eyebrow">Industries</span>
-            <h2>Industries We Serve</h2>
+            <h2>Industries We <span className="font-stencilia uppercase">Serve</span></h2>
             <p>Our custom IT solutions empower forward-thinking organizations to <span className="text-white font-medium">innovate</span>, <span className="text-purple-300 font-medium">scale seamlessly</span>, and dominate in today's rapidly evolving digital landscape.</p>
           </div>
           <div className="ind-grid">
@@ -902,11 +1111,11 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       <section className="scroll-mt-32 testimonials-section vx-float relative z-10 py-24 overflow-hidden" style={{ background: "var(--bg-void)" }}>
         {/* Animated glowing orb in background */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-purple-600/20 blur-[120px] rounded-[100%] pointer-events-none mix-blend-screen" />
-        
+
         <div className="wrap relative w-full z-10 mx-auto px-4 md:px-6 lg:px-8">
           <div className="section-head reveal in relative z-10 mb-20 flex flex-col items-center text-center w-full mx-auto">
             <span className="eyebrow" style={{ margin: '0 auto 16px', display: 'inline-block' }}>What Our Clients Say</span>
-            <h2 style={{ margin: '0 auto 20px', textAlign: 'center' }}>Trusted by businesses across India</h2>
+            <h2 style={{ margin: '0 auto 20px', textAlign: 'center' }}>Trusted by businesses across <span className="font-stencilia uppercase">India</span></h2>
             <p style={{ margin: '0 auto', textAlign: 'center', maxWidth: '600px' }}>
               Delivering high-quality software, websites, CRM solutions, mobile applications, and AI automation.
             </p>
@@ -949,7 +1158,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                   ].map((t, i) => (
                     <div key={i} className="w-[85vw] md:w-[378px] shrink-0">
                       <SpotlightCard className="group relative w-full h-full rounded-[24px] bg-[#0A0A0B] border border-[rgba(255,255,255,0.08)] shadow-[0_4px_20px_rgba(0,0,0,0.4)] hover:shadow-[0_12px_30px_rgba(79,70,229,0.2)] hover:-translate-y-1.5 transition-all duration-300 ease-out flex flex-col" spotlightColor="rgba(79, 70, 229, 0.15)">
-                        
+
                         <div className="absolute top-4 -left-6 bg-gradient-to-r from-[#4F46E5] to-[#7C3AED] rounded-r-[16px] rounded-tl-[16px] rounded-bl-none px-8 z-20 shadow-lg min-w-[260px] flex flex-col justify-center items-center text-center" style={{ paddingTop: '1.25rem', paddingBottom: '1.25rem' }}>
                           <div className="absolute top-full left-0 w-0 h-0" style={{ borderTop: '24px solid #1E1B4B', borderLeft: '24px solid transparent' }}></div>
                           <h3 className="text-white font-semibold text-[17px] leading-tight mb-0.5 whitespace-nowrap relative z-10">{t.name}</h3>
@@ -970,7 +1179,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                               </svg>
                             ))}
                           </div>
-                          
+
                           <div className="relative">
                             <div className="absolute left-0 top-1 bottom-1 w-[3px] bg-gradient-to-b from-[#4F46E5] to-[#7C3AED] rounded-full shadow-[0_0_8px_rgba(79,70,229,0.3)]"></div>
                             <p className="text-[#8981A6] text-[16px] leading-[1.8] font-sans" style={{ paddingLeft: '32px' }}>
@@ -995,7 +1204,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             <div className="lg:col-span-5 relative">
               {/* Dot Image Watermark Effect */}
-              <div 
+              <div
                 className="absolute -top-12 -left-12 w-[350px] h-[350px] pointer-events-none opacity-80 z-0"
                 style={{
                   backgroundImage: 'radial-gradient(rgba(139, 92, 246, 0.6) 2px, transparent 2px)',
@@ -1008,7 +1217,9 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                 <span className="eyebrow inline-block" style={{ margin: "0 0 24px 0" }}>Questions</span>
                 <h2 className="text-6xl lg:text-7xl font-bold tracking-tighter leading-[1.05] drop-shadow-lg">
                   <ShinyText text="Common" color="#ffffff" shineColor="#8b5cf6" speed={3} /> <br />
-                  <ShinyText text="Questions" color="#ffffff" shineColor="#8b5cf6" speed={3} />
+                  <span className="font-stencilia uppercase">
+                    <ShinyText text="Questions" color="#ffffff" shineColor="#8b5cf6" speed={3} />
+                  </span>
                 </h2>
                 <p className="mt-6 text-[#8981A6] font-light max-w-xs text-lg leading-relaxed">
                   Everything you need to know about our approach, timelines, and how we deliver exceptional results.
@@ -1033,9 +1244,9 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         <div className="wrap relative z-10">
           <div className="max-w-5xl mx-auto flex flex-col items-center text-center" style={{ gap: '2.5rem' }}>
             <span className="text-[#a78bfa] font-mono text-sm md:text-base uppercase tracking-[0.25em] block font-semibold drop-shadow-[0_0_8px_rgba(167,139,250,0.5)]" style={{ margin: 0 }}>Ready to start?</span>
-            
+
             <h2 className="text-4xl md:text-5xl lg:text-5xl font-bold tracking-tighter text-white leading-[1.1]" style={{ margin: 0 }}>
-              <TextType 
+              <TextType
                 text={[
                   "Ready to Transform Your Business?",
                   "Ready to Scale Your Startup?",
@@ -1048,14 +1259,14 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                 cursorCharacter="_"
                 className="inline-block"
                 variableSpeed={false}
-                onSentenceComplete={() => {}}
+                onSentenceComplete={() => { }}
               />
             </h2>
-            
+
             <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-light" style={{ margin: 0 }}>
               Join hundreds of forward-thinking companies that have accelerated their growth with our professional IT services. Let's build something extraordinary together.
             </p>
-            
+
             <button className="nx-cta" onClick={onOpenModal} style={{ margin: 0 }}>
               Schedule a Free Consultation
             </button>
@@ -1063,7 +1274,19 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         </div>
       </section>
 
-      <Footer />
+      <Footer style={{ paddingTop: '0px' }} middleSectionStyle={{ paddingTop: '50px', paddingBottom: '30px' }} />
+
+      <FloatingScrollButtonDesktop />
+
+      <SciFiServiceModal 
+        isOpen={!!activeService} 
+        service={activeService} 
+        activeCardRect={activeCardRect}
+        onClose={() => {
+          setActiveService(null)
+          setActiveCardRect(null)
+        }} 
+      />
     </>
   )
 }

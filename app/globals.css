@@ -2,6 +2,21 @@
 @import 'tw-animate-css';
 @import './landing.css';
 @custom-variant dark (&:is(.dark *));
+@font-face {
+  font-family: 'Lemon Milk';
+  src: url('/fonts/LEMONMILK-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Stencilia';
+  src: url('/fonts/Stencilia-A.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   /* Backgrounds */
@@ -53,6 +68,8 @@
   --font-serif: var(--font-serif), 'EB Garamond', serif;
   --font-sans: var(--font-sans), 'Inter', sans-serif;
   --font-mono: var(--font-mono), 'JetBrains Mono', monospace;
+  --font-lemon: 'Lemon Milk', sans-serif;
+  --font-stencilia: 'Stencilia', sans-serif;
 
   /* Marquee Animation */
   --animate-marquee: marquee 60s linear infinite;
@@ -75,6 +92,15 @@
     background-color: var(--background);
     color: var(--foreground);
     @apply font-sans;
+  }
+
+  h2 {
+    font-family: var(--font-lemon) !important;
+    font-weight: normal !important;
+  }
+
+  .font-stencilia {
+    font-size: 1.15em;
   }
 
   * {

@@ -13,6 +13,7 @@ import TextType from '@/components/TextType';
 
 import LineWaves from "@/components/LineWaves"
 import ConsultationModal from "@/components/ConsultationModal"
+import SciFiServiceModal, { ServiceDetails } from "@/components/SciFiServiceModal"
 import AgencySection from "@/components/AgencySection"
 import LightPillar from "@/components/LightPillar"
 import MagicRings from "@/components/MagicRings"
@@ -610,7 +611,7 @@ const MobileServicePackages = ({ onOpenModal }: { onOpenModal?: () => void }) =>
   );
 };
 
-const GlowingCard = ({ children, active, delay, className }: { children: React.ReactNode, active?: boolean, delay: number, className?: string }) => {
+const GlowingCard = ({ children, active, delay, className, onClick }: { children: React.ReactNode, active?: boolean, delay: number, className?: string, onClick?: (e: React.MouseEvent<HTMLDivElement>) => void }) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [opacity, setOpacity] = useState(0);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -627,7 +628,8 @@ const GlowingCard = ({ children, active, delay, className }: { children: React.R
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setOpacity(1)}
       onMouseLeave={() => setOpacity(0)}
-      className={`hero-card flex flex-col h-full ${active ? 'active' : ''} ${className || ''}`}
+      onClick={onClick}
+      className={`hero-card flex flex-col h-full ${active ? 'active' : ''} ${className || ''} ${onClick ? 'cursor-pointer' : ''}`}
       style={{
         animationDelay: `${delay}s`,
         minWidth: 0
@@ -647,6 +649,64 @@ const GlowingCard = ({ children, active, delay, className }: { children: React.R
   );
 };
 
+const servicesData: Record<string, ServiceDetails> = {
+  "Web App Dev": {
+    id: "web-app-dev",
+    title: "Web App Dev",
+    description: "Custom-built, highly scalable web applications designed to meet your specific business requirements and handle high traffic volumes.",
+    features: [
+      "Next.js & React Frontend Architecture",
+      "Scalable Node.js / Go Backend",
+      "Cloud-native deployment (AWS/GCP)",
+      "High Performance & SEO\nOptimized"
+    ]
+  },
+  "Automation": {
+    id: "automation",
+    title: "Automation",
+    description: "Streamline your workflows and eliminate repetitive manual tasks with custom automation scripts and AI-driven processes.",
+    features: [
+      "Custom Workflow Scripts",
+      "API Integration & Webhooks",
+      "AI-driven Task Automation",
+      "Data Syncing & Reporting"
+    ]
+  },
+  "IT Consultation": {
+    id: "it-consultation",
+    title: "IT Consultation",
+    description: "Expert strategic guidance to modernize your technology stack, improve security, and reduce operational costs.",
+    features: [
+      "Tech Stack Auditing & Modernization",
+      "Cloud Migration Strategy",
+      "Security & Compliance Reviews",
+      "Cost Optimization"
+    ]
+  },
+  "CRM CMS": {
+    id: "crm-cms",
+    title: "CRM CMS",
+    description: "Manage all your customer data, marketing pipelines, and content seamlessly in one unified platform.",
+    features: [
+      "Custom CRM Development",
+      "Headless CMS Integration",
+      "Lead Tracking & Pipelines",
+      "Automated Marketing Flows"
+    ]
+  },
+  "UI UX Branding": {
+    id: "ui-ux-branding",
+    title: "UI UX Branding",
+    description: "Crafting beautiful, intuitive interfaces that enhance user experience, build brand trust, and drive conversions.",
+    features: [
+      "User Research & Wireframing",
+      "High-Fidelity Prototyping",
+      "Brand Identity & Guidelines",
+      "Conversion Rate Optimization"
+    ]
+  }
+};
+
 export default function HomePageMobile() {
   const { user, role, loading, logout } = useAuth()
   const [scrolled, setScrolled] = useState(false)
@@ -654,7 +714,20 @@ export default function HomePageMobile() {
 
   // Fetch projects for the Work section
   useEffect(() => {
-    fetch("/api/projects").then(r => r.json()).then(d => { if (d.projects) setProjects(d.projects) }).catch(() => { })
+    fetch("/api/projects")
+      .then(r => r.json())
+      .then(d => { 
+        if (d.projects) {
+          setProjects(d.projects);
+          setTimeout(() => {
+            const savedScroll = sessionStorage.getItem("homeMobileScroll");
+            if (savedScroll) {
+              window.scrollTo({ top: parseInt(savedScroll, 10), behavior: "instant" });
+            }
+          }, 100);
+        }
+      })
+      .catch(() => { })
   }, [])
   
   // Modal state
@@ -696,7 +769,25 @@ export default function HomePageMobile() {
     }
     window.addEventListener("beforeunload", handleBeforeUnload)
     
-    return () => window.removeEventListener("beforeunload", handleBeforeUnload)
+    // Capture-phase click listener to save scroll before Next.js client-side routing
+    const handleGlobalClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const link = target.closest('a');
+      if (link && link.href) {
+        try {
+          const url = new URL(link.href);
+          if (url.origin === window.location.origin && url.pathname !== window.location.pathname) {
+            sessionStorage.setItem("homeMobileScroll", window.scrollY.toString());
+          }
+        } catch (err) {}
+      }
+    };
+    document.addEventListener("click", handleGlobalClick, true);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload)
+      document.removeEventListener("click", handleGlobalClick, true);
+    }
   }, [])
 
   // Fix hash routing after layout shifts
@@ -1044,6 +1135,31 @@ function MobileNav({ user, role, loading, logout, scrolled }: any) {
 }
 
 function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: () => void }) {
+  const [activeService, setActiveService] = useState<ServiceDetails | null>(null)
+  const [activeCardRect, setActiveCardRect] = useState<DOMRect | null>(null)
+
+  const handleCardClick = (e: React.MouseEvent<HTMLDivElement>, serviceKey: string) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    
+    // Check if card is comfortably visible in the viewport
+    const isVisible = rect.top >= 100 && rect.bottom <= (window.innerHeight - 100);
+    
+    if (!isVisible) {
+      // Scroll smoothly so the card is centered
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      
+      // Wait for the smooth scroll to finish before opening modal
+      setTimeout(() => {
+        setActiveCardRect(card.getBoundingClientRect());
+        setActiveService(servicesData[serviceKey]);
+      }, 450);
+    } else {
+      setActiveCardRect(rect);
+      setActiveService(servicesData[serviceKey]);
+    }
+  };
+
   return (
     <>
       <section id="hero" className="nx vx-float pt-24 md:pt-32" style={{ height: "auto", minHeight: "100vh" }}>
@@ -1171,35 +1287,35 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
           </div>
           
           <div className="grid grid-cols-1 min-[375px]:grid-cols-2 gap-4 mb-16 mx-auto w-full relative z-20" style={{ flexShrink: 0, marginTop: "80px" }}>
-            <GlowingCard delay={0.1}>
+            <GlowingCard delay={0.1} onClick={(e) => handleCardClick(e, "Web App Dev")}>
               <div className="hc-icon shrink-0"><Code2 size={28} strokeWidth={1.5} /></div>
               <div className="flex flex-col gap-1">
                 <h4 className="hc-title !m-0">Web App Dev</h4>
                 <p className="hc-desc !m-0">Custom-built, scalable web applications</p>
               </div>
             </GlowingCard>
-            <GlowingCard delay={0.2}>
+            <GlowingCard delay={0.2} onClick={(e) => handleCardClick(e, "Automation")}>
               <div className="hc-icon shrink-0"><Zap size={28} strokeWidth={1.5} /></div>
               <div className="flex flex-col gap-1">
                 <h4 className="hc-title !m-0">Automation</h4>
                 <p className="hc-desc !m-0">Streamline workflows and cut manual work</p>
               </div>
             </GlowingCard>
-            <GlowingCard active delay={0.3} className="min-[375px]:col-span-2">
+            <GlowingCard active delay={0.3} className="min-[375px]:col-span-2" onClick={(e) => handleCardClick(e, "IT Consultation")}>
               <div className="hc-icon shrink-0"><Layers size={28} strokeWidth={1.5} /></div>
               <div className="flex flex-col gap-1">
                 <h4 className="hc-title !m-0">IT Consultation</h4>
                 <p className="hc-desc !m-0">Strategic guidance for your tech stack</p>
               </div>
             </GlowingCard>
-            <GlowingCard delay={0.4}>
+            <GlowingCard delay={0.4} onClick={(e) => handleCardClick(e, "CRM CMS")}>
               <div className="hc-icon shrink-0"><BarChart3 size={28} strokeWidth={1.5} /></div>
               <div className="flex flex-col gap-1">
                 <h4 className="hc-title !m-0">CRM CMS</h4>
                 <p className="hc-desc !m-0">Manage customers and content in one place</p>
               </div>
             </GlowingCard>
-            <GlowingCard delay={0.5}>
+            <GlowingCard delay={0.5} onClick={(e) => handleCardClick(e, "UI UX Branding")}>
               <div className="hc-icon shrink-0"><Search size={28} strokeWidth={1.5} /></div>
               <div className="flex flex-col gap-1">
                 <h4 className="hc-title !m-0">UI UX Branding</h4>
@@ -1386,7 +1502,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         <div className="wrap px-4 md:px-8" style={{ position: "relative", zIndex: 1 }}>
           <div className="section-head reveal in flex flex-col items-center" style={{ margin: "0 auto 40px", textAlign: "center" }}>
             <span className="eyebrow" style={{ margin: "0 0 16px 0" }}>Our Process</span>
-            <h2 style={{ textAlign: "center", fontSize: "clamp(26px, 7vw, 36px)", lineHeight: 1.2, marginBottom: "16px" }}>How Professional IT Services<br />Can Drive <span style={{ background: "linear-gradient(90deg,#7c3aed,#a78bfa)", WebkitBackgroundClip: "text", color: "transparent" }}>Success</span></h2>
+            <h2 style={{ textAlign: "center", fontSize: "clamp(26px, 7vw, 36px)", lineHeight: 1.2, marginBottom: "16px" }}>How Professional IT Services<br />Can Drive <span className="font-stencilia uppercase" style={{ background: "linear-gradient(90deg,#7c3aed,#a78bfa)", WebkitBackgroundClip: "text", color: "transparent" }}>Success</span></h2>
             <p style={{ margin: "0 auto", maxWidth: "600px", fontSize: "clamp(15px, 4vw, 17px)" }}>From initial consultation to ongoing optimization, our streamlined process ensures every project delivers measurable business value.</p>
           </div>
 
@@ -1431,7 +1547,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               
               <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 tracking-tight leading-[1.15]">
                 Crafting Digital <br className="hidden md:block" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-300 to-purple-400 animate-gradient bg-300%">Masterpieces</span>
+                <span className="font-stencilia uppercase text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-300 to-purple-400 animate-gradient bg-300%">Masterpieces</span>
               </h2>
               
               <p className="text-[#8981A6] text-xs sm:text-sm max-w-xl mx-auto leading-relaxed font-light">
@@ -1498,7 +1614,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               <span style={{ color: "#a855f7", fontSize: "10px" }}>◆</span> PARTNERSHIP MODELS
             </div>
             <h2 style={{ fontSize: "clamp(22px, 6.5vw, 28px)", fontWeight: 900, color: "#ffffff", marginBottom: "8px", letterSpacing: "-0.5px", whiteSpace: "nowrap" }}>
-              SERVICE <span style={{ color: "#a855f7", fontWeight: 900 }}>PACKAGES</span>
+              SERVICE <span className="font-stencilia uppercase">PACKAGES</span>
             </h2>
             <p style={{ color: "#94a3b8", fontSize: "14px", lineHeight: "1.6", fontWeight: 400, maxWidth: "440px", margin: 0 }}>
               Flexible engagement models designed to scale with your business needs and digital ambitions.
@@ -1539,7 +1655,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-3 tracking-tight leading-[1.15] text-center">
-              Industries We <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-300 to-indigo-400">Serve</span>
+              Industries We <span className="font-stencilia uppercase text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-300 to-indigo-400">Serve</span>
             </h2>
 
             <p className="text-[#8981A6] text-xs sm:text-sm max-w-xl mx-auto leading-relaxed font-light text-center">
@@ -1607,7 +1723,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="section-head reveal in relative z-10 mb-10 flex flex-col items-center text-center w-full">
             <span className="eyebrow" style={{ margin: '0 auto 16px', display: 'inline-block' }}>What Our Clients Say</span>
-            <h2 style={{ margin: '0 auto 16px', textAlign: 'center', fontSize: 'clamp(26px, 6vw, 36px)', lineHeight: 1.15 }}>Trusted by businesses across India</h2>
+            <h2 style={{ margin: '0 auto 16px', textAlign: 'center', fontSize: 'clamp(26px, 6vw, 36px)', lineHeight: 1.15 }}>Trusted by businesses across <span className="font-stencilia uppercase">India</span></h2>
             <p style={{ margin: '0 auto', textAlign: 'center', maxWidth: '500px', fontSize: '13px', color: '#94a3b8' }}>
               Delivering high-quality software, websites, CRM solutions, mobile applications, and AI automation.
             </p>
@@ -1637,8 +1753,8 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               <div className="relative lg:sticky top-4 lg:top-32 z-10">
                 <span className="eyebrow inline-block mb-3" style={{ margin: "0 0 12px 0" }}>Questions</span>
                 <h2 className="text-3xl sm:text-4xl lg:text-7xl font-bold tracking-tighter leading-[1.1] drop-shadow-lg mb-3">
-                  <ShinyText text="Common" color="#ffffff" shineColor="#8b5cf6" speed={3} />{" "}
-                  <ShinyText text="Questions" color="#ffffff" shineColor="#8b5cf6" speed={3} />
+                  <ShinyText text="Common" color="#ffffff" shineColor="#8b5cf6" speed={3} /> <br />
+                  <span className="font-stencilia uppercase"><ShinyText text="Questions" color="#ffffff" shineColor="#8b5cf6" speed={3} /></span>
                 </h2>
                 <p className="text-[#8981A6] font-light max-w-sm text-xs sm:text-base leading-relaxed mb-6">
                   Everything you need to know about our approach, timelines, and how we deliver exceptional results.
@@ -1697,6 +1813,16 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       <FooterMobile />
+
+      <SciFiServiceModal 
+        isOpen={!!activeService} 
+        service={activeService} 
+        activeCardRect={activeCardRect}
+        onClose={() => {
+          setActiveService(null)
+          setActiveCardRect(null)
+        }} 
+      />
     </>
   )
 }

@@ -93,15 +93,14 @@
 
 @layer base {
   html {
-    background: linear-gradient(to right, #000000 0%, #03010A 25%, #050415 50%, #07051D 75%, #0B0829 100%);
+    background: #050408;
     min-height: 100%;
   }
 
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: linear-gradient(to right, #000000 0%, #03010A 25%, #050415 50%, #07051D 75%, #0B0829 100%) fixed;
-    background-attachment: fixed;
+    background: #050408;
     color: var(--foreground);
     @apply font-sans;
   }
@@ -117,86 +116,6 @@
 
   * {
     border-color: rgba(169, 79, 224, 0.15);
-  }
-
-  /* ─── Plain wrapper sections: transparent so body gradient shows through ─── */
-  .vx,
-  .vx > section,
-  .vx .light-sec,
-  .vx .demos-section,
-  .vx .cta-banner,
-  .vx #services-collection {
-    background-color: transparent !important;
-  }
-
-  /* ─── HERO: original solid near-black #050506 ─── */
-  section#hero.nx,
-  .nx {
-    background: #050506 !important;
-  }
-
-  /* ─── ABOUT US wrapper + LightPillar zone: transparent to show gradient ─── */
-  .agency-section-wrapper,
-  .agency-pillar-wrapper {
-    background: transparent !important;
-    background-color: transparent !important;
-  }
-
-  /* ─── Our Process + Our Portfolio: original #050506 ─── */
-  section#how-it-works,
-  section#recent-projects {
-    background: #050506 !important;
-    background-color: #050506 !important;
-  }
-
-  /* ─── CARDS & PANELS: original #0d0d11 ─── */
-  .vx .trio .card,
-  .vx .hiw-card,
-  .vx .step-card,
-  .vx .ind-card,
-  .vx .cf-item,
-  .vx .demo-card,
-  .vx .price-card,
-  .vx .cart-mock,
-  .hero-card {
-    background: #0d0d11 !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-  }
-
-  /* Active hero-card keeps original gradient */
-  .hero-card.active {
-    background: linear-gradient(135deg, #7c3aed, #8b5cf6) !important;
-  }
-
-  /* ─── FOOTER: original #050506 ─── */
-  footer,
-  footer > *,
-  [class*="footer"] {
-    background: #050506 !important;
-    background-color: #050506 !important;
-  }
-}
-
-
-@layer utilities {
-  .text-huge {
-    font-size: clamp(4rem, 10vw, 8.5rem);
-    line-height: 0.9;
-    letter-spacing: -0.04em;
-  }
-
-  .label-mono {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--text-muted);
-  }
-
-  .nav-link {
-    font-size: 11px;
-    letter-spacing: 0.05em;
   }
 
   .hero-image-container {

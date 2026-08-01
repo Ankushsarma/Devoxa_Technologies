@@ -773,55 +773,56 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         </div>
       </div>
 
-      {/* Solutions */}
-      <section id="solutions" className="scroll-mt-32 light-sec vx-float" style={{ paddingBottom: "clamp(40px, 6vh, 80px)", paddingTop: "0px", position: "relative", overflow: "hidden" }}>
+      {/* Solutions / Why Choose Us */}
+      <section id="solutions" className="scroll-mt-32 light-sec vx-float" style={{ padding: "80px 0 60px 0", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: "50%", left: "-10%", width: "40%", height: "60%", background: "radial-gradient(circle, rgba(139,92,246,0.08) 0%, rgba(0,0,0,0) 70%)", filter: "blur(60px)", pointerEvents: "none" }}></div>
-        <div className="wrap">
-          <div className="sol-split reveal in" style={{ display: "flex", alignItems: "center", gap: "clamp(40px, 5vw, 60px)", flexWrap: "wrap" }}>
-            <div className="sol-text-modern" style={{ flex: "1 1 400px", maxWidth: "520px" }}>
-              <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "4px 12px", background: "rgba(139, 92, 246, 0.1)", borderRadius: "999px", border: "1px solid rgba(139, 92, 246, 0.2)", marginBottom: "16px" }}>
-                <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#a78bfa", boxShadow: "0 0 8px #a78bfa" }}></div>
-                <span style={{ fontSize: "11px", fontWeight: 700, color: "#a78bfa", letterSpacing: "1px", textTransform: "uppercase" }}>Why Choose Us</span>
+        <div className="wrap" style={{ maxWidth: "1240px", margin: "0 auto", padding: "0 32px" }}>
+          <div className="sol-split reveal in" style={{ display: "flex", alignItems: "center", justifyBetween: "space-between", gap: "clamp(30px, 4vw, 50px)", flexWrap: "wrap" }}>
+            <div className="sol-text-modern" style={{ flex: "1 1 380px", maxWidth: "480px" }}>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "3.5px 10px", background: "rgba(139, 92, 246, 0.1)", borderRadius: "999px", border: "1px solid rgba(139, 92, 246, 0.2)", marginBottom: "12px" }}>
+                <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#a78bfa", boxShadow: "0 0 8px #a78bfa" }}></div>
+                <span style={{ fontSize: "10px", fontWeight: 700, color: "#a78bfa", letterSpacing: "1px", textTransform: "uppercase" }}>Why Choose Us</span>
               </div>
-              <h2 style={{ fontSize: "clamp(26px, 3.2vw, 38px)", fontWeight: 800, lineHeight: 1.15, color: "#fff", marginBottom: "16px", letterSpacing: "-0.5px" }}>
+              
+              <h2 style={{ fontSize: "clamp(22px, 2.5vw, 32px)", fontWeight: 800, lineHeight: 1.18, color: "#fff", marginBottom: "12px", letterSpacing: "-0.4px" }}>
                 Powerful IT Solutions for <span className="font-stencilia uppercase" style={{ background: "linear-gradient(90deg, #7c3aed, #a78bfa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Modern Businesses</span>
               </h2>
               
-              <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.7)", lineHeight: 1.6, marginBottom: "16px" }}>
+              <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.72)", lineHeight: 1.55, marginBottom: "10px" }}>
                 We combine cutting-edge technology with affordable pricing to deliver enterprise-grade solutions that scale with your ambitions. No hidden fees, no jargon — just results.
               </p>
               
-              <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.7)", lineHeight: 1.6, marginBottom: "32px" }}>
+              <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.72)", lineHeight: 1.55, marginBottom: "20px" }}>
                 From the first discovery call to post-launch support, our team stays hands-on. We write clean, maintainable code and build systems that grow with you instead of holding you back.
               </p>
               
-              {/* Stats Row */}
-              <div className="flex items-center gap-8 mb-8 py-6 border-y border-white/10">
+              {/* Stats Row - Compact */}
+              <div className="flex items-center gap-6 mb-5 py-4 border-y border-white/10">
                 <div>
-                  <div className="text-3xl font-bold text-white mb-1">120+</div>
-                  <div className="text-xs text-white/50 uppercase tracking-widest font-semibold">Projects</div>
+                  <div className="text-2xl font-bold text-white mb-0.5">120+</div>
+                  <div className="text-[10px] text-white/50 uppercase tracking-widest font-semibold">Projects</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-white mb-1">98%</div>
-                  <div className="text-xs text-white/50 uppercase tracking-widest font-semibold">Retention</div>
+                  <div className="text-2xl font-bold text-white mb-0.5">98%</div>
+                  <div className="text-[10px] text-white/50 uppercase tracking-widest font-semibold">Retention</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-white mb-1">24/7</div>
-                  <div className="text-xs text-white/50 uppercase tracking-widest font-semibold">Support</div>
+                  <div className="text-2xl font-bold text-white mb-0.5">24/7</div>
+                  <div className="text-[10px] text-white/50 uppercase tracking-widest font-semibold">Support</div>
                 </div>
               </div>
 
-              {/* Bullet Points */}
-              <ul style={{ display: "flex", flexDirection: "column", gap: "16px", listStyle: "none", padding: 0 }}>
+              {/* Bullet Points - Compact */}
+              <ul style={{ display: "flex", flexDirection: "column", gap: "10px", listStyle: "none", padding: 0 }}>
                 {[
                   "Custom software for your workflow",
                   "Scalable cloud infrastructure",
                   "End-to-end automation",
                   "Transparent pricing"
                 ].map((item, i) => (
-                  <li key={i} style={{ display: "flex", alignItems: "center", gap: "16px", fontSize: "15px", color: "#fff", fontWeight: 500 }}>
-                    <div style={{ width: "24px", height: "24px", borderRadius: "50%", background: "linear-gradient(135deg, #5B1FA0, #8B2FD1)", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", flexShrink: 0, boxShadow: "0 4px 12px rgba(139,47,209,0.3)" }}>
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <li key={i} style={{ display: "flex", alignItems: "center", gap: "12px", fontSize: "13.5px", color: "#fff", fontWeight: 500 }}>
+                    <div style={{ width: "20px", height: "20px", borderRadius: "50%", background: "linear-gradient(135deg, #5B1FA0, #8B2FD1)", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", flexShrink: 0, boxShadow: "0 4px 10px rgba(139,47,209,0.3)" }}>
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                     </div>
                     {item}
                   </li>
@@ -829,34 +830,34 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               </ul>
             </div>
             
-            {/* Right Column: Collage UI */}
-            <div className="sol-img-modern" style={{ flex: "1 1 480px" }}>
-              <div className="relative w-full h-[460px] md:h-[560px] flex items-center justify-center group my-4">
+            {/* Right Column: Compact Zoomed-Out Collage UI */}
+            <div className="sol-img-modern" style={{ flex: "1 1 420px", maxWidth: "520px" }}>
+              <div className="relative w-full h-[380px] md:h-[440px] flex items-center justify-center group">
                 
                 {/* Top Left Image - Code */}
                 <img 
                   src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" 
                   alt="Code" 
-                  className="absolute top-[2%] left-0 w-[52%] h-[46%] object-cover rounded-[24px] shadow-2xl z-10 border border-white/10 transition-all duration-700 hover:scale-105 hover:z-40 hover:border-purple-500/50"
+                  className="absolute top-[2%] left-0 w-[50%] h-[46%] object-cover rounded-[20px] shadow-xl z-10 border border-white/10 transition-all duration-700 hover:scale-105 hover:z-40 hover:border-purple-500/50"
                 />
                 
                 {/* Bottom Left Image - AI/Tech */}
                 <img 
                   src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" 
                   alt="AI Tech" 
-                  className="absolute bottom-[2%] left-0 w-[52%] h-[47%] object-cover rounded-[24px] shadow-2xl z-10 border border-white/10 transition-all duration-700 hover:scale-105 hover:z-40 hover:border-purple-500/50"
+                  className="absolute bottom-[2%] left-0 w-[50%] h-[47%] object-cover rounded-[20px] shadow-xl z-10 border border-white/10 transition-all duration-700 hover:scale-105 hover:z-40 hover:border-purple-500/50"
                 />
 
                 {/* Right Image - Design Desk */}
                 <img 
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" 
                   alt="Design Process" 
-                  className="absolute top-[5%] right-0 w-[45%] h-[90%] object-cover rounded-[24px] shadow-2xl z-20 border border-white/10 transition-all duration-700 hover:scale-105 hover:z-40 hover:border-purple-500/50"
+                  className="absolute top-[4%] right-0 w-[45%] h-[90%] object-cover rounded-[20px] shadow-xl z-20 border border-white/10 transition-all duration-700 hover:scale-105 hover:z-40 hover:border-purple-500/50"
                 />
 
-                {/* Center Spinning Badge */}
-                <div className="absolute z-30 flex items-center justify-center w-[160px] h-[160px] rounded-full bg-white shadow-[0_20px_50px_rgba(0,0,0,0.5)] left-[48%] top-[50%] -translate-x-1/2 -translate-y-1/2 transition-transform duration-500 hover:scale-110 border border-purple-500/20">
-                  <svg viewBox="0 0 100 100" className="absolute w-[142px] h-[142px] animate-[spin_20s_linear_infinite]">
+                {/* Center Spinning Badge - Proportional Zoomed Out */}
+                <div className="absolute z-30 flex items-center justify-center w-[130px] h-[130px] rounded-full bg-white shadow-[0_15px_35px_rgba(0,0,0,0.5)] left-[47%] top-[50%] -translate-x-1/2 -translate-y-1/2 transition-transform duration-500 hover:scale-110 border border-purple-500/20">
+                  <svg viewBox="0 0 100 100" className="absolute w-[115px] h-[115px] animate-[spin_20s_linear_infinite]">
                     <path id="circlePath" d="M 50, 50 m -35.5, 0 a 35.5,35.5 0 1,1 71,0 a 35.5,35.5 0 1,1 -71,0" fill="none" />
                     <text className="text-[7.2px] font-black uppercase fill-black tracking-[1.2px]">
                       <textPath href="#circlePath" startOffset="0%" textLength="223" lengthAdjust="spacing">
@@ -865,8 +866,8 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                     </text>
                   </svg>
                   {/* Center Dark Circle with D */}
-                  <div className="absolute w-[46px] h-[46px] bg-gradient-to-br from-[#170f2e] to-[#050408] rounded-full flex items-center justify-center border border-purple-500/40 shadow-[0_0_15px_rgba(139,92,246,0.4)]">
-                    <span className="text-white font-black text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-purple-300 via-white to-purple-400">D</span>
+                  <div className="absolute w-[38px] h-[38px] bg-gradient-to-br from-[#170f2e] to-[#050408] rounded-full flex items-center justify-center border border-purple-500/40 shadow-[0_0_12px_rgba(139,92,246,0.4)]">
+                    <span className="text-white font-black text-lg tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-purple-300 via-white to-purple-400">D</span>
                   </div>
                 </div>
 

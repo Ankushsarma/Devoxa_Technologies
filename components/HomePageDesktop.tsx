@@ -522,6 +522,29 @@ function MobileNav({ user, role, loading, logout, scrolled }: any) {
 function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: () => void }) {
   const [activeService, setActiveService] = useState<ServiceDetails | null>(null)
   const [activeCardRect, setActiveCardRect] = useState<DOMRect | null>(null)
+
+  const handleCardClick = (e: React.MouseEvent<HTMLDivElement>, serviceKey: string) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    
+    // Check if card is comfortably visible in the viewport (with 120px margin for headers/footers)
+    const isVisible = rect.top >= 120 && rect.bottom <= (window.innerHeight - 120);
+    
+    if (!isVisible) {
+      // Scroll smoothly so the card is centered
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      
+      // Wait for the smooth scroll to finish before opening modal to ensure line coordinates are correct
+      setTimeout(() => {
+        setActiveCardRect(card.getBoundingClientRect());
+        setActiveService(servicesData[serviceKey]);
+      }, 450);
+    } else {
+      setActiveCardRect(rect);
+      setActiveService(servicesData[serviceKey]);
+    }
+  };
+
   return (
     <>
       <section id="hero" className="nx vx-float pt-24 md:pt-32">

@@ -262,6 +262,28 @@ export default function HomePageDesktop() {
   // Modal state
   const [isModalOpen, setIsModalOpen] = useState(false)
 
+  const handleCardClick = (e: React.MouseEvent<HTMLDivElement>, serviceKey: string) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    
+    // Check if card is comfortably visible in the viewport (with 120px margin for headers/footers)
+    const isVisible = rect.top >= 120 && rect.bottom <= (window.innerHeight - 120);
+    
+    if (!isVisible) {
+      // Scroll smoothly so the card is centered
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      
+      // Wait for the smooth scroll to finish before opening modal to ensure line coordinates are correct
+      setTimeout(() => {
+        setActiveCardRect(card.getBoundingClientRect());
+        setActiveService(servicesData[serviceKey]);
+      }, 450);
+    } else {
+      setActiveCardRect(rect);
+      setActiveService(servicesData[serviceKey]);
+    }
+  };
+
   // Scroll listener for nav blur and WhatsApp button
   useEffect(() => {
     const onScroll = () => {
@@ -637,27 +659,27 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       <div className="hero-cards-wrapper">
-        <GlowingCard delay={0.1} onClick={(e) => { setActiveService(servicesData["Web App Dev"]); setActiveCardRect(e.currentTarget.getBoundingClientRect()); }}>
+        <GlowingCard delay={0.1} onClick={(e) => handleCardClick(e, "Web App Dev")}>
           <div className="hc-icon"><Code2 size={28} strokeWidth={1.5} /></div>
           <h4 className="hc-title">Web App Dev</h4>
           <p className="hc-desc">Custom-built, scalable web applications</p>
         </GlowingCard>
-        <GlowingCard delay={0.2} onClick={(e) => { setActiveService(servicesData["Automation"]); setActiveCardRect(e.currentTarget.getBoundingClientRect()); }}>
+        <GlowingCard delay={0.2} onClick={(e) => handleCardClick(e, "Automation")}>
           <div className="hc-icon"><Zap size={28} strokeWidth={1.5} /></div>
           <h4 className="hc-title">Automation</h4>
           <p className="hc-desc">Streamline workflows and cut manual work</p>
         </GlowingCard>
-        <GlowingCard active delay={0.3} onClick={(e) => { setActiveService(servicesData["IT Consultation"]); setActiveCardRect(e.currentTarget.getBoundingClientRect()); }}>
+        <GlowingCard active delay={0.3} onClick={(e) => handleCardClick(e, "IT Consultation")}>
           <div className="hc-icon"><Layers size={28} strokeWidth={1.5} /></div>
           <h4 className="hc-title">IT Consultation</h4>
           <p className="hc-desc">Strategic guidance for your tech stack</p>
         </GlowingCard>
-        <GlowingCard delay={0.4} onClick={(e) => { setActiveService(servicesData["CRM CMS"]); setActiveCardRect(e.currentTarget.getBoundingClientRect()); }}>
+        <GlowingCard delay={0.4} onClick={(e) => handleCardClick(e, "CRM CMS")}>
           <div className="hc-icon"><BarChart3 size={28} strokeWidth={1.5} /></div>
           <h4 className="hc-title">CRM CMS</h4>
           <p className="hc-desc">Manage customers and content in one place</p>
         </GlowingCard>
-        <GlowingCard delay={0.5} onClick={(e) => { setActiveService(servicesData["UI UX Branding"]); setActiveCardRect(e.currentTarget.getBoundingClientRect()); }}>
+        <GlowingCard delay={0.5} onClick={(e) => handleCardClick(e, "UI UX Branding")}>
           <div className="hc-icon"><Search size={28} strokeWidth={1.5} /></div>
           <h4 className="hc-title">UI UX Branding</h4>
           <p className="hc-desc">Interfaces that look sharp and convert</p>

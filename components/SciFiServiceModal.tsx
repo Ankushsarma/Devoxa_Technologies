@@ -92,6 +92,47 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
     }
   }, [isOpen, activeCardRect])
 
+  // Calculate dynamic pointer SVG props
+  let ptr = null
+  if (activeCardRect && (pointerDirection === 'left' || pointerDirection === 'right')) {
+    const iconCenterY = 40 // Estimated distance from top of the card to the center of the icon
+    const cardCenterY = activeCardRect.height / 2
+    const yOffset = iconCenterY - cardCenterY 
+    
+    const svgOriginY = 40 // The Y coordinate in the SVG that corresponds to the vertical middle of the modal
+    const targetY = svgOriginY + yOffset 
+    
+    // distance X is gap(60) + half card width
+    const distanceX = 60 + activeCardRect.width / 2
+    const svgWidth = distanceX + 20
+
+    if (pointerDirection === 'left') {
+      const targetX = 10
+      ptr = {
+        width: svgWidth,
+        textX: svgWidth - 10,
+        textAnchor: 'end' as const,
+        thickPath: `M ${svgWidth - 60} 30 L ${svgWidth} 30`,
+        thickCutout: `M ${svgWidth - 70} 30 L ${svgWidth - 60} 30 L ${svgWidth - 55} 26 L ${svgWidth - 70} 26 Z`,
+        thinPath: `M ${svgWidth} 34 L ${svgWidth - 65} 34 L ${targetX + 20} ${targetY} L ${targetX} ${targetY}`,
+        targetX, targetY,
+        className: "absolute right-full top-1/2 -translate-y-1/2 pointer-events-none overflow-visible hidden sm:block"
+      }
+    } else {
+      const targetX = svgWidth - 10
+      ptr = {
+        width: svgWidth,
+        textX: 10,
+        textAnchor: 'start' as const,
+        thickPath: `M 0 30 L 60 30`,
+        thickCutout: `M 60 30 L 70 30 L 65 26 L 55 26 Z`,
+        thinPath: `M 0 34 L 65 34 L ${targetX - 20} ${targetY} L ${targetX} ${targetY}`,
+        targetX, targetY,
+        className: "absolute left-full top-1/2 -translate-y-1/2 pointer-events-none overflow-visible hidden sm:block"
+      }
+    }
+  }
+
   if (!isOpen || !service) return null
 
   return (
@@ -112,27 +153,15 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
         transition={{ type: "spring", damping: 25, stiffness: 120 }}
         style={modalStyle}
       >
-        {/* Pointer pointing to the card */}
-        {pointerDirection === 'left' && (
-          <svg width="100" height="80" className="absolute right-full top-1/2 -translate-y-1/2 pointer-events-none overflow-visible hidden sm:block">
-            <text x="90" y="25" fill="#00F0FF" fontSize="10" fontFamily="monospace" textAnchor="end" className="uppercase tracking-widest">{service.title}</text>
-            <path d="M 40 30 L 100 30" stroke="#00F0FF" strokeWidth="4" />
-            {/* Diagonal cutout on thick bar */}
-            <path d="M 30 30 L 40 30 L 45 26 L 30 26 Z" fill="#00F0FF" />
-            <path d="M 100 34 L 35 34 L 15 55 L 5 55" fill="none" stroke="#00F0FF" strokeWidth="1.5" />
-            <circle cx="5" cy="55" r="4" fill="none" stroke="#00F0FF" strokeWidth="1.5" />
-            <circle cx="5" cy="55" r="1.5" fill="#00F0FF" />
-          </svg>
-        )}
-        
-        {pointerDirection === 'right' && (
-          <svg width="100" height="80" className="absolute left-full top-1/2 -translate-y-1/2 pointer-events-none overflow-visible hidden sm:block">
-            <text x="10" y="25" fill="#00F0FF" fontSize="10" fontFamily="monospace" textAnchor="start" className="uppercase tracking-widest">{service.title}</text>
-            <path d="M 0 30 L 60 30" stroke="#00F0FF" strokeWidth="4" />
-            <path d="M 60 30 L 70 30 L 65 26 L 55 26 Z" fill="#00F0FF" />
-            <path d="M 0 34 L 65 34 L 85 55 L 95 55" fill="none" stroke="#00F0FF" strokeWidth="1.5" />
-            <circle cx="95" cy="55" r="4" fill="none" stroke="#00F0FF" strokeWidth="1.5" />
-            <circle cx="95" cy="55" r="1.5" fill="#00F0FF" />
+        {/* Pointer pointing to the card's top center icon */}
+        {ptr && (
+          <svg width={ptr.width} height="80" className={ptr.className}>
+            <text x={ptr.textX} y="25" fill="#00F0FF" fontSize="10" fontFamily="monospace" textAnchor={ptr.textAnchor} className="uppercase tracking-widest">{service.title}</text>
+            <path d={ptr.thickPath} stroke="#00F0FF" strokeWidth="4" />
+            <path d={ptr.thickCutout} fill="#00F0FF" />
+            <path d={ptr.thinPath} fill="none" stroke="#00F0FF" strokeWidth="1.5" />
+            <circle cx={ptr.targetX} cy={ptr.targetY} r="4" fill="none" stroke="#00F0FF" strokeWidth="1.5" />
+            <circle cx={ptr.targetX} cy={ptr.targetY} r="1.5" fill="#00F0FF" />
           </svg>
         )}
 

@@ -22,17 +22,7 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
   const [modalStyle, setModalStyle] = useState<React.CSSProperties>({})
   const [pointerDirection, setPointerDirection] = useState<'left' | 'right' | 'center'>('center')
 
-  // Prevent scrolling when modal is open
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'auto'
-    }
-    return () => {
-      document.body.style.overflow = 'auto'
-    }
-  }, [isOpen])
+  // (Removed prevent scrolling to avoid layout shift and allow the popover to just hover)
 
   // Calculate dynamic position based on activeCardRect
   useLayoutEffect(() => {

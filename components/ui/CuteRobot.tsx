@@ -1,9 +1,23 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import Lottie from 'lottie-react';
 
 export function CuteRobot() {
+  const [animationData, setAnimationData] = useState<any>(null);
+
+  useEffect(() => {
+    fetch('/humanoid-robot.json')
+      .then((res) => {
+        if (res.ok) return res.json();
+        throw new Error('Animation not found');
+      })
+      .then((data) => setAnimationData(data))
+      .catch(() => {
+        console.warn('humanoid-robot.json not found in public folder. Please add it to see the 3D humanoid robot.');
+      });
+  }, []);
   return (
     <motion.div
       initial={{ x: 0, y: 0, opacity: 1 }} 
@@ -27,16 +41,24 @@ export function CuteRobot() {
       }}
       style={{
         position: 'absolute',
-        top: -45, 
+        top: -65, 
         left: '10%', 
-        width: '72px',
-        height: '85px',
+        width: '100px', 
+        height: '140px',
         zIndex: 10,
         pointerEvents: 'none',
         transformStyle: 'preserve-3d'
       }}
     >
-      <style dangerouslySetInnerHTML={{__html: `
+      {animationData ? (
+        <Lottie 
+          animationData={animationData} 
+          loop={true} 
+          style={{ width: '100%', height: '100%', filter: 'drop-shadow(0px 10px 15px rgba(0,0,0,0.5))' }} 
+        />
+      ) : (
+        <>
+          <style dangerouslySetInnerHTML={{__html: `
         @keyframes eyeExpression {
           0%, 19% { transform: scale(1, 1); rx: 4; }
           20%, 25% { transform: scale(1, 0.15); rx: 10; } /* Smile */
@@ -203,6 +225,8 @@ export function CuteRobot() {
           </g>
         </g>
       </svg>
+      </>
+      )}
     </motion.div>
   );
 }

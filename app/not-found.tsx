@@ -75,7 +75,32 @@ export default function NotFound() {
       <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-3xl transform scale-[0.55] sm:scale-[0.60] md:scale-[0.65] lg:scale-[0.70] xl:scale-[0.75] origin-center mt-8">
         
         {/* Animated 404 Text with Sharp Cyber Glitch Effects */}
-        <div className="relative mb-6 flex items-center justify-center">
+        <div className="relative mb-6 mt-40 md:mt-48 flex items-center justify-center">
+          
+          {/* Alien Abduction Beam directly over 404 */}
+          <motion.div
+            animate={{ y: [-10, 10, -10], rotate: [-2, 2, -2] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-full left-1/2 -translate-x-1/2 w-48 h-[250px] md:h-[300px] z-20 pointer-events-none flex flex-col items-center mb-[-20px]"
+          >
+            {/* UFO Ship */}
+            <div className="relative w-32 md:w-40 h-10 md:h-12 bg-gradient-to-r from-gray-700 via-gray-400 to-gray-700 rounded-full shadow-[0_0_20px_#00F0FF] z-10 flex items-center justify-center border-b-2 border-gray-800">
+              <div className="absolute -top-5 md:-top-6 w-16 md:w-20 h-7 md:h-9 bg-cyan-300/30 rounded-t-full border border-cyan-200/50 backdrop-blur-sm" />
+              <div className="w-full flex justify-around px-6 md:px-10">
+                <div className="w-2.5 h-2.5 rounded-full bg-red-500 shadow-[0_0_8px_#f00] animate-pulse" />
+                <div className="w-2.5 h-2.5 rounded-full bg-yellow-500 shadow-[0_0_8px_#ff0] animate-pulse delay-75" />
+                <div className="w-2.5 h-2.5 rounded-full bg-green-500 shadow-[0_0_8px_#0f0] animate-pulse delay-150" />
+              </div>
+            </div>
+            {/* Abduction Beam */}
+            <motion.div 
+              animate={{ opacity: [0.3, 0.6, 0.3] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="w-full h-full bg-gradient-to-b from-[#00F0FF]/60 via-[#00F0FF]/20 to-transparent -mt-2"
+              style={{ clipPath: "polygon(35% 0, 65% 0, 100% 100%, 0 100%)" }}
+            />
+          </motion.div>
+
           <motion.h1 
             initial={{ scale: 0.5, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -178,28 +203,15 @@ export default function NotFound() {
         </svg>
       </motion.div>
 
-      {/* Alien Abduction Beam */}
-      <motion.div
-        animate={{ y: [-15, 15, -15], rotate: [-2, 2, -2] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-[10%] left-[5%] md:left-[15%] w-40 h-64 md:w-48 md:h-80 z-0 pointer-events-none flex flex-col items-center"
+      {/* Glowing Cosmic Portal / Black Hole */}
+      <motion.div 
+        animate={{ rotate: 360, scale: [1, 1.05, 1] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-[20%] left-[10%] md:left-[15%] w-24 h-24 md:w-32 md:h-32 rounded-full z-0 pointer-events-none flex items-center justify-center shadow-[0_0_40px_#7857FF]"
+        style={{ background: "conic-gradient(from 0deg, #7857FF, #00F0FF, #FF3366, #7857FF)" }}
       >
-        {/* UFO Ship */}
-        <div className="relative w-28 md:w-36 h-10 md:h-12 bg-gradient-to-r from-gray-700 via-gray-400 to-gray-700 rounded-full shadow-[0_0_20px_#00F0FF] z-10 flex items-center justify-center border-b-2 border-gray-800">
-          <div className="absolute -top-5 md:-top-6 w-14 md:w-18 h-7 md:h-9 bg-cyan-300/30 rounded-t-full border border-cyan-200/50 backdrop-blur-sm" />
-          <div className="w-full flex justify-around px-5 md:px-8">
-            <div className="w-2.5 h-2.5 rounded-full bg-red-500 shadow-[0_0_8px_#f00] animate-pulse" />
-            <div className="w-2.5 h-2.5 rounded-full bg-yellow-500 shadow-[0_0_8px_#ff0] animate-pulse delay-75" />
-            <div className="w-2.5 h-2.5 rounded-full bg-green-500 shadow-[0_0_8px_#0f0] animate-pulse delay-150" />
-          </div>
-        </div>
-        {/* Abduction Beam */}
-        <motion.div 
-          animate={{ opacity: [0.3, 0.6, 0.3] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="w-full h-full bg-gradient-to-b from-[#00F0FF]/40 via-[#00F0FF]/10 to-transparent -mt-2"
-          style={{ clipPath: "polygon(35% 0, 65% 0, 100% 100%, 0 100%)" }}
-        />
+        <div className="absolute inset-[3px] rounded-full bg-[#05050A]" />
+        <div className="absolute inset-[10px] rounded-full bg-black shadow-[inset_0_0_20px_rgba(120,87,255,0.8)]" />
       </motion.div>
 
       {/* Random Moving Satellites */}

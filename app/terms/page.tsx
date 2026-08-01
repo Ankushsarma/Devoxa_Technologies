@@ -427,27 +427,8 @@ export default function TermsOfService() {
         </div>
       </section>
 
-      {/* Global Shared Footer */}
-      <div className="hidden lg:block">
-        <Footer />
-      </div>
-      <div className="block lg:hidden mt-12 sm:mt-16">
-        <FooterMobile compact={true} style={{ paddingTop: '30px', paddingBottom: '10px' }} />
-      </div>
-
       {/* Consultation Modal */}
       <ConsultationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-
-      {/* Desktop Footer */}
-      <div className="hidden lg:block w-full mt-20">
-        <Footer style={{ paddingTop: '0px' }} middleSectionStyle={{ paddingTop: '50px', paddingBottom: '30px' }} />
-      </div>
-
-      {/* Mobile Footer */}
-      <div className="block lg:hidden w-full mt-10">
-        <FooterMobile />
-      </div>
-
     </div>
   );
 }

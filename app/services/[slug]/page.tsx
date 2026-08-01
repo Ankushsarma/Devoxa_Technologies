@@ -104,16 +104,6 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           </a>
         </div>
       </footer>
-
-      {/* Desktop Footer */}
-      <div className="hidden lg:block w-full">
-        <Footer style={{ paddingTop: '0px' }} middleSectionStyle={{ paddingTop: '50px', paddingBottom: '30px' }} />
-      </div>
-
-      {/* Mobile Footer */}
-      <div className="block lg:hidden w-full">
-        <FooterMobile />
-      </div>
     </main>
   );
 }

@@ -830,43 +830,43 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
             </div>
             
             {/* Right Column: Collage UI */}
-            <div className="sol-img-modern" style={{ flex: "1 1 500px" }}>
-              <div className="relative w-full h-[500px] md:h-[650px] flex items-center justify-center group">
+            <div className="sol-img-modern" style={{ flex: "1 1 480px" }}>
+              <div className="relative w-full h-[460px] md:h-[560px] flex items-center justify-center group my-4">
                 
                 {/* Top Left Image - Code */}
                 <img 
                   src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" 
                   alt="Code" 
-                  className="absolute top-0 left-0 w-[55%] h-[45%] object-cover rounded-[32px] shadow-2xl z-10 transition-transform duration-700 hover:scale-105 hover:z-40"
+                  className="absolute top-[2%] left-0 w-[52%] h-[46%] object-cover rounded-[24px] shadow-2xl z-10 border border-white/10 transition-all duration-700 hover:scale-105 hover:z-40 hover:border-purple-500/50"
                 />
                 
                 {/* Bottom Left Image - AI/Tech */}
                 <img 
                   src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" 
                   alt="AI Tech" 
-                  className="absolute bottom-0 left-0 w-[55%] h-[48%] object-cover rounded-[32px] shadow-2xl z-10 transition-transform duration-700 hover:scale-105 hover:z-40"
+                  className="absolute bottom-[2%] left-0 w-[52%] h-[47%] object-cover rounded-[24px] shadow-2xl z-10 border border-white/10 transition-all duration-700 hover:scale-105 hover:z-40 hover:border-purple-500/50"
                 />
 
                 {/* Right Image - Design Desk */}
                 <img 
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" 
                   alt="Design Process" 
-                  className="absolute top-[8%] right-0 w-[48%] h-[84%] object-cover rounded-[32px] shadow-2xl z-20 transition-transform duration-700 hover:scale-105 hover:z-40"
+                  className="absolute top-[5%] right-0 w-[45%] h-[90%] object-cover rounded-[24px] shadow-2xl z-20 border border-white/10 transition-all duration-700 hover:scale-105 hover:z-40 hover:border-purple-500/50"
                 />
 
                 {/* Center Spinning Badge */}
-                <div className="absolute z-30 flex items-center justify-center w-[160px] h-[160px] rounded-full bg-white shadow-[0_20px_40px_rgba(0,0,0,0.4)] left-[48%] top-[50%] -translate-x-1/2 -translate-y-1/2 transition-transform duration-500 hover:scale-110">
-                  <svg viewBox="0 0 100 100" className="absolute w-[140px] h-[140px] animate-[spin_15s_linear_infinite]">
-                    <path id="circlePath" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" fill="none" />
-                    <text className="text-[9.5px] font-bold uppercase fill-black tracking-[3px]">
-                      <textPath href="#circlePath" startOffset="0%" textLength="220" lengthAdjust="spacing">
-                        BEYOND YOUR IMAGINATION • BEYOND YOUR
+                <div className="absolute z-30 flex items-center justify-center w-[160px] h-[160px] rounded-full bg-white shadow-[0_20px_50px_rgba(0,0,0,0.5)] left-[48%] top-[50%] -translate-x-1/2 -translate-y-1/2 transition-transform duration-500 hover:scale-110 border border-purple-500/20">
+                  <svg viewBox="0 0 100 100" className="absolute w-[142px] h-[142px] animate-[spin_20s_linear_infinite]">
+                    <path id="circlePath" d="M 50, 50 m -35.5, 0 a 35.5,35.5 0 1,1 71,0 a 35.5,35.5 0 1,1 -71,0" fill="none" />
+                    <text className="text-[7.2px] font-black uppercase fill-black tracking-[1.2px]">
+                      <textPath href="#circlePath" startOffset="0%" textLength="223" lengthAdjust="spacing">
+                        DEVOXA TECHNOLOGIES PVT. LTD. • DEVOXA TECHNOLOGIES PVT. LTD. •
                       </textPath>
                     </text>
                   </svg>
-                  {/* Center Black Circle */}
-                  <div className="absolute w-[44px] h-[44px] bg-[#111] rounded-full flex items-center justify-center shadow-inner">
-                    <span className="text-white font-bold text-xl tracking-tighter">B</span>
+                  {/* Center Dark Circle with D */}
+                  <div className="absolute w-[46px] h-[46px] bg-gradient-to-br from-[#170f2e] to-[#050408] rounded-full flex items-center justify-center border border-purple-500/40 shadow-[0_0_15px_rgba(139,92,246,0.4)]">
+                    <span className="text-white font-black text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-purple-300 via-white to-purple-400">D</span>
                   </div>
                 </div>
 

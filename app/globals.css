@@ -20,8 +20,8 @@
 
 :root {
   /* Backgrounds */
-  --bg-void: #050506;
-  --bg-base: #0d0d11;
+  --bg-void: #050408;
+  --bg-base: #050408;
   --bg-elevated: #170f2e;
   --bg-glow: #241649;
 
@@ -40,15 +40,21 @@
   --btn-outline-border: rgba(255, 255, 255, 0.15);
 
   /* Legacy mappings for Tailwind/components */
-  --background: #050506;
+  --background: #050408;
   --foreground: #ffffff;
-  --studio-black: #0d0d11;
+  --studio-black: #050408;
   --studio-gray-light: #170f2e;
   --studio-gray-border: rgba(255, 255, 255, 0.08);
-  --studio-surface: #0d0d11;
+  --studio-surface: #050408;
   --border: rgba(255, 255, 255, 0.08);
   --muted: #170f2e;
   --muted-foreground: #87868a;
+}
+
+.custom-section-bg {
+  background: radial-gradient(circle 480px at 0% 100%, rgba(76,29,149,.5), transparent 65%),
+              radial-gradient(circle 500px at 100% 0%, rgba(147,51,234,.18), transparent 65%),
+              #050408 !important;
 }
 
 @theme inline {

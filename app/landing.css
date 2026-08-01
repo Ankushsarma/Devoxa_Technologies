@@ -1,7 +1,7 @@
 
 :root{
-  --bg-deep:#050506;
-  --bg-panel-2:#0d0d11;
+  --bg-deep:#050408;
+  --bg-panel-2:#050408;
   --violet:#8b5cf6;
   --violet-soft:#a78bfa;
   --text-hi:#ffffff;
@@ -9,9 +9,9 @@
   --text-low:#87868a;
   --border-c:rgba(255,255,255,0.08);
 }
-body{margin:0;padding:0;background:#050506;}
+body{margin:0;padding:0;background:#050408;}
 .vx *{margin:0;padding:0;box-sizing:border-box;}
-.vx{background:#050506;color:var(--text-hi);font-family:'Inter',sans-serif;overflow-x:hidden;min-height:100vh;}
+.vx{background:#050408;color:var(--text-hi);font-family:'Inter',sans-serif;overflow-x:hidden;min-height:100vh;}
 .vx h1,.vx h2,.vx h3,.vx .display{font-family:'Space Grotesk',sans-serif;}
 .vx a{color:inherit;text-decoration:none;}
 .vx ul{list-style:none;}
@@ -172,8 +172,15 @@ body{margin:0;padding:0;background:#050506;}
 
 /* ========== DARK UNIFIED THEMING ========== */
 
-/* ---------- LIGHT SECTION → DARK ---------- */
-.vx .light-sec{background:var(--bg-panel-2) !important;color:#fff;}
+/* ---------- LIGHT SECTION → CUSTOM RADIAL GRADIENT ---------- */
+.vx section,
+.vx .light-sec,
+.custom-section-bg {
+  background: radial-gradient(circle 480px at 0% 100%, rgba(76,29,149,.5), transparent 65%),
+              radial-gradient(circle 500px at 100% 0%, rgba(147,51,234,.18), transparent 65%),
+              #050408 !important;
+  color: #fff;
+}
 .vx .light-sec .section-head h2{color:#fff;}
 .vx .light-sec .section-head p{color:var(--text-mid);}
 .vx .light-sec .eyebrow{background:rgba(139,92,246,.1);color:#a78bfa;}
@@ -274,8 +281,18 @@ body{margin:0;padding:0;background:#050506;}
 .vx .testimonials-section .scroll-shell::after,
 .vx .hiw-grid.scroll-shell::after{background:linear-gradient(90deg,transparent,var(--bg-deep));}
 
-/* ---------- CTA BANNER → DARK GLOW ---------- */
-.vx .cta-banner{background:#050506 !important;padding:100px 0 !important;text-align:center;border-top:none;border-bottom:none;position:relative;overflow:hidden;}
+/* ---------- CTA BANNER → CUSTOM RADIAL GRADIENT ---------- */
+.vx .cta-banner {
+  background: radial-gradient(circle 480px at 0% 100%, rgba(76,29,149,.5), transparent 65%),
+              radial-gradient(circle 500px at 100% 0%, rgba(147,51,234,.18), transparent 65%),
+              #050408 !important;
+  padding:100px 0 !important;
+  text-align:center;
+  border-top:none;
+  border-bottom:none;
+  position:relative;
+  overflow:hidden;
+}
 .vx .cta-banner::before{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:600px;background:radial-gradient(ellipse at center, rgba(36,22,73,.6) 0%, rgba(139,92,246,.12) 40%, transparent 70%);pointer-events:none;z-index:0;}
 .vx .cta-banner .wrap{position:relative;z-index:1;}
 .vx .cta-banner h2{font-size:clamp(32px,5vw,48px);color:#fff;font-weight:700;letter-spacing:-0.02em;margin-bottom:16px;}
@@ -287,8 +304,13 @@ body{margin:0;padding:0;background:#050506;}
   .vx .cta-banner.vx-float{padding:40px 15px !important;}
 }
 
-/* ---------- SERVICES COLLECTION → DARK ---------- */
-.vx #services-collection{background:var(--bg-panel-2) !important;color:#fff;}
+/* ---------- SERVICES COLLECTION → CUSTOM RADIAL GRADIENT ---------- */
+.vx #services-collection {
+  background: radial-gradient(circle 480px at 0% 100%, rgba(76,29,149,.5), transparent 65%),
+              radial-gradient(circle 500px at 100% 0%, rgba(147,51,234,.18), transparent 65%),
+              #050408 !important;
+  color:#fff;
+}
 .vx #services-collection .section-head h2{color:#fff;}
 .vx #services-collection .section-head p{color:var(--text-mid) !important;}
 .vx #services-collection .section-head div:first-child{background:linear-gradient(135deg, #7c3aed, #a78bfa) !important;-webkit-background-clip:text !important;color:transparent !important;}

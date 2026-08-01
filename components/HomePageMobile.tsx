@@ -875,7 +875,7 @@ function FloatingScrollButton() {
   const props = { user, role, loading, logout, scrolled }
 
   return (
-    <main className="text-foreground font-sans selection:bg-black selection:text-white overflow-x-hidden" style={SECTION_BG_STYLE}>
+    <main className="custom-section-bg text-foreground font-sans selection:bg-black selection:text-white overflow-x-hidden">
       <div>
         <MobileNav {...props} />
       </div>
@@ -1165,7 +1165,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
 
   return (
     <>
-      <section id="hero" className="nx vx-float pt-24 md:pt-32" style={{ height: "auto", minHeight: "100vh", ...SECTION_BG_STYLE }}>
+      <section id="hero" className="nx vx-float pt-24 md:pt-32 custom-section-bg" style={{ height: "auto", minHeight: "100vh" }}>
         <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0 }}>
           <WebGLVisibilityWrapper isAbsolute={false}>
             <Particles
@@ -1341,7 +1341,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         </div>
       </section>
 
-      <div style={{ position: "relative", overflow: "hidden", ...SECTION_BG_STYLE }}>
+      <div className="custom-section-bg" style={{ position: "relative", overflow: "hidden" }}>
         {/* Shared Light Pillar Background */}
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 0.35, pointerEvents: 'none' }}>
           <WebGLVisibilityWrapper isAbsolute={false}>
@@ -1392,7 +1392,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </div>
 
       {/* Solutions */}
-      <section id="solutions" className="scroll-mt-32 light-sec vx-float" style={{ padding: "36px 0 36px 0", position: "relative", overflow: "hidden", ...SECTION_BG_STYLE }}>
+      <section id="solutions" className="scroll-mt-32 light-sec vx-float custom-section-bg" style={{ padding: "36px 0 36px 0", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: "50%", left: "-10%", width: "40%", height: "60%", background: "radial-gradient(circle, rgba(139,92,246,0.08) 0%, rgba(0,0,0,0) 70%)", filter: "blur(60px)", pointerEvents: "none" }}></div>
         <div className="wrap px-4 md:px-8">
           <div className="sol-split reveal in flex flex-col items-center gap-4">
@@ -1482,7 +1482,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       {/* How it works */}
-      <section id="how-it-works" className="scroll-mt-32 vx-float" style={{ padding: "60px 0 40px", position: "relative", overflow: "hidden", ...SECTION_BG_STYLE }}>
+      <section id="how-it-works" className="scroll-mt-32 vx-float custom-section-bg" style={{ padding: "60px 0 40px", position: "relative", overflow: "hidden" }}>
         {/* Magic Rings Background */}
         <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0, overflow: "hidden", pointerEvents: "none" }}>
           <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "100vw", height: "100vw", minWidth: "1000px", minHeight: "1000px", opacity: 0.4 }}>
@@ -1526,7 +1526,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       {/* Recent Projects */}
-      <section id="recent-projects" className="scroll-mt-32 vx-float" style={{ padding: "40px 0 30px", position: "relative", zIndex: 10, ...SECTION_BG_STYLE }}>
+      <section id="recent-projects" className="scroll-mt-32 vx-float custom-section-bg" style={{ padding: "40px 0 30px", position: "relative", zIndex: 10 }}>
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1, background: 'transparent' }}>
           <WebGLVisibilityWrapper isAbsolute={false}>
             <LiquidEther
@@ -1580,12 +1580,11 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       {/* Pricing / Service Packages */}
       <section 
         id="pricing" 
-        className="scroll-mt-32 light-sec vx-float" 
+        className="scroll-mt-32 light-sec vx-float custom-section-bg" 
         style={{ 
           padding: "60px 0", 
           position: "relative", 
-          overflow: "hidden",
-          ...SECTION_BG_STYLE
+          overflow: "hidden"
         }}
       >
         <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, opacity: 1 }}>
@@ -1642,7 +1641,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       {/* Industries */}
-      <section id="industries" className="scroll-mt-32 light-sec vx-float" style={{ padding: "60px 0 30px 0", position: "relative", overflow: "hidden", ...SECTION_BG_STYLE }}>
+      <section id="industries" className="scroll-mt-32 light-sec vx-float custom-section-bg" style={{ padding: "60px 0 30px 0", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, opacity: 0.5 }}>
           <WebGLVisibilityWrapper isAbsolute={false}>
             <SideRays
@@ -1730,7 +1729,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       {/* Testimonials */}
-      <section className="scroll-mt-32 testimonials-section vx-float relative z-10 py-24 overflow-hidden" style={SECTION_BG_STYLE}>
+      <section className="scroll-mt-32 testimonials-section vx-float relative z-10 py-24 overflow-hidden custom-section-bg">
         {/* Animated glowing orb in background */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-purple-600/20 blur-[120px] rounded-[100%] pointer-events-none mix-blend-screen" />
         
@@ -1750,7 +1749,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       {/* FAQ styled with new theme */}
-      <section id="faq" className="scroll-mt-32 vx-float" style={{ paddingTop: "16px", paddingBottom: "60px", ...SECTION_BG_STYLE }}>
+      <section id="faq" className="scroll-mt-32 vx-float custom-section-bg" style={{ paddingTop: "16px", paddingBottom: "60px" }}>
         <div className="wrap px-4">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
             <div className="lg:col-span-5 relative mb-2 lg:mb-0">
@@ -1783,7 +1782,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       {/* CTA Banner */}
-      <section id="cta-banner" className="scroll-mt-32 relative py-14 sm:py-20 overflow-hidden px-4 md:px-8 min-h-[340px]" style={SECTION_BG_STYLE}>
+      <section id="cta-banner" className="scroll-mt-32 relative py-14 sm:py-20 overflow-hidden px-4 md:px-8 min-h-[340px] custom-section-bg">
         {/* Background Effects */}
         <div className="absolute inset-0 z-0">
           <Particles className="" particleCount={100} particleColors={['#ffffff', '#8b5cf6']} />

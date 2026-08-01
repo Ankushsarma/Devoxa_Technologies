@@ -256,7 +256,20 @@ export default function HomePageDesktop() {
 
   // Fetch projects for the Work section
   useEffect(() => {
-    fetch("/api/projects").then(r => r.json()).then(d => { if (d.projects) setProjects(d.projects) }).catch(() => { })
+    fetch("/api/projects")
+      .then(r => r.json())
+      .then(d => { 
+        if (d.projects) {
+          setProjects(d.projects);
+          setTimeout(() => {
+            const savedScroll = sessionStorage.getItem("homeScroll");
+            if (savedScroll) {
+              window.scrollTo({ top: parseInt(savedScroll, 10), behavior: "instant" });
+            }
+          }, 100);
+        }
+      })
+      .catch(() => { })
   }, [])
 
   // Modal state

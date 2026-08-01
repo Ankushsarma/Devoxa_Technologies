@@ -234,19 +234,19 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="text-[10px] sm:text-xs text-gray-300 max-w-[95%] leading-relaxed border-l-2 border-[#8b5cf6]/60 pl-3 mt-1"
+              className="text-xs sm:text-sm text-gray-300 max-w-[95%] leading-relaxed mt-1"
             >
               {service.description}
             </motion.p>
 
-            <div className="mt-2 flex flex-col gap-2">
+            <div className="mt-3 flex flex-col gap-2.5">
               {service.features.map((feature, idx) => (
                 <motion.div 
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.3 + (idx * 0.1) }}
                   key={idx} 
-                  className="flex items-center gap-3 text-[10px] sm:text-[11px] text-purple-50"
+                  className="flex items-center gap-3 text-[11px] sm:text-xs text-purple-50"
                 >
                   <div className="w-4 h-4 flex items-center justify-center rounded-[2px] bg-[#8b5cf6]/20 border border-[#8b5cf6]/50 shrink-0 shadow-[0_0_8px_rgba(139,92,246,0.3)]">
                     <Check size={10} className="text-[#00F0FF]" />

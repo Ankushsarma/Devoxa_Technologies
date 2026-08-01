@@ -101,7 +101,7 @@ const AnimatedProcessWorkflow = () => {
   );
 };
 
-const GlowingCard = ({ children, active, delay, onClick }: { children: React.ReactNode, active?: boolean, delay: number, onClick?: () => void }) => {
+const GlowingCard = ({ children, active, delay, onClick }: { children: React.ReactNode, active?: boolean, delay: number, onClick?: (e: React.MouseEvent<HTMLDivElement>) => void }) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [opacity, setOpacity] = useState(0);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -445,6 +445,7 @@ function MobileNav({ user, role, loading, logout, scrolled }: any) {
 
 function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: () => void }) {
   const [activeService, setActiveService] = useState<ServiceDetails | null>(null)
+  const [activeCardRect, setActiveCardRect] = useState<DOMRect | null>(null)
   return (
     <>
       <section id="hero" className="nx vx-float pt-24 md:pt-32">
@@ -582,27 +583,27 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       <div className="hero-cards-wrapper">
-        <GlowingCard delay={0.1} onClick={() => setActiveService(servicesData["Web App Dev"])}>
+        <GlowingCard delay={0.1} onClick={(e) => { setActiveService(servicesData["Web App Dev"]); setActiveCardRect(e.currentTarget.getBoundingClientRect()); }}>
           <div className="hc-icon"><Code2 size={28} strokeWidth={1.5} /></div>
           <h4 className="hc-title">Web App Dev</h4>
           <p className="hc-desc">Custom-built, scalable web applications</p>
         </GlowingCard>
-        <GlowingCard delay={0.2} onClick={() => setActiveService(servicesData["Automation"])}>
+        <GlowingCard delay={0.2} onClick={(e) => { setActiveService(servicesData["Automation"]); setActiveCardRect(e.currentTarget.getBoundingClientRect()); }}>
           <div className="hc-icon"><Zap size={28} strokeWidth={1.5} /></div>
           <h4 className="hc-title">Automation</h4>
           <p className="hc-desc">Streamline workflows and cut manual work</p>
         </GlowingCard>
-        <GlowingCard active delay={0.3} onClick={() => setActiveService(servicesData["IT Consultation"])}>
+        <GlowingCard active delay={0.3} onClick={(e) => { setActiveService(servicesData["IT Consultation"]); setActiveCardRect(e.currentTarget.getBoundingClientRect()); }}>
           <div className="hc-icon"><Layers size={28} strokeWidth={1.5} /></div>
           <h4 className="hc-title">IT Consultation</h4>
           <p className="hc-desc">Strategic guidance for your tech stack</p>
         </GlowingCard>
-        <GlowingCard delay={0.4} onClick={() => setActiveService(servicesData["CRM CMS"])}>
+        <GlowingCard delay={0.4} onClick={(e) => { setActiveService(servicesData["CRM CMS"]); setActiveCardRect(e.currentTarget.getBoundingClientRect()); }}>
           <div className="hc-icon"><BarChart3 size={28} strokeWidth={1.5} /></div>
           <h4 className="hc-title">CRM CMS</h4>
           <p className="hc-desc">Manage customers and content in one place</p>
         </GlowingCard>
-        <GlowingCard delay={0.5} onClick={() => setActiveService(servicesData["UI UX Branding"])}>
+        <GlowingCard delay={0.5} onClick={(e) => { setActiveService(servicesData["UI UX Branding"]); setActiveCardRect(e.currentTarget.getBoundingClientRect()); }}>
           <div className="hc-icon"><Search size={28} strokeWidth={1.5} /></div>
           <h4 className="hc-title">UI UX Branding</h4>
           <p className="hc-desc">Interfaces that look sharp and convert</p>
@@ -1166,7 +1167,11 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       <SciFiServiceModal 
         isOpen={!!activeService} 
         service={activeService} 
-        onClose={() => setActiveService(null)} 
+        activeCardRect={activeCardRect}
+        onClose={() => {
+          setActiveService(null)
+          setActiveCardRect(null)
+        }} 
       />
     </>
   )

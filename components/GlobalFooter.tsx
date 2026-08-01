@@ -24,7 +24,7 @@ export default function GlobalFooter() {
       <div className="hidden lg:block w-full [&_footer]:!pb-0 [&_.pb-6]:!pb-0">
         <DesktopFooter 
           style={{ paddingTop: '0px' }} 
-          middleSectionStyle={{ paddingTop: '10px', paddingBottom: '30px' }} 
+          middleSectionStyle={{ paddingTop: '30px', paddingBottom: '30px' }} 
         />
       </div>
       <div className="block lg:hidden w-full">

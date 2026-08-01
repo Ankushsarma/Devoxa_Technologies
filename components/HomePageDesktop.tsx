@@ -671,7 +671,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                 <span style={{ fontSize: "11px", fontWeight: 700, color: "#a78bfa", letterSpacing: "1px", textTransform: "uppercase" }}>Why Choose Us</span>
               </div>
               <h2 style={{ fontSize: "clamp(26px, 3.2vw, 38px)", fontWeight: 800, lineHeight: 1.15, color: "#fff", marginBottom: "16px", letterSpacing: "-0.5px" }}>
-                Powerful IT Solutions for <span className="font-stencilia" style={{ background: "linear-gradient(90deg, #7c3aed, #a78bfa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Modern Businesses</span>
+                Powerful IT Solutions for <span className="font-stencilia uppercase" style={{ background: "linear-gradient(90deg, #7c3aed, #a78bfa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Modern Businesses</span>
               </h2>
               <p style={{ fontSize: "15.5px", color: "rgba(255,255,255,0.7)", lineHeight: 1.6, marginBottom: "24px" }}>
                 We combine cutting-edge technology with affordable pricing to deliver enterprise-grade solutions that scale with your ambitions. No hidden fees, no jargon — just results.
@@ -754,7 +754,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         <div className="wrap" style={{ position: "relative", zIndex: 1 }}>
           <div className="section-head reveal in" style={{ margin: "0 auto 80px", textAlign: "center" }}>
             <span className="eyebrow" style={{ margin: "0 0 16px 0" }}>Our Process</span>
-            <h2 style={{ textAlign: "center" }}>How Professional IT Services<br />Can Drive <span className="font-stencilia" style={{ background: "linear-gradient(90deg,#7c3aed,#a78bfa)", WebkitBackgroundClip: "text", color: "transparent" }}>Success</span></h2>
+            <h2 style={{ textAlign: "center" }}>How Professional IT Services<br />Can Drive <span className="font-stencilia uppercase" style={{ background: "linear-gradient(90deg,#7c3aed,#a78bfa)", WebkitBackgroundClip: "text", color: "transparent" }}>Success</span></h2>
             <p style={{ margin: "0 auto", maxWidth: "600px" }}>From initial consultation to ongoing optimization, our streamlined process ensures every project delivers measurable business value.</p>
           </div>
 
@@ -799,7 +799,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
 
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 tracking-tight leading-[1.15]">
                 Crafting Digital <br className="hidden md:block" />
-                <span className="font-stencilia text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-300 to-purple-400 animate-gradient bg-300%">Masterpieces</span>
+                <span className="font-stencilia uppercase text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-300 to-purple-400 animate-gradient bg-300%">Masterpieces</span>
               </h2>
 
               <p className="text-[#8981A6] text-base md:text-lg max-w-2xl mx-auto leading-loose font-light mt-2">
@@ -854,7 +854,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         <div className="wrap" style={{ position: "relative", zIndex: 1 }}>
           <div className="section-head reveal in">
             <span className="eyebrow">Partnership Models</span>
-            <h2>Service <span className="font-stencilia">Packages</span></h2>
+            <h2>Service <span className="font-stencilia uppercase">Packages</span></h2>
             <p>Flexible engagement models designed to scale with your business needs and digital ambitions.</p>
           </div>
           <div className="scroll-shell">
@@ -941,7 +941,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         <div className="wrap" style={{ position: "relative", zIndex: 1 }}>
           <div className="section-head reveal in">
             <span className="eyebrow">Industries</span>
-            <h2>Industries We <span className="font-stencilia">Serve</span></h2>
+            <h2>Industries We <span className="font-stencilia uppercase">Serve</span></h2>
             <p>Our custom IT solutions empower forward-thinking organizations to <span className="text-white font-medium">innovate</span>, <span className="text-purple-300 font-medium">scale seamlessly</span>, and dominate in today's rapidly evolving digital landscape.</p>
           </div>
           <div className="ind-grid">
@@ -1005,7 +1005,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         <div className="wrap relative w-full z-10 mx-auto px-4 md:px-6 lg:px-8">
           <div className="section-head reveal in relative z-10 mb-20 flex flex-col items-center text-center w-full mx-auto">
             <span className="eyebrow" style={{ margin: '0 auto 16px', display: 'inline-block' }}>What Our Clients Say</span>
-            <h2 style={{ margin: '0 auto 20px', textAlign: 'center' }}>Trusted by businesses across <span className="font-stencilia">India</span></h2>
+            <h2 style={{ margin: '0 auto 20px', textAlign: 'center' }}>Trusted by businesses across <span className="font-stencilia uppercase">India</span></h2>
             <p style={{ margin: '0 auto', textAlign: 'center', maxWidth: '600px' }}>
               Delivering high-quality software, websites, CRM solutions, mobile applications, and AI automation.
             </p>
@@ -1107,7 +1107,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                 <span className="eyebrow inline-block" style={{ margin: "0 0 24px 0" }}>Questions</span>
                 <h2 className="text-6xl lg:text-7xl font-bold tracking-tighter leading-[1.05] drop-shadow-lg">
                   <ShinyText text="Common" color="#ffffff" shineColor="#8b5cf6" speed={3} /> <br />
-                  <span className="font-stencilia">
+                  <span className="font-stencilia uppercase">
                     <ShinyText text="Questions" color="#ffffff" shineColor="#8b5cf6" speed={3} />
                   </span>
                 </h2>

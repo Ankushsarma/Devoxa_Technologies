@@ -318,6 +318,7 @@ body{margin:0;padding:0;background:#050408;}
 /* ---------- RESPONSIVE ---------- */
 @media(max-width:820px){
   .vx .feat-bar-grid{grid-template-columns:repeat(2,1fr);gap:24px;}
+}
 @media(max-width:820px){
   .vx .sol-split{
     display:flex;

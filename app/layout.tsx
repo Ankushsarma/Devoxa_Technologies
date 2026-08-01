@@ -53,7 +53,7 @@ export const viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
-  themeColor: '#ffffff',
+  themecolor: "#FFFFFF",
 }
 
 const jsonLd = {
@@ -99,7 +99,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           }}
         />
       </head>
-      <body suppressHydrationWarning className={`${inter.variable} ${serif.variable} ${mono.variable} antialiased bg-background text-foreground font-sans selection:bg-black selection:text-white overflow-x-hidden`}>
+      <body suppressHydrationWarning className={`${inter.variable} ${serif.variable} ${mono.variable} antialiased bg-background text-foreground font-sans selection:bg-black selection:text-[#FFFFFF] overflow-x-hidden`}>
         <ErrorSuppressor />
         <AuthProvider>
           {children}

@@ -99,13 +99,13 @@ export default function ManagerDashboard() {
                 <div className="flex flex-wrap gap-2 mb-8 border-b border-border pb-4">
                     <button
                         onClick={() => setActiveTab("pipeline")}
-                        className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${activeTab === "pipeline" ? "bg-studio-black text-white shadow-md" : "text-secondary hover:bg-neutral-100 hover:text-foreground"}`}
+                        className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${activeTab === "pipeline" ? "bg-studio-black text-[#FFFFFF] shadow-md" : "text-secondary hover:bg-neutral-100 hover:text-foreground"}`}
                     >
                         Pipeline <span className="ml-1 opacity-70">({assignments.length})</span>
                     </button>
                     <button
                         onClick={() => setActiveTab("global-notice")}
-                        className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${activeTab === "global-notice" ? "bg-studio-black text-white shadow-md" : "text-secondary hover:bg-neutral-100 hover:text-foreground"}`}
+                        className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${activeTab === "global-notice" ? "bg-studio-black text-[#FFFFFF] shadow-md" : "text-secondary hover:bg-neutral-100 hover:text-foreground"}`}
                     >
                         <span className="flex items-center gap-2"><Rss className="w-3.5 h-3.5" />Global Notice</span>
                     </button>
@@ -125,13 +125,13 @@ export default function ManagerDashboard() {
                                     <button
                                         key={lead._id}
                                         onClick={() => setSelectedLead(lead)}
-                                        className={`w-full p-4 rounded-xl text-left transition-all border ${selectedLead?._id === lead._id ? "bg-studio-black text-white border-studio-black shadow-lg" : "bg-card border-border hover:bg-surface-container-low"}`}
+                                        className={`w-full p-4 rounded-xl text-left transition-all border ${selectedLead?._id === lead._id ? "bg-studio-black text-[#FFFFFF] border-studio-black shadow-lg" : "bg-card border-border hover:bg-surface-container-low"}`}
                                     >
                                         <p className="font-bold text-sm tracking-tight">{lead.name}</p>
                                         <p className={`text-xs mt-0.5 ${selectedLead?._id === lead._id ? "text-neutral-300" : "text-secondary"}`}>{lead.subject}</p>
                                         <span className={`mt-2 inline-block text-[9px] font-bold uppercase tracking-widest px-2 py-1 rounded-sm border ${lead.dealStatus === 'won' ? 'bg-green-500/10 text-green-500 border-green-500/20' :
                                             lead.dealStatus === 'lost' ? 'bg-red-500/10 text-red-500 border-red-500/20' :
-                                                selectedLead?._id === lead._id ? 'bg-white/10 text-white border-white/20' : 'bg-neutral-100 text-neutral-500 border-border'
+                                                selectedLead?._id === lead._id ? 'bg-white/10 text-[#FFFFFF] border-white/20' : 'bg-neutral-100 text-neutral-500 border-border'
                                             }`}>
                                             Deal: {lead.dealStatus}
                                         </span>
@@ -164,12 +164,12 @@ export default function ManagerDashboard() {
                                                 <button
                                                     disabled={updating}
                                                     onClick={() => handleDealStatusUpdate('lost')}
-                                                    className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-md transition-all ${selectedLead.dealStatus === 'lost' ? 'bg-red-500 text-white shadow-sm' : 'text-neutral-500 hover:text-red-500'}`}
+                                                    className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-md transition-all ${selectedLead.dealStatus === 'lost' ? 'bg-red-500 text-[#FFFFFF] shadow-sm' : 'text-neutral-500 hover:text-red-500'}`}
                                                 >Lost</button>
                                                 <button
                                                     disabled={updating}
                                                     onClick={() => handleDealStatusUpdate('won')}
-                                                    className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-md transition-all ${selectedLead.dealStatus === 'won' ? 'bg-green-500 text-white shadow-sm' : 'text-neutral-500 hover:text-green-500'}`}
+                                                    className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-md transition-all ${selectedLead.dealStatus === 'won' ? 'bg-green-500 text-[#FFFFFF] shadow-sm' : 'text-neutral-500 hover:text-green-500'}`}
                                                 >Won</button>
                                             </div>
                                         </div>
@@ -194,7 +194,7 @@ export default function ManagerDashboard() {
                                                     <button
                                                         disabled={updating}
                                                         onClick={() => handleChecklistUpdate('clientBrief', !selectedLead.managerChecklist?.clientBrief)}
-                                                        className={`relative flex items-center justify-center w-6 h-6 rounded-md border transition-all ${selectedLead.managerChecklist?.clientBrief ? 'bg-studio-black border-studio-black text-white' : 'bg-white border-neutral-300 text-transparent'}`}
+                                                        className={`relative flex items-center justify-center w-6 h-6 rounded-md border transition-all ${selectedLead.managerChecklist?.clientBrief ? 'bg-studio-black border-studio-black text-[#FFFFFF]' : 'bg-white border-neutral-300 text-transparent'}`}
                                                     >
                                                         <CheckCircle2 className="w-4 h-4" />
                                                     </button>
@@ -208,7 +208,7 @@ export default function ManagerDashboard() {
                                                     <button
                                                         disabled={updating}
                                                         onClick={() => handleChecklistUpdate('proposalSent', !selectedLead.managerChecklist?.proposalSent)}
-                                                        className={`relative flex items-center justify-center w-6 h-6 rounded-md border transition-all ${selectedLead.managerChecklist?.proposalSent ? 'bg-studio-black border-studio-black text-white' : 'bg-white border-neutral-300 text-transparent'}`}
+                                                        className={`relative flex items-center justify-center w-6 h-6 rounded-md border transition-all ${selectedLead.managerChecklist?.proposalSent ? 'bg-studio-black border-studio-black text-[#FFFFFF]' : 'bg-white border-neutral-300 text-transparent'}`}
                                                     >
                                                         <CheckCircle2 className="w-4 h-4" />
                                                     </button>
@@ -226,7 +226,7 @@ export default function ManagerDashboard() {
 
                                     {/* Chat Interface Layer */}
                                     <div className="rounded-2xl overflow-hidden border border-border shadow-sm">
-                                        <div className="bg-studio-black text-white px-6 py-4 flex items-center justify-between">
+                                        <div className="bg-studio-black text-[#FFFFFF] px-6 py-4 flex items-center justify-between">
                                             <h4 className="font-bold tracking-tight">Direct Client Comms</h4>
                                             <span className="text-[10px] font-mono uppercase text-neutral-400">Encrypted Chat</span>
                                         </div>

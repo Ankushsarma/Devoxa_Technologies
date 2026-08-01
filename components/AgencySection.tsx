@@ -11,20 +11,20 @@ export default function AgencySection({ onOpenModal }: { onOpenModal: () => void
   }, [])
 
   const circles = [
-    { type: "image", src: "/tpl-saas-software.jpg", color: "#7c3aed", objPos: "left center" },
-    { type: "image", src: "/dashboard_mockup_1.png", color: "#a78bfa", objPos: "center" },
-    { type: "image", src: "/tpl-automation-saas.jpg", color: "#8b5cf6", objPos: "left center" },
-    { type: "image", src: "/task_app_mockup.png", color: "#7c3aed", objPos: "center" },
+    { type: "image", src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=300&q=80", color: "#5227FF", objPos: "center" },
+    { type: "image", src: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=300&q=80", color: "#FF9FFC", objPos: "center" },
+    { type: "image", src: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=300&q=80", color: "#5227FF", objPos: "center" },
+    { type: "image", src: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=300&q=80", color: "#5227FF", objPos: "center" },
     
-    { type: "image", src: "/ai_platform_mockup.png", color: "#8b5cf6", objPos: "center" },
-    { type: "image", src: "/tpl-task-management.jpg", color: "#a78bfa", objPos: "center" },
-    { type: "color", color: "#7c3aed" },
-    { type: "image", src: "/tpl-fintech-saas.jpg", color: "#8b5cf6", objPos: "left center" },
+    { type: "image", src: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=300&q=80", color: "#5227FF", objPos: "center" },
+    { type: "image", src: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=300&q=80", color: "#FF9FFC", objPos: "center" },
+    { type: "image", src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=300&q=80", color: "#5227FF", objPos: "center" },
+    { type: "image", src: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=300&q=80", color: "#5227FF", objPos: "center" },
     
-    { type: "image", src: "/tpl-automation-saas.jpg", color: "#a78bfa", objPos: "left center" },
-    { type: "color", color: "#8b5cf6" },
-    { type: "image", src: "/tpl-saas-software.jpg", color: "#7c3aed", objPos: "left center" },
-    { type: "color", color: "#a78bfa" },
+    { type: "image", src: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=300&q=80", color: "#FF9FFC", objPos: "center" },
+    { type: "image", src: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=300&q=80", color: "#5227FF", objPos: "center" },
+    { type: "image", src: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=300&q=80", color: "#5227FF", objPos: "center" },
+    { type: "image", src: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=300&q=80", color: "#FF9FFC", objPos: "center" },
   ]
 
   return (
@@ -37,7 +37,7 @@ export default function AgencySection({ onOpenModal }: { onOpenModal: () => void
             
             {/* Eyebrow */}
             <div style={{ display: "flex", alignItems: "center", marginBottom: "clamp(16px, 2.5vh, 24px)", position: "relative" }}>
-              <div style={{ position: "absolute", left: "-10px", top: "-5px", width: "40px", height: "30px", backgroundColor: "#7c3aed", zIndex: -1 }}></div>
+              <div style={{ position: "absolute", left: "-10px", top: "-5px", width: "40px", height: "30px", backgroundColor: "#5B1FA0", zIndex: -1 }}></div>
               <span style={{ fontFamily: "monospace", fontSize: "clamp(10px, 0.9vw, 12px)", fontWeight: 700, letterSpacing: "2px", color: "#fff", textTransform: "uppercase" }}>
                 ABOUT US
               </span>
@@ -63,12 +63,14 @@ export default function AgencySection({ onOpenModal }: { onOpenModal: () => void
             }}>
               <p style={{ 
                 fontSize: "clamp(13px, 1.1vw, 15px)", 
-                color: "#8981A6", 
-                lineHeight: 2.1, 
-                maxWidth: "clamp(350px, 32vw, 440px)",
+                color: "#A8A5AD", 
+                lineHeight: 1.8, 
+                maxWidth: "clamp(400px, 40vw, 550px)",
                 fontWeight: 400
               }}>
-                We are dedicated to providing the <span style={{ color: "#a78bfa", fontWeight: 600 }}>best solutions</span> at the <span style={{ color: "#a78bfa", fontWeight: 600 }}>best price</span>. Experience a clear, consistent, and streamlined digital journey from start to finish.
+                At <span style={{ color: "#fff", fontWeight: 600 }}>Devoxa Technologies</span>, we specialize in delivering high-quality <span style={{ color: "#fff", fontWeight: 600 }}>software, scalable websites, CRM solutions, dynamic mobile applications, and cutting-edge AI automation.</span>
+                <br/><br/>
+                We partner with forward-thinking businesses to streamline operations and create stunning digital experiences that drive growth. Experience a clear, consistent, and powerful digital journey from concept to deployment.
               </p>
             </div>
             
@@ -77,7 +79,7 @@ export default function AgencySection({ onOpenModal }: { onOpenModal: () => void
               <button 
                 onClick={onOpenModal}
                 style={{ 
-                  background: "linear-gradient(135deg, #7c3aed, #a78bfa)", 
+                  background: "linear-gradient(135deg, #5B1FA0, #8B2FD1)", 
                   color: "#fff", 
                   padding: "clamp(10px, 1vw, 12px) clamp(20px, 2vw, 28px)", 
                   fontSize: "clamp(10px, 0.8vw, 12px)", 
@@ -91,10 +93,10 @@ export default function AgencySection({ onOpenModal }: { onOpenModal: () => void
                   alignItems: "center",
                   gap: "8px",
                   border: "none",
-                  boxShadow: "0 8px 24px rgba(139,92,246,0.35)"
+                  boxShadow: "0 8px 24px rgba(139,47,209,0.35)"
                 }}
-                onMouseOver={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 12px 30px rgba(139,92,246,0.5)"; }}
-                onMouseOut={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 8px 24px rgba(139,92,246,0.35)"; }}
+                onMouseOver={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 12px 30px rgba(139,47,209,0.5)"; }}
+                onMouseOut={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 8px 24px rgba(139,47,209,0.35)"; }}
               >
                 Let's chat <ArrowRight size={16} />
               </button>
@@ -142,22 +144,22 @@ export default function AgencySection({ onOpenModal }: { onOpenModal: () => void
                   display: none;
                 }
               }
-              @keyframes pulse-fade {
-                0%, 100% { opacity: 0.4; }
-                50% { opacity: 1; }
+              @keyframes fade-to-color {
+                0%, 35% { opacity: 1; transform: scale(1); }
+                45%, 85% { opacity: 0; transform: scale(1.05); }
+                95%, 100% { opacity: 1; transform: scale(1); }
               }
               @keyframes circle-breathe {
                 0%, 100% { transform: translateY(0) scale(1); }
                 50% { transform: translateY(-10px) scale(1.03); }
               }
               .circle-image {
-                opacity: 0;
-                transition: opacity 0.4s ease-in-out, transform 0.4s ease;
+                opacity: 1;
+                transition: transform 0.4s ease;
                 transform: scale(1);
               }
               .agency-circle-item:hover .circle-image {
-                opacity: 1 !important;
-                transform: scale(1.05);
+                transform: scale(1.1);
               }
             `}} />
             <div 
@@ -195,7 +197,7 @@ export default function AgencySection({ onOpenModal }: { onOpenModal: () => void
                         objectPosition: circle.objPos || "center",
                         position: "absolute",
                         inset: 0,
-                        animation: mounted ? `pulse-fade ${4 + (index % 3)}s infinite alternate ease-in-out ${(index * 0.5)}s` : 'none'
+                        animation: mounted ? `fade-to-color ${6 + (index % 5)}s infinite ease-in-out ${(index * 0.6)}s` : 'none'
                       }} 
                     />
                   )}

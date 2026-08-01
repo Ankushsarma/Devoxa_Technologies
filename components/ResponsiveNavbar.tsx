@@ -44,10 +44,10 @@ export default function ResponsiveNavbar() {
         
         {/* Brand / Logo */}
         <div className="flex items-center gap-2 z-50 relative">
-          <div className="w-8 h-8 bg-gradient-to-tr from-purple-600 to-pink-500 rounded-md flex items-center justify-center">
-            <span className="text-white font-bold font-serif italic text-xl">D</span>
+          <div className="w-8 h-8 bg-gradient-to-tr from-[#5B1FA0] to-pink-500 rounded-md flex items-center justify-center">
+            <span className="text-[#FFFFFF] font-bold font-serif italic text-xl">D</span>
           </div>
-          <span className="text-white font-semibold text-lg tracking-wide hidden sm:block">
+          <span className="text-[#FFFFFF] font-semibold text-lg tracking-wide hidden sm:block">
             Devoxa
           </span>
         </div>
@@ -58,7 +58,7 @@ export default function ResponsiveNavbar() {
             <a 
               key={item} 
               href={`#${item.toLowerCase()}`}
-              className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
+              className="text-sm font-medium text-[#FFFFFF]/70 hover:text-[#FFFFFF] transition-colors"
             >
               {item}
             </a>
@@ -95,7 +95,7 @@ export default function ResponsiveNavbar() {
             key={item} 
             href={`#${item.toLowerCase()}`}
             onClick={() => setIsMobileMenuOpen(false)}
-            className="text-2xl font-bold text-white hover:text-purple-400 transition-colors"
+            className="text-2xl font-bold text-[#FFFFFF] hover:text-[#8B2FD1] transition-colors"
           >
             {item}
           </a>

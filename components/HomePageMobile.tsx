@@ -80,10 +80,10 @@ const AnimatedProcessWorkflow = () => {
   }, []);
 
   const steps = [
-    { icon: <Search className="w-5 h-5 text-purple-300" />, title: "Discovery", desc: "Analyze your business needs and competitive landscape with deep technical research." },
-    { icon: <BarChart3 className="w-5 h-5 text-fuchsia-300" />, title: "Strategy", desc: "Build a data-driven, scalable technology roadmap tailored to your growth." },
-    { icon: <Layers className="w-5 h-5 text-indigo-300" />, title: "Design", desc: "Craft intuitive UI/UX and secure, cloud-native system architectures." },
-    { icon: <Code2 className="w-5 h-5 text-violet-300" />, title: "Development", desc: "High-speed agile sprints with continuous feedback and rigorous quality assurance." },
+    { icon: <Search className="w-5 h-5 text-[#8B2FD1]" />, title: "Discovery", desc: "Analyze your business needs and competitive landscape with deep technical research." },
+    { icon: <BarChart3 className="w-5 h-5 text-[#8B2FD1]" />, title: "Strategy", desc: "Build a data-driven, scalable technology roadmap tailored to your growth." },
+    { icon: <Layers className="w-5 h-5 text-[#8B2FD1]" />, title: "Design", desc: "Craft intuitive UI/UX and secure, cloud-native system architectures." },
+    { icon: <Code2 className="w-5 h-5 text-[#8B2FD1]" />, title: "Development", desc: "High-speed agile sprints with continuous feedback and rigorous quality assurance." },
     { icon: <Zap className="w-5 h-5 text-amber-300" />, title: "Launch & Support", desc: "Seamless deployment, 24/7 proactive monitoring, and constant optimization." }
   ];
 
@@ -91,7 +91,7 @@ const AnimatedProcessWorkflow = () => {
     <div className="w-full flex justify-center">
       <div className="relative w-full max-w-lg md:max-w-2xl mx-auto py-4">
       {/* Glowing Connecting Timeline Line */}
-      <div className="absolute left-[38px] top-8 bottom-8 w-[2px] bg-gradient-to-b from-purple-500 via-fuchsia-500 to-indigo-500 opacity-40 pointer-events-none z-0" />
+      <div className="absolute left-[38px] top-8 bottom-8 w-[2px] bg-gradient-to-b from-[#5B1FA0] via-[#8B2FD1] to-[#5B1FA0] opacity-40 pointer-events-none z-0" />
       
       <div className="flex flex-col gap-6 relative z-10">
         {steps.map((step, idx) => {
@@ -102,13 +102,13 @@ const AnimatedProcessWorkflow = () => {
               onClick={() => setActiveStep(idx)}
               className={`relative flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-2xl cursor-pointer transition-all duration-500 border ${
                 isActive
-                  ? "bg-gradient-to-r from-purple-950/80 via-slate-900/90 to-purple-950/60 border-purple-500/70 shadow-[0_0_30px_rgba(139,92,246,0.35)] scale-[1.02]"
-                  : "bg-[#0d0d11]/80 border-white/10 hover:border-purple-500/30 hover:bg-white/[0.04]"
+                  ? "bg-gradient-to-r from-[#2B0F45] via-slate-900/90 to-[#2B0F45]/60 border-[#8B2FD1]/70 shadow-[0_0_40px_rgba(139,47,209,0.15)] scale-[1.02]"
+                  : "bg-transparent border-[#8B2FD1]/15 hover:border-[#8B2FD1]/30 hover:bg-white/[0.04]"
               } backdrop-blur-xl overflow-hidden`}
             >
               {/* Active Ambient Glow */}
               {isActive && (
-                <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/15 rounded-full filter blur-2xl pointer-events-none" />
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#5B1FA0] rounded-full filter blur-2xl pointer-events-none" />
               )}
 
               {/* Step Icon Circle */}
@@ -116,32 +116,32 @@ const AnimatedProcessWorkflow = () => {
                 <div
                   className={`w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-500 ${
                     isActive
-                      ? "bg-gradient-to-br from-purple-600 to-indigo-600 shadow-[0_0_15px_rgba(168,85,247,0.5)] scale-105"
-                      : "bg-[#170f2e] border border-white/10"
+                      ? "bg-gradient-to-br from-[#5B1FA0] to-[#5B1FA0] shadow-[0_0_40px_rgba(139,47,209,0.15)] scale-105"
+                      : "bg-transparent border border-[#8B2FD1]/15"
                   }`}
                 >
                   {step.icon}
                 </div>
                 {isActive && (
-                  <span className="absolute -inset-1 rounded-xl bg-purple-500/30 animate-ping pointer-events-none" />
+                  <span className="absolute -inset-1 rounded-xl bg-[#5B1FA0] animate-ping pointer-events-none" />
                 )}
               </div>
 
               {/* Step Content */}
               <div className="flex flex-col flex-1 min-w-0 pr-1">
                 <div className="flex items-center justify-between gap-2 mb-1.5">
-                  <h4 className={`text-[15px] sm:text-base font-bold transition-colors truncate ${isActive ? "text-white" : "text-gray-200"}`}>
+                  <h4 className={`text-[15px] sm:text-base font-bold transition-colors truncate ${isActive ? "text-[#FFFFFF]" : "text-[#FFFFFF]"}`}>
                     {step.title}
                   </h4>
                   <span className={`text-[10px] sm:text-xs font-mono font-bold px-1.5 py-0.5 rounded-md shrink-0 ${
                     isActive 
-                      ? "bg-purple-500/20 text-purple-300 border border-purple-500/40" 
-                      : "bg-white/5 text-gray-400 border border-white/5"
+                      ? "bg-[#5B1FA0] text-[#8B2FD1] border border-[#8B2FD1]/40" 
+                      : "bg-transparent text-[#FFFFFF]/60 border border-white/5"
                   }`}>
                     0{idx + 1}
                   </span>
                 </div>
-                <p className="text-[11.5px] sm:text-sm text-gray-300 font-light leading-relaxed">
+                <p className="text-[11.5px] sm:text-sm text-[#FFFFFF]/70 font-light leading-relaxed">
                   {step.desc}
                 </p>
               </div>
@@ -156,20 +156,20 @@ const AnimatedProcessWorkflow = () => {
 
 const MobileProjectCarousel = ({ projects }: { projects: any[] }) => {
   const defaultItems = [
-    { title: "Lionscott", category: "Fitness & Wellness", image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=800" },
-    { title: "AG Home", category: "Real Estate & Living", image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" },
-    { title: "Cab Partner", category: "Mobility & Transport", image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=800&q=80" },
-    { title: "Smart Rent", category: "SaaS Platform", image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80" }
+    { title: "Lionscott", category: "Fitness & Wellness", image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=800" },
+    { title: "AG Home", category: "Real Estate & Living", image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" },
+    { title: "Cab Partner", category: "Mobility & Transport", image: "https://images.unsplash.com/photo-1494976388531-d1058404c2b8?auto=format&fit=crop&w=800&q=80" },
+    { title: "Smart Rent", category: "SaaS Platform", image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80" }
   ];
 
   const items = projects && projects.length > 0
     ? projects.map((p: any) => {
         let img = p.imageUrl || "/tpl-saas-software.jpg";
         const t = (p.title || "").toLowerCase();
-        if (t.includes('ag home')) img = 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80';
-        else if (t.includes('cab partner')) img = 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=800&q=80';
-        else if (t.includes('smart rent')) img = 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80';
-        else if (t.includes('lionscott')) img = 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=800';
+        if (t.includes('ag home')) img = 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80';
+        else if (t.includes('cab partner')) img = 'https://images.unsplash.com/photo-1494976388531-d1058404c2b8?auto=format&fit=crop&w=800&q=80';
+        else if (t.includes('smart rent')) img = 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80';
+        else if (t.includes('lionscott')) img = 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=800';
         return { title: p.title, category: p.category || "Digital Experience", image: img };
       })
     : defaultItems;
@@ -212,9 +212,9 @@ const MobileProjectCarousel = ({ projects }: { projects: any[] }) => {
               }`}
             >
               {/* Card Container with Full Image & Glowing Border */}
-              <div className="relative w-[290px] h-[300px] rounded-3xl p-1.5 bg-gradient-to-br from-purple-900/80 via-slate-950/90 to-purple-950/80 border border-purple-500/50 shadow-[0_0_35px_rgba(139,92,246,0.4)] backdrop-blur-xl overflow-hidden">
+              <div className="relative w-[290px] h-[300px] rounded-3xl p-1.5 bg-gradient-to-br from-[#2B0F45]/80 via-slate-950/90 to-[#2B0F45]/80 border border-[#8B2FD1]/50 shadow-[0_0_40px_rgba(139,47,209,0.15)] backdrop-blur-xl overflow-hidden">
                 {/* Full-Size Image Container */}
-                <div className="relative w-full h-full rounded-[20px] overflow-hidden border border-white/10">
+                <div className="relative w-full h-full rounded-[20px] overflow-hidden border border-[#8B2FD1]/15">
                   <img
                     src={item.image}
                     alt={item.title}
@@ -224,13 +224,13 @@ const MobileProjectCarousel = ({ projects }: { projects: any[] }) => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
                   
                   {/* Category Badge Top-Left */}
-                  <span className="absolute top-3 left-3 px-3 py-1 text-[11px] font-bold text-purple-200 bg-black/70 backdrop-blur-md rounded-full border border-purple-500/40 shadow-md">
+                  <span className="absolute top-3 left-3 px-3 py-1 text-[11px] font-bold text-[#8B2FD1] bg-black/70 backdrop-blur-md rounded-full border border-[#8B2FD1]/40 shadow-md">
                     {item.category}
                   </span>
 
                   {/* Centered Company/Project Name Overlay */}
                   <div className="absolute bottom-3 left-0 right-0 px-4 flex flex-col items-center justify-center text-center">
-                    <h3 className="text-xl font-bold text-white tracking-wider font-mono drop-shadow-md">
+                    <h3 className="text-xl font-bold text-[#FFFFFF] tracking-wider font-mono drop-shadow-md">
                       {item.title}
                     </h3>
                   </div>
@@ -245,7 +245,7 @@ const MobileProjectCarousel = ({ projects }: { projects: any[] }) => {
       <div className="flex items-center justify-between w-full max-w-[280px] mt-2 px-2 z-30">
         <button
           onClick={handlePrev}
-          className="w-10 h-10 rounded-full bg-white/5 border border-white/15 flex items-center justify-center text-white hover:bg-purple-500/20 transition-all active:scale-95"
+          className="w-10 h-10 rounded-full bg-transparent border border-[#8B2FD1]/15 flex items-center justify-center text-[#FFFFFF] hover:bg-[#5B1FA0] transition-all active:scale-95"
           aria-label="Previous Project"
         >
           <ArrowLeft className="w-4 h-4" />
@@ -259,7 +259,7 @@ const MobileProjectCarousel = ({ projects }: { projects: any[] }) => {
               onClick={() => setCurrentIndex(i)}
               className={`h-2 rounded-full transition-all duration-300 ${
                 currentIndex === i
-                  ? "w-6 bg-gradient-to-r from-purple-500 to-fuchsia-500 shadow-[0_0_10px_rgba(168,85,247,0.6)]"
+                  ? "w-6 bg-gradient-to-r from-[#5B1FA0] to-[#5B1FA0] shadow-[0_0_40px_rgba(139,47,209,0.15)]"
                   : "w-2 bg-white/20 hover:bg-white/40"
               }`}
               aria-label={`Go to slide ${i + 1}`}
@@ -269,7 +269,7 @@ const MobileProjectCarousel = ({ projects }: { projects: any[] }) => {
 
         <button
           onClick={handleNext}
-          className="w-10 h-10 rounded-full bg-white/5 border border-white/15 flex items-center justify-center text-white hover:bg-purple-500/20 transition-all active:scale-95"
+          className="w-10 h-10 rounded-full bg-transparent border border-[#8B2FD1]/15 flex items-center justify-center text-[#FFFFFF] hover:bg-[#5B1FA0] transition-all active:scale-95"
           aria-label="Next Project"
         >
           <ArrowRight className="w-4 h-4" />
@@ -354,22 +354,22 @@ const MobileTestimonialSingleCard = () => {
                   : "opacity-0 translate-x-full pointer-events-none scale-90"
               }`}
             >
-        <SpotlightCard className="group relative w-[90%] sm:w-[92%] max-w-[300px] sm:max-w-[340px] mx-auto h-[300px] rounded-[24px] bg-[#0A0A0B] border border-[rgba(255,255,255,0.08)] shadow-[0_10px_30px_rgba(0,0,0,0.6)] flex flex-col transition-all duration-300 overflow-visible" spotlightColor="rgba(79, 70, 229, 0.15)">
+        <SpotlightCard className="group relative w-[90%] sm:w-[92%] max-w-[300px] sm:max-w-[340px] mx-auto h-[300px] rounded-[24px] bg-transparent border border-[rgba(255,255,255,0.08)] shadow-[0_0_40px_rgba(139,47,209,0.15)] flex flex-col transition-all duration-300 overflow-visible" spotlightColor="rgba(139, 47, 209, 0.15)">
           
           {/* Left Ribbon Banner with Triangular Fold */}
           <div 
-            className="absolute top-4 -left-5 bg-gradient-to-r from-[#4F46E5] to-[#7C3AED] rounded-r-[15px] rounded-tl-[15px] rounded-bl-none px-4 sm:px-5 z-20 shadow-lg min-w-[190px] max-w-[210px] flex flex-col justify-center items-center text-center" 
+            className="absolute top-4 -left-5 bg-gradient-to-r from-[#5B1FA0] to-[#5B1FA0] rounded-r-[15px] rounded-tl-[15px] rounded-bl-none px-4 sm:px-5 z-20 shadow-lg min-w-[190px] max-w-[210px] flex flex-col justify-center items-center text-center" 
             style={{ paddingTop: '0.85rem', paddingBottom: '0.85rem' }}
           >
             <div className="absolute top-full left-0 w-0 h-0" style={{ borderTop: '18px solid #1E1B4B', borderLeft: '18px solid transparent' }}></div>
-            <h3 className="text-white font-semibold text-[14.5px] leading-tight mb-0.5 whitespace-nowrap relative z-10">{t.name}</h3>
-            <p className="text-white/90 text-[12px] font-medium whitespace-nowrap relative z-10">{t.title}</p>
+            <h3 className="text-[#FFFFFF] font-semibold text-[14.5px] leading-tight mb-0.5 whitespace-nowrap relative z-10">{t.name}</h3>
+            <p className="text-[#FFFFFF]/90 text-[12px] font-medium whitespace-nowrap relative z-10">{t.title}</p>
           </div>
 
           {/* Profile Circle Avatar Top Right */}
-          <div className="absolute -top-3 -right-1 w-[92px] h-[92px] rounded-full border-[3px] border-[#0A0A0B] shadow-[0_4px_12px_rgba(0,0,0,0.5)] overflow-hidden z-20 bg-[#0A0A0B]">
-            <div className="w-full h-full bg-gradient-to-br from-[#4F46E5] to-[#7C3AED] flex items-center justify-center">
-              <span className="text-white font-bold text-[26px] tracking-tight">{t.initials}</span>
+          <div className="absolute -top-3 -right-1 w-[92px] h-[92px] rounded-full border-[3px] border-[#2B0F45] shadow-[0_0_40px_rgba(139,47,209,0.15)] overflow-hidden z-20 bg-transparent">
+            <div className="w-full h-full bg-gradient-to-br from-[#5B1FA0] to-[#5B1FA0] flex items-center justify-center">
+              <span className="text-[#FFFFFF] font-bold text-[26px] tracking-tight">{t.initials}</span>
             </div>
           </div>
 
@@ -384,9 +384,9 @@ const MobileTestimonialSingleCard = () => {
             </div>
             
             <div className="relative flex items-center" style={{ height: "120px", overflow: "hidden" }}>
-              <div className="absolute left-0 top-1 bottom-1 w-[3px] bg-gradient-to-b from-[#4F46E5] to-[#7C3AED] rounded-full shadow-[0_0_8px_rgba(79,70,229,0.3)]"></div>
+              <div className="absolute left-0 top-1 bottom-1 w-[3px] bg-gradient-to-b from-[#5B1FA0] to-[#5B1FA0] rounded-full shadow-[0_0_40px_rgba(139,47,209,0.15)]"></div>
               <p 
-                className="text-[#8981A6] text-[14px] sm:text-[15px] leading-[1.65] font-sans w-full" 
+                className="text-[#A8A5AD] text-[14px] sm:text-[15px] leading-[1.65] font-sans w-full" 
                 style={{ paddingLeft: '28px' }}
               >
                 "{t.content}"
@@ -408,7 +408,7 @@ const MobileTestimonialSingleCard = () => {
       >
         <button
           onClick={handlePrev}
-          className="w-9 h-9 rounded-full bg-white/5 border border-white/15 flex items-center justify-center text-white hover:bg-purple-500/20 transition-all active:scale-95 shrink-0"
+          className="w-9 h-9 rounded-full bg-transparent border border-[#8B2FD1]/15 flex items-center justify-center text-[#FFFFFF] hover:bg-[#5B1FA0] transition-all active:scale-95 shrink-0"
           aria-label="Previous Testimonial"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
@@ -422,7 +422,7 @@ const MobileTestimonialSingleCard = () => {
               onClick={() => handleSelect(i)}
               className={`h-2 rounded-full transition-all duration-300 ${
                 currentIndex === i
-                  ? "w-6 bg-gradient-to-r from-purple-500 to-fuchsia-500 shadow-[0_0_10px_rgba(168,85,247,0.6)]"
+                  ? "w-6 bg-gradient-to-r from-[#5B1FA0] to-[#5B1FA0] shadow-[0_0_40px_rgba(139,47,209,0.15)]"
                   : "w-2 bg-white/20 hover:bg-white/40"
               }`}
               aria-label={`Go to slide ${i + 1}`}
@@ -432,7 +432,7 @@ const MobileTestimonialSingleCard = () => {
 
         <button
           onClick={handleNext}
-          className="w-9 h-9 rounded-full bg-white/5 border border-white/15 flex items-center justify-center text-white hover:bg-purple-500/20 transition-all active:scale-95 shrink-0"
+          className="w-9 h-9 rounded-full bg-transparent border border-[#8B2FD1]/15 flex items-center justify-center text-[#FFFFFF] hover:bg-[#5B1FA0] transition-all active:scale-95 shrink-0"
           aria-label="Next Testimonial"
         >
           <ArrowRight className="w-3.5 h-3.5" />
@@ -510,10 +510,10 @@ const MobileServicePackages = ({ onOpenModal }: { onOpenModal?: () => void }) =>
               onClick={() => setActiveTab(key)}
               style={{
                 width: "100%",
-                backgroundColor: isActive ? "#8b5cf6" : "rgba(18, 12, 34, 0.8)",
+                backgroundColor: isActive ? "#5B1FA0" : "rgba(18, 12, 34, 0.8)",
                 color: isActive ? "#ffffff" : "#94a3b8",
-                border: isActive ? "1px solid #a855f7" : "1px solid rgba(168, 85, 247, 0.25)",
-                boxShadow: isActive ? "0 4px 18px rgba(139, 92, 246, 0.5)" : "none",
+                border: isActive ? "1px solid #8B2FD1" : "1px solid rgba(139,47,209,0.25)",
+                boxShadow: isActive ? "0 4px 18px rgba(139,47,209,0.5)" : "none",
                 borderRadius: "9999px",
                 padding: "8px 1px",
                 fontSize: "clamp(7.5px, 2.1vw, 9px)",
@@ -540,7 +540,7 @@ const MobileServicePackages = ({ onOpenModal }: { onOpenModal?: () => void }) =>
           width: "100%",
           borderRadius: "28px",
           backgroundColor: "#0c0817",
-          border: "1.5px solid rgba(168, 85, 247, 0.35)",
+          border: "1.5px solid rgba(139,47,209,0.35)",
           boxShadow: "0 10px 40px rgba(0, 0, 0, 0.7)",
           padding: "28px 22px",
           position: "relative",
@@ -552,7 +552,7 @@ const MobileServicePackages = ({ onOpenModal }: { onOpenModal?: () => void }) =>
           style={{
             fontSize: "22px",
             fontWeight: 800,
-            color: "#ffffff",
+            color: "#FFFFFF",
             marginBottom: "24px",
             letterSpacing: "-0.3px",
             fontFamily: "sans-serif"
@@ -574,10 +574,10 @@ const MobileServicePackages = ({ onOpenModal }: { onOpenModal?: () => void }) =>
                 borderBottom: idx === currentPkg.features.length - 1 ? "none" : "1px solid rgba(255, 255, 255, 0.07)"
               }}
             >
-              <span style={{ fontSize: "14px", fontWeight: 600, color: "#ffffff", fontFamily: "sans-serif" }}>
+              <span style={{ fontSize: "14px", fontWeight: 600, color: "#FFFFFF", fontFamily: "sans-serif" }}>
                 {feat}
               </span>
-              <span style={{ color: "#a855f7", fontSize: "16px", fontWeight: 700, paddingLeft: "8px" }}>
+              <span style={{ color: "#8B2FD1", fontSize: "16px", fontWeight: 700, paddingLeft: "8px" }}>
                 ✓
               </span>
             </div>
@@ -591,14 +591,14 @@ const MobileServicePackages = ({ onOpenModal }: { onOpenModal?: () => void }) =>
             width: "100%",
             padding: "15px 0",
             borderRadius: "9999px",
-            backgroundColor: "#8b5cf6",
-            color: "#ffffff",
+            backgroundColor: "#5B1FA0",
+            color: "#FFFFFF",
             fontWeight: 800,
             fontSize: "13.5px",
             letterSpacing: "1px",
             textTransform: "uppercase",
             textAlign: "center",
-            boxShadow: "0 6px 20px rgba(139, 92, 246, 0.45)",
+            boxShadow: "0 6px 20px rgba(139,47,209,0.45)",
             border: "none",
             cursor: "pointer",
             transition: "all 0.2s ease"
@@ -639,7 +639,7 @@ const GlowingCard = ({ children, active, delay, className, onClick }: { children
         className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-300 rounded-[12px]"
         style={{
           opacity,
-          background: `radial-gradient(300px circle at ${position.x}px ${position.y}px, rgba(139, 92, 246, 0.15), transparent 40%)`,
+          background: `radial-gradient(300px circle at ${position.x}px ${position.y}px, rgba(139,47,209,0.15), transparent 40%)`,
         }}
       />
       <div className="relative z-10 flex max-[374px]:flex-row min-[375px]:flex-col items-center max-[374px]:text-left min-[375px]:text-center max-[374px]:justify-start min-[375px]:justify-center gap-4 w-full h-full">
@@ -856,13 +856,13 @@ function FloatingScrollButton() {
       type="button"
       onClick={handleClick}
       aria-label={isScrolledDown ? "Scroll to top" : "Scroll to footer"}
-      className="fixed bottom-6 right-5 z-40 w-11 h-11 rounded-full bg-gradient-to-tr from-violet-600 via-purple-600 to-fuchsia-600 p-[1.5px] shadow-[0_0_25px_rgba(147,51,234,0.65)] hover:shadow-[0_0_35px_rgba(168,85,247,0.85)] active:scale-90 transition-all duration-300 flex items-center justify-center cursor-pointer"
+      className="fixed bottom-6 right-5 z-40 w-11 h-11 rounded-full bg-gradient-to-tr from-[#5B1FA0] via-[#5B1FA0] to-[#5B1FA0] p-[1.5px] shadow-[0_0_40px_rgba(139,47,209,0.15)] hover:shadow-[0_0_40px_rgba(139,47,209,0.15)] active:scale-90 transition-all duration-300 flex items-center justify-center cursor-pointer"
     >
-      <div className="w-full h-full rounded-full bg-[#080514] flex items-center justify-center transition-colors hover:bg-purple-950/60">
+      <div className="w-full h-full rounded-full bg-transparent flex items-center justify-center transition-colors hover:bg-transparent">
         {isScrolledDown ? (
-          <ChevronUp className="w-5 h-5 text-white animate-bounce" />
+          <ChevronUp className="w-5 h-5 text-[#FFFFFF] animate-bounce" />
         ) : (
-          <ChevronDown className="w-5 h-5 text-white animate-bounce" />
+          <ChevronDown className="w-5 h-5 text-[#FFFFFF] animate-bounce" />
         )}
       </div>
     </button>
@@ -872,7 +872,7 @@ function FloatingScrollButton() {
   const props = { user, role, loading, logout, scrolled }
 
   return (
-    <main className="bg-background text-foreground font-sans selection:bg-black selection:text-white overflow-x-hidden">
+    <main className="bg-background text-foreground font-sans selection:bg-black selection:text-[#FFFFFF] overflow-x-hidden">
       <div>
         <MobileNav {...props} />
       </div>
@@ -916,8 +916,8 @@ function DesktopNav({ user, role, loading, logout, scrolled }: any) {
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-transparent py-4' : 'bg-transparent py-6'} px-8 md:px-16 flex justify-between items-center`}>
       {/* 1st Part: Logo */}
-      <div className="font-serif text-2xl font-medium tracking-tight italic flex items-center gap-4 text-white flex-1">
-        <div style={{ width: '36px', height: '36px', backgroundColor: '#ffffff', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', flexShrink: 0 }}>
+      <div className="font-serif text-2xl font-medium tracking-tight italic flex items-center gap-4 text-[#FFFFFF] flex-1">
+        <div style={{ width: '36px', height: '36px', backgroundcolor: "#FFFFFF", borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', flexShrink: 0 }}>
           <img src="/logo.png" alt="Logo" style={{ width: '100%', height: '100%', objectFit: 'contain', transform: 'scale(1.2)' }} />
         </div>
         <Link href="#">Devoxa Technologies</Link>
@@ -939,7 +939,7 @@ function DesktopNav({ user, role, loading, logout, scrolled }: any) {
           ease="power2.easeOut"
           baseColor="rgba(255,255,255,0.1)"
           pillColor="transparent"
-          hoveredPillTextColor="#ffffff"
+          hoveredPilltextColor="#FFFFFF"
           pillTextColor="#9ca3af"
           initialLoadAnimation={false}
         />
@@ -949,19 +949,19 @@ function DesktopNav({ user, role, loading, logout, scrolled }: any) {
       <div className="flex flex-col md:flex-row items-center justify-end gap-6 flex-1">
         {!loading && user ? (
           <>
-            <Link href={`/dashboard/${role}`} className="label-mono uppercase tracking-widest text-neutral-300 hover:text-white transition-colors">
+            <Link href={`/dashboard/${role}`} className="label-mono uppercase tracking-widest text-neutral-300 hover:text-[#FFFFFF] transition-colors">
               Dashboard
             </Link>
-            <button onClick={logout} className="label-mono text-neutral-500 hover:text-white transition-colors">
+            <button onClick={logout} className="label-mono text-neutral-500 hover:text-[#FFFFFF] transition-colors">
               Logout
             </button>
           </>
         ) : (
-          <Link href="/login" className="label-mono text-neutral-300 hover:text-white transition-colors">
+          <Link href="/login" className="label-mono text-neutral-300 hover:text-[#FFFFFF] transition-colors">
             Login
           </Link>
         )}
-        <a className="border border-white/30 px-6 py-2 text-[10px] font-mono uppercase tracking-widest text-white hover:bg-white hover:text-black transition-all hidden md:block" href="#cta-banner">
+        <a className="border border-white/30 px-6 py-2 text-[10px] font-mono uppercase tracking-widest text-[#FFFFFF] hover:bg-white hover:text-black transition-all hidden md:block" href="#cta-banner">
           Book a call —
         </a>
       </div>
@@ -1025,15 +1025,15 @@ function MobileNav({ user, role, loading, logout, scrolled }: any) {
     <header className="fixed top-0 left-0 right-0 z-50">
       <nav className={`w-full transition-all duration-300 ${
         scrolled || isOpen 
-          ? 'bg-[#06040d]/95 backdrop-blur-2xl border-b border-purple-500/30 shadow-[0_4px_30px_rgba(0,0,0,0.85)]' 
-          : 'bg-[#06040d]/80 backdrop-blur-xl border-b border-white/10 shadow-md'
+          ? 'bg-[#06040d]/95 backdrop-blur-2xl border-b border-[#8B2FD1]/30 shadow-[0_0_40px_rgba(139,47,209,0.15)]' 
+          : 'bg-[#06040d]/80 backdrop-blur-xl border-b border-[#8B2FD1]/15 shadow-md'
       } px-5 py-3 flex justify-between items-center relative`}>
         
         {/* Brand Logo with Live Status Dot */}
         <Link href="#" className="flex items-center gap-3 group">
           <div className="relative">
-            <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-violet-600 to-fuchsia-600 p-[1.5px] shadow-[0_0_15px_rgba(168,85,247,0.5)] shrink-0">
-              <div className="w-full h-full bg-[#080514] rounded-[10px] flex items-center justify-center p-1.5 overflow-hidden">
+            <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#5B1FA0] to-[#5B1FA0] p-[1.5px] shadow-[0_0_40px_rgba(139,47,209,0.15)] shrink-0">
+              <div className="w-full h-full bg-transparent rounded-[10px] flex items-center justify-center p-1.5 overflow-hidden">
                 <img src="/logo.png" alt="Logo" className="w-full h-full object-contain transform group-hover:scale-110 transition-transform" />
               </div>
             </div>
@@ -1041,9 +1041,9 @@ function MobileNav({ user, role, loading, logout, scrolled }: any) {
           </div>
           <div className="flex flex-col text-left">
             <div className="flex items-center gap-1.5">
-              <span className="font-serif text-[16px] font-extrabold tracking-tight text-white leading-tight">Devoxa</span>
+              <span className="font-serif text-[16px] font-extrabold tracking-tight text-[#FFFFFF] leading-tight">Devoxa</span>
             </div>
-            <span className="text-[9px] font-mono font-semibold tracking-wider text-gray-400 uppercase">Technologies</span>
+            <span className="text-[9px] font-mono font-semibold tracking-wider text-[#FFFFFF]/60 uppercase">Technologies</span>
           </div>
         </Link>
 
@@ -1052,16 +1052,16 @@ function MobileNav({ user, role, loading, logout, scrolled }: any) {
           <button 
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle Menu" 
-            className="w-9 h-9 rounded-full bg-gradient-to-tr from-violet-600 via-purple-600 to-fuchsia-600 p-[1.5px] shadow-[0_0_18px_rgba(168,85,247,0.5)] active:scale-90 transition-all flex items-center justify-center"
+            className="w-9 h-9 rounded-full bg-gradient-to-tr from-[#5B1FA0] via-[#5B1FA0] to-[#5B1FA0] p-[1.5px] shadow-[0_0_40px_rgba(139,47,209,0.15)] active:scale-90 transition-all flex items-center justify-center"
           >
-            <div className="w-full h-full rounded-full bg-[#080514] flex items-center justify-center transition-colors hover:bg-purple-950/60">
+            <div className="w-full h-full rounded-full bg-transparent flex items-center justify-center transition-colors hover:bg-transparent">
               {isOpen ? (
-                <X className="w-4 h-4 text-white" />
+                <X className="w-4 h-4 text-[#FFFFFF]" />
               ) : (
                 <div className="flex items-center gap-1">
-                  <div className="w-1 h-1 rounded-full bg-purple-300 animate-pulse"></div>
+                  <div className="w-1 h-1 rounded-full bg-[#8B2FD1] animate-pulse"></div>
                   <div className="w-1 h-1 rounded-full bg-white"></div>
-                  <div className="w-1 h-1 rounded-full bg-purple-300 animate-pulse"></div>
+                  <div className="w-1 h-1 rounded-full bg-[#8B2FD1] animate-pulse"></div>
                 </div>
               )}
             </div>
@@ -1069,10 +1069,10 @@ function MobileNav({ user, role, loading, logout, scrolled }: any) {
 
           {/* Sleek Sheet Popover Menu */}
           {isOpen && (
-            <div className="absolute top-12 right-0 w-64 bg-[#080514]/95 border border-purple-500/35 rounded-2xl p-4 shadow-[0_20px_60px_rgba(0,0,0,0.95)] backdrop-blur-3xl z-50 flex flex-col gap-1.5 text-left animate-in fade-in zoom-in-95 duration-200">
-              <div className="px-2 py-1 flex items-center justify-between text-[10px] font-mono font-bold tracking-widest text-purple-300 uppercase border-b border-white/10 mb-1 pb-2">
+            <div className="absolute top-12 right-0 w-64 bg-transparent border border-[#8B2FD1]/35 rounded-2xl p-4 shadow-[0_0_40px_rgba(139,47,209,0.15)] backdrop-blur-3xl z-50 flex flex-col gap-1.5 text-left animate-in fade-in zoom-in-95 duration-200">
+              <div className="px-2 py-1 flex items-center justify-between text-[10px] font-mono font-bold tracking-widest text-[#8B2FD1] uppercase border-b border-[#8B2FD1]/15 mb-1 pb-2">
                 <span>NAVIGATION // CATALOGUE</span>
-                <span className="w-2 h-2 rounded-full bg-purple-400 animate-ping"></span>
+                <span className="w-2 h-2 rounded-full bg-[#5B1FA0] animate-ping"></span>
               </div>
 
               {navLinks.map((link, idx) => {
@@ -1082,16 +1082,16 @@ function MobileNav({ user, role, loading, logout, scrolled }: any) {
                     key={link.href}
                     type="button"
                     onClick={(e) => handleLinkClick(e, link.href)}
-                    className="w-full px-3.5 py-2.5 rounded-xl text-xs font-semibold text-gray-200 hover:text-white bg-white/5 hover:bg-gradient-to-r hover:from-purple-600/40 hover:to-fuchsia-600/30 active:scale-[0.98] transition-all flex items-center justify-between cursor-pointer border border-white/5 hover:border-purple-500/40 group text-left"
+                    className="w-full px-3.5 py-2.5 rounded-xl text-xs font-semibold text-[#FFFFFF] hover:text-[#FFFFFF] bg-transparent hover:bg-gradient-to-r hover:from-[#5B1FA0]/40 hover:to-[#5B1FA0]/30 active:scale-[0.98] transition-all flex items-center justify-between cursor-pointer border border-white/5 hover:border-[#8B2FD1]/40 group text-left"
                   >
                     <div className="flex items-center gap-3">
-                      <span className="text-[10px] font-mono text-purple-400/80 font-bold">0{idx + 1}</span>
-                      <div className="w-6 h-6 rounded-lg bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-purple-300 group-hover:text-white transition-colors">
+                      <span className="text-[10px] font-mono text-[#8B2FD1]/80 font-bold">0{idx + 1}</span>
+                      <div className="w-6 h-6 rounded-lg bg-[#5B1FA0] border border-[#8B2FD1]/30 flex items-center justify-center text-[#8B2FD1] group-hover:text-[#FFFFFF] transition-colors">
                         <IconComponent className="w-3.5 h-3.5" />
                       </div>
                       <span>{link.label}</span>
                     </div>
-                    <ArrowRight className="w-3.5 h-3.5 text-purple-400 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5 text-[#8B2FD1] group-hover:translate-x-1 transition-transform" />
                   </button>
                 );
               })}
@@ -1103,10 +1103,10 @@ function MobileNav({ user, role, loading, logout, scrolled }: any) {
                   <Link
                     href={`/dashboard/${role}`}
                     onClick={() => setIsOpen(false)}
-                    className="px-3.5 py-2.5 rounded-xl text-xs font-semibold text-purple-300 hover:bg-purple-600/30 transition-all flex items-center justify-between bg-purple-950/40 border border-purple-500/30"
+                    className="px-3.5 py-2.5 rounded-xl text-xs font-semibold text-[#8B2FD1] hover:bg-[#5B1FA0] transition-all flex items-center justify-between bg-transparent border border-[#8B2FD1]/30"
                   >
                     <span>Dashboard</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-purple-400" />
+                    <ArrowRight className="w-3.5 h-3.5 text-[#8B2FD1]" />
                   </Link>
                   <button
                     type="button"
@@ -1120,7 +1120,7 @@ function MobileNav({ user, role, loading, logout, scrolled }: any) {
                 <Link
                   href="/login"
                   onClick={() => setIsOpen(false)}
-                  className="px-3.5 py-2.5 rounded-xl text-xs font-extrabold tracking-wider uppercase text-white bg-gradient-to-r from-violet-600 via-purple-600 to-fuchsia-600 shadow-[0_0_20px_rgba(147,51,234,0.55)] hover:shadow-[0_0_30px_rgba(168,85,247,0.75)] transition-all text-center border border-purple-400/40 mt-1 flex items-center justify-center gap-2"
+                  className="px-3.5 py-2.5 rounded-xl text-xs font-extrabold tracking-wider uppercase text-[#FFFFFF] bg-gradient-to-r from-[#5B1FA0] via-[#5B1FA0] to-[#5B1FA0] shadow-[0_0_40px_rgba(139,47,209,0.15)] hover:shadow-[0_0_40px_rgba(139,47,209,0.15)] transition-all text-center border border-[#8B2FD1]/40 mt-1 flex items-center justify-center gap-2"
                 >
                   <span>Schedule Consultation / Login</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -1167,7 +1167,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
           <WebGLVisibilityWrapper isAbsolute={false}>
             <Particles
             className=""
-            particleColors={["#ffffff", "#a78bfa", "#c084fc"]}
+            particleColors={["#ffffff", "#8B2FD1", "#5B1FA0"]}
             particleCount={950}
             particleSpread={25}
             speed={0.1}
@@ -1185,7 +1185,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
             
             {/* Eyebrow */}
             <div style={{ display: "inline-flex", marginBottom: "24px" }}>
-              <span style={{ backgroundColor: "#7c3aed", color: "#fff", padding: "6px 12px", fontFamily: "monospace", fontSize: "11px", fontWeight: 700, letterSpacing: "2px", textTransform: "uppercase" }}>DIGITAL</span>
+              <span style={{ backgroundColor: "#5B1FA0", color: "#fff", padding: "6px 12px", fontFamily: "monospace", fontSize: "11px", fontWeight: 700, letterSpacing: "2px", textTransform: "uppercase" }}>DIGITAL</span>
               <span style={{ backgroundColor: "#4c1d95", color: "#fff", padding: "6px 12px", fontFamily: "monospace", fontSize: "11px", fontWeight: 700, letterSpacing: "2px", textTransform: "uppercase" }}>FIRST</span>
             </div>
 
@@ -1219,13 +1219,13 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
 
             {/* Subtext */}
             <div style={{ 
-              borderLeft: "2px solid #7c3aed", 
+              borderLeft: "2px solid #5B1FA0", 
               paddingLeft: "16px", 
               marginBottom: "40px"
             }}>
               <p style={{ 
                 fontSize: "15px", 
-                color: "#8981A6", 
+                color: "#A8A5AD", 
                 lineHeight: 1.6, 
                 maxWidth: "100%",
                 fontWeight: 400
@@ -1239,7 +1239,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               <button 
                 onClick={onOpenModal}
                 style={{ 
-                  background: "linear-gradient(90deg, #7c3aed, #9333ea)", 
+                  background: "linear-gradient(90deg, #5B1FA0, #9333ea)", 
                   color: "#fff", 
                   padding: "16px 24px", 
                   fontSize: "12px", 
@@ -1326,13 +1326,13 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         </div>
       </section>
 
-      <div style={{ position: "relative", backgroundColor: "#0d0d11", overflow: "hidden" }}>
+      <div style={{ position: "relative", background: "linear-gradient(to right, #08060E 0%, #08060E 20%, #1A0733 40%, #4A1890 62%, #7120C8 80%, #8B2FD1 100%)", backgroundColor: undefined, overflow: "hidden" }}>
         {/* Shared Light Pillar Background */}
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 0.35, pointerEvents: 'none' }}>
           <WebGLVisibilityWrapper isAbsolute={false}>
             <LightPillar
-            topColor="#5227FF"
-            bottomColor="#FF9FFC"
+            topColor="#8B2FD1"
+            bottomColor="#5B1FA0"
             intensity={0.6}
             rotationSpeed={0.3}
             glowAmount={0.001}
@@ -1378,16 +1378,16 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
 
       {/* Solutions */}
       <section id="solutions" className="scroll-mt-32 light-sec vx-float" style={{ padding: "0 0 36px 0", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: "50%", left: "-10%", width: "40%", height: "60%", background: "radial-gradient(circle, rgba(139,92,246,0.08) 0%, rgba(0,0,0,0) 70%)", filter: "blur(60px)", pointerEvents: "none" }}></div>
+        <div style={{ position: "absolute", top: "50%", left: "-10%", width: "40%", height: "60%", background: "radial-gradient(circle, rgba(139,47,209,0.08) 0%, rgba(0,0,0,0) 70%)", filter: "blur(60px)", pointerEvents: "none" }}></div>
         <div className="wrap px-4 md:px-8">
           <div className="sol-split reveal in flex flex-col items-center gap-4">
             <div className="sol-text-modern w-full max-w-full">
-              <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "4px 12px", background: "rgba(139, 92, 246, 0.1)", borderRadius: "999px", border: "1px solid rgba(139, 92, 246, 0.2)", marginBottom: "16px" }}>
-                <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#a78bfa", boxShadow: "0 0 8px #a78bfa" }}></div>
-                <span style={{ fontSize: "11px", fontWeight: 700, color: "#a78bfa", letterSpacing: "1px", textTransform: "uppercase" }}>Why Choose Us</span>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "4px 12px", background: "rgba(139,47,209,0.1)", borderRadius: "999px", border: "1px solid rgba(139,47,209,0.2)", marginBottom: "16px" }}>
+                <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#8B2FD1", boxShadow: "0 0 8px #8B2FD1" }}></div>
+                <span style={{ fontSize: "11px", fontWeight: 700, color: "#8B2FD1", letterSpacing: "1px", textTransform: "uppercase" }}>Why Choose Us</span>
               </div>
               <h2 style={{ fontSize: "clamp(28px, 8vw, 38px)", fontWeight: 800, lineHeight: 1.15, color: "#fff", marginBottom: "16px", letterSpacing: "-0.5px" }}>
-                Powerful IT Solutions for <span style={{ background: "linear-gradient(90deg, #7c3aed, #a78bfa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Modern Businesses</span>
+                Powerful IT Solutions for <span style={{ background: "linear-gradient(90deg, #5B1FA0, #8B2FD1)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Modern Businesses</span>
               </h2>
               <p style={{ fontSize: "clamp(15px, 4vw, 17px)", color: "rgba(255,255,255,0.7)", lineHeight: 1.6, marginBottom: "24px" }}>
                 We combine cutting-edge technology with affordable pricing to deliver enterprise-grade solutions that scale with your ambitions. No hidden fees, no jargon — just results.
@@ -1400,7 +1400,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                   "Transparent, budget-friendly pricing"
                 ].map((item, i) => (
                   <li key={i} style={{ display: "flex", alignItems: "center", gap: "12px", fontSize: "14.5px", color: "#fff", fontWeight: 500 }}>
-                    <div style={{ width: "26px", height: "26px", borderRadius: "8px", background: "linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(139, 92, 246, 0.05))", border: "1px solid rgba(139, 92, 246, 0.3)", display: "flex", alignItems: "center", justifyContent: "center", color: "#a78bfa", boxShadow: "0 4px 12px rgba(139, 92, 246, 0.1)", flexShrink: 0 }}>
+                    <div style={{ width: "26px", height: "26px", borderRadius: "8px", background: "linear-gradient(135deg, rgba(139,47,209,0.2), rgba(139,47,209,0.05))", border: "1px solid rgba(139,47,209,0.3)", display: "flex", alignItems: "center", justifyContent: "center", color: "#8B2FD1", boxShadow: "0 4px 12px rgba(139,47,209,0.1)", flexShrink: 0 }}>
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                     </div>
                     {item}
@@ -1415,9 +1415,9 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                   position: "relative",
                   borderRadius: "34px",
                   padding: "6px",
-                  border: "1px solid rgba(168, 85, 247, 0.35)",
+                  border: "1px solid rgba(139,47,209,0.35)",
                   background: "rgba(124, 58, 237, 0.08)",
-                  boxShadow: "0 0 45px rgba(124, 58, 237, 0.35), 0 0 80px rgba(168, 85, 247, 0.2)"
+                  boxShadow: "0 0 45px rgba(124, 58, 237, 0.35), 0 0 80px rgba(139,47,209,0.2)"
                 }}
               >
                 {/* Thick Main Neon Purple Frame */}
@@ -1425,16 +1425,16 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                   style={{
                     position: "relative",
                     borderRadius: "28px",
-                    background: "linear-gradient(135deg, #7C3AED, #6B21A8)",
+                    background: "linear-gradient(135deg, #5B1FA0, #6B21A8)",
                     padding: "14px",
-                    border: "1.5px solid #A855F7",
+                    border: "1.5px solid #8B2FD1",
                     boxShadow: "0 0 30px rgba(124, 58, 237, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.25)",
                     transition: "all 0.3s ease"
                   }}
                 >
                   {/* Background Glow Accents */}
-                  <div style={{ position: "absolute", top: "-20px", left: "-20px", width: "140px", height: "140px", background: "#7C3AED", filter: "blur(45px)", opacity: 0.7, zIndex: 0 }}></div>
-                  <div style={{ position: "absolute", bottom: "-20px", right: "-20px", width: "160px", height: "160px", background: "#A855F7", filter: "blur(55px)", opacity: 0.5, zIndex: 0 }}></div>
+                  <div style={{ position: "absolute", top: "-20px", left: "-20px", width: "140px", height: "140px", background: "#5B1FA0", filter: "blur(45px)", opacity: 0.7, zIndex: 0 }}></div>
+                  <div style={{ position: "absolute", bottom: "-20px", right: "-20px", width: "160px", height: "160px", background: "#8B2FD1", filter: "blur(55px)", opacity: 0.5, zIndex: 0 }}></div>
                   
                   {/* Inner Dark Screen Mockup */}
                   <div 
@@ -1467,14 +1467,14 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       {/* How it works */}
-      <section id="how-it-works" className="scroll-mt-32 vx-float" style={{ background: "var(--bg-deep)", padding: "60px 0 40px", position: "relative", overflow: "hidden" }}>
+      <section id="how-it-works" className="scroll-mt-32 vx-float" style={{ background: "linear-gradient(to right, #08060E 0%, #08060E 20%, #1A0733 40%, #4A1890 62%, #7120C8 80%, #8B2FD1 100%)", padding: "60px 0 40px", position: "relative", overflow: "hidden" }}>
         {/* Magic Rings Background */}
         <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0, overflow: "hidden", pointerEvents: "none" }}>
           <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "100vw", height: "100vw", minWidth: "1000px", minHeight: "1000px", opacity: 0.4 }}>
             <WebGLVisibilityWrapper isAbsolute={false}>
             <MagicRings
-              color="#A855F7"
-              colorTwo="#6366F1"
+              color="#8B2FD1"
+              colorTwo="#5B1FA0"
               ringCount={6}
               speed={1}
               attenuation={10}
@@ -1512,10 +1512,10 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
 
       {/* Recent Projects */}
       <section id="recent-projects" className="scroll-mt-32 vx-float" style={{ padding: "40px 0 30px", position: "relative", zIndex: 10 }}>
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1, background: 'var(--bg-void)' }}>
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1, background: "linear-gradient(to right, #08060E 0%, #08060E 20%, #1A0733 40%, #4A1890 62%, #7120C8 80%, #8B2FD1 100%)" }}>
           <WebGLVisibilityWrapper isAbsolute={false}>
             <LiquidEther
-            colors={[ '#5227FF', '#FF9FFC', '#B497CF' ]}
+            colors={[ '#5B1FA0', '#8B2FD1', '#FFFFFF' ]}
             mouseForce={20}
             cursorSize={100}
             isViscous
@@ -1536,21 +1536,21 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         <div className="wrap" style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 20px" }}>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", marginBottom: "24px", position: "relative" }}>
             {/* Subtle glow behind the text */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[100px] bg-purple-600/30 blur-[80px] rounded-full pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[100px] bg-[#5B1FA0] blur-[80px] rounded-full pointer-events-none" />
             
             <div className="section-head reveal in" style={{ margin: 0, display: "flex", flexDirection: "column", alignItems: "center" }}>
-              <div className="group relative inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md overflow-hidden mb-4 transition-all duration-300 hover:bg-white/10 hover:border-purple-500/30">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-fuchsia-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <Layers className="w-4 h-4 text-purple-400 group-hover:text-purple-300 transition-colors" />
-                <span className="text-xs font-bold text-white tracking-[0.15em] uppercase">Our Portfolio</span>
+              <div className="group relative inline-flex items-center gap-2 px-4 py-2 rounded-full bg-transparent border border-[#8B2FD1]/15 backdrop-blur-md overflow-hidden mb-4 transition-all duration-300 hover:bg-white/10 hover:border-[#8B2FD1]/30">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#5B1FA0]/20 to-[#5B1FA0]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <Layers className="w-4 h-4 text-[#8B2FD1] group-hover:text-[#8B2FD1] transition-colors" />
+                <span className="text-xs font-bold text-[#FFFFFF] tracking-[0.15em] uppercase">Our Portfolio</span>
               </div>
               
-              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 tracking-tight leading-[1.15]">
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#FFFFFF] mb-3 tracking-tight leading-[1.15]">
                 Crafting Digital <br className="hidden md:block" />
                 <span className="font-stencilia uppercase text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-300 to-purple-400 animate-gradient bg-300%">Masterpieces</span>
               </h2>
               
-              <p className="text-[#8981A6] text-xs sm:text-sm max-w-xl mx-auto leading-relaxed font-light">
+              <p className="text-[#A8A5AD] text-xs sm:text-sm max-w-xl mx-auto leading-relaxed font-light">
                 Explore our curated collection of next-generation digital experiences built for growth.
               </p>
             </div>
@@ -1578,7 +1578,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
           <WebGLVisibilityWrapper isAbsolute={false}>
             <LightRays
             raysOrigin="top-center"
-            raysColor="#8b5cf6"
+            raysColor="#5B1FA0"
             raysSpeed={1.5}
             lightSpread={1.2}
             rayLength={3.5}
@@ -1602,8 +1602,8 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                 padding: "6px 16px",
                 borderRadius: "9999px",
                 backgroundColor: "rgba(26, 15, 52, 0.6)",
-                border: "1px solid rgba(168, 85, 247, 0.35)",
-                color: "#c084fc",
+                border: "1px solid rgba(139,47,209,0.35)",
+                color: "#8B2FD1",
                 fontSize: "11px",
                 fontWeight: 700,
                 letterSpacing: "1.5px",
@@ -1611,7 +1611,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                 marginBottom: "16px"
               }}
             >
-              <span style={{ color: "#a855f7", fontSize: "10px" }}>◆</span> PARTNERSHIP MODELS
+              <span style={{ color: "#8B2FD1", fontSize: "10px" }}>◆</span> PARTNERSHIP MODELS
             </div>
             <h2 style={{ fontSize: "clamp(22px, 6.5vw, 28px)", fontWeight: 900, color: "#ffffff", marginBottom: "8px", letterSpacing: "-0.5px", whiteSpace: "nowrap" }}>
               SERVICE <span className="font-stencilia uppercase">PACKAGES</span>
@@ -1633,8 +1633,8 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
           <WebGLVisibilityWrapper isAbsolute={false}>
             <SideRays
             speed={2}
-            rayColor1="#a78bfa"
-            rayColor2="#7c3aed"
+            rayColor1="#8B2FD1"
+            rayColor2="#5B1FA0"
             intensity={1.2}
             spread={2}
             origin="top-right"
@@ -1648,67 +1648,67 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         </div>
         <div className="wrap" style={{ position: "relative", zIndex: 1 }}>
           <div className="section-head reveal in flex flex-col items-center text-center mb-8">
-            <div className="group relative inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md overflow-hidden mb-4 transition-all duration-300 hover:bg-white/10 hover:border-purple-500/30 shadow-[0_0_15px_rgba(139,92,246,0.2)]">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-fuchsia-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <Building2 className="w-4 h-4 text-purple-400 group-hover:text-purple-300 transition-colors" />
-              <span className="text-xs font-bold text-white tracking-[0.15em] uppercase">Industries</span>
+            <div className="group relative inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-transparent border border-[#8B2FD1]/15 backdrop-blur-md overflow-hidden mb-4 transition-all duration-300 hover:bg-white/10 hover:border-[#8B2FD1]/30 shadow-[0_0_40px_rgba(139,47,209,0.15)]">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#5B1FA0]/20 to-[#5B1FA0]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <Building2 className="w-4 h-4 text-[#8B2FD1] group-hover:text-[#8B2FD1] transition-colors" />
+              <span className="text-xs font-bold text-[#FFFFFF] tracking-[0.15em] uppercase">Industries</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-3 tracking-tight leading-[1.15] text-center">
               Industries We <span className="font-stencilia uppercase text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-300 to-indigo-400">Serve</span>
             </h2>
 
-            <p className="text-[#8981A6] text-xs sm:text-sm max-w-xl mx-auto leading-relaxed font-light text-center">
-              Our custom IT solutions empower forward-thinking organizations to <span className="text-white font-medium">innovate</span>, <span className="text-purple-300 font-medium">scale seamlessly</span>, and dominate in today's rapidly evolving digital landscape.
+            <p className="text-[#A8A5AD] text-xs sm:text-sm max-w-xl mx-auto leading-relaxed font-light text-center">
+              Our custom IT solutions empower forward-thinking organizations to <span className="text-[#FFFFFF] font-medium">innovate</span>, <span className="text-[#8B2FD1] font-medium">scale seamlessly</span>, and dominate in today's rapidly evolving digital landscape.
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 px-2 sm:px-4 w-full mt-6">
-            <BorderGlow className="ind-card reveal in" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>
+            <BorderGlow className="ind-card reveal in" borderRadius={20} animated={false} colors={['#5B1FA0', '#8B2FD1', '#EAD9F7']}>
               <div className="ind-img-wrap !aspect-video"><img src="/tech-saas-cover.png" alt="Technology & SaaS" /></div>
               <div className="ind-label !text-xs sm:!text-sm">Technology & SaaS</div>
               <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Scalable platforms built for rapid growth</div>
               <div className="ind-meta">
-                <span className="text-[10px] sm:text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
+                <span className="text-[10px] sm:text-sm font-semibold text-[#8B2FD1] tracking-wide hover:text-[#FFFFFF] transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
               </div>
             </BorderGlow>
-            <BorderGlow className="ind-card reveal in delay-[100ms]" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>
+            <BorderGlow className="ind-card reveal in delay-[100ms]" borderRadius={20} animated={false} colors={['#5B1FA0', '#8B2FD1', '#EAD9F7']}>
               <div className="ind-img-wrap !aspect-video"><img src="/finance-banking-cover.png" alt="Finance & Banking" /></div>
               <div className="ind-label !text-xs sm:!text-sm">Finance & Banking</div>
               <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Secure systems for regulated industries</div>
               <div className="ind-meta">
-                <span className="text-[10px] sm:text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
+                <span className="text-[10px] sm:text-sm font-semibold text-[#8B2FD1] tracking-wide hover:text-[#FFFFFF] transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
               </div>
             </BorderGlow>
-            <BorderGlow className="ind-card reveal in delay-[200ms]" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>
+            <BorderGlow className="ind-card reveal in delay-[200ms]" borderRadius={20} animated={false} colors={['#5B1FA0', '#8B2FD1', '#EAD9F7']}>
               <div className="ind-img-wrap !aspect-video"><img src="/healthcare-cover.png" alt="Healthcare" /></div>
               <div className="ind-label !text-xs sm:!text-sm">Healthcare</div>
               <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Compliant, patient-first digital tools</div>
               <div className="ind-meta">
-                <span className="text-[10px] sm:text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
+                <span className="text-[10px] sm:text-sm font-semibold text-[#8B2FD1] tracking-wide hover:text-[#FFFFFF] transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
               </div>
             </BorderGlow>
-            <BorderGlow className="ind-card reveal in" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>
+            <BorderGlow className="ind-card reveal in" borderRadius={20} animated={false} colors={['#5B1FA0', '#8B2FD1', '#EAD9F7']}>
               <div className="ind-img-wrap !aspect-video"><img src="/shopix-ecommerce.png" alt="Retail & E-commerce Dashboard" /></div>
               <div className="ind-label !text-xs sm:!text-sm">Retail & E-commerce</div>
               <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Storefronts that convert and scale</div>
               <div className="ind-meta">
-                <span className="text-[10px] sm:text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
+                <span className="text-[10px] sm:text-sm font-semibold text-[#8B2FD1] tracking-wide hover:text-[#FFFFFF] transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
               </div>
             </BorderGlow>
-            <BorderGlow className="ind-card reveal in delay-[100ms]" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>
+            <BorderGlow className="ind-card reveal in delay-[100ms]" borderRadius={20} animated={false} colors={['#5B1FA0', '#8B2FD1', '#EAD9F7']}>
               <div className="ind-img-wrap !aspect-video"><img src="/education-cover.png" alt="Education" /></div>
               <div className="ind-label !text-xs sm:!text-sm">Education</div>
               <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Learning platforms built to engage</div>
               <div className="ind-meta">
-                <span className="text-[10px] sm:text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
+                <span className="text-[10px] sm:text-sm font-semibold text-[#8B2FD1] tracking-wide hover:text-[#FFFFFF] transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
               </div>
             </BorderGlow>
-            <BorderGlow className="ind-card reveal in delay-[200ms]" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>
+            <BorderGlow className="ind-card reveal in delay-[200ms]" borderRadius={20} animated={false} colors={['#5B1FA0', '#8B2FD1', '#EAD9F7']}>
               <div className="ind-img-wrap !aspect-video"><img src="/manufacturing-cover.png" alt="Manufacturing" /></div>
               <div className="ind-label !text-xs sm:!text-sm">Manufacturing</div>
               <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Automation for modern production lines</div>
               <div className="ind-meta">
-                <span className="text-[10px] sm:text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
+                <span className="text-[10px] sm:text-sm font-semibold text-[#8B2FD1] tracking-wide hover:text-[#FFFFFF] transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
               </div>
             </BorderGlow>
           </div>
@@ -1716,9 +1716,9 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       {/* Testimonials */}
-      <section className="scroll-mt-32 testimonials-section vx-float relative z-10 py-24 overflow-hidden" style={{ background: "var(--bg-void)" }}>
+      <section className="scroll-mt-32 testimonials-section vx-float relative z-10 py-24 overflow-hidden" style={{ background: "linear-gradient(to right, #08060E 0%, #08060E 20%, #1A0733 40%, #4A1890 62%, #7120C8 80%, #8B2FD1 100%)" }}>
         {/* Animated glowing orb in background */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-purple-600/20 blur-[120px] rounded-[100%] pointer-events-none mix-blend-screen" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#5B1FA0] blur-[120px] rounded-[100%] pointer-events-none mix-blend-screen" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="section-head reveal in relative z-10 mb-10 flex flex-col items-center text-center w-full">
@@ -1736,7 +1736,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       {/* FAQ styled with new theme */}
-      <section id="faq" className="scroll-mt-32 vx-float" style={{ background: "var(--bg-void)", paddingTop: "16px", paddingBottom: "60px" }}>
+      <section id="faq" className="scroll-mt-32 vx-float" style={{ background: "linear-gradient(to right, #08060E 0%, #08060E 20%, #1A0733 40%, #4A1890 62%, #7120C8 80%, #8B2FD1 100%)", paddingTop: "16px", paddingBottom: "60px" }}>
         <div className="wrap px-4">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
             <div className="lg:col-span-5 relative mb-2 lg:mb-0">
@@ -1744,7 +1744,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               <div 
                 className="absolute -top-12 -left-12 w-[350px] h-[350px] pointer-events-none opacity-80 z-0"
                 style={{
-                  backgroundImage: 'radial-gradient(rgba(139, 92, 246, 0.6) 2px, transparent 2px)',
+                  backgroundImage: 'radial-gradient(rgba(139,47,209,0.6) 2px, transparent 2px)',
                   backgroundSize: '24px 24px',
                   maskImage: 'radial-gradient(circle at 20% 20%, black, transparent 60%)',
                   WebkitMaskImage: 'radial-gradient(circle at 20% 20%, black, transparent 60%)'
@@ -1756,7 +1756,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                   <ShinyText text="Common" color="#ffffff" shineColor="#8b5cf6" speed={3} /> <br />
                   <span className="font-stencilia uppercase"><ShinyText text="Questions" color="#ffffff" shineColor="#8b5cf6" speed={3} /></span>
                 </h2>
-                <p className="text-[#8981A6] font-light max-w-sm text-xs sm:text-base leading-relaxed mb-6">
+                <p className="text-[#A8A5AD] font-light max-w-sm text-xs sm:text-base leading-relaxed mb-6">
                   Everything you need to know about our approach, timelines, and how we deliver exceptional results.
                 </p>
               </div>
@@ -1769,20 +1769,20 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       {/* CTA Banner */}
-      <section id="cta-banner" className="scroll-mt-32 relative py-14 sm:py-20 overflow-hidden border-y border-[rgba(255,255,255,0.05)] bg-[#050506] px-4 md:px-8 min-h-[340px]">
+      <section id="cta-banner" className="scroll-mt-32 relative py-14 sm:py-20 overflow-hidden border-y border-[rgba(255,255,255,0.05)] bg-transparent px-4 md:px-8 min-h-[340px]">
         {/* Background Effects */}
         <div className="absolute inset-0 z-0">
-          <Particles className="" particleCount={100} particleColors={['#ffffff', '#8b5cf6']} />
+          <Particles className="" particleCount={100} particleColors={['#ffffff', '#5B1FA0']} />
         </div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vw] md:w-[800px] h-[120vw] md:h-[600px] bg-gradient-to-r from-violet-600/20 to-fuchsia-600/20 rounded-full blur-[90px] pointer-events-none z-0"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vw] md:w-[800px] h-[120vw] md:h-[600px] bg-gradient-to-r from-[#5B1FA0]/20 to-[#5B1FA0]/20 rounded-full blur-[90px] pointer-events-none z-0"></div>
 
         <div className="wrap relative z-10 w-full">
           <div className="max-w-3xl mx-auto flex flex-col items-center text-center w-full gap-4">
-            <span className="text-[#a78bfa] font-mono text-xs uppercase tracking-[0.2em] font-semibold drop-shadow-[0_0_8px_rgba(167,139,250,0.5)]">Ready to start?</span>
+            <span className="text-[#8B2FD1] font-mono text-xs uppercase tracking-[0.2em] font-semibold drop-shadow-[0_0_40px_rgba(139,47,209,0.15)]">Ready to start?</span>
             
             {/* Fixed Height Wrapper to Prevent Layout Fluctuation */}
             <div className="min-h-[72px] sm:min-h-[90px] flex items-center justify-center w-full">
-              <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white leading-[1.2]">
+              <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-[#FFFFFF] leading-[1.2]">
                 <TextType 
                   text={[
                     "Ready to Transform Your Business?",
@@ -1801,7 +1801,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               </h2>
             </div>
             
-            <p className="text-gray-300 text-xs sm:text-base max-w-lg mx-auto leading-relaxed font-light">
+            <p className="text-[#FFFFFF]/70 text-xs sm:text-base max-w-lg mx-auto leading-relaxed font-light">
               Join hundreds of forward-thinking companies that have accelerated their growth with our professional IT services. Let's build something extraordinary together.
             </p>
             

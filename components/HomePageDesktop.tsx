@@ -207,7 +207,6 @@ export default function HomePageDesktop() {
 
   // Modal state
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [activeService, setActiveService] = useState<ServiceDetails | null>(null)
 
   // Scroll listener for nav blur and WhatsApp button
   useEffect(() => {
@@ -445,6 +444,7 @@ function MobileNav({ user, role, loading, logout, scrolled }: any) {
 }
 
 function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: () => void }) {
+  const [activeService, setActiveService] = useState<ServiceDetails | null>(null)
   return (
     <>
       <section id="hero" className="nx vx-float pt-24 md:pt-32">

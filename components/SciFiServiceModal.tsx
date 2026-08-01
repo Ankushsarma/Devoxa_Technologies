@@ -3,6 +3,7 @@
 import React, { useEffect, useState, useLayoutEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Check } from 'lucide-react'
+import TextType from './TextType'
 
 export interface ServiceDetails {
   id: string
@@ -232,14 +233,21 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
             style={{ paddingTop: '80px', paddingBottom: '80px', paddingLeft: '80px', paddingRight: '40px' }}
           >
             
-            <motion.p 
+            <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="text-xs sm:text-sm text-gray-300 font-light max-w-[95%] leading-relaxed mt-1"
+              className="mt-1 max-w-[95%]"
             >
-              {service.description}
-            </motion.p>
+              <TextType 
+                text={service.description}
+                typingSpeed={30}
+                showCursor={true}
+                cursorCharacter="_"
+                loop={false}
+                className="text-xs sm:text-sm text-gray-300 font-light leading-relaxed"
+              />
+            </motion.div>
 
             <div className="mt-3 flex flex-col gap-2.5">
               {service.features.map((feature, idx) => (

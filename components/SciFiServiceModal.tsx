@@ -239,6 +239,7 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
               transition={{ delay: 0.2 }}
               className="mt-1 max-w-[95%]"
             >
+              {/* @ts-ignore - TextType JSX component has missing default props */}
               <TextType 
                 text={service.description}
                 typingSpeed={30}

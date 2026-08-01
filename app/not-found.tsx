@@ -174,19 +174,26 @@ export default function NotFound() {
         </svg>
       </motion.div>
 
-      {/* Small Cyan Cartoon Planet */}
+      {/* Glowing Cosmic Portal / Black Hole */}
       <motion.div 
-        animate={{ y: [0, -30, 0], x: [0, 20, 0] }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-[20%] left-[10%] md:left-[15%] w-16 h-16 md:w-24 md:h-24 rounded-full bg-gradient-to-tr from-[#00F0FF] to-[#150D3A] shadow-[0_0_20px_rgba(0,240,255,0.4)] z-0 pointer-events-none"
-      />
+        animate={{ rotate: 360, scale: [1, 1.05, 1] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-[20%] left-[10%] md:left-[15%] w-24 h-24 md:w-32 md:h-32 rounded-full z-0 pointer-events-none flex items-center justify-center shadow-[0_0_40px_#7857FF]"
+        style={{ background: "conic-gradient(from 0deg, #7857FF, #00F0FF, #FF3366, #7857FF)" }}
+      >
+        <div className="absolute inset-[3px] rounded-full bg-[#05050A]" />
+        <div className="absolute inset-[10px] rounded-full bg-black shadow-[inset_0_0_20px_rgba(120,87,255,0.8)]" />
+      </motion.div>
 
-      {/* Tiny Pink Moon */}
-      <motion.div 
-        animate={{ y: [0, 40, 0], x: [0, -20, 0] }}
-        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-[30%] left-[5%] md:left-[25%] w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-tr from-[#FF3366] to-[#7857FF] shadow-[0_0_15px_rgba(255,51,102,0.4)] z-0 pointer-events-none"
-      />
+      {/* Shooting Star */}
+      <motion.div
+        animate={{ x: ['120vw', '-40vw'], y: ['-20vh', '100vh'], opacity: [0, 1, 1, 0] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "linear", delay: 2 }}
+        className="absolute top-0 right-0 z-0 pointer-events-none flex items-center rotate-[35deg]"
+      >
+        <div className="w-32 h-[2px] bg-gradient-to-r from-transparent via-white to-white rounded-l-full" />
+        <div className="w-2 h-2 rounded-full bg-white shadow-[0_0_15px_5px_#fff]" />
+      </motion.div>
 
       {/* Random Moving Satellites */}
       <motion.div 

@@ -144,8 +144,7 @@ const servicesData: Record<string, ServiceDetails> = {
     features: [
       "Next.js & React Frontend Architecture",
       "Scalable Node.js / Go Backend",
-      "Cloud-native deployment (AWS/GCP)",
-      "High Performance & SEO Optimized"
+      "Cloud-native deployment (AWS/GCP)"
     ]
   },
   "Automation": {

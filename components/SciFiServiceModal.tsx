@@ -236,7 +236,7 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="text-xs sm:text-sm text-gray-300 font-light max-w-[95%] leading-relaxed mt-1"
+              className="text-sm sm:text-[15px] text-gray-200 font-light max-w-[95%] leading-relaxed mt-2"
             >
               {service.description}
             </motion.p>

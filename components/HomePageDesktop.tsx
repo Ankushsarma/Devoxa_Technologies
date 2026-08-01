@@ -26,7 +26,8 @@ import SideRays from "@/components/SideRays"
 import SpotlightCard from "@/components/SpotlightCard"
 import Particles from "@/components/Particles"
 import PillNav from "@/components/PillNav"
-import { Footer } from "@/components/ui/footer-section"
+import ServicesGrid from "@/components/ServicesGrid"
+import StatsSection from "@/components/StatsSection"
 const AnimatedCounter = ({ end, duration = 2000, suffix = "", decimals = 0 }: { end: number, duration?: number, suffix?: string, decimals?: number }) => {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
@@ -1163,8 +1164,6 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
           </div>
         </div>
       </section>
-
-      <Footer style={{ paddingTop: '0px' }} middleSectionStyle={{ paddingTop: '50px', paddingBottom: '30px' }} />
 
       <SciFiServiceModal 
         isOpen={!!activeService} 

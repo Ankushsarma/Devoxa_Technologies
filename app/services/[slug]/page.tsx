@@ -93,15 +93,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </section>
       </div>
 
-      {/* CTA Footer */}
-      <footer className="px-8 md:px-16 py-32 text-center bg-[#fafafa]">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="font-serif text-5xl md:text-7xl mb-12 italic tracking-tight text-black">Ready to elevate your digital presence?</h2>
-          <a href="/#contact" className="bg-black text-white px-10 py-5 rounded-full font-mono text-[11px] uppercase tracking-[0.2em] hover:bg-neutral-800 hover:scale-105 transition-all duration-300 inline-block shadow-lg shadow-black/10">
-            Start a project —
-          </a>
-        </div>
-      </footer>
+
     </main>
   );
 }

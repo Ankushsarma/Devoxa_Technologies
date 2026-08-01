@@ -218,14 +218,14 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
 
           {/* Content Area */}
           <div 
-            className="absolute inset-0 flex flex-col justify-center gap-2 text-white overflow-hidden"
+            className="absolute inset-0 flex flex-col justify-center gap-1 text-white overflow-hidden"
             style={{ paddingTop: '50px', paddingBottom: '80px', paddingLeft: '80px', paddingRight: '40px' }}
           >
             <motion.h3 
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-lg sm:text-xl font-black uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-[#8b5cf6] drop-shadow-[0_0_10px_rgba(139,92,246,0.6)]"
+              className="text-lg sm:text-xl font-bold uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-white to-[#8b5cf6] drop-shadow-[0_0_10px_rgba(139,92,246,0.6)]"
             >
               {service.title}
             </motion.h3>
@@ -234,7 +234,7 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="text-xs sm:text-sm text-gray-300 max-w-[95%] leading-relaxed mt-1"
+              className="text-xs sm:text-sm text-gray-300 font-light max-w-[95%] leading-relaxed mt-1"
             >
               {service.description}
             </motion.p>
@@ -246,9 +246,13 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.3 + (idx * 0.1) }}
                   key={idx} 
-                  className="flex items-start gap-3 text-[11px] sm:text-xs text-purple-50"
+                  className="flex items-start gap-3 text-[11px] sm:text-xs text-gray-300 font-light"
                 >
-                  <div className="w-1.5 h-1.5 bg-[#00F0FF] shadow-[0_0_8px_#00F0FF] shrink-0 rotate-45 mt-[6px]"></div>
+                  <div className="mt-[5px] shrink-0 text-[#00F0FF] drop-shadow-[0_0_8px_#00F0FF]">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" />
+                    </svg>
+                  </div>
                   <span className="leading-relaxed">{feature}</span>
                 </motion.div>
               ))}

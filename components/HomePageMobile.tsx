@@ -27,6 +27,8 @@ import SpotlightCard from "@/components/SpotlightCard"
 import Particles from "@/components/Particles"
 import PillNav from "@/components/PillNav"
 import { FooterMobile } from "@/components/ui/footer-section-mobile"
+import { CuteRobot } from "@/components/ui/CuteRobot"
+
 const SECTION_BG_STYLE: React.CSSProperties = {
   background: "radial-gradient(circle 480px at 0% 100%, rgba(76,29,149,.5), transparent 65%), radial-gradient(circle 500px at 100% 0%, rgba(147,51,234,.18), transparent 65%), #050408"
 };

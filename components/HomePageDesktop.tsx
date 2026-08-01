@@ -858,9 +858,9 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                 <div className="absolute z-30 flex items-center justify-center w-[130px] h-[130px] rounded-full bg-white shadow-[0_15px_35px_rgba(0,0,0,0.5)] left-[47%] top-[50%] -translate-x-1/2 -translate-y-1/2 transition-transform duration-500 hover:scale-110 border border-purple-500/20">
                   <svg viewBox="0 0 100 100" className="absolute w-[115px] h-[115px] animate-[spin_20s_linear_infinite]">
                     <path id="circlePath" d="M 50, 50 m -35.5, 0 a 35.5,35.5 0 1,1 71,0 a 35.5,35.5 0 1,1 -71,0" fill="none" />
-                    <text className="text-[7.2px] font-black uppercase fill-black tracking-[1.2px]">
+                    <text className="text-[8.5px] font-black uppercase fill-black tracking-[1.5px]">
                       <textPath href="#circlePath" startOffset="0%" textLength="223" lengthAdjust="spacing">
-                        DEVOXA TECHNOLOGIES PVT. LTD. • DEVOXA TECHNOLOGIES PVT. LTD. •
+                        DEVOXA TECHNOLOGIES • DEVOXA TECHNOLOGIES •
                       </textPath>
                     </text>
                   </svg>

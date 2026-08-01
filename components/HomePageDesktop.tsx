@@ -795,31 +795,31 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                 From the first discovery call to post-launch support, our team stays hands-on. We write clean, maintainable code and build systems that grow with you instead of holding you back.
               </p>
               
-              {/* Stats Row - Generous Padding & Spacing */}
-              <div className="flex items-center gap-8 my-6 py-5 px-1 border-y border-white/10">
+              {/* Stats Row - Clean without Border Lines */}
+              <div className="flex items-center gap-10 sm:gap-14 my-6 py-2 px-1">
                 <div>
-                  <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-1">120+</div>
-                  <div className="text-[10.5px] text-purple-300/80 uppercase tracking-[0.16em] font-bold">Projects</div>
+                  <div className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-1">120+</div>
+                  <div className="text-[11px] text-purple-300/80 uppercase tracking-[0.18em] font-bold">Projects</div>
                 </div>
                 <div>
-                  <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-1">98%</div>
-                  <div className="text-[10.5px] text-purple-300/80 uppercase tracking-[0.16em] font-bold">Retention</div>
+                  <div className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-1">98%</div>
+                  <div className="text-[11px] text-purple-300/80 uppercase tracking-[0.18em] font-bold">Retention</div>
                 </div>
                 <div>
-                  <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-1">24/7</div>
-                  <div className="text-[10.5px] text-purple-300/80 uppercase tracking-[0.16em] font-bold">Support</div>
+                  <div className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-1">24/7</div>
+                  <div className="text-[11px] text-purple-300/80 uppercase tracking-[0.18em] font-bold">Support</div>
                 </div>
               </div>
 
-              {/* Bullet Points - Generous Top Margin & Vertical Spacing */}
-              <ul className="mt-7 flex flex-col gap-3.5 list-none p-0">
+              {/* Bullet Points - Clear Distance / Margin Top */}
+              <ul className="mt-9 sm:mt-10 flex flex-col gap-4 list-none p-0">
                 {[
                   "Custom software for your workflow",
                   "Scalable cloud infrastructure",
                   "End-to-end automation",
                   "Transparent pricing"
                 ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3.5 text-sm sm:text-[14.5px] text-slate-200 font-medium leading-normal">
+                  <li key={i} className="flex items-center gap-3.5 text-sm sm:text-[15px] text-slate-200 font-medium leading-normal">
                     <div className="w-5 h-5 rounded-full bg-gradient-to-br from-purple-600 to-indigo-600 flex items-center justify-center text-white flex-shrink-0 shadow-[0_4px_12px_rgba(124,58,237,0.35)] border border-purple-400/30">
                       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                     </div>

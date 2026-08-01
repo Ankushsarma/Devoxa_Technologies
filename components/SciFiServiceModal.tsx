@@ -167,7 +167,6 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
         {/* Pointer pointing to the card's top center icon */}
         {ptr && (
           <svg width={ptr.width} height="80" className={ptr.className}>
-            <text x={ptr.textX} y="25" fill="#00F0FF" fontSize="10" fontFamily="monospace" textAnchor={ptr.textAnchor} className="uppercase tracking-widest">{service.title}</text>
             <path d={ptr.thickPath} stroke="#00F0FF" strokeWidth="4" />
             <path d={ptr.thickCutout} fill="#00F0FF" />
             <path d={ptr.thinPath} fill="none" stroke="#00F0FF" strokeWidth="1.5" />

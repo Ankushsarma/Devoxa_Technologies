@@ -306,7 +306,10 @@ export default function HomePageDesktop() {
     }
     window.addEventListener("beforeunload", handleBeforeUnload)
 
-    return () => window.removeEventListener("beforeunload", handleBeforeUnload)
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload)
+      sessionStorage.setItem("homeScroll", window.scrollY.toString())
+    }
   }, [])
 
   // Fix hash routing after layout shifts

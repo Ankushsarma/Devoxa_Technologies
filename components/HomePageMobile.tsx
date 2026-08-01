@@ -756,7 +756,10 @@ export default function HomePageMobile() {
     }
     window.addEventListener("beforeunload", handleBeforeUnload)
     
-    return () => window.removeEventListener("beforeunload", handleBeforeUnload)
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload)
+      sessionStorage.setItem("homeMobileScroll", window.scrollY.toString())
+    }
   }, [])
 
   // Fix hash routing after layout shifts

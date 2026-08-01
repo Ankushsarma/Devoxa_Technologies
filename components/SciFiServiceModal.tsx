@@ -246,7 +246,7 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
                 showCursor={true}
                 cursorCharacter="_"
                 loop={false}
-                className="text-[11px] sm:text-xs text-gray-300 font-light leading-relaxed"
+                className="text-xs sm:text-[13px] text-gray-300 font-light leading-relaxed"
               />
             </motion.div>
 
@@ -257,7 +257,7 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.3 + (idx * 0.1) }}
                   key={idx} 
-                  className="flex items-start gap-3 text-[11px] sm:text-xs text-gray-300 font-light"
+                  className="flex items-start gap-3 text-xs sm:text-[13px] text-gray-300 font-light"
                 >
                   <div className="mt-[5px] shrink-0 text-[#00F0FF] drop-shadow-[0_0_8px_#00F0FF]">
                     <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

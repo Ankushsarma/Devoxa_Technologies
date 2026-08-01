@@ -787,44 +787,43 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               <h2 style={{ fontSize: "clamp(22px, 2.5vw, 32px)", fontWeight: 800, lineHeight: 1.18, color: "#fff", marginBottom: "12px", letterSpacing: "-0.4px" }}>
                 Powerful IT Solutions for <span className="font-stencilia uppercase" style={{ background: "linear-gradient(90deg, #7c3aed, #a78bfa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Modern Businesses</span>
               </h2>
-              
-              <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.72)", lineHeight: 1.55, marginBottom: "10px" }}>
+                        <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.72)", lineHeight: 1.6, marginBottom: "12px" }}>
                 We combine cutting-edge technology with affordable pricing to deliver enterprise-grade solutions that scale with your ambitions. No hidden fees, no jargon — just results.
               </p>
               
-              <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.72)", lineHeight: 1.55, marginBottom: "20px" }}>
+              <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.72)", lineHeight: 1.6, marginBottom: "24px" }}>
                 From the first discovery call to post-launch support, our team stays hands-on. We write clean, maintainable code and build systems that grow with you instead of holding you back.
               </p>
               
-              {/* Stats Row - Compact */}
-              <div className="flex items-center gap-6 mb-5 py-4 border-y border-white/10">
+              {/* Stats Row - Generous Padding & Spacing */}
+              <div className="flex items-center gap-8 my-6 py-5 px-1 border-y border-white/10">
                 <div>
-                  <div className="text-2xl font-bold text-white mb-0.5">120+</div>
-                  <div className="text-[10px] text-white/50 uppercase tracking-widest font-semibold">Projects</div>
+                  <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-1">120+</div>
+                  <div className="text-[10.5px] text-purple-300/80 uppercase tracking-[0.16em] font-bold">Projects</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-white mb-0.5">98%</div>
-                  <div className="text-[10px] text-white/50 uppercase tracking-widest font-semibold">Retention</div>
+                  <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-1">98%</div>
+                  <div className="text-[10.5px] text-purple-300/80 uppercase tracking-[0.16em] font-bold">Retention</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-white mb-0.5">24/7</div>
-                  <div className="text-[10px] text-white/50 uppercase tracking-widest font-semibold">Support</div>
+                  <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-1">24/7</div>
+                  <div className="text-[10.5px] text-purple-300/80 uppercase tracking-[0.16em] font-bold">Support</div>
                 </div>
               </div>
 
-              {/* Bullet Points - Compact */}
-              <ul style={{ display: "flex", flexDirection: "column", gap: "10px", listStyle: "none", padding: 0 }}>
+              {/* Bullet Points - Generous Top Margin & Vertical Spacing */}
+              <ul className="mt-7 flex flex-col gap-3.5 list-none p-0">
                 {[
                   "Custom software for your workflow",
                   "Scalable cloud infrastructure",
                   "End-to-end automation",
                   "Transparent pricing"
                 ].map((item, i) => (
-                  <li key={i} style={{ display: "flex", alignItems: "center", gap: "12px", fontSize: "13.5px", color: "#fff", fontWeight: 500 }}>
-                    <div style={{ width: "20px", height: "20px", borderRadius: "50%", background: "linear-gradient(135deg, #5B1FA0, #8B2FD1)", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", flexShrink: 0, boxShadow: "0 4px 10px rgba(139,47,209,0.3)" }}>
+                  <li key={i} className="flex items-center gap-3.5 text-sm sm:text-[14.5px] text-slate-200 font-medium leading-normal">
+                    <div className="w-5 h-5 rounded-full bg-gradient-to-br from-purple-600 to-indigo-600 flex items-center justify-center text-white flex-shrink-0 shadow-[0_4px_12px_rgba(124,58,237,0.35)] border border-purple-400/30">
                       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                     </div>
-                    {item}
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>

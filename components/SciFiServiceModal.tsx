@@ -39,8 +39,8 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
     if (isOpen && activeCardRect) {
       const spaceLeft = activeCardRect.left
       const spaceRight = window.innerWidth - activeCardRect.right
-      const modalWidth = Math.min(420, window.innerWidth - 40) // Fallback for very small screens
-      const modalHeight = 320 
+      const modalWidth = Math.min(520, window.innerWidth - 40) // Increased width
+      const modalHeight = 360 // Increased height
 
       let left = 0
       let top = activeCardRect.top + activeCardRect.height / 2 - modalHeight / 2 
@@ -95,14 +95,13 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
   // Calculate dynamic pointer SVG props
   let ptr = null
   if (activeCardRect && (pointerDirection === 'left' || pointerDirection === 'right')) {
-    const iconCenterY = 40 // Estimated distance from top of the card to the center of the icon
+    const iconCenterY = 40 
     const cardCenterY = activeCardRect.height / 2
     const yOffset = iconCenterY - cardCenterY 
     
-    const svgOriginY = 40 // The Y coordinate in the SVG that corresponds to the vertical middle of the modal
+    const svgOriginY = 40 
     const targetY = svgOriginY + yOffset 
     
-    // distance X is gap(60) + half card width
     const distanceX = 60 + activeCardRect.width / 2
     const svgWidth = distanceX + 20
 
@@ -116,7 +115,7 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
         thickCutout: `M ${svgWidth - 70} 30 L ${svgWidth - 60} 30 L ${svgWidth - 55} 26 L ${svgWidth - 70} 26 Z`,
         thinPath: `M ${svgWidth} 34 L ${svgWidth - 65} 34 L ${targetX + 20} ${targetY} L ${targetX} ${targetY}`,
         targetX, targetY,
-        className: "absolute right-full top-1/2 -translate-y-1/2 pointer-events-none overflow-visible hidden sm:block"
+        className: "absolute right-full top-1/2 -translate-y-1/2 pointer-events-none overflow-visible hidden sm:block z-50"
       }
     } else {
       const targetX = svgWidth - 10
@@ -128,10 +127,22 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
         thickCutout: `M 60 30 L 70 30 L 65 26 L 55 26 Z`,
         thinPath: `M 0 34 L 65 34 L ${targetX - 20} ${targetY} L ${targetX} ${targetY}`,
         targetX, targetY,
-        className: "absolute left-full top-1/2 -translate-y-1/2 pointer-events-none overflow-visible hidden sm:block"
+        className: "absolute left-full top-1/2 -translate-y-1/2 pointer-events-none overflow-visible hidden sm:block z-50"
       }
     }
   }
+
+  // Dimensions for SVG drawing
+  const w = parseInt(modalStyle.width as string) || 520;
+  const h = parseInt(modalStyle.height as string) || 360;
+
+  // Exact coordinates matching the uploaded image's complex cut corners
+  const mainPolyPoints = `0,20 0,70 30,40 110,40 140,0 ${w-20},0 ${w},20 ${w},${h-80} ${w-200},${h-80} ${w-260},${h} 20,${h} 0,${h-20}`;
+  const clipPolygon = `polygon(0% 20px, 0% 70px, 30px 40px, 110px 40px, 140px 0%, calc(100% - 20px) 0%, 100% 20px, 100% calc(100% - 80px), calc(100% - 200px) calc(100% - 80px), calc(100% - 260px) 100%, 20px 100%, 0% calc(100% - 20px))`;
+  
+  // Inner panel for the card name at the bottom right cutout
+  const innerPolyPoints = `${w-190},${h-70} ${w},${h-70} ${w},${h} ${w-242.5},${h}`;
+  const innerClipPolygon = `polygon(calc(100% - 242.5px) 100%, calc(100% - 190px) 0, 100% 0, 100% 100%)`;
 
   if (!isOpen || !service) return null
 
@@ -165,62 +176,64 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
           </svg>
         )}
 
-        {/* The Actual Panel */}
+        {/* Exact Vector Borders & Backgrounds */}
+        <svg className="absolute inset-0 pointer-events-none z-0 overflow-visible" width="100%" height="100%">
+          {/* Main Background */}
+          <polygon points={mainPolyPoints} fill="rgba(7, 16, 27, 0.95)" stroke="rgba(139, 92, 246, 0.6)" strokeWidth="1.5" />
+          {/* Main Glows */}
+          <line x1="140" y1="0" x2={w-20} y2="0" stroke="#ffffff" strokeWidth="2" filter="drop-shadow(0 0 8px rgba(255,255,255,0.8))" />
+          <line x1="20" y1={h} x2={w-260} y2={h} stroke="#ffffff" strokeWidth="2" filter="drop-shadow(0 0 8px rgba(255,255,255,0.8))" />
+          
+          {/* Inner Panel Background */}
+          <polygon points={innerPolyPoints} fill="rgba(139, 92, 246, 0.05)" stroke="rgba(139, 92, 246, 0.4)" strokeWidth="1" />
+        </svg>
+
+        {/* Decorative Corner: Top Left Stripes */}
+        <div className="absolute top-[25px] left-[30px] w-20 h-[10px] bg-transparent flex gap-[3px] transform -skew-x-[45deg] origin-top-left pointer-events-none z-10">
+          {[1,2,3,4,5,6,7].map((i) => (
+            <div key={i} className="h-full w-2 bg-[#8b5cf6]/80 shadow-[0_0_5px_#8b5cf6]" />
+          ))}
+        </div>
+
+        {/* Decorative Corner: Bottom Right Card Name */}
         <div 
-          className="absolute inset-0 border border-[#00F0FF]/30 bg-[#07101B]/95 backdrop-blur-xl shadow-[0_0_40px_rgba(0,240,255,0.15)] overflow-hidden"
-          style={{
-            // Cut top-left and bottom-right corners
-            clipPath: "polygon(8% 0, 100% 0, 100% 85%, 92% 100%, 0 100%, 0 15%)"
-          }}
+          className="absolute bottom-0 right-0 w-[190px] h-[70px] pointer-events-none flex items-center justify-center p-2 z-10"
+        >
+          <span className="text-[11px] sm:text-xs font-mono text-[#00F0FF] uppercase tracking-widest drop-shadow-[0_0_5px_rgba(0,240,255,0.5)]">
+            {service.title}
+          </span>
+        </div>
+
+        {/* The HTML Content Area properly clipped to not overflow the SVG borders */}
+        <div 
+          className="absolute inset-0 z-20 pointer-events-none"
+          style={{ clipPath: clipPolygon }}
         >
           {/* Background Grid Pattern */}
           <div 
-            className="absolute inset-0 opacity-10 pointer-events-none"
+            className="absolute inset-0 opacity-15 pointer-events-none"
             style={{
-              backgroundImage: "linear-gradient(rgba(0, 240, 255, 0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 240, 255, 0.5) 1px, transparent 1px)",
+              backgroundImage: "linear-gradient(rgba(139, 92, 246, 0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(139, 92, 246, 0.5) 1px, transparent 1px)",
               backgroundSize: "20px 20px",
               backgroundPosition: "center center"
             }}
           />
 
-          {/* Decorative Corner: Top Left Stripes */}
-          <div className="absolute top-0 left-0 w-24 h-5 bg-transparent flex gap-[2px] transform -skew-x-[45deg] origin-top-left ml-2 mt-0 pointer-events-none">
-            {[1,2,3,4,5,6].map((i) => (
-              <div key={i} className="h-full w-2 bg-white/70" />
-            ))}
-          </div>
-
-          {/* Decorative Corner: Bottom Right Block with Card Name */}
-          <div className="absolute bottom-0 right-0 w-48 h-12 bg-transparent pointer-events-none flex items-end justify-end p-1">
-            <div 
-              className="w-full h-full border-t-2 border-l-2 border-white/20 bg-white/5 flex items-center justify-center pl-4 pt-2"
-              style={{ clipPath: "polygon(0 100%, 15% 0, 100% 0, 100% 100%)" }}
-            >
-              <span className="text-[10px] sm:text-xs font-mono text-[#00F0FF] uppercase tracking-widest opacity-90 drop-shadow-[0_0_5px_rgba(0,240,255,0.5)]">
-                {service.title}
-              </span>
-            </div>
-          </div>
-
-          {/* Glowing edges at top and bottom */}
-          <div className="absolute top-0 left-1/4 right-1/4 h-[1px] bg-[#00F0FF] shadow-[0_0_15px_3px_#00F0FF]" />
-          <div className="absolute bottom-0 left-1/4 right-1/4 h-[1px] bg-[#00F0FF] shadow-[0_0_15px_3px_#00F0FF]" />
-
           {/* Close Button */}
           <button 
             onClick={onClose}
-            className="absolute top-3 right-3 z-50 text-white/50 hover:text-white hover:bg-[#00F0FF]/10 p-1.5 rounded-full transition-colors"
+            className="absolute top-4 right-4 z-50 text-white/50 hover:text-white hover:bg-[#8b5cf6]/20 p-1.5 rounded-full transition-colors pointer-events-auto"
           >
-            <X size={18} />
+            <X size={20} />
           </button>
 
           {/* Content Area */}
-          <div className="relative z-20 w-full h-full p-6 sm:p-8 flex flex-col justify-center gap-3 text-white">
+          <div className="absolute inset-0 p-8 sm:p-10 flex flex-col justify-center gap-3 text-white">
             <motion.h3 
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-[#00F0FF] drop-shadow-[0_0_10px_rgba(0,240,255,0.8)]"
+              className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-[#8b5cf6] drop-shadow-[0_0_10px_rgba(139,92,246,0.6)]"
             >
               {service.title}
             </motion.h3>
@@ -229,21 +242,21 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="text-xs sm:text-sm text-gray-300 max-w-sm leading-relaxed border-l-2 border-[#00F0FF]/50 pl-3"
+              className="text-sm sm:text-base text-gray-300 max-w-sm leading-relaxed border-l-2 border-[#8b5cf6]/60 pl-4 mt-2"
             >
               {service.description}
             </motion.p>
 
-            <div className="mt-2 flex flex-col gap-2">
+            <div className="mt-4 flex flex-col gap-3">
               {service.features.map((feature, idx) => (
                 <motion.div 
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.3 + (idx * 0.1) }}
                   key={idx} 
-                  className="flex items-center gap-2 text-xs sm:text-sm text-cyan-50"
+                  className="flex items-center gap-3 text-xs sm:text-sm text-purple-50"
                 >
-                  <div className="w-4 h-4 flex items-center justify-center rounded-sm bg-[#00F0FF]/10 border border-[#00F0FF]/40 shrink-0">
+                  <div className="w-5 h-5 flex items-center justify-center rounded-[2px] bg-[#8b5cf6]/20 border border-[#8b5cf6]/50 shrink-0 shadow-[0_0_8px_rgba(139,92,246,0.3)]">
                     <Check size={12} className="text-[#00F0FF]" />
                   </div>
                   {feature}

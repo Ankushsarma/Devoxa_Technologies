@@ -6,7 +6,7 @@ import { toast } from "sonner"
 import Image from "next/image"
 import WebGLVisibilityWrapper from '@/components/WebGLVisibilityWrapper';
 import Link from "next/link"
-import { Search, BarChart3, Layers, Code2, Zap, ArrowRight, ArrowLeft, Quote, CheckCircle, X, Youtube, Twitter, Instagram, Linkedin, Phone } from "lucide-react"
+import { Search, BarChart3, Layers, Code2, Zap, ArrowRight, ArrowLeft, Quote, CheckCircle, X, Youtube, Twitter, Instagram, Linkedin, Phone, ChevronUp, ChevronDown } from "lucide-react"
 import FAQAccordion from '@/components/FAQAccordion';
 import ShinyText from '@/components/ShinyText';
 import TextType from '@/components/TextType';
@@ -191,8 +191,62 @@ const servicesData: Record<string, ServiceDetails> = {
       "Brand Identity & Guidelines",
       "Conversion Rate Optimization"
     ]
+
   }
 };
+
+function FloatingScrollButtonDesktop() {
+  const [isScrolledDown, setIsScrolledDown] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroSection = document.querySelector("#hero");
+      if (heroSection) {
+        const rect = heroSection.getBoundingClientRect();
+        if (rect.bottom < window.innerHeight / 2) {
+          setIsScrolledDown(true);
+        } else {
+          setIsScrolledDown(false);
+        }
+      } else {
+        setIsScrolledDown(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleClick = () => {
+    if (isScrolledDown) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      const footerEl = document.querySelector("#footer");
+      if (footerEl) {
+        footerEl.scrollIntoView({ behavior: "smooth" });
+      } else {
+        window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+      }
+    }
+  };
+
+  return (
+    <button
+      type="button"
+      onClick={handleClick}
+      aria-label={isScrolledDown ? "Scroll to top" : "Scroll to footer"}
+      className="fixed bottom-10 right-8 z-40 w-12 h-12 rounded-full bg-gradient-to-tr from-violet-600 via-purple-600 to-fuchsia-600 p-[1.5px] shadow-[0_0_25px_rgba(147,51,234,0.65)] hover:shadow-[0_0_35px_rgba(168,85,247,0.85)] active:scale-90 transition-all duration-300 flex items-center justify-center cursor-pointer"
+    >
+      <div className="w-full h-full rounded-full bg-[#080514] flex items-center justify-center transition-colors hover:bg-purple-950/60">
+        {isScrolledDown ? (
+          <ChevronUp className="w-5 h-5 text-white animate-bounce" />
+        ) : (
+          <ChevronDown className="w-5 h-5 text-white animate-bounce" />
+        )}
+      </div>
+    </button>
+  );
+}
 
 export default function HomePageDesktop() {
   const { user, role, loading, logout } = useAuth()
@@ -1165,6 +1219,8 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       <Footer style={{ paddingTop: '0px' }} middleSectionStyle={{ paddingTop: '50px', paddingBottom: '30px' }} />
+
+      <FloatingScrollButtonDesktop />
 
       <SciFiServiceModal 
         isOpen={!!activeService} 

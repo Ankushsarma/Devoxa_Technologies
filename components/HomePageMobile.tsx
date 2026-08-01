@@ -27,6 +27,7 @@ import SpotlightCard from "@/components/SpotlightCard"
 import Particles from "@/components/Particles"
 import PillNav from "@/components/PillNav"
 import { FooterMobile } from "@/components/ui/footer-section-mobile"
+import { CuteRobot } from "@/components/ui/CuteRobot"
 
 
 
@@ -1189,8 +1190,20 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               <span style={{ backgroundColor: "#4c1d95", color: "#fff", padding: "6px 12px", fontFamily: "monospace", fontSize: "11px", fontWeight: 700, letterSpacing: "2px", textTransform: "uppercase" }}>FIRST</span>
             </div>
 
+            {/* CuteRobot Wrapper */}
+            <div className="mobile-robot-wrapper" style={{ position: "relative", width: "100%", height: "0px", zIndex: 20, pointerEvents: "none" }}>
+              <style>{`
+                .mobile-robot-wrapper > div {
+                  top: -65px !important;
+                  left: 10% !important;
+                }
+              `}</style>
+              <CuteRobot />
+            </div>
+
             {/* Headline */}
             <h1 style={{ 
+              position: "relative",
               fontFamily: "var(--font-mono, monospace)", 
               fontSize: "36px", 
               fontWeight: 700, 

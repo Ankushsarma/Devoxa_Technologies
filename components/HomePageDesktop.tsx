@@ -1079,7 +1079,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       {/* Industries */}
-      <section id="industries" className="scroll-mt-32 light-sec vx-float" style={{ padding: "100px 0", position: "relative", overflow: "hidden" }}>
+      <section id="industries" className="scroll-mt-32 light-sec vx-float custom-section-bg" style={{ padding: "120px 0 100px 0", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, opacity: 0.5 }}>
           <WebGLVisibilityWrapper isAbsolute={false}>
             <SideRays
@@ -1097,96 +1097,88 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
             />
           </WebGLVisibilityWrapper>
         </div>
-        <div className="wrap" style={{ position: "relative", zIndex: 1 }}>
-          <div className="section-head reveal in">
-            <span className="eyebrow">Industries</span>
-            <h2>Industries We <span className="font-stencilia uppercase">Serve</span></h2>
-            <p>Our custom IT solutions empower forward-thinking organizations to <span className="text-white font-medium">innovate</span>, <span className="text-purple-300 font-medium">scale seamlessly</span>, and dominate in today's rapidly evolving digital landscape.</p>
+        <div className="wrap" style={{ position: "relative", zIndex: 1, maxWidth: "1240px", margin: "0 auto", padding: "0 32px" }}>
+          
+          {/* Refined Premium Header */}
+          <div className="section-head reveal in flex flex-col items-center text-center max-w-3xl mx-auto mb-14">
+            <div className="group relative inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md overflow-hidden mb-4 transition-all duration-300 hover:bg-white/10 hover:border-purple-500/30 shadow-[0_0_20px_rgba(139,92,246,0.2)]">
+              <div className="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></div>
+              <span className="text-xs font-bold text-white tracking-[0.18em] uppercase">Tailored Industry Solutions</span>
+            </div>
+            
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-4 tracking-tight leading-[1.15] text-center">
+              Architecting Digital Excellence Across <br className="hidden sm:block" />
+              <span className="font-stencilia uppercase text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-300 to-indigo-400">Global Sectors</span>
+            </h2>
+            
+            <p className="text-[#94a3b8] text-sm sm:text-base leading-relaxed max-w-2xl mx-auto font-normal text-center">
+              We engineer scalable, enterprise-grade software and automation platforms designed specifically for the unique security, compliance, and growth demands of modern industries.
+            </p>
           </div>
+
           <div className="ind-grid">
-            {/* Card 1 */}
-            <div className="card">
-              <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=600&q=80" alt="Technology & SaaS" />
-              <div className="overlay">
-                <div className="title">Technology & SaaS</div>
-                <div className="desc">Scalable platforms built for rapid growth and enterprise performance.</div>
-                <div className="tags">
-                  <span className="tag"><span className="icon">★</span>4.9</span>
-                  <span className="tag">Cloud & SaaS</span>
+            {[
+              {
+                title: "Technology & SaaS",
+                desc: "Scalable cloud platforms, microservices architecture, and enterprise SaaS built for rapid growth.",
+                rating: "4.9",
+                tag: "Cloud & SaaS",
+                img: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=600&q=80"
+              },
+              {
+                title: "Finance & Banking",
+                desc: "Bank-grade security, automated compliance pipelines, and modern fintech infrastructure.",
+                rating: "4.8",
+                tag: "Fintech",
+                img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80"
+              },
+              {
+                title: "Healthcare",
+                desc: "HIPAA-compliant patient portals, telehealth systems, and secure medical data management.",
+                rating: "5.0",
+                tag: "HIPAA",
+                img: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80"
+              },
+              {
+                title: "Retail & E-commerce",
+                desc: "High-conversion storefronts, headless commerce API, and automated inventory sync.",
+                rating: "4.7",
+                tag: "B2B/B2C",
+                img: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=600&q=80"
+              },
+              {
+                title: "Education",
+                desc: "Interactive LMS platforms, virtual classrooms, and AI-powered student analytics.",
+                rating: "4.8",
+                tag: "EdTech",
+                img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80"
+              },
+              {
+                title: "Manufacturing",
+                desc: "Industry 4.0 automation, IoT telemetry dashboards, and smart supply chain monitoring.",
+                rating: "4.9",
+                tag: "Industry 4.0",
+                img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80"
+              }
+            ].map((item, idx) => (
+              <div key={idx} className="card group">
+                <div className="img-container">
+                  <img src={item.img} alt={item.title} />
                 </div>
-                <button className="reserve-btn">Explore Solutions</button>
-              </div>
-            </div>
-
-            {/* Card 2 */}
-            <div className="card">
-              <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80" alt="Finance & Banking" />
-              <div className="overlay">
-                <div className="title">Finance & Banking</div>
-                <div className="desc">Secure systems for regulated industries and modern fintech.</div>
-                <div className="tags">
-                  <span className="tag"><span className="icon">★</span>4.8</span>
-                  <span className="tag">Fintech</span>
+                <div className="overlay">
+                  <div className="title">{item.title}</div>
+                  <div className="desc">{item.desc}</div>
+                  <div className="tags">
+                    <span className="tag"><span className="icon">★</span>{item.rating}</span>
+                    <span className="tag">{item.tag}</span>
+                  </div>
+                  <button className="reserve-btn group/btn" onClick={onOpenModal}>
+                    <span>Explore Solutions</span>
+                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                  </button>
                 </div>
-                <button className="reserve-btn">Explore Solutions</button>
               </div>
-            </div>
-
-            {/* Card 3 */}
-            <div className="card">
-              <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80" alt="Healthcare" />
-              <div className="overlay">
-                <div className="title">Healthcare</div>
-                <div className="desc">Compliant, patient-first digital tools and data management.</div>
-                <div className="tags">
-                  <span className="tag"><span className="icon">★</span>5.0</span>
-                  <span className="tag">HIPAA</span>
-                </div>
-                <button className="reserve-btn">Explore Solutions</button>
-              </div>
-            </div>
-
-            {/* Card 4 */}
-            <div className="card">
-              <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=600&q=80" alt="Retail & E-commerce" />
-              <div className="overlay">
-                <div className="title">Retail & E-commerce</div>
-                <div className="desc">High-performance storefronts that convert and scale globally.</div>
-                <div className="tags">
-                  <span className="tag"><span className="icon">★</span>4.7</span>
-                  <span className="tag">B2B/B2C</span>
-                </div>
-                <button className="reserve-btn">Explore Solutions</button>
-              </div>
-            </div>
-
-            {/* Card 5 */}
-            <div className="card">
-              <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80" alt="Education" />
-              <div className="overlay">
-                <div className="title">Education</div>
-                <div className="desc">Interactive learning platforms built to engage and educate.</div>
-                <div className="tags">
-                  <span className="tag"><span className="icon">★</span>4.8</span>
-                  <span className="tag">EdTech</span>
-                </div>
-                <button className="reserve-btn">Explore Solutions</button>
-              </div>
-            </div>
-
-            {/* Card 6 */}
-            <div className="card">
-              <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80" alt="Manufacturing" />
-              <div className="overlay">
-                <div className="title">Manufacturing</div>
-                <div className="desc">Automation and data insights for modern production lines.</div>
-                <div className="tags">
-                  <span className="tag"><span className="icon">★</span>4.9</span>
-                  <span className="tag">Industry 4.0</span>
-                </div>
-                <button className="reserve-btn">Explore Solutions</button>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>

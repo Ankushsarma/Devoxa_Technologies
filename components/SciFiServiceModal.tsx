@@ -255,7 +255,7 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
                       <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" />
                     </svg>
                   </div>
-                  <span className="leading-relaxed">{feature}</span>
+                  <span className="leading-relaxed whitespace-pre-line">{feature}</span>
                 </motion.div>
               ))}
             </div>

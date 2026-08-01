@@ -20,7 +20,7 @@ export function CuteRobot() {
       transition={{
         duration: 14,
         repeat: Infinity,
-        repeatType: "loop",
+        repeatType: "reverse",
         //      1     2     3     4     5     6     7     8     9     10    11    12    13    14    15    16    17    18
         times: [0.0, 0.10, 0.15, 0.20, 0.25, 0.28, 0.30, 0.32, 0.40, 0.43, 0.45, 0.48, 0.52, 0.55, 0.65, 0.90, 0.95, 1.0],
         ease: "easeInOut"

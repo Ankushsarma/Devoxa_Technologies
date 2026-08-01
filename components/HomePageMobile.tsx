@@ -1074,6 +1074,17 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               <span style={{ backgroundColor: "#4c1d95", color: "#fff", padding: "6px 12px", fontFamily: "monospace", fontSize: "11px", fontWeight: 700, letterSpacing: "2px", textTransform: "uppercase" }}>FIRST</span>
             </div>
 
+            {/* CuteRobot Wrapper */}
+            <div className="mobile-robot-wrapper" style={{ position: "relative", width: "100%", height: "0px", zIndex: 20, pointerEvents: "none" }}>
+              <style>{`
+                .mobile-robot-wrapper > div {
+                  top: -65px !important;
+                  left: 10% !important;
+                }
+              `}</style>
+              <CuteRobot />
+            </div>
+
             {/* Headline */}
             <h1 style={{ 
               position: "relative",
@@ -1086,7 +1097,6 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               marginBottom: "24px",
               textTransform: "uppercase"
             }}>
-              <CuteRobot />
               <span style={{ 
                 display: "block", 
                 marginBottom: "8px",

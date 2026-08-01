@@ -352,7 +352,6 @@ body{margin:0;padding:0;background:#050408;}
   }
   .vx .sol-checks li{font-size:13.5px;align-items:flex-start;}
   .vx .sol-checks li .check-ico{margin-top:1px;}
-}
   .vx .pricing-grid{
     display:flex;
     flex-wrap:nowrap;

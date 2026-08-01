@@ -3,6 +3,14 @@
 @import './landing.css';
 @custom-variant dark (&:is(.dark *));
 
+@font-face {
+  font-family: 'Lemon Milk';
+  src: url('/fonts/LEMONMILK-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* Backgrounds */
   --bg-void: #050506;
@@ -53,7 +61,7 @@
   --font-serif: var(--font-serif), 'EB Garamond', serif;
   --font-sans: var(--font-sans), 'Inter', sans-serif;
   --font-mono: var(--font-mono), 'JetBrains Mono', monospace;
-  --font-lemon: var(--font-lemon-local), 'Lemon Milk', sans-serif;
+  --font-lemon: 'Lemon Milk', sans-serif;
 
   /* Marquee Animation */
   --animate-marquee: marquee 60s linear infinite;

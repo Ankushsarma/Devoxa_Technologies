@@ -27,9 +27,9 @@ import SpotlightCard from "@/components/SpotlightCard"
 import Particles from "@/components/Particles"
 import PillNav from "@/components/PillNav"
 import { FooterMobile } from "@/components/ui/footer-section-mobile"
-import { CuteRobot } from "@/components/ui/CuteRobot"
-
-
+const SECTION_BG_STYLE: React.CSSProperties = {
+  background: "radial-gradient(circle 480px at 0% 100%, rgba(76,29,149,.5), transparent 65%), radial-gradient(circle 500px at 100% 0%, rgba(147,51,234,.18), transparent 65%), #050408"
+};
 
 const AnimatedCounter = ({ end, duration = 2000, suffix = "", decimals = 0 }: { end: number, duration?: number, suffix?: string, decimals?: number }) => {
   const [count, setCount] = useState(0);
@@ -873,7 +873,7 @@ function FloatingScrollButton() {
   const props = { user, role, loading, logout, scrolled }
 
   return (
-    <main className="bg-background text-foreground font-sans selection:bg-black selection:text-white overflow-x-hidden">
+    <main className="text-foreground font-sans selection:bg-black selection:text-white overflow-x-hidden" style={SECTION_BG_STYLE}>
       <div>
         <MobileNav {...props} />
       </div>
@@ -1163,7 +1163,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
 
   return (
     <>
-      <section id="hero" className="nx vx-float pt-24 md:pt-32" style={{ height: "auto", minHeight: "100vh" }}>
+      <section id="hero" className="nx vx-float pt-24 md:pt-32" style={{ height: "auto", minHeight: "100vh", ...SECTION_BG_STYLE }}>
         <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0 }}>
           <WebGLVisibilityWrapper isAbsolute={false}>
             <Particles
@@ -1179,7 +1179,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
           />
           </WebGLVisibilityWrapper>
         </div>
-        <div className="nx-overlay" style={{ zIndex: 1, position: "absolute", inset: 0, background: "rgba(5, 5, 6, 0.4)" }} />
+        <div className="nx-overlay" style={{ zIndex: 1, position: "absolute", inset: 0, background: "rgba(5, 4, 8, 0.2)" }} />
         <div className="nx-noise" style={{ zIndex: 2, position: "absolute", inset: 0 }} />
         <div className="nx-inner" style={{ minHeight: "100vh", alignItems: "flex-start", display: "flex", flexDirection: "column", justifyContent: "flex-start", padding: "140px 24px 80px 24px" }}>
           <div style={{ flexShrink: 0, width: "100%", maxWidth: "100%", textAlign: "left", position: "relative", zIndex: 10 }}>
@@ -1339,7 +1339,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         </div>
       </section>
 
-      <div style={{ position: "relative", backgroundColor: "#0d0d11", overflow: "hidden" }}>
+      <div style={{ position: "relative", overflow: "hidden", ...SECTION_BG_STYLE }}>
         {/* Shared Light Pillar Background */}
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 0.35, pointerEvents: 'none' }}>
           <WebGLVisibilityWrapper isAbsolute={false}>
@@ -1390,7 +1390,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </div>
 
       {/* Solutions */}
-      <section id="solutions" className="scroll-mt-32 light-sec vx-float" style={{ padding: "0 0 36px 0", position: "relative", overflow: "hidden" }}>
+      <section id="solutions" className="scroll-mt-32 light-sec vx-float" style={{ padding: "36px 0 36px 0", position: "relative", overflow: "hidden", ...SECTION_BG_STYLE }}>
         <div style={{ position: "absolute", top: "50%", left: "-10%", width: "40%", height: "60%", background: "radial-gradient(circle, rgba(139,92,246,0.08) 0%, rgba(0,0,0,0) 70%)", filter: "blur(60px)", pointerEvents: "none" }}></div>
         <div className="wrap px-4 md:px-8">
           <div className="sol-split reveal in flex flex-col items-center gap-4">
@@ -1480,7 +1480,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       {/* How it works */}
-      <section id="how-it-works" className="scroll-mt-32 vx-float" style={{ background: "var(--bg-deep)", padding: "60px 0 40px", position: "relative", overflow: "hidden" }}>
+      <section id="how-it-works" className="scroll-mt-32 vx-float" style={{ padding: "60px 0 40px", position: "relative", overflow: "hidden", ...SECTION_BG_STYLE }}>
         {/* Magic Rings Background */}
         <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0, overflow: "hidden", pointerEvents: "none" }}>
           <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "100vw", height: "100vw", minWidth: "1000px", minHeight: "1000px", opacity: 0.4 }}>
@@ -1524,8 +1524,8 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       {/* Recent Projects */}
-      <section id="recent-projects" className="scroll-mt-32 vx-float" style={{ padding: "40px 0 30px", position: "relative", zIndex: 10 }}>
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1, background: 'var(--bg-void)' }}>
+      <section id="recent-projects" className="scroll-mt-32 vx-float" style={{ padding: "40px 0 30px", position: "relative", zIndex: 10, ...SECTION_BG_STYLE }}>
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1, background: 'transparent' }}>
           <WebGLVisibilityWrapper isAbsolute={false}>
             <LiquidEther
             colors={[ '#5227FF', '#FF9FFC', '#B497CF' ]}
@@ -1583,8 +1583,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
           padding: "60px 0", 
           position: "relative", 
           overflow: "hidden",
-          backgroundImage: "radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px)",
-          backgroundSize: "16px 16px"
+          ...SECTION_BG_STYLE
         }}
       >
         <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, opacity: 1 }}>
@@ -1641,7 +1640,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       {/* Industries */}
-      <section id="industries" className="scroll-mt-32 light-sec vx-float" style={{ padding: "60px 0 30px 0", position: "relative", overflow: "hidden" }}>
+      <section id="industries" className="scroll-mt-32 light-sec vx-float" style={{ padding: "60px 0 30px 0", position: "relative", overflow: "hidden", ...SECTION_BG_STYLE }}>
         <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, opacity: 0.5 }}>
           <WebGLVisibilityWrapper isAbsolute={false}>
             <SideRays
@@ -1729,7 +1728,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       {/* Testimonials */}
-      <section className="scroll-mt-32 testimonials-section vx-float relative z-10 py-24 overflow-hidden" style={{ background: "var(--bg-void)" }}>
+      <section className="scroll-mt-32 testimonials-section vx-float relative z-10 py-24 overflow-hidden" style={SECTION_BG_STYLE}>
         {/* Animated glowing orb in background */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-purple-600/20 blur-[120px] rounded-[100%] pointer-events-none mix-blend-screen" />
         
@@ -1749,7 +1748,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       {/* FAQ styled with new theme */}
-      <section id="faq" className="scroll-mt-32 vx-float" style={{ background: "var(--bg-void)", paddingTop: "16px", paddingBottom: "60px" }}>
+      <section id="faq" className="scroll-mt-32 vx-float" style={{ paddingTop: "16px", paddingBottom: "60px", ...SECTION_BG_STYLE }}>
         <div className="wrap px-4">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
             <div className="lg:col-span-5 relative mb-2 lg:mb-0">
@@ -1782,7 +1781,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       {/* CTA Banner */}
-      <section id="cta-banner" className="scroll-mt-32 relative py-14 sm:py-20 overflow-hidden border-y border-[rgba(255,255,255,0.05)] bg-[#050506] px-4 md:px-8 min-h-[340px]">
+      <section id="cta-banner" className="scroll-mt-32 relative py-14 sm:py-20 overflow-hidden px-4 md:px-8 min-h-[340px]" style={SECTION_BG_STYLE}>
         {/* Background Effects */}
         <div className="absolute inset-0 z-0">
           <Particles className="" particleCount={100} particleColors={['#ffffff', '#8b5cf6']} />

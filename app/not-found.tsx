@@ -138,23 +138,27 @@ export default function NotFound() {
           transition={{ delay: 0.5, duration: 0.8 }}
           className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full"
         >
-          <Link 
-            href="/"
-            className="group relative inline-flex items-center justify-center px-8 py-4 font-bold text-white transition-all duration-200 bg-gradient-to-r from-[#5B3DF5] to-[#7857FF] rounded-full focus:outline-none hover:shadow-[0_0_30px_rgba(120,87,255,0.4)] overflow-hidden"
-          >
-            <span className="relative z-10 flex items-center gap-2">
-              <Home size={18} className="group-hover:scale-110 transition-transform" />
-              Return to Base
-            </span>
+          <Link href="/" passHref legacyBehavior>
+            <motion.a 
+              whileTap={{ scale: 0.95 }}
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="group relative inline-flex items-center justify-center px-8 py-4 font-bold text-white transition-all duration-200 bg-gradient-to-r from-[#5B3DF5] to-[#7857FF] rounded-full focus:outline-none hover:shadow-[0_0_30px_rgba(120,87,255,0.4)] overflow-hidden cursor-pointer"
+            >
+              <span className="relative z-10 flex items-center gap-2">
+                <Home size={18} className="group-hover:scale-110 transition-transform" />
+                Return to Base
+              </span>
+            </motion.a>
           </Link>
 
-          <button 
+          <motion.button 
+            whileTap={{ scale: 0.95 }}
             onClick={() => window.history.back()}
-            className="inline-flex items-center justify-center px-8 py-4 font-bold text-gray-300 transition-all duration-200 bg-transparent border border-gray-700/50 rounded-full hover:bg-white/5 hover:text-white focus:outline-none hover:border-gray-500 backdrop-blur-sm"
+            className="inline-flex items-center justify-center px-8 py-4 font-bold text-gray-300 transition-all duration-200 bg-transparent border border-gray-700/50 rounded-full hover:bg-white/5 hover:text-white focus:outline-none hover:border-gray-500 backdrop-blur-sm cursor-pointer"
           >
             <ArrowLeft size={18} className="mr-2" />
             Go Back
-          </button>
+          </motion.button>
         </motion.div>
         
       </div>
@@ -174,25 +178,28 @@ export default function NotFound() {
         </svg>
       </motion.div>
 
-      {/* Glowing Cosmic Portal / Black Hole */}
-      <motion.div 
-        animate={{ rotate: 360, scale: [1, 1.05, 1] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-[20%] left-[10%] md:left-[15%] w-24 h-24 md:w-32 md:h-32 rounded-full z-0 pointer-events-none flex items-center justify-center shadow-[0_0_40px_#7857FF]"
-        style={{ background: "conic-gradient(from 0deg, #7857FF, #00F0FF, #FF3366, #7857FF)" }}
-      >
-        <div className="absolute inset-[3px] rounded-full bg-[#05050A]" />
-        <div className="absolute inset-[10px] rounded-full bg-black shadow-[inset_0_0_20px_rgba(120,87,255,0.8)]" />
-      </motion.div>
-
-      {/* Shooting Star */}
+      {/* Alien Abduction Beam */}
       <motion.div
-        animate={{ x: ['120vw', '-40vw'], y: ['-20vh', '100vh'], opacity: [0, 1, 1, 0] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "linear", delay: 2 }}
-        className="absolute top-0 right-0 z-0 pointer-events-none flex items-center rotate-[35deg]"
+        animate={{ y: [-15, 15, -15], rotate: [-2, 2, -2] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-[10%] left-[5%] md:left-[15%] w-40 h-64 md:w-48 md:h-80 z-0 pointer-events-none flex flex-col items-center"
       >
-        <div className="w-32 h-[2px] bg-gradient-to-r from-transparent via-white to-white rounded-l-full" />
-        <div className="w-2 h-2 rounded-full bg-white shadow-[0_0_15px_5px_#fff]" />
+        {/* UFO Ship */}
+        <div className="relative w-28 md:w-36 h-10 md:h-12 bg-gradient-to-r from-gray-700 via-gray-400 to-gray-700 rounded-full shadow-[0_0_20px_#00F0FF] z-10 flex items-center justify-center border-b-2 border-gray-800">
+          <div className="absolute -top-5 md:-top-6 w-14 md:w-18 h-7 md:h-9 bg-cyan-300/30 rounded-t-full border border-cyan-200/50 backdrop-blur-sm" />
+          <div className="w-full flex justify-around px-5 md:px-8">
+            <div className="w-2.5 h-2.5 rounded-full bg-red-500 shadow-[0_0_8px_#f00] animate-pulse" />
+            <div className="w-2.5 h-2.5 rounded-full bg-yellow-500 shadow-[0_0_8px_#ff0] animate-pulse delay-75" />
+            <div className="w-2.5 h-2.5 rounded-full bg-green-500 shadow-[0_0_8px_#0f0] animate-pulse delay-150" />
+          </div>
+        </div>
+        {/* Abduction Beam */}
+        <motion.div 
+          animate={{ opacity: [0.3, 0.6, 0.3] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="w-full h-full bg-gradient-to-b from-[#00F0FF]/40 via-[#00F0FF]/10 to-transparent -mt-2"
+          style={{ clipPath: "polygon(35% 0, 65% 0, 100% 100%, 0 100%)" }}
+        />
       </motion.div>
 
       {/* Random Moving Satellites */}

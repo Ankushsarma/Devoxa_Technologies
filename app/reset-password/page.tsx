@@ -82,7 +82,7 @@ function ResetPasswordForm() {
                         required
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        className="w-full pl-9 pr-4 py-2.5 rounded-lg bg-white border border-slate-200 focus:border-neutral-800 focus:ring-2 focus:ring-neutral-800/10 outline-none transition-all placeholder:text-slate-400 font-medium tracking-widest text-sm"
+                        className="w-full pl-9 pr-4 py-2.5 rounded-lg bg-theme-50 border border-slate-200 focus:border-neutral-800 focus:ring-2 focus:ring-neutral-800/10 outline-none transition-all placeholder:text-slate-400 font-medium tracking-widest text-sm"
                         placeholder="••••••••"
                     />
                 </div>
@@ -97,7 +97,7 @@ function ResetPasswordForm() {
                         required
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
-                        className="w-full pl-9 pr-4 py-2.5 rounded-lg bg-white border border-slate-200 focus:border-neutral-800 focus:ring-2 focus:ring-neutral-800/10 outline-none transition-all placeholder:text-slate-400 font-medium tracking-widest text-sm"
+                        className="w-full pl-9 pr-4 py-2.5 rounded-lg bg-theme-50 border border-slate-200 focus:border-neutral-800 focus:ring-2 focus:ring-neutral-800/10 outline-none transition-all placeholder:text-slate-400 font-medium tracking-widest text-sm"
                         placeholder="••••••••"
                     />
                 </div>
@@ -106,7 +106,7 @@ function ResetPasswordForm() {
             <button
                 type="submit"
                 disabled={loading}
-                className="w-full py-2.5 mt-2 bg-studio-black hover:bg-neutral-800 text-[#FFFFFF] font-bold rounded-lg active:scale-[0.98] transition-all disabled:opacity-70 disabled:hover:bg-studio-black shadow-md shadow-neutral-800/25 flex items-center justify-center gap-2 text-sm"
+                className="w-full py-2.5 mt-2 bg-studio-black hover:bg-neutral-800 text-[#f1eef1] font-bold rounded-lg active:scale-[0.98] transition-all disabled:opacity-70 disabled:hover:bg-studio-black shadow-md shadow-neutral-800/25 flex items-center justify-center gap-2 text-sm"
             >
                 {loading ? "Resetting..." : "Set New Password"} 
                 {!loading && <ArrowRight className="w-4 h-4" />}
@@ -118,7 +118,7 @@ function ResetPasswordForm() {
 export default function ResetPasswordPage() {
     return (
         <div className="min-h-screen bg-slate-100 flex items-center justify-center p-4 lg:p-8">
-            <div className="w-full max-w-[70rem] bg-white rounded-[2.5rem] shadow-2xl shadow-slate-200/50 flex flex-col md:flex-row overflow-hidden md:h-[88vh] md:max-h-[750px]">
+            <div className="w-full max-w-[70rem] bg-theme-50 rounded-[2.5rem] shadow-2xl shadow-slate-200/50 flex flex-col md:flex-row overflow-hidden md:h-[88vh] md:max-h-[750px]">
                 {/* Left Column - Marketing / Info */}
                 <div className="hidden md:flex flex-col w-1/2 bg-[#F3F2EE] p-6 lg:p-10 relative overflow-hidden border-r border-slate-200/60">
                     <Link href="/" className="relative z-20 inline-flex items-center text-sm font-semibold text-slate-500 hover:text-slate-900 transition-colors mb-4 w-max">
@@ -179,7 +179,7 @@ export default function ResetPasswordPage() {
                 </div>
                 
                 {/* Right Column - Form */}
-                <div className="w-full md:w-1/2 bg-white flex flex-col justify-center px-6 py-4 lg:px-12 relative">
+                <div className="w-full md:w-1/2 bg-theme-50 flex flex-col justify-center px-6 py-4 lg:px-12 relative">
                     <div className="max-w-md w-full mx-auto py-2 relative z-10">
                         {/* Mobile Back Button */}
                         <Link href="/" className="md:hidden inline-flex items-center text-sm font-semibold text-slate-500 hover:text-slate-900 transition-colors mb-6">
@@ -189,7 +189,7 @@ export default function ResetPasswordPage() {
 
                         <div className="text-center mb-6 mt-2">
                             <div className="w-12 h-12 bg-studio-black rounded-xl mx-auto flex items-center justify-center shadow-lg shadow-neutral-800/20 mb-3">
-                                <Image src="/logo.png" alt="Devoxa Logo" width={28} height={28} className="rounded-lg bg-white p-1" />
+                                <Image src="/logo.png" alt="Devoxa Logo" width={28} height={28} className="rounded-lg bg-theme-50 p-1" />
                             </div>
                             <h2 className="text-slate-800 text-lg font-bold">Set New Password</h2>
                             <p className="text-slate-500 text-sm font-medium mt-1">
@@ -202,7 +202,7 @@ export default function ResetPasswordPage() {
                         </Suspense>
                         
                         <div className="mt-6 text-center">
-                            <Link href="/login" className="text-xs font-bold text-slate-500 hover:text-black hover:underline transition-colors">
+                            <Link href="/login" className="text-xs font-bold text-slate-500 hover:text-theme-900 hover:underline transition-colors">
                                 &larr; Back to Login
                             </Link>
                         </div>

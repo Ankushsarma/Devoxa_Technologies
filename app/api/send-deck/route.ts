@@ -22,7 +22,7 @@ export async function POST(req: Request) {
         to: [email],
         subject: `Thanks for reaching out, ${name}! Here's your Devoxa Pitch Deck`,
         html: `
-            <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #ffffff; padding: 40px 20px; color: #111111;">
+            <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #f1eef1; padding: 40px 20px; color: #111111;">
                 <div style="text-align: center; margin-bottom: 40px;">
                     <h1 style="font-family: Georgia, serif; font-size: 28px; font-weight: normal; margin: 0; font-style: italic;">Devoxa Technologies</h1>
                 </div>

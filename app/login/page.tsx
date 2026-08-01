@@ -67,7 +67,7 @@ export default function LoginPage() {
             {/* Lightfall Background */}
             <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
                 <Lightfall
-                    colors={['#5B1FA0', '#8B2FD1', '#EAD9F7']}
+                    colors={['#523056', '#705474', '#ded8df']}
                     backgroundColor="#0A081D"
                     speed={0.8}
                     streakCount={6}
@@ -98,12 +98,12 @@ export default function LoginPage() {
                 }}
             >
                 {/* Abstract Background Shapes inside the window */}
-                <div style={{ position: "absolute", top: "-20%", left: "-10%", width: "50%", height: "50%", background: "#5B1FA0", filter: "blur(100px)", opacity: 0.3, borderRadius: "50%" }}></div>
-                <div style={{ position: "absolute", bottom: "-20%", right: "-10%", width: "40%", height: "40%", background: "#8B2FD1", filter: "blur(100px)", opacity: 0.2, borderRadius: "50%" }}></div>
+                <div style={{ position: "absolute", top: "-20%", left: "-10%", width: "50%", height: "50%", background: "#523056", filter: "blur(100px)", opacity: 0.3, borderRadius: "50%" }}></div>
+                <div style={{ position: "absolute", bottom: "-20%", right: "-10%", width: "40%", height: "40%", background: "#705474", filter: "blur(100px)", opacity: 0.2, borderRadius: "50%" }}></div>
                 
                 {/* Logo Area */}
                 <div className="relative z-10 mb-8 flex items-center justify-center gap-3">
-                    <Image src="/logo.png" alt="Devoxa Logo" width={36} height={36} className="rounded-md bg-white p-1" />
+                    <Image src="/logo.png" alt="Devoxa Logo" width={36} height={36} className="rounded-md bg-theme-50 p-1" />
                     <span style={{ fontSize: "32px", fontWeight: 700, color: "#fff", letterSpacing: "-1px" }}>Devoxa.</span>
                 </div>
 
@@ -116,14 +116,14 @@ export default function LoginPage() {
                         boxShadow: "0 20px 40px rgba(0,0,0,0.6)" 
                     }}
                 >
-                    <div className="flex bg-[rgba(255,255,255,0.05)] p-1 rounded-lg mb-8 border border-white/5">
+                    <div className="flex bg-[rgba(255,255,255,0.05)] p-1 rounded-lg mb-8 border border-theme-50/5">
                         <button 
                             type="button"
                             onClick={() => setLoginType("client")}
                             className={`flex-1 py-1.5 flex items-center justify-center gap-2 text-[11px] font-semibold rounded transition-all uppercase tracking-wider ${
                                 loginType === "client" 
-                                    ? "bg-gradient-to-r from-[#5B1FA0] to-[#8B2FD1] text-[#FFFFFF] shadow-sm" 
-                                    : "text-[#7B7D98] hover:text-[#FFFFFF]"
+ ? "bg-[#523056] text-[#f1eef1] shadow-sm" 
+                                    : "text-[#7B7D98] hover:text-[#f1eef1]"
                             }`}
                         >
                             Client
@@ -133,8 +133,8 @@ export default function LoginPage() {
                             onClick={() => setLoginType("staff")}
                             className={`flex-1 py-1.5 flex items-center justify-center gap-2 text-[11px] font-semibold rounded transition-all uppercase tracking-wider ${
                                 loginType === "staff" 
-                                    ? "bg-gradient-to-r from-[#5B1FA0] to-[#8B2FD1] text-[#FFFFFF] shadow-sm" 
-                                    : "text-[#7B7D98] hover:text-[#FFFFFF]"
+ ? "bg-[#523056] text-[#f1eef1] shadow-sm" 
+                                    : "text-[#7B7D98] hover:text-[#f1eef1]"
                             }`}
                         >
                             Staff
@@ -150,7 +150,7 @@ export default function LoginPage() {
                                 border: "1px solid rgba(255,255,255,0.1)",
                                 transition: "border 0.2s"
                             }}
-                            className="focus-within:border-[#8B2FD1]"
+                            className="focus-within:border-[#705474]"
                         >
                             <label style={{ display: "block", fontSize: "10px", fontWeight: 700, color: "#7B7D98", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "4px" }}>
                                 Email Address
@@ -182,7 +182,7 @@ export default function LoginPage() {
                                 border: "1px solid rgba(255,255,255,0.1)",
                                 transition: "border 0.2s"
                             }}
-                            className="focus-within:border-[#8B2FD1]"
+                            className="focus-within:border-[#705474]"
                         >
                             <label style={{ display: "block", fontSize: "10px", fontWeight: 700, color: "#7B7D98", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "4px" }}>
                                 Password

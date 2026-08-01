@@ -2,6 +2,7 @@
 @import 'tw-animate-css';
 @import './landing.css';
 @custom-variant dark (&:is(.dark *));
+
 @font-face {
   font-family: 'Lemon Milk';
   src: url('/fonts/LEMONMILK-Light.otf') format('opentype');
@@ -20,38 +21,49 @@
 
 :root {
   /* Backgrounds */
-  --bg-void: #050506;
-  --bg-base: #0d0d11;
-  --bg-elevated: #170f2e;
-  --bg-glow: #241649;
+  --bg-void: #1a061c;
+  --bg-base: #26082a;
+  --bg-elevated: #330b38;
+  --bg-glow: #523056;
 
   /* Text */
-  --text-primary: #ffffff;
-  --text-muted: #87868a;
+  --text-primary: #f1eef1;
+  --text-muted: #ad9daf;
 
   /* Accent (violet gradient) */
-  --accent-start: #7c3aed;
-  --accent-end: #a78bfa;
-  --accent-solid: #8b5cf6;
+  --accent-start: #705474;
+  --accent-end: #8f7992;
+  --accent-solid: #705474;
 
   /* Buttons */
-  --btn-primary-bg: #ffffff;
-  --btn-primary-text: #0d0d11;
-  --btn-outline-border: rgba(255, 255, 255, 0.15);
+  --btn-primary-bg: #f1eef1;
+  --btn-primary-text: #1a061c;
+  --btn-outline-border: rgba(241, 238, 241, 0.15);
 
   /* Legacy mappings for Tailwind/components */
-  --background: #050506;
-  --foreground: #ffffff;
-  --studio-black: #0d0d11;
-  --studio-gray-light: #170f2e;
-  --studio-gray-border: rgba(255, 255, 255, 0.08);
-  --studio-surface: #0d0d11;
-  --border: rgba(255, 255, 255, 0.08);
-  --muted: #170f2e;
-  --muted-foreground: #87868a;
+  --background: #1a061c;
+  --foreground: #f1eef1;
+  --studio-black: #1a061c;
+  --studio-gray-light: #330b38;
+  --studio-gray-border: rgba(241, 238, 241, 0.08);
+  --studio-surface: #26082a;
+  --border: rgba(241, 238, 241, 0.08);
+  --muted: #330b38;
+  --muted-foreground: #ad9daf;
 }
 
 @theme inline {
+  --color-theme-50: #f1eef1;
+  --color-theme-100: #ded8df;
+  --color-theme-200: #c6bbc7;
+  --color-theme-300: #ad9daf;
+  --color-theme-400: #8f7992;
+  --color-theme-500: #705474;
+  --color-theme-600: #523056;
+  --color-theme-700: #330b38;
+  --color-theme-800: #26082a;
+  --color-theme-900: #1a061c;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-border: var(--border);
@@ -87,15 +99,37 @@
 
 @layer base {
   html {
-    background: linear-gradient(to right, #000000 0%, #03010A 25%, #050415 50%, #07051D 75%, #0B0829 100%);
+    background: 
+      /* Top-left bands */
+      linear-gradient(135deg, transparent 8%, rgba(51, 11, 56, 0.25) 8%, rgba(51, 11, 56, 0.25) 15%, transparent 15%),
+      linear-gradient(135deg, transparent 18%, rgba(51, 11, 56, 0.4) 18%, rgba(51, 11, 56, 0.4) 22%, transparent 22%),
+      /* Middle subtle band */
+      linear-gradient(135deg, transparent 45%, rgba(20, 6, 26, 0.3) 45%, rgba(20, 6, 26, 0.3) 55%, transparent 55%),
+      /* Bottom-right bands */
+      linear-gradient(135deg, transparent 70%, rgba(20, 6, 26, 0.6) 70%, rgba(20, 6, 26, 0.6) 80%, transparent 80%),
+      linear-gradient(135deg, transparent 83%, rgba(51, 11, 56, 0.3) 83%, rgba(51, 11, 56, 0.3) 90%, transparent 90%),
+      /* Base Gradient */
+      linear-gradient(135deg, #04030a 0%, #14061a 30%, #330b38 55%, #14061a 78%, #04030a 100%);
+    background-attachment: fixed;
     min-height: 100%;
   }
 
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: linear-gradient(to right, #000000 0%, #03010A 25%, #050415 50%, #07051D 75%, #0B0829 100%) fixed;
+    background: 
+      /* Top-left bands */
+      linear-gradient(135deg, transparent 8%, rgba(51, 11, 56, 0.25) 8%, rgba(51, 11, 56, 0.25) 15%, transparent 15%),
+      linear-gradient(135deg, transparent 18%, rgba(51, 11, 56, 0.4) 18%, rgba(51, 11, 56, 0.4) 22%, transparent 22%),
+      /* Middle subtle band */
+      linear-gradient(135deg, transparent 45%, rgba(20, 6, 26, 0.3) 45%, rgba(20, 6, 26, 0.3) 55%, transparent 55%),
+      /* Bottom-right bands */
+      linear-gradient(135deg, transparent 70%, rgba(20, 6, 26, 0.6) 70%, rgba(20, 6, 26, 0.6) 80%, transparent 80%),
+      linear-gradient(135deg, transparent 83%, rgba(51, 11, 56, 0.3) 83%, rgba(51, 11, 56, 0.3) 90%, transparent 90%),
+      /* Base Gradient */
+      linear-gradient(135deg, #04030a 0%, #14061a 30%, #330b38 55%, #14061a 78%, #04030a 100%);
     background-attachment: fixed;
+    min-height: 100vh;
     color: var(--foreground);
     @apply font-sans;
   }
@@ -115,7 +149,7 @@
 
   /* ─── Plain wrapper sections: transparent so body gradient shows through ─── */
   .vx,
-  .vx > section,
+  .vx>section,
   .vx .light-sec,
   .vx .demos-section,
   .vx .cta-banner,
@@ -123,10 +157,11 @@
     background-color: transparent !important;
   }
 
-  /* ─── HERO: original solid near-black #050506 ─── */
+  /* Page sections stay transparent so the fixed site background is visible. */
   section#hero.nx,
   .nx {
-    background: #050506 !important;
+    background: transparent !important;
+    background-color: transparent !important;
   }
 
   /* ─── ABOUT US wrapper + LightPillar zone: transparent to show gradient ─── */
@@ -136,11 +171,11 @@
     background-color: transparent !important;
   }
 
-  /* ─── Our Process + Our Portfolio: original #050506 ─── */
+  /* ─── Our Process + Our Portfolio: transparent to show fixed background ─── */
   section#how-it-works,
   section#recent-projects {
-    background: #050506 !important;
-    background-color: #050506 !important;
+    background: transparent !important;
+    background-color: transparent !important;
   }
 
   /* ─── CARDS & PANELS: original #0d0d11 ─── */
@@ -163,12 +198,23 @@
     background: linear-gradient(135deg, #7c3aed, #8b5cf6) !important;
   }
 
-  /* ─── FOOTER: original #050506 ─── */
+  /* ─── FOOTER: transparent to show fixed background ─── */
   footer,
-  footer > *,
+  footer>*,
   [class*="footer"] {
-    background: #050506 !important;
-    background-color: #050506 !important;
+    background: transparent !important;
+    background-color: transparent !important;
+  }
+
+  .nx-video,
+  .nx-overlay,
+  .nx-noise,
+  .vx .stars,
+  .vx .demos-section::before,
+  .vx .cta-banner::before {
+    display: none !important;
+    background: none !important;
+    background-image: none !important;
   }
 }
 
@@ -220,11 +266,13 @@
     transform: translateY(0);
   }
 }
+
 @keyframes shine {
   to {
     background-position: 200% center;
   }
 }
+
 .animate-shine {
   animation: shine 3s linear infinite;
 }
@@ -236,47 +284,55 @@
   height: 420px;
   border-radius: 22px;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
 }
+
 .ind-grid .card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
+
 .ind-grid .overlay {
   position: absolute;
-  left: 0; right: 0; bottom: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   padding: 20px 18px 18px;
   background: linear-gradient(180deg,
-    rgba(20,20,15,0) 0%,
-    rgba(20,20,15,0.55) 30%,
-    rgba(15,15,10,0.92) 65%,
-    rgba(10,10,8,0.98) 100%);
+      rgba(20, 20, 15, 0) 0%,
+      rgba(20, 20, 15, 0.55) 30%,
+      rgba(15, 15, 10, 0.92) 65%,
+      rgba(10, 10, 8, 0.98) 100%);
 }
+
 .ind-grid .title {
   color: #fff;
   font-size: 22px;
   font-weight: 700;
   margin-bottom: 8px;
 }
+
 .ind-grid .desc {
-  color: rgba(255,255,255,0.82);
+  color: rgba(255, 255, 255, 0.82);
   font-size: 12.5px;
   line-height: 1.5;
   margin-bottom: 14px;
 }
+
 .ind-grid .tags {
   display: flex;
   gap: 8px;
   margin-bottom: 16px;
 }
+
 .ind-grid .tag {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: rgba(255,255,255,0.14);
-  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: #fff;
   font-size: 11px;
   font-weight: 500;
@@ -284,7 +340,11 @@
   border-radius: 999px;
   backdrop-filter: blur(4px);
 }
-.ind-grid .tag .icon { font-size: 12px; }
+
+.ind-grid .tag .icon {
+  font-size: 12px;
+}
+
 .ind-grid .reserve-btn {
   width: 100%;
   background: #fff;

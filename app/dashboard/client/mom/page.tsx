@@ -39,7 +39,7 @@ export default function ClientMomListPage() {
 
     if (loading || fetching) return <div className="p-20 text-center font-mono text-sm uppercase tracking-widest text-neutral-400">Loading Meeting Notes...</div>
     if (!lead || !lead.moms || lead.moms.length === 0) return (
-        <div className="min-h-screen flex items-center justify-center flex-col gap-4 bg-white text-neutral-900 font-sans">
+        <div className="min-h-screen flex items-center justify-center flex-col gap-4 bg-theme-50 text-neutral-900 font-sans">
             <p className="font-serif italic text-lg text-neutral-500">No meeting notes available yet.</p>
             <Link href="/dashboard/client" className="text-[10px] font-bold tracking-wider text-neutral-700 border border-neutral-200 px-4 py-2.5 rounded-lg hover:bg-neutral-50 transition-colors uppercase">
                 Return to Workspace
@@ -48,7 +48,7 @@ export default function ClientMomListPage() {
     )
 
     return (
-        <div className="min-h-screen bg-white text-neutral-900 font-sans pb-4 md:pb-6 pt-4 md:pt-6 px-4 md:px-8">
+        <div className="min-h-screen bg-theme-50 text-neutral-900 font-sans pb-4 md:pb-6 pt-4 md:pt-6 px-4 md:px-8">
             <div className="w-full mx-auto">
                 {/* Header */}
                 <div className="p-6 md:p-8 border-b border-neutral-100 flex items-center justify-between mb-8">
@@ -62,7 +62,7 @@ export default function ClientMomListPage() {
                     {lead.moms.map((mom: any, index: number) => {
                         const momDate = new Date(mom.createdAt)
                         return (
-                            <div key={index} className="border border-neutral-200 rounded-2xl bg-white shadow-sm flex flex-col md:flex-row overflow-hidden group">
+                            <div key={index} className="border border-neutral-200 rounded-2xl bg-theme-50 shadow-sm flex flex-col md:flex-row overflow-hidden group">
                                 {/* Date Sidebar */}
                                 <div className="bg-[#FAF8F5] md:w-36 p-6 border-b md:border-b-0 md:border-r border-neutral-200 flex flex-col items-center justify-center shrink-0">
                                     <p className="text-[10px] font-bold tracking-widest uppercase text-neutral-800">{momDate.toLocaleString('default', { weekday: 'long' })}</p>

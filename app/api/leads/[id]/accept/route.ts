@@ -48,7 +48,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
 
         // 3. Send Credentials Email
         const emailContent = `
-            <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #ffffff; padding: 40px 20px; color: #111111;">
+            <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #f1eef1; padding: 40px 20px; color: #111111;">
                 <div style="text-align: center; margin-bottom: 40px;">
                     <h1 style="font-family: Georgia, serif; font-size: 28px; font-weight: normal; margin: 0; font-style: italic;">Devoxa Technologies</h1>
                 </div>
@@ -79,7 +79,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
                 </div>
                 
                 <div style="text-align: center; margin-bottom: 40px;">
-                    <a href="https://beyondyourimagination.shop/login" style="display: inline-block; background-color: #111111; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600; padding: 14px 32px; border-radius: 6px;">Access Client Portal</a>
+                    <a href="https://beyondyourimagination.shop/login" style="display: inline-block; background-color: #111111; color: #f1eef1; text-decoration: none; font-size: 14px; font-weight: 600; padding: 14px 32px; border-radius: 6px;">Access Client Portal</a>
                 </div>
                 
                 <p style="font-size: 15px; line-height: 1.6; color: #444444; margin-bottom: 32px;">

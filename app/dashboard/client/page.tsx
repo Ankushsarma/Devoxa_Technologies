@@ -53,16 +53,16 @@ export default function ClientDashboard() {
     const progress = totalTasks > 0 ? Math.round(totalProgressSum / totalTasks) : 0
 
     return (
-        <div className="min-h-screen bg-white text-neutral-900 font-sans pb-4 md:pb-6 pt-4 md:pt-6 px-4 md:px-8">
+        <div className="min-h-screen bg-theme-50 text-neutral-900 font-sans pb-4 md:pb-6 pt-4 md:pt-6 px-4 md:px-8">
             <div className="w-full mx-auto">
                 
                 {/* Header */}
-                <header className="border-b border-neutral-200 px-8 py-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 bg-white">
+                <header className="border-b border-neutral-200 px-8 py-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 bg-theme-50">
                     <div className="flex items-center gap-6">
-                        <div className="w-14 h-14 bg-gradient-to-br from-neutral-200 to-neutral-300 rounded flex items-center justify-center border border-neutral-200 shadow-inner overflow-hidden relative">
+ <div className="w-14 h-14 bg-neutral-200 rounded flex items-center justify-center border border-neutral-200 shadow-inner overflow-hidden relative">
                             {/* Fallback to text if logo fails or looks different, using Image for now */}
                             <Image src="/logo.png" alt="Devoxa" fill className="object-cover grayscale" />
-                            <div className="absolute inset-0 bg-black/10 mix-blend-overlay"></div>
+                            <div className="absolute inset-0 bg-theme-900/10 mix-blend-overlay"></div>
                         </div>
                         <div>
                             <h1 className="font-serif text-3xl md:text-[34px] tracking-tight leading-none text-neutral-900">Client Workspace</h1>
@@ -88,7 +88,7 @@ export default function ClientDashboard() {
                             {/* Project Status */}
                             <section>
                                 <h2 className="text-xs font-bold tracking-widest uppercase text-neutral-500 mb-4">Project Status</h2>
-                                <div className="border border-neutral-200 rounded-2xl p-6 md:p-8 bg-white shadow-sm flex flex-col md:flex-row gap-8 md:items-center">
+                                <div className="border border-neutral-200 rounded-2xl p-6 md:p-8 bg-theme-50 shadow-sm flex flex-col md:flex-row gap-8 md:items-center">
                                     
                                     <div className="flex items-start gap-4 flex-1">
                                         <div className="w-12 h-12 rounded-xl bg-[#FDF8F3] text-[#C5A880] flex items-center justify-center shrink-0 border border-[#F2E8DA]">
@@ -142,7 +142,7 @@ export default function ClientDashboard() {
                                 <div className="flex justify-between items-center mb-4">
                                     <h2 className="text-xs font-bold tracking-widest uppercase text-neutral-500">Development Tasks</h2>
                                 </div>
-                                <div className="border border-neutral-200 rounded-2xl bg-white shadow-sm overflow-hidden">
+                                <div className="border border-neutral-200 rounded-2xl bg-theme-50 shadow-sm overflow-hidden">
                                     {tasks.length === 0 ? (
                                         <div className="p-6 md:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
                                             <div className="flex items-center gap-4">
@@ -200,7 +200,7 @@ export default function ClientDashboard() {
                                                 <div className="p-4 border-t border-neutral-100 flex justify-center bg-neutral-50/50">
                                                     <button 
                                                         onClick={() => setShowAllTasks(!showAllTasks)}
-                                                        className="flex items-center gap-2 text-[10px] font-bold tracking-wider text-neutral-700 border border-neutral-200 bg-white px-4 py-2.5 rounded-lg hover:bg-neutral-50 transition-colors uppercase shrink-0"
+                                                        className="flex items-center gap-2 text-[10px] font-bold tracking-wider text-neutral-700 border border-neutral-200 bg-theme-50 px-4 py-2.5 rounded-lg hover:bg-neutral-50 transition-colors uppercase shrink-0"
                                                     >
                                                         <ListTodo className="w-3.5 h-3.5" /> {showAllTasks ? 'View Less' : `View All ${tasks.length} Tasks`}
                                                     </button>
@@ -216,7 +216,7 @@ export default function ClientDashboard() {
                                 <h2 className="text-xs font-bold tracking-widest uppercase text-neutral-500 mb-4">Resources</h2>
                                 <div className="grid sm:grid-cols-2 gap-6">
                                     {/* Resource Card 1 */}
-                                    <div className="border border-neutral-200 rounded-2xl p-6 bg-white shadow-sm flex flex-col justify-between items-start gap-6 hover:shadow-md transition-shadow">
+                                    <div className="border border-neutral-200 rounded-2xl p-6 bg-theme-50 shadow-sm flex flex-col justify-between items-start gap-6 hover:shadow-md transition-shadow">
                                         <div className="flex items-center gap-4">
                                             <div className="w-12 h-12 rounded-xl bg-[#FDF8F3] text-[#C5A880] flex items-center justify-center shrink-0 border border-[#F2E8DA]">
                                                 <FileText className="w-6 h-6" strokeWidth={1.5} />
@@ -236,7 +236,7 @@ export default function ClientDashboard() {
                                     </div>
                                     
                                     {/* Resource Card 2 */}
-                                    <div className="border border-neutral-200 rounded-2xl p-6 bg-white shadow-sm flex flex-col justify-between items-start gap-6 hover:shadow-md transition-shadow">
+                                    <div className="border border-neutral-200 rounded-2xl p-6 bg-theme-50 shadow-sm flex flex-col justify-between items-start gap-6 hover:shadow-md transition-shadow">
                                         <div className="flex items-center gap-4">
                                             <div className="w-12 h-12 rounded-xl bg-[#FDF8F3] text-[#C5A880] flex items-center justify-center shrink-0 border border-[#F2E8DA]">
                                                 <LinkIcon className="w-6 h-6" strokeWidth={1.5} />
@@ -276,7 +276,7 @@ export default function ClientDashboard() {
                                         {lead.moms.slice(0, 2).map((mom: any, index: number) => {
                                             const momDate = new Date(mom.createdAt)
                                             return (
-                                                <div key={index} className="border border-neutral-200 rounded-2xl bg-white shadow-sm flex flex-col md:flex-row overflow-hidden group">
+                                                <div key={index} className="border border-neutral-200 rounded-2xl bg-theme-50 shadow-sm flex flex-col md:flex-row overflow-hidden group">
                                                     {/* Date Sidebar */}
                                                     <div className="bg-[#FAF8F5] md:w-36 p-6 border-b md:border-b-0 md:border-r border-neutral-200 flex flex-col items-center justify-center shrink-0">
                                                         <p className="text-[10px] font-bold tracking-widest uppercase text-neutral-800">{momDate.toLocaleString('default', { weekday: 'long' })}</p>
@@ -303,7 +303,7 @@ export default function ClientDashboard() {
                                         })}
                                     </div>
                                 ) : (
-                                    <div className="border border-neutral-200 rounded-2xl p-8 bg-white shadow-sm text-center">
+                                    <div className="border border-neutral-200 rounded-2xl p-8 bg-theme-50 shadow-sm text-center">
                                         <p className="font-serif italic text-lg text-neutral-500">No meeting notes available yet.</p>
                                     </div>
                                 )}
@@ -326,7 +326,7 @@ export default function ClientDashboard() {
                 </div>
 
                 {/* Footer Strip */}
-                <div className="border-t border-neutral-200 bg-white">
+                <div className="border-t border-neutral-200 bg-theme-50">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-6 md:py-8 px-8 md:px-12">
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                             <div className="text-neutral-400 shrink-0">

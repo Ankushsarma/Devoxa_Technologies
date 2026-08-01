@@ -37,7 +37,7 @@ export default function AgencySection({ onOpenModal }: { onOpenModal: () => void
             
             {/* Eyebrow */}
             <div style={{ display: "flex", alignItems: "center", marginBottom: "clamp(16px, 2.5vh, 24px)", position: "relative" }}>
-              <div style={{ position: "absolute", left: "-10px", top: "-5px", width: "40px", height: "30px", backgroundColor: "#5B1FA0", zIndex: -1 }}></div>
+              <div style={{ position: "absolute", left: "-10px", top: "-5px", width: "40px", height: "30px", backgroundColor: "#523056", zIndex: -1 }}></div>
               <span style={{ fontFamily: "monospace", fontSize: "clamp(10px, 0.9vw, 12px)", fontWeight: 700, letterSpacing: "2px", color: "#fff", textTransform: "uppercase" }}>
                 ABOUT US
               </span>
@@ -52,7 +52,7 @@ export default function AgencySection({ onOpenModal }: { onOpenModal: () => void
               marginBottom: "clamp(32px, 5vh, 48px)"
             }}>
               <span style={{ whiteSpace: "nowrap" }}>We are more</span><br />
-              <span style={{ whiteSpace: "nowrap" }}>than <span className="font-stencilia uppercase text-[#a78bfa]">an agency.</span></span>
+              <span style={{ whiteSpace: "nowrap" }}>than <span className="font-stencilia uppercase text-[#8f7992]">an agency.</span></span>
             </h2>
             
             {/* Subtext */}
@@ -63,7 +63,7 @@ export default function AgencySection({ onOpenModal }: { onOpenModal: () => void
             }}>
               <p style={{ 
                 fontSize: "clamp(13px, 1.1vw, 15px)", 
-                color: "#A8A5AD", 
+                color: "#ad9daf", 
                 lineHeight: 1.8, 
                 maxWidth: "clamp(400px, 40vw, 550px)",
                 fontWeight: 400
@@ -79,7 +79,7 @@ export default function AgencySection({ onOpenModal }: { onOpenModal: () => void
               <button 
                 onClick={onOpenModal}
                 style={{ 
-                  background: "linear-gradient(135deg, #5B1FA0, #8B2FD1)", 
+                  background: "linear-gradient(135deg, #523056, #705474)", 
                   color: "#fff", 
                   padding: "clamp(10px, 1vw, 12px) clamp(20px, 2vw, 28px)", 
                   fontSize: "clamp(10px, 0.8vw, 12px)", 

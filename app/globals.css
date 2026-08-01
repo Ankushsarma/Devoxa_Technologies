@@ -53,6 +53,7 @@
   --font-serif: var(--font-serif), 'EB Garamond', serif;
   --font-sans: var(--font-sans), 'Inter', sans-serif;
   --font-mono: var(--font-mono), 'JetBrains Mono', monospace;
+  --font-lemon: var(--font-lemon), 'Lemon Milk', sans-serif;
 
   /* Marquee Animation */
   --animate-marquee: marquee 60s linear infinite;
@@ -75,6 +76,10 @@
     background-color: var(--background);
     color: var(--foreground);
     @apply font-sans;
+  }
+
+  h2 {
+    font-family: var(--font-lemon);
   }
 
   * {

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
 import { Inter, EB_Garamond, JetBrains_Mono } from 'next/font/google'
+import localFont from 'next/font/local'
 import './globals.css'
 import ErrorSuppressor from '@/components/ErrorSuppressor'
 const inter = Inter({
@@ -18,6 +19,12 @@ const serif = EB_Garamond({
 const mono = JetBrains_Mono({
   subsets: ["latin"],
   variable: '--font-mono',
+  display: 'swap'
+})
+
+const lemonMilk = localFont({
+  src: '../public/fonts/LEMONMILK-Light.otf',
+  variable: '--font-lemon',
   display: 'swap'
 })
 
@@ -98,7 +105,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           }}
         />
       </head>
-      <body suppressHydrationWarning className={`${inter.variable} ${serif.variable} ${mono.variable} antialiased bg-background text-foreground font-sans selection:bg-black selection:text-white overflow-x-hidden`}>
+      <body suppressHydrationWarning className={`${inter.variable} ${serif.variable} ${mono.variable} ${lemonMilk.variable} antialiased bg-background text-foreground font-sans selection:bg-black selection:text-white overflow-x-hidden`}>
         <ErrorSuppressor />
         <AuthProvider>
           {children}

@@ -221,7 +221,7 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="absolute top-8 left-0 w-full text-center text-lg sm:text-xl font-bold uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-white to-[#8b5cf6] drop-shadow-[0_0_10px_rgba(139,92,246,0.6)] z-30"
+            className="absolute top-5 left-0 w-full text-center text-lg sm:text-xl font-bold uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-white to-[#8b5cf6] drop-shadow-[0_0_10px_rgba(139,92,246,0.6)] z-30"
           >
             {service.title}
           </motion.h3>

@@ -111,7 +111,7 @@ export function CuteRobot() {
         }
       `}} />
       
-      <svg viewBox="0 0 100 120" width="100%" height="100%" style={{ filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.4))' }}>
+      <svg viewBox="0 0 100 120" width="100%" height="100%" style={{ filter: 'drop-shadow(5px 15px 10px rgba(0,0,0,0.6))' }}>
         <defs>
           <radialGradient id="head-grad" cx="30%" cy="30%" r="80%" fx="30%" fy="30%">
             <stop offset="0%" stopColor="#a5b1c2" />
@@ -152,6 +152,8 @@ export function CuteRobot() {
 
         <g className="robot-body">
           <g className="robot-heave">
+            {/* Body 3D Extrusion */}
+            <path d="M 40 73 Q 55 68 70 73 C 75 73, 77 88, 70 98 C 65 108, 60 108, 55 103 C 50 108, 45 108, 40 98 C 33 88, 35 73, 40 73 Z" fill="#1a1d21" />
             {/* Body */}
             <path d="M 35 70 Q 50 65 65 70 C 70 70, 72 85, 65 95 C 60 105, 55 105, 50 100 C 45 105, 40 105, 35 95 C 28 85, 30 70, 35 70 Z" fill="url(#body-grad)" />
             {/* Body Highlight */}
@@ -170,11 +172,15 @@ export function CuteRobot() {
             </g>
 
             <g className="robot-head">
+              {/* Ear 3D Extrusion */}
+              <rect className="robot-ear" x="8" y="38" width="22" height="26" rx="6" fill="#1a1d21" />
               {/* Small arm/ear left (Puppy Ear Wiggle) */}
               <rect className="robot-ear" x="5" y="35" width="22" height="26" rx="6" fill="url(#body-grad)" />
               {/* Ear Highlight */}
               <rect className="robot-ear" x="6" y="36" width="20" height="10" rx="4" fill="rgba(255,255,255,0.2)" pointerEvents="none" />
               
+              {/* Head 3D Extrusion */}
+              <rect x="20" y="15" width="70" height="60" rx="22" fill="#1a1d21" />
               {/* Head Casing */}
               <rect x="15" y="10" width="70" height="60" rx="22" fill="url(#head-grad)" />
               {/* Head Bevel Highlight */}

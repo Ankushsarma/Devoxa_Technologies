@@ -227,7 +227,7 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
           </button>
 
           {/* Content Area */}
-          <div className="absolute inset-0 pt-[52px] pb-[40px] pl-[60px] sm:pl-[70px] pr-[40px] sm:pr-[50px] flex flex-col justify-center gap-2 text-white overflow-hidden">
+          <div className="absolute inset-0 pt-16 pb-10 pl-16 sm:pl-20 pr-12 sm:pr-16 flex flex-col justify-center gap-2 text-white overflow-hidden">
             <motion.h3 
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}

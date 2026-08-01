@@ -24,7 +24,7 @@ const mono = JetBrains_Mono({
 
 const lemonMilk = localFont({
   src: '../public/fonts/LEMONMILK-Light.otf',
-  variable: '--font-lemon',
+  variable: '--font-lemon-local',
   display: 'swap'
 })
 

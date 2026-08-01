@@ -58,25 +58,19 @@ export function CuteRobot() {
           56%, 58%, 60% { transform: rotate(-25deg); }
           61%, 100% { transform: rotate(0deg); }
         }
-        @keyframes armFlailLeft {
-          0%, 27% { transform: rotate(0deg); }
-          28%, 29% { transform: rotate(130deg); }
-          30%, 31% { transform: rotate(-60deg); }
-          32%, 42% { transform: rotate(0deg); }
-          43%, 44% { transform: rotate(130deg); }
-          45%, 46% { transform: rotate(-60deg); }
-          47%, 48% { transform: rotate(130deg); }
-          49%, 100% { transform: rotate(0deg); }
+        @keyframes headBob {
+          0%, 100% { transform: rotate(0deg) translateY(0px); }
+          25% { transform: rotate(5deg) translateY(-2px); }
+          50% { transform: rotate(0deg) translateY(0px); }
+          75% { transform: rotate(-5deg) translateY(-2px); }
         }
-        @keyframes armFlailRight {
-          0%, 27% { transform: rotate(0deg); }
-          28%, 29% { transform: rotate(-130deg); }
-          30%, 31% { transform: rotate(60deg); }
-          32%, 42% { transform: rotate(0deg); }
-          43%, 44% { transform: rotate(-130deg); }
-          45%, 46% { transform: rotate(60deg); }
-          47%, 48% { transform: rotate(-130deg); }
-          49%, 100% { transform: rotate(0deg); }
+        @keyframes legSwingLeft {
+          0%, 100% { transform: rotate(20deg); }
+          50% { transform: rotate(-25deg); }
+        }
+        @keyframes legSwingRight {
+          0%, 100% { transform: rotate(-25deg); }
+          50% { transform: rotate(20deg); }
         }
         @keyframes deepSigh {
           0%, 54% { transform: scale(1); }
@@ -99,12 +93,16 @@ export function CuteRobot() {
           animation: deepSigh 14s infinite ease-in-out;
           transform-origin: bottom center;
         }
+        .robot-head {
+          animation: headBob 2.5s infinite ease-in-out;
+          transform-origin: 50px 70px;
+        }
         .robot-arm-left {
-          animation: armFlailLeft 14s infinite;
+          animation: legSwingLeft 1.2s infinite ease-in-out;
           transform-origin: 30px 75px;
         }
         .robot-arm-right {
-          animation: armFlailRight 14s infinite;
+          animation: legSwingRight 1.2s infinite ease-in-out;
           transform-origin: 70px 75px;
         }
         .robot-ear {

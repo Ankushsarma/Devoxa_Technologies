@@ -82,7 +82,7 @@ export default function PrivacyPolicy() {
     <div className="min-h-screen bg-[#050506] text-white selection:bg-purple-500 selection:text-white font-sans relative overflow-x-hidden">
       
       {/* Responsive Header Navigation */}
-      <header className="absolute top-0 left-0 right-0 z-50 bg-transparent border-none outline-none">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-transparent border-none outline-none">
         
         {/* Desktop Header Navigation (lg:flex) */}
         <nav className="hidden lg:flex py-6 px-12 lg:px-16 justify-between items-center w-full bg-transparent border-none outline-none">

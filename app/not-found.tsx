@@ -81,7 +81,7 @@ export default function NotFound() {
           <motion.div
             animate={{ y: [-10, 10, -10], rotate: [-2, 2, -2] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-[50%] md:bottom-[60%] left-1/2 -translate-x-1/2 w-48 h-[180px] md:h-[220px] z-20 pointer-events-none flex flex-col items-center"
+            className="absolute bottom-[30%] md:bottom-[40%] left-1/2 -translate-x-1/2 w-48 h-[180px] md:h-[220px] z-20 pointer-events-none flex flex-col items-center"
           >
             {/* UFO Ship */}
             <div className="relative w-32 md:w-40 h-10 md:h-12 bg-gradient-to-r from-gray-700 via-gray-400 to-gray-700 rounded-full shadow-[0_0_20px_#00F0FF] z-10 flex items-center justify-center border-b-2 border-gray-800">

@@ -769,9 +769,24 @@ export default function HomePageMobile() {
     }
     window.addEventListener("beforeunload", handleBeforeUnload)
     
+    // Capture-phase click listener to save scroll before Next.js client-side routing
+    const handleGlobalClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const link = target.closest('a');
+      if (link && link.href) {
+        try {
+          const url = new URL(link.href);
+          if (url.origin === window.location.origin && url.pathname !== window.location.pathname) {
+            sessionStorage.setItem("homeMobileScroll", window.scrollY.toString());
+          }
+        } catch (err) {}
+      }
+    };
+    document.addEventListener("click", handleGlobalClick, true);
+
     return () => {
       window.removeEventListener("beforeunload", handleBeforeUnload)
-      sessionStorage.setItem("homeMobileScroll", window.scrollY.toString())
+      document.removeEventListener("click", handleGlobalClick, true);
     }
   }, [])
 

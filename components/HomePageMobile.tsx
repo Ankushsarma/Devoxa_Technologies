@@ -1448,7 +1448,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         <div className="wrap px-4 md:px-8" style={{ position: "relative", zIndex: 1 }}>
           <div className="section-head reveal in flex flex-col items-center" style={{ margin: "0 auto 40px", textAlign: "center" }}>
             <span className="eyebrow" style={{ margin: "0 0 16px 0" }}>Our Process</span>
-            <h2 style={{ textAlign: "center", fontSize: "clamp(26px, 7vw, 36px)", lineHeight: 1.2, marginBottom: "16px" }}>How Professional IT Services<br />Can Drive <span style={{ background: "linear-gradient(90deg,#7c3aed,#a78bfa)", WebkitBackgroundClip: "text", color: "transparent" }}>Success</span></h2>
+            <h2 style={{ textAlign: "center", fontSize: "clamp(26px, 7vw, 36px)", lineHeight: 1.2, marginBottom: "16px" }}>How Professional IT Services<br />Can Drive <span className="font-stencilia" style={{ background: "linear-gradient(90deg,#7c3aed,#a78bfa)", WebkitBackgroundClip: "text", color: "transparent" }}>Success</span></h2>
             <p style={{ margin: "0 auto", maxWidth: "600px", fontSize: "clamp(15px, 4vw, 17px)" }}>From initial consultation to ongoing optimization, our streamlined process ensures every project delivers measurable business value.</p>
           </div>
 
@@ -1493,7 +1493,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               
               <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 tracking-tight leading-[1.15]">
                 Crafting Digital <br className="hidden md:block" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-300 to-purple-400 animate-gradient bg-300%">Masterpieces</span>
+                <span className="font-stencilia text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-300 to-purple-400 animate-gradient bg-300%">Masterpieces</span>
               </h2>
               
               <p className="text-[#8981A6] text-xs sm:text-sm max-w-xl mx-auto leading-relaxed font-light">
@@ -1560,7 +1560,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               <span style={{ color: "#a855f7", fontSize: "10px" }}>◆</span> PARTNERSHIP MODELS
             </div>
             <h2 style={{ fontSize: "clamp(22px, 6.5vw, 28px)", fontWeight: 900, color: "#ffffff", marginBottom: "8px", letterSpacing: "-0.5px", whiteSpace: "nowrap" }}>
-              SERVICE <span style={{ color: "#a855f7", fontWeight: 900 }}>PACKAGES</span>
+              SERVICE <span className="font-stencilia">PACKAGES</span>
             </h2>
             <p style={{ color: "#94a3b8", fontSize: "14px", lineHeight: "1.6", fontWeight: 400, maxWidth: "440px", margin: 0 }}>
               Flexible engagement models designed to scale with your business needs and digital ambitions.
@@ -1601,7 +1601,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-3 tracking-tight leading-[1.15] text-center">
-              Industries We <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-300 to-indigo-400">Serve</span>
+              Industries We <span className="font-stencilia text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-300 to-indigo-400">Serve</span>
             </h2>
 
             <p className="text-[#8981A6] text-xs sm:text-sm max-w-xl mx-auto leading-relaxed font-light text-center">
@@ -1669,7 +1669,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="section-head reveal in relative z-10 mb-10 flex flex-col items-center text-center w-full">
             <span className="eyebrow" style={{ margin: '0 auto 16px', display: 'inline-block' }}>What Our Clients Say</span>
-            <h2 style={{ margin: '0 auto 16px', textAlign: 'center', fontSize: 'clamp(26px, 6vw, 36px)', lineHeight: 1.15 }}>Trusted by businesses across India</h2>
+            <h2 style={{ margin: '0 auto 16px', textAlign: 'center', fontSize: 'clamp(26px, 6vw, 36px)', lineHeight: 1.15 }}>Trusted by businesses across <span className="font-stencilia">India</span></h2>
             <p style={{ margin: '0 auto', textAlign: 'center', maxWidth: '500px', fontSize: '13px', color: '#94a3b8' }}>
               Delivering high-quality software, websites, CRM solutions, mobile applications, and AI automation.
             </p>
@@ -1699,8 +1699,8 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               <div className="relative lg:sticky top-4 lg:top-32 z-10">
                 <span className="eyebrow inline-block mb-3" style={{ margin: "0 0 12px 0" }}>Questions</span>
                 <h2 className="text-3xl sm:text-4xl lg:text-7xl font-bold tracking-tighter leading-[1.1] drop-shadow-lg mb-3">
-                  <ShinyText text="Common" color="#ffffff" shineColor="#8b5cf6" speed={3} />{" "}
-                  <ShinyText text="Questions" color="#ffffff" shineColor="#8b5cf6" speed={3} />
+                  <ShinyText text="Common" color="#ffffff" shineColor="#8b5cf6" speed={3} /> <br />
+                  <span className="font-stencilia"><ShinyText text="Questions" color="#ffffff" shineColor="#8b5cf6" speed={3} /></span>
                 </h2>
                 <p className="text-[#8981A6] font-light max-w-sm text-xs sm:text-base leading-relaxed mb-6">
                   Everything you need to know about our approach, timelines, and how we deliver exceptional results.

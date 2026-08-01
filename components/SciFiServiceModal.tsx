@@ -127,11 +127,11 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
   const h = parseInt(modalStyle.height as string) || 360;
 
   // Exact coordinates matching the uploaded image's complex cut corners
-  const mainPolyPoints = `0,20 0,70 30,40 110,40 140,0 ${w-20},0 ${w},20 ${w},${h-80} ${w-180},${h-80} ${w-240},${h} 20,${h} 0,${h-20}`;
-  const clipPolygon = `polygon(0% 20px, 0% 70px, 30px 40px, 110px 40px, 140px 0%, calc(100% - 20px) 0%, 100% 20px, 100% calc(100% - 80px), calc(100% - 180px) calc(100% - 80px), calc(100% - 240px) 100%, 20px 100%, 0% calc(100% - 20px))`;
+  const mainPolyPoints = `0,60 60,0 ${w-20},0 ${w},20 ${w},${h-80} ${w-180},${h-80} ${w-240},${h} 20,${h} 0,${h-20}`;
+  const clipPolygon = `polygon(0% 60px, 60px 0%, calc(100% - 20px) 0%, 100% 20px, 100% calc(100% - 80px), calc(100% - 180px) calc(100% - 80px), calc(100% - 240px) 100%, 20px 100%, 0% calc(100% - 20px))`;
   
   // Inner panel for the card name at the bottom right cutout
-  const innerPolyPoints = `${w-170},${h-70} ${w},${h-70} ${w},${h} ${w-222.5},${h}`;
+  const innerPolyPoints = `${w-174},${h-74} ${w},${h-74} ${w},${h-15} ${w-15},${h} ${w-230},${h}`;
   const innerClipPolygon = `polygon(calc(100% - 222.5px) 100%, calc(100% - 170px) 0, 100% 0, 100% 100%)`;
 
   if (!isOpen || !service) return null
@@ -168,19 +168,29 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
         {/* Exact Vector Borders & Backgrounds */}
         <svg className="absolute inset-0 pointer-events-none z-0 overflow-visible" width="100%" height="100%">
           {/* Main Background */}
-          <polygon points={mainPolyPoints} fill="rgba(7, 16, 27, 0.95)" stroke="rgba(139, 92, 246, 0.6)" strokeWidth="1.5" />
+          <polygon points={mainPolyPoints} fill="rgba(7, 16, 27, 0.95)" stroke="#00F0FF" strokeWidth="1" strokeOpacity="0.5" />
+          
+          {/* Top-Right HUD Element */}
+          <circle cx={w-40} cy="0" r="4" fill="none" stroke="#ffffff" strokeWidth="1.5" />
+          <circle cx={w-40} cy="0" r="1.5" fill="#ffffff" />
+          <path d={`M ${w-43} -2 L ${w-60} -15 L ${w-80} -15`} fill="none" stroke="#ffffff" strokeWidth="1" opacity="0.6" />
+
           {/* Main Glows */}
-          <line x1="140" y1="0" x2={w-20} y2="0" stroke="#ffffff" strokeWidth="2" filter="drop-shadow(0 0 8px rgba(255,255,255,0.8))" />
-          <line x1="20" y1={h} x2={w-240} y2={h} stroke="#ffffff" strokeWidth="2" filter="drop-shadow(0 0 8px rgba(255,255,255,0.8))" />
+          <line x1={w/2 - 40} y1="0" x2={w/2 + 40} y2="0" stroke="#ffffff" strokeWidth="2" filter="drop-shadow(0 0 8px rgba(255,255,255,0.8))" />
+          <line x1={w/2 - 100} y1={h} x2={w/2 - 20} y2={h} stroke="#ffffff" strokeWidth="2" filter="drop-shadow(0 0 8px rgba(255,255,255,0.8))" />
           
           {/* Inner Panel Background */}
-          <polygon points={innerPolyPoints} fill="rgba(139, 92, 246, 0.05)" stroke="rgba(139, 92, 246, 0.4)" strokeWidth="1" />
+          <polygon points={innerPolyPoints} fill="rgba(139, 92, 246, 0.05)" stroke="#00F0FF" strokeWidth="1" strokeOpacity="0.5" />
+          
+          {/* Tiny tech squares at the gap */}
+          <rect x={w-6} y={h-86} width="6" height="6" fill="#00F0FF" />
+          <rect x={w-6} y={h-74} width="6" height="6" fill="#00F0FF" />
         </svg>
 
         {/* Decorative Corner: Top Left Stripes */}
-        <div className="absolute top-[25px] left-[30px] w-20 h-[10px] bg-transparent flex gap-[3px] transform -skew-x-[45deg] origin-top-left pointer-events-none z-10">
-          {[1,2,3,4,5,6,7].map((i) => (
-            <div key={i} className="h-full w-2 bg-[#8b5cf6]/80 shadow-[0_0_5px_#8b5cf6]" />
+        <div className="absolute top-[18px] left-[15px] h-[8px] bg-transparent flex gap-[4px] transform -skew-x-[45deg] origin-top-left pointer-events-none z-10">
+          {[1,2,3,4,5,6].map((i) => (
+            <div key={i} className="h-full w-[4px] bg-gray-300" />
           ))}
         </div>
 

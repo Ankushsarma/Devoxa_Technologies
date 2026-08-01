@@ -219,7 +219,7 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
           {/* Content Area */}
           <div 
             className="absolute inset-0 flex flex-col justify-center gap-2 text-white overflow-hidden"
-            style={{ paddingTop: '64px', paddingBottom: '40px', paddingLeft: '80px', paddingRight: '50px' }}
+            style={{ paddingTop: '50px', paddingBottom: '80px', paddingLeft: '80px', paddingRight: '40px' }}
           >
             <motion.h3 
               initial={{ opacity: 0, x: -10 }}
@@ -246,12 +246,10 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.3 + (idx * 0.1) }}
                   key={idx} 
-                  className="flex items-center gap-3 text-[11px] sm:text-xs text-purple-50"
+                  className="flex items-start gap-3 text-[11px] sm:text-xs text-purple-50"
                 >
-                  <div className="w-4 h-4 flex items-center justify-center rounded-[2px] bg-[#8b5cf6]/20 border border-[#8b5cf6]/50 shrink-0 shadow-[0_0_8px_rgba(139,92,246,0.3)]">
-                    <Check size={10} className="text-[#00F0FF]" />
-                  </div>
-                  {feature}
+                  <div className="w-1.5 h-1.5 bg-[#00F0FF] shadow-[0_0_8px_#00F0FF] shrink-0 rotate-45 mt-[6px]"></div>
+                  <span className="leading-relaxed">{feature}</span>
                 </motion.div>
               ))}
             </div>

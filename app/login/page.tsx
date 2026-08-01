@@ -49,8 +49,12 @@ export default function LoginPage() {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center p-4 lg:p-8 login-page-bg" style={{ background: "linear-gradient(to right, #08060E 0%, #08060E 25%, #0B0A26 50%, #110E3D 75%, #181152 100%)", position: "relative", overflow: "hidden" }}>
+        <div className="h-screen w-screen max-w-full overflow-hidden flex items-center justify-center p-3 sm:p-5 lg:p-6 login-page-bg relative" style={{ background: "linear-gradient(to right, #08060E 0%, #08060E 25%, #0B0A26 50%, #110E3D 75%, #181152 100%)" }}>
             <style dangerouslySetInnerHTML={{__html: `
+                html, body {
+                    overflow: hidden !important;
+                    height: 100% !important;
+                }
                 .login-input:-webkit-autofill,
                 .login-input:-webkit-autofill:hover, 
                 .login-input:-webkit-autofill:focus, 
@@ -85,15 +89,15 @@ export default function LoginPage() {
                 />
             </div>
             
-            {/* Main Inner Window */}
+            {/* Main Inner Window - Fit Screen Window */}
             <div 
-                className="w-full max-w-[1000px] rounded-2xl relative overflow-hidden flex flex-col items-center justify-center"
+                className="w-full h-full max-w-[1400px] rounded-2xl sm:rounded-3xl relative overflow-hidden flex flex-col items-center justify-center"
                 style={{ 
-                    height: "700px", 
-                    background: "rgba(255,255,255,0.02)",
-                    backdropFilter: "blur(40px)",
-                    border: "1px solid rgba(139,47,209,0.15)",
-                    boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 60px rgba(139,47,209,0.1)",
+                    background: "rgba(255,255,255,0.03)",
+                    backdropFilter: "blur(45px)",
+                    WebkitBackdropFilter: "blur(45px)",
+                    border: "1px solid rgba(139,47,209,0.2)",
+                    boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 80px rgba(139,47,209,0.15)",
                     position: "relative"
                 }}
             >
@@ -262,30 +266,39 @@ export default function LoginPage() {
                         Forgot your password?
                     </Link>
                 </div>
+
+                {/* Back to Home floating link */}
+                <Link 
+                    href="/" 
+                    className="z-50 transition-all duration-200"
+                    style={{ 
+                        position: "absolute", 
+                        top: "24px", 
+                        left: "28px",
+                        color: "rgba(255,255,255,0.7)", 
+                        fontSize: "12px", 
+                        fontWeight: 600,
+                        textDecoration: "none",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "6px",
+                        padding: "6px 14px",
+                        borderRadius: "999px",
+                        background: "rgba(255,255,255,0.05)",
+                        border: "1px solid rgba(255,255,255,0.1)"
+                    }}
+                    onMouseOver={(e) => {
+                        e.currentTarget.style.color = "#fff";
+                        e.currentTarget.style.background = "rgba(255,255,255,0.12)";
+                    }}
+                    onMouseOut={(e) => {
+                        e.currentTarget.style.color = "rgba(255,255,255,0.7)";
+                        e.currentTarget.style.background = "rgba(255,255,255,0.05)";
+                    }}
+                >
+                    <ArrowRight size={13} style={{ transform: "rotate(180deg)" }} /> Back to Website
+                </Link>
             </div>
-            
-            {/* Back to Home floating link */}
-            <Link 
-                href="/" 
-                className="relative z-10"
-                style={{ 
-                    position: "absolute", 
-                    top: "32px", 
-                    left: "32px",
-                    color: "rgba(255,255,255,0.5)", 
-                    fontSize: "13px", 
-                    fontWeight: 500,
-                    textDecoration: "none",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "8px",
-                    transition: "color 0.2s"
-                }}
-                onMouseOver={(e) => e.currentTarget.style.color = "#fff"}
-                onMouseOut={(e) => e.currentTarget.style.color = "rgba(255,255,255,0.5)"}
-            >
-                <ArrowRight size={14} style={{ transform: "rotate(180deg)" }} /> Back to Website
-            </Link>
         </div>
     )
 }

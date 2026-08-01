@@ -75,13 +75,13 @@ export default function NotFound() {
       <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-3xl transform scale-[0.55] sm:scale-[0.60] md:scale-[0.65] lg:scale-[0.70] xl:scale-[0.75] origin-center mt-8">
         
         {/* Animated 404 Text with Sharp Cyber Glitch Effects */}
-        <div className="relative mb-6 mt-40 md:mt-48 flex items-center justify-center">
+        <div className="relative mb-6 flex items-center justify-center">
           
           {/* Alien Abduction Beam directly over 404 */}
           <motion.div
             animate={{ y: [-10, 10, -10], rotate: [-2, 2, -2] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-full left-1/2 -translate-x-1/2 w-48 h-[200px] md:h-[250px] z-20 pointer-events-none flex flex-col items-center mb-[-60px] md:mb-[-80px]"
+            className="absolute bottom-[50%] md:bottom-[60%] left-1/2 -translate-x-1/2 w-48 h-[180px] md:h-[220px] z-20 pointer-events-none flex flex-col items-center"
           >
             {/* UFO Ship */}
             <div className="relative w-32 md:w-40 h-10 md:h-12 bg-gradient-to-r from-gray-700 via-gray-400 to-gray-700 rounded-full shadow-[0_0_20px_#00F0FF] z-10 flex items-center justify-center border-b-2 border-gray-800">

@@ -62,7 +62,7 @@ export function Footer({ className = "pb-4", style, middleSectionClassName = "",
 
 					{/* Left CTA */}
 					<AnimatedContainer delay={0.2} className="w-full lg:w-[400px] shrink-0 flex flex-col items-start pl-3 sm:pl-0">
-						<h2 className="text-[24px] sm:text-[28px] md:text-[32px] font-stencilia text-white mb-2 leading-[1.15]">
+						<h2 className="text-[24px] sm:text-[28px] md:text-[32px] text-white mb-2 leading-[1.15]">
 							Let's build something<br />
 							amazing <span className="text-[#a78bfa]">together.</span>
 						</h2>

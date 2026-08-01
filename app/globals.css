@@ -11,14 +11,6 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'Stencilia';
-  src: url('/fonts/Stencilia-A.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
   /* Backgrounds */
   --bg-void: #050506;
@@ -70,7 +62,6 @@
   --font-sans: var(--font-sans), 'Inter', sans-serif;
   --font-mono: var(--font-mono), 'JetBrains Mono', monospace;
   --font-lemon: 'Lemon Milk', sans-serif;
-  --font-stencilia: 'Stencilia', sans-serif;
 
   /* Marquee Animation */
   --animate-marquee: marquee 60s linear infinite;
@@ -96,7 +87,7 @@
   }
 
   h2 {
-    font-family: var(--font-lemon);
+    font-family: var(--font-lemon) !important;
   }
 
   * {

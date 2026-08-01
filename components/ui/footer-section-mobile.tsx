@@ -57,7 +57,7 @@ export function FooterMobile() {
 
 				{/* Left CTA */}
 				<AnimatedContainer delay={0.2} className="flex flex-col items-start sm:items-center text-left sm:text-center w-full">
-					<h2 className="text-[20px] sm:text-[22px] font-stencilia text-white leading-[1.15] mb-3">
+					<h2 className="text-[20px] sm:text-[22px] text-white leading-[1.15] mb-3">
 						Let's build something<br />
 						amazing <span className="text-[#a78bfa]">together.</span>
 					</h2>

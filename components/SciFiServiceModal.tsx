@@ -39,8 +39,8 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
     if (isOpen && activeCardRect) {
       const spaceLeft = activeCardRect.left
       const spaceRight = window.innerWidth - activeCardRect.right
-      const modalWidth = Math.min(520, window.innerWidth - 40) // Increased width
-      const modalHeight = 360 // Increased height
+      const modalWidth = Math.min(460, window.innerWidth - 40) // Scaled down width
+      const modalHeight = 320 // Scaled down height
 
       let left = 0
       let top = activeCardRect.top + activeCardRect.height / 2 - modalHeight / 2 
@@ -137,12 +137,12 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
   const h = parseInt(modalStyle.height as string) || 360;
 
   // Exact coordinates matching the uploaded image's complex cut corners
-  const mainPolyPoints = `0,20 0,70 30,40 110,40 140,0 ${w-20},0 ${w},20 ${w},${h-80} ${w-200},${h-80} ${w-260},${h} 20,${h} 0,${h-20}`;
-  const clipPolygon = `polygon(0% 20px, 0% 70px, 30px 40px, 110px 40px, 140px 0%, calc(100% - 20px) 0%, 100% 20px, 100% calc(100% - 80px), calc(100% - 200px) calc(100% - 80px), calc(100% - 260px) 100%, 20px 100%, 0% calc(100% - 20px))`;
+  const mainPolyPoints = `0,20 0,70 30,40 110,40 140,0 ${w-20},0 ${w},20 ${w},${h-80} ${w-180},${h-80} ${w-240},${h} 20,${h} 0,${h-20}`;
+  const clipPolygon = `polygon(0% 20px, 0% 70px, 30px 40px, 110px 40px, 140px 0%, calc(100% - 20px) 0%, 100% 20px, 100% calc(100% - 80px), calc(100% - 180px) calc(100% - 80px), calc(100% - 240px) 100%, 20px 100%, 0% calc(100% - 20px))`;
   
   // Inner panel for the card name at the bottom right cutout
-  const innerPolyPoints = `${w-190},${h-70} ${w},${h-70} ${w},${h} ${w-242.5},${h}`;
-  const innerClipPolygon = `polygon(calc(100% - 242.5px) 100%, calc(100% - 190px) 0, 100% 0, 100% 100%)`;
+  const innerPolyPoints = `${w-170},${h-70} ${w},${h-70} ${w},${h} ${w-222.5},${h}`;
+  const innerClipPolygon = `polygon(calc(100% - 222.5px) 100%, calc(100% - 170px) 0, 100% 0, 100% 100%)`;
 
   if (!isOpen || !service) return null
 
@@ -182,7 +182,7 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
           <polygon points={mainPolyPoints} fill="rgba(7, 16, 27, 0.95)" stroke="rgba(139, 92, 246, 0.6)" strokeWidth="1.5" />
           {/* Main Glows */}
           <line x1="140" y1="0" x2={w-20} y2="0" stroke="#ffffff" strokeWidth="2" filter="drop-shadow(0 0 8px rgba(255,255,255,0.8))" />
-          <line x1="20" y1={h} x2={w-260} y2={h} stroke="#ffffff" strokeWidth="2" filter="drop-shadow(0 0 8px rgba(255,255,255,0.8))" />
+          <line x1="20" y1={h} x2={w-240} y2={h} stroke="#ffffff" strokeWidth="2" filter="drop-shadow(0 0 8px rgba(255,255,255,0.8))" />
           
           {/* Inner Panel Background */}
           <polygon points={innerPolyPoints} fill="rgba(139, 92, 246, 0.05)" stroke="rgba(139, 92, 246, 0.4)" strokeWidth="1" />
@@ -197,9 +197,9 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
 
         {/* Decorative Corner: Bottom Right Card Name */}
         <div 
-          className="absolute bottom-0 right-0 w-[190px] h-[70px] pointer-events-none flex items-center justify-center p-2 z-10"
+          className="absolute bottom-0 right-0 w-[170px] h-[70px] pointer-events-none flex items-center justify-center p-2 z-10"
         >
-          <span className="text-[11px] sm:text-xs font-mono text-[#00F0FF] uppercase tracking-widest drop-shadow-[0_0_5px_rgba(0,240,255,0.5)]">
+          <span className="text-[10px] sm:text-[11px] font-mono text-[#00F0FF] uppercase tracking-widest drop-shadow-[0_0_5px_rgba(0,240,255,0.5)]">
             {service.title}
           </span>
         </div>
@@ -228,12 +228,12 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
           </button>
 
           {/* Content Area */}
-          <div className="absolute inset-0 p-8 sm:p-10 flex flex-col justify-center gap-3 text-white">
+          <div className="absolute inset-0 pt-[52px] pb-[32px] pl-[40px] sm:pl-[48px] pr-8 flex flex-col justify-center gap-2 text-white overflow-hidden">
             <motion.h3 
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-[#8b5cf6] drop-shadow-[0_0_10px_rgba(139,92,246,0.6)]"
+              className="text-xl sm:text-2xl font-black uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-[#8b5cf6] drop-shadow-[0_0_10px_rgba(139,92,246,0.6)]"
             >
               {service.title}
             </motion.h3>
@@ -242,12 +242,12 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="text-sm sm:text-base text-gray-300 max-w-sm leading-relaxed border-l-2 border-[#8b5cf6]/60 pl-4 mt-2"
+              className="text-xs sm:text-sm text-gray-300 max-w-[90%] leading-relaxed border-l-2 border-[#8b5cf6]/60 pl-3 mt-1"
             >
               {service.description}
             </motion.p>
 
-            <div className="mt-4 flex flex-col gap-3">
+            <div className="mt-2 flex flex-col gap-2">
               {service.features.map((feature, idx) => (
                 <motion.div 
                   initial={{ opacity: 0, x: -10 }}

@@ -23,21 +23,29 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
   const [modalStyle, setModalStyle] = useState<React.CSSProperties>({})
   const [pointerDirection, setPointerDirection] = useState<'left' | 'right' | 'center'>('center')
 
-  // Prevent scrolling when modal is open (with layout shift fix)
+  // Prevent scrolling when modal is open WITHOUT layout shift (by blocking scroll events instead of hiding scrollbar)
   useEffect(() => {
-    if (isOpen) {
-      // Calculate scrollbar width to prevent layout shift when overflow becomes hidden
-      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
-      document.body.style.overflow = 'hidden'
-      document.body.style.paddingRight = `${scrollbarWidth}px`
-    } else {
-      document.body.style.overflow = ''
-      document.body.style.paddingRight = ''
+    if (!isOpen) return
+
+    const preventScroll = (e: Event) => {
+      e.preventDefault()
     }
 
+    // Add non-passive event listeners to block scrolling
+    window.addEventListener('wheel', preventScroll, { passive: false })
+    window.addEventListener('touchmove', preventScroll, { passive: false })
+    // Block keyboard scrolling (arrow keys, page up/down, space)
+    const preventKeyScroll = (e: KeyboardEvent) => {
+      if (['ArrowUp', 'ArrowDown', 'Space', 'PageUp', 'PageDown'].includes(e.code)) {
+        e.preventDefault()
+      }
+    }
+    window.addEventListener('keydown', preventKeyScroll, { passive: false })
+
     return () => {
-      document.body.style.overflow = ''
-      document.body.style.paddingRight = ''
+      window.removeEventListener('wheel', preventScroll)
+      window.removeEventListener('touchmove', preventScroll)
+      window.removeEventListener('keydown', preventKeyScroll)
     }
   }, [isOpen])
 

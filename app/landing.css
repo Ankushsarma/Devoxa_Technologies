@@ -9,13 +9,13 @@
   --text-low:#87868a;
   --border-c:rgba(255,255,255,0.08);
 }
-body{margin:0;padding:0;background:#050408;}
-.vx *{margin:0;padding:0;box-sizing:border-box;}
-.vx{background:#050408;color:var(--text-hi);font-family:'Inter',sans-serif;overflow-x:hidden;min-height:100vh;}
+body{margin:0;padding:0;background:#050408;-webkit-font-smoothing:antialiased;}
+.vx *{margin:0;padding:0;box-sizing:border-box;-webkit-backface-visibility:hidden;backface-visibility:hidden;}
+.vx{background:#050408;color:var(--text-hi);font-family:'Inter',sans-serif;overflow-x:hidden;min-height:100vh;transform:translateZ(0);}
 .vx h1,.vx h2,.vx h3,.vx .display{font-family:'Space Grotesk',sans-serif;}
 .vx a{color:inherit;text-decoration:none;}
 .vx ul{list-style:none;}
-.vx img{max-width:100%;display:block;}
+.vx img{max-width:100%;display:block;transform:translateZ(0);}
 .vx .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
 
 /* ========== FULL-BLEED SECTION FLOW ========== */

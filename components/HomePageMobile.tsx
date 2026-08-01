@@ -23,11 +23,10 @@ import SpecularButton from "@/components/SpecularButton"
 import LightRays from "@/components/LightRays"
 import BorderGlow from "@/components/BorderGlow"
 import SideRays from "@/components/SideRays"
-import ServicesGrid from "@/components/ServicesGrid"
-import StatsSection from "@/components/StatsSection"
 import SpotlightCard from "@/components/SpotlightCard"
 import Particles from "@/components/Particles"
 import PillNav from "@/components/PillNav"
+import { FooterMobile } from "@/components/ui/footer-section-mobile"
 
 
 
@@ -1758,6 +1757,8 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
           </div>
         </div>
       </section>
+
+      <FooterMobile />
 
       <SciFiServiceModal 
         isOpen={!!activeService} 

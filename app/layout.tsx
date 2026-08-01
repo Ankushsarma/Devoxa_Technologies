@@ -73,7 +73,6 @@ const jsonLd = {
 
 import { Toaster } from "sonner"
 import { AuthProvider } from "@/context/auth-context"
-import GlobalFooter from "@/components/GlobalFooter"
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
@@ -103,7 +102,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <ErrorSuppressor />
         <AuthProvider>
           {children}
-          <GlobalFooter />
           <Toaster richColors position="top-right" />
         </AuthProvider>
       </body>

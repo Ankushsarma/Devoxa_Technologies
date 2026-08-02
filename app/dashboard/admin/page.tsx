@@ -98,19 +98,23 @@ export default function AdminDashboard() {
     return (
         <div className="min-h-screen bg-background p-6 pt-4 md:p-12 md:pt-6">
             <div className="max-w-7xl mx-auto">
-                <header className="flex flex-col md:flex-row md:justify-between md:items-end gap-6 mb-12 border-b border-neutral-200/60 pb-8">
+                <header className="flex flex-col md:flex-row md:justify-between md:items-end gap-6 mb-12 border-b border-[#705474]/20 pb-8">
                     <div className="flex items-center gap-5">
-                        <div className="w-14 h-14 rounded-2xl overflow-hidden border border-neutral-200 shadow-sm shrink-0 flex items-center justify-center bg-theme-50">
-                            <Image src="/logo.png" alt="Logo" width={56} height={56} className="w-full h-full object-cover scale-125" />
+                        <div className="w-14 h-14 rounded-2xl bg-[#523056] p-[2px] shadow-[0_0_40px_rgba(139,47,209,0.25)] shrink-0 group">
+                            <div className="w-full h-full bg-[#0B0819] rounded-[14px] flex items-center justify-center p-2 overflow-hidden">
+                                <Image src="/logo.png" alt="Logo" width={56} height={56} className="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-500" />
+                            </div>
                         </div>
                         <div>
-                            <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-studio-black">Admin Panel.</h1>
-                            <p className="text-neutral-500 text-sm md:text-base mt-1 font-medium">System Overview & Management</p>
+                            <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[#f1eef1]">
+                                Admin <span className="text-[#705474]">Panel.</span>
+                            </h1>
+                            <p className="text-[#f1eef1]/60 text-sm md:text-base mt-1 font-mono tracking-wide">System Overview & Management</p>
                         </div>
                     </div>
                     <button
                         onClick={() => router.push("/")}
-                        className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-neutral-400 hover:text-studio-black transition-colors"
+                        className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-transparent border border-[#705474]/30 text-xs font-mono font-bold uppercase tracking-widest text-[#705474] hover:text-[#f1eef1] hover:bg-[#26082a] hover:border-[#705474]/60 hover:shadow-[0_0_20px_rgba(139,47,209,0.2)] transition-all active:scale-95"
                     >
                         <span className="text-lg leading-none">&larr;</span> Back to Site
                     </button>

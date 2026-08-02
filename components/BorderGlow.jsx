@@ -1,4 +1,5 @@
 'use client';
+import CanvasVisibilityWrapper from "@/components/CanvasVisibilityWrapper";
 import { useRef, useCallback, useEffect } from 'react';
 import './BorderGlow.css';
 
@@ -54,13 +55,13 @@ const BorderGlow = ({
   className = '',
   edgeSensitivity = 30,
   glowColor = '40 80 80',
-  backgroundColor = '#120F17',
+  backgroundColor = '#0A0710',
   borderRadius = 28,
   glowRadius = 40,
   glowIntensity = 1.0,
   coneSpread = 25,
   animated = false,
-  colors = ['#c084fc', '#f472b6', '#38bdf8'],
+  colors = ['#8B2FD1', '#8B2FD1', '#8B2FD1'],
   fillOpacity = 0.5,
 }) => {
   const cardRef = useRef(null);
@@ -154,4 +155,13 @@ const BorderGlow = ({
   );
 };
 
-export default BorderGlow;
+// export default BorderGlow;
+
+
+export default function BorderGlowWrapper(props) {
+  return (
+    <CanvasVisibilityWrapper>
+      <BorderGlow {...props} />
+    </CanvasVisibilityWrapper>
+  );
+}

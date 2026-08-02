@@ -49,7 +49,7 @@ export function Footer({ className = "pb-4", style, middleSectionClassName = "",
 	return (
 		<footer
 			id="footer"
-			className={`md:rounded-t-6xl relative w-full flex flex-col justify-start rounded-t-4xl border-t border-white/10 bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)] px-6 sm:px-8 ${className}`}
+			className={`md:rounded-t-6xl relative w-full flex flex-col justify-start rounded-t-4xl border-t border-[#705474]/15 bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)] px-6 sm:px-8 ${className}`}
 			style={{ paddingTop: '0', ...style }}
 		>
 
@@ -62,42 +62,42 @@ export function Footer({ className = "pb-4", style, middleSectionClassName = "",
 
 					{/* Left CTA */}
 					<AnimatedContainer delay={0.2} className="w-full lg:w-[400px] shrink-0 flex flex-col items-start pl-3 sm:pl-0">
-						<h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-white mb-2 leading-tight">
+						<h2 className="text-[24px] sm:text-[28px] md:text-[32px] text-theme-50 mb-2 leading-[1.15]">
 							Let's build something<br />
-							amazing <span className="text-[#a78bfa]">together.</span>
+							amazing <span className="font-stencilia uppercase text-[#8f7992]">together.</span>
 						</h2>
-						<p className="text-gray-400 text-xs sm:text-sm leading-relaxed max-w-sm">
+						<p className="text-[#f1eef1]/60 text-xs sm:text-sm leading-relaxed max-w-sm">
 							We partner with ambitious businesses to design, build and scale digital products that drive real impact.
 						</p>
 
 						{/* Contact Info */}
 						<div className="flex flex-col w-full" style={{ marginTop: '1.25rem', gap: '1rem' }}>
-							<a href="tel:8544005858" className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-300">
-								<div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10 shrink-0">
-									<Phone className="w-3.5 h-3.5 text-[#a78bfa]" />
+							<a href="tel:8544005858" className="flex items-center gap-3 text-[#f1eef1]/70 hover:text-[#f1eef1] transition-colors duration-300">
+								<div className="w-8 h-8 rounded-full bg-transparent flex items-center justify-center border border-[#705474]/15 shrink-0">
+									<Phone className="w-3.5 h-3.5 text-[#705474]" />
 								</div>
 								<span className="text-xs sm:text-sm tracking-wide">8544005858</span>
 							</a>
-							<a href="mailto:support@devoxatechnologies.com" className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-300 w-full overflow-hidden">
-								<div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10 shrink-0">
-									<Mail className="w-3.5 h-3.5 text-[#a78bfa]" />
+							<a href="mailto:support@devoxatechnologies.com" className="flex items-center gap-3 text-[#f1eef1]/70 hover:text-[#f1eef1] transition-colors duration-300 w-full overflow-hidden">
+								<div className="w-8 h-8 rounded-full bg-transparent flex items-center justify-center border border-[#705474]/15 shrink-0">
+									<Mail className="w-3.5 h-3.5 text-[#705474]" />
 								</div>
 								<span className="text-xs sm:text-sm tracking-wide truncate">support@devoxatechnologies.com</span>
 							</a>
 						</div>
 
 						{/* Social Media Icons */}
-						<div className="flex text-gray-400 gap-3 sm:gap-5" style={{ marginTop: '16px' }}>
-							<a href="#" className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center hover:text-white hover:border-white/30 transition-all">
+						<div className="flex text-[#f1eef1]/60 gap-3 sm:gap-5" style={{ marginTop: '16px' }}>
+							<a href="#" className="w-9 h-9 rounded-full border border-[#705474]/15 flex items-center justify-center hover:text-[#f1eef1] hover:border-theme-50/30 transition-all">
 								<Youtube className="size-4" />
 							</a>
-							<a href="#" className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center hover:text-white hover:border-white/30 transition-all">
+							<a href="#" className="w-9 h-9 rounded-full border border-[#705474]/15 flex items-center justify-center hover:text-[#f1eef1] hover:border-theme-50/30 transition-all">
 								<Twitter className="size-4" />
 							</a>
-							<a href="#" className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center hover:text-white hover:border-white/30 transition-all">
+							<a href="#" className="w-9 h-9 rounded-full border border-[#705474]/15 flex items-center justify-center hover:text-[#f1eef1] hover:border-theme-50/30 transition-all">
 								<Instagram className="size-4" />
 							</a>
-							<a href="#" className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center hover:text-white hover:border-white/30 transition-all">
+							<a href="#" className="w-9 h-9 rounded-full border border-[#705474]/15 flex items-center justify-center hover:text-[#f1eef1] hover:border-theme-50/30 transition-all">
 								<Linkedin className="size-4" />
 							</a>
 						</div>
@@ -108,13 +108,13 @@ export function Footer({ className = "pb-4", style, middleSectionClassName = "",
 						{footerLinks.map((section: FooterSection, index: number) => (
 							<AnimatedContainer key={section.label} delay={0.3 + index * 0.1}>
 								<div className="mb-6 md:mb-0">
-									<h3 className="text-white text-xs font-semibold tracking-wider uppercase flex flex-col mb-4">
+									<h3 className="text-[#f1eef1] text-xs font-semibold tracking-wider uppercase flex flex-col mb-4">
 										{section.label}
-										<div className="w-4 h-[2px] bg-[#a78bfa]/50 mt-1.5"></div>
+										<div className="w-4 h-[2px] bg-[#705474]/50 mt-1.5"></div>
 									</h3>
 									<LineSidebar
 										items={section.links.map(link => link.title)}
-										accentColor="#a78bfa"
+										accentColor="#705474"
 										textColor="#9ca3af"
 										markerColor="#4b5563"
 										showIndex={false}
@@ -145,14 +145,14 @@ export function Footer({ className = "pb-4", style, middleSectionClassName = "",
 
 					{/* Massive Watermark */}
 					<AnimatedContainer delay={0.5} className="w-full flex justify-center items-center overflow-hidden pointer-events-none select-none my-2">
-						<span className="text-[14vw] sm:text-[11vw] font-bold leading-[0.75] tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-white/30 to-transparent">
+ <span className="text-[14vw] sm:text-[11vw] font-bold leading-[0.75] tracking-tighter text-theme-50/30">
 							DEVOXA
 						</span>
 					</AnimatedContainer>
 
 					{/* Copyright Row */}
 					<AnimatedContainer delay={0.8} className="w-full flex flex-col md:flex-row items-center justify-center gap-4 mt-2 pb-6">
-						<p className="text-gray-500 text-xs sm:text-sm text-center">
+						<p className="text-[#f1eef1]/50 text-xs sm:text-sm text-center">
 							© {new Date().getFullYear()} Devoxa Technologies. All rights reserved.
 						</p>
 					</AnimatedContainer>

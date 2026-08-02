@@ -2,7 +2,7 @@
   position: relative;
   --mouse-x: 50%;
   --mouse-y: 50%;
-  --spotlight-color: rgba(255, 255, 255, 0.05);
+  --spotlight-color: rgba(139,47,209,0.2);
 }
 
 .card-spotlight::before {

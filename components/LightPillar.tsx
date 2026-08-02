@@ -1,12 +1,13 @@
 "use client";
+import CanvasVisibilityWrapper from "@/components/CanvasVisibilityWrapper";
 
 import { useRef, useEffect, useState } from 'react';
 import * as THREE from 'three';
 import './LightPillar.css';
 
 const LightPillar = ({
-  topColor = '#5227FF',
-  bottomColor = '#FF9FFC',
+  topColor = '#523056',
+  bottomColor = '#705474',
   intensity = 1.0,
   rotationSpeed = 0.3,
   interactive = false,
@@ -390,4 +391,12 @@ const LightPillar = ({
   return <div ref={containerRef} className={`light-pillar-container ${className}`} style={{ mixBlendMode: mixBlendMode as any }} />;
 };
 
-export default LightPillar;
+const LightPillarInner = LightPillar;
+
+export default function LightPillarWrapper(props: any) {
+  return (
+    <CanvasVisibilityWrapper>
+      <LightPillarInner {...props} />
+    </CanvasVisibilityWrapper>
+  );
+}

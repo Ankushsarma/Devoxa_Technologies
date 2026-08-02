@@ -1,4 +1,5 @@
 'use client';
+import CanvasVisibilityWrapper from "@/components/CanvasVisibilityWrapper";
 import { Camera, Mesh, Plane, Program, Renderer, Texture, Transform } from 'ogl';
 import { useEffect, useRef } from 'react';
 
@@ -441,10 +442,10 @@ class App {
   }
   createMedias(items, bend = 1, textColor, borderRadius, font) {
     const defaultItems = [
-      { image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=90', text: 'Aq Homes' },
-      { image: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1600&q=90', text: 'Cab Partner' },
-      { image: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1600&q=90', text: 'Smart Rent' },
-      { image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1600&q=90', text: 'lionscott' }
+      { image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1600&q=90', text: 'Aq Homes' },
+      { image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=1600&q=90', text: 'Cab Partner' },
+      { image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=90', text: 'Smart Rent' },
+      { image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1600&q=90', text: 'lionscott' }
     ];
     const galleryItems = items && items.length ? items : defaultItems;
     this.mediasImages = galleryItems.concat(galleryItems);
@@ -588,7 +589,7 @@ class App {
   }
 }
 
-export default function CircularGallery({
+function CircularGalleryInner({
   items,
   bend = 3,
   textColor = '#ffffff',
@@ -629,5 +630,14 @@ export default function CircularGallery({
       role="region"
       aria-label="Circular image gallery. Use left and right arrow keys to navigate."
     />
+  );
+}
+
+
+export default function CircularGallery(props) {
+  return (
+    <CanvasVisibilityWrapper>
+      <CircularGalleryInner {...props} />
+    </CanvasVisibilityWrapper>
   );
 }

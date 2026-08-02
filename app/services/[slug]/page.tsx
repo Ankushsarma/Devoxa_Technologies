@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import { getServiceBySlug } from "@/lib/services-data";
 import Link from "next/link";
+import { Footer } from "@/components/ui/footer-section";
+import { FooterMobile } from "@/components/ui/footer-section-mobile";
 
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -11,9 +13,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   }
 
   return (
-    <main className="bg-[#fafafa] text-studio-black font-sans selection:bg-black selection:text-white min-h-screen flex flex-col">
+    <main className="bg-[#fafafa] text-studio-black font-sans selection:bg-theme-900 selection:text-[#f1eef1] min-h-screen flex flex-col">
       {/* Minimal Navigation */}
-      <nav className="w-full bg-transparent px-8 md:px-16 py-8 flex justify-between items-center fixed top-0 z-50 mix-blend-difference text-white">
+      <nav className="w-full bg-transparent px-8 md:px-16 py-8 flex justify-between items-center fixed top-0 z-50 mix-blend-difference text-[#f1eef1]">
         <div className="font-serif text-2xl font-medium tracking-tight italic flex items-center gap-4">
           <Link href="/">Devoxa Technologies</Link>
         </div>
@@ -49,7 +51,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               <h2 className="text-xs uppercase tracking-[0.2em] font-mono text-neutral-500 pt-2 md:pt-3">Overview</h2>
             </div>
             <div className="md:col-span-8 lg:col-span-9 max-w-4xl">
-              <p className="text-2xl md:text-3xl lg:text-[2.5rem] font-light leading-[1.3] text-black">
+              <p className="text-2xl md:text-3xl lg:text-[2.5rem] font-light leading-[1.3] text-theme-900">
                 {service.introduction}
               </p>
             </div>
@@ -57,14 +59,14 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </section>
 
         {/* Features Grid (Cards) */}
-        <section className="px-8 md:px-16 py-24 bg-white border-y border-black/5">
+        <section className="px-8 md:px-16 py-24 bg-theme-50 border-y border-black/5">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-xs uppercase tracking-[0.2em] font-mono text-neutral-400 mb-16">Core Capabilities</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {service.features.map((feature, idx) => (
-                <div key={idx} className="group p-10 md:p-12 bg-[#fafafa] border border-black/5 rounded-2xl hover:bg-white hover:shadow-2xl hover:shadow-black/5 transition-all duration-500">
-                  <div className="w-10 h-[1px] bg-black/20 mb-8 group-hover:w-16 group-hover:bg-black transition-all duration-500"></div>
-                  <h3 className="font-serif text-3xl md:text-4xl mb-4 text-black group-hover:italic transition-all duration-300">{feature.title}</h3>
+                <div key={idx} className="group p-10 md:p-12 bg-[#fafafa] border border-black/5 rounded-2xl hover:bg-theme-50 hover:shadow-2xl hover:shadow-black/5 transition-all duration-500">
+                  <div className="w-10 h-[1px] bg-theme-900/20 mb-8 group-hover:w-16 group-hover:bg-theme-900 transition-all duration-500"></div>
+                  <h3 className="font-serif text-3xl md:text-4xl mb-4 text-theme-900 group-hover:italic transition-all duration-300">{feature.title}</h3>
                   <p className="text-neutral-500 font-light leading-relaxed text-base md:text-lg">{feature.description}</p>
                 </div>
               ))}
@@ -73,18 +75,18 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </section>
 
         {/* Process Section */}
-        <section className="px-8 md:px-16 pt-16 md:pt-20 pb-24 md:pb-32 bg-studio-black text-white">
+        <section className="px-8 md:px-16 pt-16 md:pt-20 pb-24 md:pb-32 bg-studio-black text-[#f1eef1]">
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-20 gap-8">
               <h2 className="text-xs uppercase tracking-[0.2em] font-mono text-neutral-500">Methodology</h2>
               <p className="font-serif text-4xl md:text-5xl italic text-neutral-300">Our structured approach.</p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16 border-t border-white/10 pt-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16 border-t border-[#705474]/15 pt-16">
               {service.process.map((step, idx) => (
                 <div key={idx} className="group flex flex-col">
-                  <span className="font-mono text-[10px] text-neutral-500 mb-6 tracking-widest border border-white/10 px-3 py-1 rounded-full self-start group-hover:border-white/30 transition-colors">PHASE {step.phase}</span>
-                  <h3 className="font-serif text-2xl mb-4 text-white group-hover:text-neutral-300 transition-colors">{step.title}</h3>
+                  <span className="font-mono text-[10px] text-neutral-500 mb-6 tracking-widest border border-[#705474]/15 px-3 py-1 rounded-full self-start group-hover:border-theme-50/30 transition-colors">PHASE {step.phase}</span>
+                  <h3 className="font-serif text-2xl mb-4 text-[#f1eef1] group-hover:text-neutral-300 transition-colors">{step.title}</h3>
                   <p className="text-neutral-400 font-light text-sm leading-relaxed">{step.description}</p>
                 </div>
               ))}
@@ -96,8 +98,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       {/* CTA Footer */}
       <footer className="px-8 md:px-16 py-32 text-center bg-[#fafafa]">
         <div className="max-w-4xl mx-auto">
-          <h2 className="font-serif text-5xl md:text-7xl mb-12 italic tracking-tight text-black">Ready to elevate your digital presence?</h2>
-          <a href="/#contact" className="bg-black text-white px-10 py-5 rounded-full font-mono text-[11px] uppercase tracking-[0.2em] hover:bg-neutral-800 hover:scale-105 transition-all duration-300 inline-block shadow-lg shadow-black/10">
+          <h2 className="font-serif text-5xl md:text-7xl mb-12 italic tracking-tight text-theme-900">Ready to elevate your digital presence?</h2>
+          <a href="/#contact" className="bg-theme-900 text-[#f1eef1] px-10 py-5 rounded-full font-mono text-[11px] uppercase tracking-[0.2em] hover:bg-neutral-800 hover:scale-105 transition-all duration-300 inline-block shadow-lg shadow-black/10">
             Start a project —
           </a>
         </div>

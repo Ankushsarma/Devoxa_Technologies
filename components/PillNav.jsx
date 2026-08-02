@@ -12,8 +12,8 @@ const PillNav = ({
   className = '',
   ease = 'power3.easeOut',
   baseColor = '#fff',
-  pillColor = '#120F17',
-  hoveredPillTextColor = '#120F17',
+  pillColor = '#0A0710',
+  hoveredPillTextColor = '#0A0710',
   pillTextColor,
   onMobileMenuClick,
   initialLoadAnimation = true,
@@ -245,7 +245,8 @@ const PillNav = ({
         el = document.getElementById(targetId + '-mobile');
       }
       if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
+        const y = el.getBoundingClientRect().top + window.scrollY - 100;
+        window.scrollTo({ top: y, behavior: 'smooth' });
       }
     }
   };

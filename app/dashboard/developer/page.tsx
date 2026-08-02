@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import { useAuth } from "@/context/auth-context"
 import { useRouter } from "next/navigation"
-import { Chat } from "@/components/chat"
+// import { Chat } from "@/components/chat"
 import Image from "next/image"
 import { Folder, Clock, CheckCircle2, ClipboardList, MessageSquare, X, Rss } from "lucide-react"
 import { NoticeBoard } from "@/components/notice-board"
@@ -66,19 +66,19 @@ export default function DeveloperDashboard() {
                 <div className="flex flex-wrap gap-2 mb-8 border-b border-border pb-4">
                     <button
                         onClick={() => setActiveTab("projects")}
-                        className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${activeTab === "projects" ? "bg-studio-black text-white shadow-md" : "text-secondary hover:bg-neutral-100 hover:text-foreground"}`}
+                        className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${activeTab === "projects" ? "bg-studio-black text-[#f1eef1] shadow-md" : "text-secondary hover:bg-neutral-100 hover:text-foreground"}`}
                     >
                         Assigned Projects <span className="ml-1 opacity-70">({assignments.length})</span>
                     </button>
                     <button
                         onClick={() => setActiveTab("notice-board")}
-                        className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${activeTab === "notice-board" ? "bg-studio-black text-white shadow-md" : "text-secondary hover:bg-neutral-100 hover:text-foreground"}`}
+                        className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${activeTab === "notice-board" ? "bg-studio-black text-[#f1eef1] shadow-md" : "text-secondary hover:bg-neutral-100 hover:text-foreground"}`}
                     >
                         Task Board <span className="ml-1 opacity-70">({tasks.length})</span>
                     </button>
                     <button
                         onClick={() => setActiveTab("global-notice")}
-                        className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${activeTab === "global-notice" ? "bg-studio-black text-white shadow-md" : "text-secondary hover:bg-neutral-100 hover:text-foreground"}`}
+                        className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${activeTab === "global-notice" ? "bg-studio-black text-[#f1eef1] shadow-md" : "text-secondary hover:bg-neutral-100 hover:text-foreground"}`}
                     >
                         <span className="flex items-center gap-2"><Rss className="w-3.5 h-3.5" />Global Notice</span>
                     </button>
@@ -174,7 +174,7 @@ export default function DeveloperDashboard() {
                                             ) : (
                                                 <div className="space-y-3">
                                                     {tasks.filter(t => (t.leadId?._id || t.leadId) === selectedLead._id).map(task => (
-                                                        <div key={task._id} className="group relative flex flex-col sm:flex-row sm:items-center justify-between bg-white border border-border p-4 rounded-xl shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 overflow-hidden">
+                                                        <div key={task._id} className="group relative flex flex-col sm:flex-row sm:items-center justify-between bg-theme-50 border border-border p-4 rounded-xl shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 overflow-hidden">
                                                             <div className="absolute left-0 top-0 bottom-0 w-1 bg-studio-black/10 group-hover:bg-studio-black transition-colors"></div>
                                                             <div className="pl-2 mb-3 sm:mb-0">
                                                                 <h5 className="font-bold text-sm text-foreground">{task.title}</h5>
@@ -196,7 +196,7 @@ export default function DeveloperDashboard() {
                                                                 }}
                                                                 className={`text-xs font-bold uppercase border rounded-lg px-3 py-2 cursor-pointer outline-none transition-all shadow-sm focus:ring-2 focus:ring-offset-1 focus:ring-studio-black/20 ${task.status === 'done' ? 'bg-green-50 text-green-700 border-green-200 hover:bg-green-100' :
                                                                         task.status === 'in-progress' ? 'bg-blue-50 text-blue-700 border-blue-200 hover:bg-blue-100' :
-                                                                            task.status === 'review' ? 'bg-purple-50 text-purple-700 border-purple-200 hover:bg-purple-100' :
+                                                                            task.status === 'review' ? 'bg-purple-50 text-theme-500 border-theme-600 hover:bg-theme-500' :
                                                                                 'bg-orange-50 text-orange-700 border-orange-200 hover:bg-orange-100'
                                                                     }`}
                                                             >
@@ -237,7 +237,7 @@ export default function DeveloperDashboard() {
                         </div>
                         {tasks.length === 0 ? (
                             <div className="flex flex-col items-center justify-center h-[400px] text-center border-2 border-dashed border-border rounded-3xl bg-surface-container-low/50">
-                                <div className="w-16 h-16 bg-white shadow-sm border border-border rounded-full flex items-center justify-center mb-4">
+                                <div className="w-16 h-16 bg-theme-50 shadow-sm border border-border rounded-full flex items-center justify-center mb-4">
                                     <CheckCircle2 className="w-8 h-8 text-neutral-300" />
                                 </div>
                                 <h3 className="text-lg font-bold text-neutral-700">All caught up!</h3>
@@ -246,8 +246,8 @@ export default function DeveloperDashboard() {
                         ) : (
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {tasks.map(task => (
-                                    <div key={task._id} className="group relative bg-white border border-border rounded-2xl p-6 shadow-sm hover:shadow-xl hover:shadow-black/[0.03] transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between overflow-hidden">
-                                        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-studio-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                    <div key={task._id} className="group relative bg-theme-50 border border-border rounded-2xl p-6 shadow-sm hover:shadow-xl hover:shadow-black/[0.03] transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between overflow-hidden">
+ <div className="absolute top-0 left-0 right-0 h-1 bg-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
                                         <div>
                                             <div className="flex justify-between items-start mb-4">
@@ -291,7 +291,7 @@ export default function DeveloperDashboard() {
                                                 }}
                                                 className={`text-xs font-bold uppercase border rounded-lg px-3 py-2 cursor-pointer outline-none transition-all shadow-sm focus:ring-2 focus:ring-offset-1 focus:ring-studio-black/20 ${task.status === 'done' ? 'bg-green-50 text-green-700 border-green-200 hover:bg-green-100' :
                                                         task.status === 'in-progress' ? 'bg-blue-50 text-blue-700 border-blue-200 hover:bg-blue-100' :
-                                                            task.status === 'review' ? 'bg-purple-50 text-purple-700 border-purple-200 hover:bg-purple-100' :
+                                                            task.status === 'review' ? 'bg-purple-50 text-theme-500 border-theme-600 hover:bg-theme-500' :
                                                                 'bg-orange-50 text-orange-700 border-orange-200 hover:bg-orange-100'
                                                     }`}
                                             >
@@ -311,8 +311,8 @@ export default function DeveloperDashboard() {
 
             {/* Global Chat Modal for Task Board */}
             {activeChatModal && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-                    <div className="bg-white rounded-3xl w-full max-w-lg shadow-2xl overflow-hidden border border-border flex flex-col h-[80vh] min-h-[400px] max-h-[700px]">
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-theme-900/50 backdrop-blur-sm">
+                    <div className="bg-theme-50 rounded-3xl w-full max-w-lg shadow-2xl overflow-hidden border border-border flex flex-col h-[80vh] min-h-[400px] max-h-[700px]">
                         <div className="p-4 border-b border-border flex justify-between items-center bg-neutral-50 shrink-0">
                             <div>
                                 <h3 className="font-bold text-studio-black">Client Chat</h3>
@@ -322,7 +322,7 @@ export default function DeveloperDashboard() {
                                 <X className="w-5 h-5 text-neutral-500" />
                             </button>
                         </div>
-                        <div className="flex-1 overflow-hidden bg-white">
+                        <div className="flex-1 overflow-hidden bg-theme-50">
                             <Chat chatId={activeChatModal.chatId} className="h-full border-none shadow-none rounded-none" />
                         </div>
                     </div>

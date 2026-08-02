@@ -15,6 +15,7 @@ export default function WebGLVisibilityWrapper({
 }: WebGLVisibilityWrapperProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -24,6 +25,7 @@ export default function WebGLVisibilityWrapper({
         const entry = entries[0];
         if (entry.isIntersecting) {
           setIsVisible(true);
+          setHasMounted(true);
         } else {
           setIsVisible(false);
         }
@@ -54,14 +56,18 @@ export default function WebGLVisibilityWrapper({
         pointerEvents: isAbsolute ? 'none' : 'auto',
       }}
     >
-      <div style={{ 
-        position: isAbsolute ? 'absolute' : 'relative', 
-        inset: isAbsolute ? 0 : 'auto', 
-        pointerEvents: 'auto',
-        width: '100%',
-        height: '100%'
-      }}>
-        {isVisible ? children : null}
+      <div 
+        style={{ 
+          position: isAbsolute ? 'absolute' : 'relative', 
+          inset: isAbsolute ? 0 : 'auto', 
+          pointerEvents: 'auto',
+          width: '100%',
+          height: '100%',
+          display: isVisible ? 'block' : 'none',
+          visibility: isVisible ? 'visible' : 'hidden',
+        }}
+      >
+        {hasMounted ? children : null}
       </div>
     </div>
   );

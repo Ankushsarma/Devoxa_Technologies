@@ -766,8 +766,8 @@ body{margin:0;padding:0;background:#050408;-webkit-font-smoothing:antialiased;}
             
 
 
-            .cmp-scroll{ overflow-x:auto; -webkit-overflow-scrolling:touch; overflow-y:hidden; scrollbar-width: none; /* Firefox */ }
-            .cmp-scroll::-webkit-scrollbar { display: none; /* Chrome/Safari */ }
+            .cmp-scroll{ overflow-x:visible; overflow-y:visible; }
+            /* .cmp-scroll::-webkit-scrollbar { display: none; } removed */
             .cmp-table{ width:100%; min-width:680px; border-collapse:collapse; }
             .cmp-table thead th{
               padding:20px 18px 22px;

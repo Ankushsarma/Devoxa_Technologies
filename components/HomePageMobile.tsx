@@ -1311,7 +1311,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
           </WebGLVisibilityWrapper>
         </div>
 
-        <div className="grid grid-cols-1 min-[375px]:grid-cols-2 gap-4 mb-16 mx-auto w-full relative z-20 px-6" style={{ flexShrink: 0, marginTop: "-50px", zIndex: 10 }}>
+        <div className="grid grid-cols-1 min-[375px]:grid-cols-2 gap-4 mb-16 mx-auto w-full relative z-20 px-6" style={{ flexShrink: 0, marginTop: "10px", zIndex: 10 }}>
             <GlowingCard delay={0.1} onClick={(e) => handleCardClick(e, "Web App Dev")}>
               <div className="hc-icon shrink-0"><Code2 size={28} strokeWidth={1.5} /></div>
               <div className="flex flex-col gap-1">

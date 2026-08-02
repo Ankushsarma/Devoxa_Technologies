@@ -28,6 +28,7 @@ import Particles from "@/components/Particles"
 import PillNav from "@/components/PillNav"
 import { Footer } from "@/components/ui/footer-section"
 import AnimatedProcessWorkflow from "@/components/AnimatedProcessWorkflow"
+import DarkVeil from "@/components/DarkVeil"
 
 const AnimatedCounter = ({ end, duration = 2000, suffix = "", decimals = 0 }: { end: number, duration?: number, suffix?: string, decimals?: number }) => {
   const [count, setCount] = useState(0);

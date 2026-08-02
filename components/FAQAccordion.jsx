@@ -26,13 +26,16 @@ const faqs = [
 
 const FAQAccordionItem = ({ faq, isOpen, onClick }) => {
   return (
-    <div className={`group rounded-2xl overflow-hidden transition-all duration-300 border border-[rgba(255,255,255,0.05)] ${isOpen ? 'bg-[#26082a] shadow-2xl' : 'bg-[#14061a] hover:bg-[#1a061c]'}`}>
+    <div 
+      className={`group rounded-2xl overflow-hidden transition-all duration-300 border border-[rgba(255,255,255,0.05)] ${isOpen ? 'bg-[#26082a] shadow-2xl' : 'bg-[#14061a] hover:bg-[#1a061c]'}`}
+      style={{ padding: '17px', transform: 'translate3d(0px, 0px, 0px)' }}
+    >
       <button 
-        className="w-full flex justify-between items-center text-left focus:outline-none p-6 sm:px-8 sm:py-7"
+        className="w-full flex justify-between items-center text-left focus:outline-none px-2 py-1"
         onClick={onClick}
       >
         <span 
-          className={`text-lg sm:text-xl font-semibold transition-colors duration-300 ${isOpen ? 'text-[#f1eef1]' : 'text-[#f1eef1]/90 group-hover:text-[#f1eef1]'}`}
+          className={`flex-1 break-words pr-4 text-lg sm:text-xl font-semibold transition-colors duration-300 ${isOpen ? 'text-[#f1eef1]' : 'text-[#f1eef1]/90 group-hover:text-[#f1eef1]'}`}
         >
           {faq.question}
         </span>
@@ -42,10 +45,10 @@ const FAQAccordionItem = ({ faq, isOpen, onClick }) => {
         </span>
       </button>
       <div 
-        className={`grid transition-all duration-500 ease-[cubic-bezier(0.87,0,0.13,1)] ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
+        className={`grid transition-all duration-500 ease-[cubic-bezier(0.87,0,0.13,1)] ${isOpen ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0 mt-0'}`}
       >
         <div className="overflow-hidden">
-          <div className="px-6 sm:px-8 pb-8 pt-0">
+          <div className="px-2 pb-2 pt-0">
             <p className="text-[#ad9daf] font-light leading-relaxed text-sm sm:text-base m-0">
               {faq.answer}
             </p>

@@ -1732,8 +1732,10 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               Everything you need to know about our approach, timelines, and how we deliver exceptional results.
             </p>
           </div>
-          <div className="max-w-4xl mx-auto w-full">
-            <FAQAccordion />
+          <div className="flex justify-center w-full">
+            <div className="max-w-4xl w-full">
+              <FAQAccordion />
+            </div>
           </div>
         </div>
       </section>

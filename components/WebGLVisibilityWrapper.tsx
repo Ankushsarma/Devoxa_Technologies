@@ -58,8 +58,8 @@ export default function WebGLVisibilityWrapper({
     >
       <div 
         style={{ 
-          position: isAbsolute ? 'absolute' : 'relative', 
-          inset: isAbsolute ? 0 : 'auto', 
+          position: 'absolute', 
+          inset: 0, 
           pointerEvents: 'auto',
           width: '100%',
           height: '100%',

@@ -526,7 +526,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
   return (
     <>      <section id="hero" className="nx vx-float pt-24 md:pt-32">
         <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0 }}>
-          <WebGLVisibilityWrapper isAbsolute={false}>
+          <WebGLVisibilityWrapper isAbsolute={true}>
             <Particles
               className=""
               particleColors={["#ffffff", "#8B2FD1", "#5B1FA0"]}

@@ -1046,106 +1046,98 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       {/* Industries */}
-      <section id="industries" className="scroll-mt-32 light-sec vx-float custom-section-bg" style={{ padding: "120px 0 100px 0", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, opacity: 0.5 }}>
-          <WebGLVisibilityWrapper isAbsolute={false}>
-            <SideRays
-              speed={2}
-              rayColor1="#8B2FD1"
-              rayColor2="#5B1FA0"
-              intensity={1.2}
-              spread={2}
-              origin="top-right"
-              tilt={-10}
-              saturation={1.5}
-              blend={0.75}
-              falloff={1.6}
-              opacity={1}
-            />
-          </WebGLVisibilityWrapper>
-        </div>
-        <div className="wrap" style={{ position: "relative", zIndex: 1, maxWidth: "1240px", margin: "0 auto", padding: "0 32px" }}>
-          
-          {/* Refined Premium Header */}
-          <div className="section-head reveal in flex flex-col items-center text-center max-w-3xl mx-auto mb-14">
-            <div className="group relative inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md overflow-hidden mb-4 transition-all duration-300 hover:bg-white/10 hover:border-purple-500/30 shadow-[0_0_20px_rgba(139,92,246,0.2)]">
-              <div className="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></div>
-              <span className="text-xs font-bold text-white tracking-[0.18em] uppercase">Tailored Industry Solutions</span>
-            </div>
-            
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-4 tracking-tight leading-[1.15] text-center">
-              Architecting Digital Excellence Across <br className="hidden sm:block" />
-              <span className="font-stencilia uppercase text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-300 to-indigo-400">Global Sectors</span>
-            </h2>
-            
-            <p className="text-[#94a3b8] text-sm sm:text-base leading-relaxed max-w-2xl mx-auto font-normal text-center">
-              We engineer scalable, enterprise-grade software and automation platforms designed specifically for the unique security, compliance, and growth demands of modern industries.
-            </p>
-          </div>
+      <section id="industries" className="scroll-mt-32 light-sec vx-float transparent-bg" style={{ padding: "100px 0", position: "relative", overflow: "hidden" }}>
 
+        <div className="wrap" style={{ position: "relative", zIndex: 1 }}>
+          <div className="section-head reveal in">
+            <span className="eyebrow">Industries</span>
+            <h2>Industries We <span className="font-stencilia uppercase">Serve</span></h2>
+            <p>Our custom IT solutions empower forward-thinking organizations to <span className="text-theme-50 font-medium">innovate</span>, <span className="text-theme-400 font-medium">scale seamlessly</span>, and dominate in today's rapidly evolving digital landscape.</p>
+          </div>
           <div className="ind-grid">
-            {[
-              {
-                title: "Technology & SaaS",
-                desc: "Scalable cloud platforms, microservices architecture, and enterprise SaaS built for rapid growth.",
-                rating: "4.9",
-                tag: "Cloud & SaaS",
-                img: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=600&q=80"
-              },
-              {
-                title: "Finance & Banking",
-                desc: "Bank-grade security, automated compliance pipelines, and modern fintech infrastructure.",
-                rating: "4.8",
-                tag: "Fintech",
-                img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80"
-              },
-              {
-                title: "Healthcare",
-                desc: "HIPAA-compliant patient portals, telehealth systems, and secure medical data management.",
-                rating: "5.0",
-                tag: "HIPAA",
-                img: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80"
-              },
-              {
-                title: "Retail & E-commerce",
-                desc: "High-conversion storefronts, headless commerce API, and automated inventory sync.",
-                rating: "4.7",
-                tag: "B2B/B2C",
-                img: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=600&q=80"
-              },
-              {
-                title: "Education",
-                desc: "Interactive LMS platforms, virtual classrooms, and AI-powered student analytics.",
-                rating: "4.8",
-                tag: "EdTech",
-                img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80"
-              },
-              {
-                title: "Manufacturing",
-                desc: "Industry 4.0 automation, IoT telemetry dashboards, and smart supply chain monitoring.",
-                rating: "4.9",
-                tag: "Industry 4.0",
-                img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80"
-              }
-            ].map((item, idx) => (
-              <div key={idx} className="card group">
-                <div className="img-container">
-                  <img src={item.img} alt={item.title} />
+            {/* Card 1 */}
+            <div className="card">
+              <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=600&q=80" alt="Technology & SaaS" />
+              <div className="overlay">
+                <div className="title">Technology & SaaS</div>
+                <div className="desc">Scalable platforms built for rapid growth and enterprise performance.</div>
+                <div className="tags">
+                  <span className="tag"><span className="icon">★</span>4.9</span>
+                  <span className="tag">Cloud & SaaS</span>
                 </div>
-                <div className="overlay">
-                  <div className="title">{item.title}</div>
-                  <div className="desc">{item.desc}</div>
-                  <div className="tags">
-                    <span className="tag"><span className="icon">★</span>{item.rating}</span>
-                    <span className="tag">{item.tag}</span>
-                  </div>
-                  <button className="reserve-btn group/btn" onClick={onOpenModal}>
-                    <span>Explore Solutions</span>
-                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
-                  </button>
-                </div>
+                <button className="reserve-btn">Explore Solutions</button>
               </div>
-            ))}
+            </div>
+
+            {/* Card 2 */}
+            <div className="card">
+              <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80" alt="Finance & Banking" />
+              <div className="overlay">
+                <div className="title">Finance & Banking</div>
+                <div className="desc">Secure systems for regulated industries and modern fintech.</div>
+                <div className="tags">
+                  <span className="tag"><span className="icon">★</span>4.8</span>
+                  <span className="tag">Fintech</span>
+                </div>
+                <button className="reserve-btn">Explore Solutions</button>
+              </div>
+            </div>
+
+            {/* Card 3 */}
+            <div className="card">
+              <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80" alt="Healthcare" />
+              <div className="overlay">
+                <div className="title">Healthcare</div>
+                <div className="desc">Compliant, patient-first digital tools and data management.</div>
+                <div className="tags">
+                  <span className="tag"><span className="icon">★</span>5.0</span>
+                  <span className="tag">HIPAA</span>
+                </div>
+                <button className="reserve-btn">Explore Solutions</button>
+              </div>
+            </div>
+
+            {/* Card 4 */}
+            <div className="card">
+              <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=600&q=80" alt="Retail & E-commerce" />
+              <div className="overlay">
+                <div className="title">Retail & E-commerce</div>
+                <div className="desc">High-performance storefronts that convert and scale globally.</div>
+                <div className="tags">
+                  <span className="tag"><span className="icon">★</span>4.7</span>
+                  <span className="tag">B2B/B2C</span>
+                </div>
+                <button className="reserve-btn">Explore Solutions</button>
+              </div>
+            </div>
+
+            {/* Card 5 */}
+            <div className="card">
+              <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80" alt="Education" />
+              <div className="overlay">
+                <div className="title">Education</div>
+                <div className="desc">Interactive learning platforms built to engage and educate.</div>
+                <div className="tags">
+                  <span className="tag"><span className="icon">★</span>4.8</span>
+                  <span className="tag">EdTech</span>
+                </div>
+                <button className="reserve-btn">Explore Solutions</button>
+              </div>
+            </div>
+
+            {/* Card 6 */}
+            <div className="card">
+              <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80" alt="Manufacturing" />
+              <div className="overlay">
+                <div className="title">Manufacturing</div>
+                <div className="desc">Automation and data insights for modern production lines.</div>
+                <div className="tags">
+                  <span className="tag"><span className="icon">★</span>4.9</span>
+                  <span className="tag">Industry 4.0</span>
+                </div>
+                <button className="reserve-btn">Explore Solutions</button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -1242,34 +1234,37 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       {/* FAQ styled with new theme */}
-      <section id="faq" className="scroll-mt-32 vx-float" style={{ background: "linear-gradient(135deg, #0A0710 0%, #2B0F45 50%, #0A0710 100%)", paddingTop: "40px", paddingBottom: "100px" }}>
-        <div className="wrap">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-            <div className="lg:col-span-5 relative">
-              {/* Dot Image Watermark Effect */}
-              <div
-                className="absolute -top-12 -left-12 w-[350px] h-[350px] pointer-events-none opacity-80 z-0"
-                style={{
-                  backgroundImage: 'radial-gradient(rgba(139,47,209,0.6) 2px, transparent 2px)',
-                  backgroundSize: '24px 24px',
-                  maskImage: 'radial-gradient(circle at 20% 20%, black, transparent 60%)',
-                  WebkitMaskImage: 'radial-gradient(circle at 20% 20%, black, transparent 60%)'
-                }}
-              />
-              <div className="sticky top-32 relative z-10 pl-2">
-                <span className="eyebrow inline-block" style={{ margin: "0 0 24px 0" }}>Questions</span>
-                <h2 className="text-6xl lg:text-7xl font-bold tracking-tighter leading-[1.05] drop-shadow-lg">
-                  <ShinyText text="Common" color="#ffffff" shineColor="#8b5cf6" speed={3} /> <br />
-                  <span className="font-stencilia uppercase">
-                    <ShinyText text="Questions" color="#ffffff" shineColor="#8b5cf6" speed={3} />
-                  </span>
-                </h2>
-                <p className="mt-6 text-[#A8A5AD] font-light max-w-xs text-lg leading-relaxed">
-                  Everything you need to know about our approach, timelines, and how we deliver exceptional results.
-                </p>
-              </div>
-            </div>
-            <div className="lg:col-span-7">
+      <section id="faq" className="scroll-mt-32 vx-float relative" style={{ background: "transparent", paddingTop: "40px", paddingBottom: "100px", overflow: "hidden" }}>
+
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 1, pointerEvents: 'none' }}>
+          <WebGLVisibilityWrapper isAbsolute={false}>
+            <DarkVeil
+              hueShift={-45}
+              noiseIntensity={0.05}
+              scanlineIntensity={0.15}
+              speed={0.3}
+              scanlineFrequency={0.8}
+              warpAmount={0.02}
+              resolutionScale={1}
+            />
+          </WebGLVisibilityWrapper>
+        </div>
+
+        <div className="wrap relative z-10">
+          <div className="flex flex-col items-center justify-center text-center mb-32">
+            <span className="eyebrow inline-block mb-4">Questions</span>
+            <h2 className="text-5xl lg:text-6xl font-bold tracking-tighter leading-[1.05] drop-shadow-lg mb-4">
+              <ShinyText text="Common" color="#f1eef1" shineColor="#705474" speed={3} />{' '}
+              <span className="font-stencilia uppercase">
+                <ShinyText text="Questions" color="#f1eef1" shineColor="#705474" speed={3} />
+              </span>
+            </h2>
+            <p className="text-[#ad9daf] font-light max-w-lg text-lg leading-relaxed">
+              Everything you need to know about our approach, timelines, and how we deliver exceptional results.
+            </p>
+          </div>
+          <div className="flex justify-center w-full px-4 md:px-0">
+            <div className="max-w-4xl w-full">
               <FAQAccordion />
             </div>
           </div>
@@ -1277,36 +1272,33 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       {/* CTA Banner */}
-      <section id="cta-banner" className="scroll-mt-32 relative py-32 overflow-hidden border-y border-[rgba(255,255,255,0.05)] bg-transparent">
-        {/* Background Effects */}
-        <div className="absolute inset-0 z-0">
-          <Particles className="" particleCount={100} particleColors={['#ffffff', '#5B1FA0']} />
+      <section id="cta-banner" className="scroll-mt-32 relative py-32 overflow-hidden border-y border-[rgba(255,255,255,0.05)] bg-transparent flex flex-col items-center justify-center min-h-[400px]">
+
+        <div className="absolute inset-0 z-0 bg-black/50" />
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 1, pointerEvents: 'none' }}>
+          <WebGLVisibilityWrapper isAbsolute={false}>
+            <Particles
+              particleColors={["#ffffff", "#c6bbc7", "#523056"]}
+              particleCount={200}
+              particleSpread={10}
+              speed={0.1}
+              particleBaseSize={100}
+              moveParticlesOnHover={true}
+              alphaParticles={false}
+              disableRotation={false}
+            />
+          </WebGLVisibilityWrapper>
         </div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-gradient-to-r from-[#5B1FA0]/20 to-[#5B1FA0]/20 rounded-full blur-[120px] pointer-events-none z-0"></div>
 
-        <div className="wrap relative z-10">
-          <div className="max-w-5xl mx-auto flex flex-col items-center text-center" style={{ gap: '2.5rem' }}>
-            <span className="text-[#8B2FD1] font-mono text-sm md:text-base uppercase tracking-[0.25em] block font-semibold drop-shadow-[0_0_40px_rgba(139,47,209,0.15)]" style={{ margin: 0 }}>Ready to start?</span>
+        <div className="wrap relative z-10 w-full flex flex-col items-center justify-center h-full">
+          <div className="max-w-5xl w-full mx-auto flex flex-col items-center justify-center text-center" style={{ gap: '2.5rem' }}>
+            <span className="text-[#705474] font-mono text-sm md:text-base uppercase tracking-[0.25em] block font-semibold drop-shadow-[0_0_40px_rgba(139,47,209,0.15)]" style={{ margin: 0 }}>Ready to start?</span>
 
-            <h2 className="text-4xl md:text-5xl lg:text-5xl font-bold tracking-tighter text-[#FFFFFF] leading-[1.1]" style={{ margin: 0 }}>
-              <TextType
-                text={[
-                  "Ready to Transform Your Business?",
-                  "Ready to Scale Your Startup?",
-                  "Ready to Elevate Your Brand?"
-                ]}
-                typingSpeed={50}
-                pauseDuration={3000}
-                deletingSpeed={30}
-                showCursor
-                cursorCharacter="_"
-                className="inline-block"
-                variableSpeed={false}
-                onSentenceComplete={() => { }}
-              />
+            <h2 className="text-4xl md:text-5xl lg:text-5xl font-bold tracking-tighter text-[#f1eef1] leading-[1.1]" style={{ margin: 0 }}>
+              Ready to Transform Your Business?
             </h2>
 
-            <p className="text-[#FFFFFF]/70 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-light" style={{ margin: 0 }}>
+            <p className="text-[#f1eef1]/70 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-light" style={{ margin: 0 }}>
               Join hundreds of forward-thinking companies that have accelerated their growth with our professional IT services. Let's build something extraordinary together.
             </p>
 

@@ -245,7 +245,7 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
               {/* Close Button */}
               <button 
                 onClick={onClose}
-                className="absolute top-4 right-4 z-50 text-white/50 hover:text-white hover:bg-[#8b5cf6]/20 p-1.5 rounded-full transition-colors pointer-events-auto"
+                className="absolute top-4 right-4 z-50 text-theme-50/50 hover:text-theme-50 hover:bg-[#705474]/20 p-1.5 rounded-full transition-colors pointer-events-auto"
               >
                 <X size={20} />
               </button>
@@ -255,14 +255,14 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="absolute top-5 left-0 w-full text-center text-lg sm:text-xl font-bold uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-white to-[#8b5cf6] drop-shadow-[0_0_10px_rgba(139,92,246,0.6)] z-30"
+                className="absolute top-5 left-0 w-full text-center text-lg sm:text-xl font-bold uppercase tracking-widest text-theme-50 drop-shadow-[0_0_10px_rgba(112,84,116,0.6)] z-30"
               >
                 {service.title}
               </motion.h3>
 
               {/* Content Area */}
               <div 
-                className="absolute inset-0 flex flex-col justify-center gap-1 text-white overflow-hidden pointer-events-auto"
+                className="absolute inset-0 flex flex-col justify-center gap-1 text-theme-50 overflow-hidden pointer-events-auto"
                 style={{ paddingTop: '80px', paddingBottom: '80px', paddingLeft: '80px', paddingRight: '40px' }}
               >
                 
@@ -279,7 +279,7 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
                     showCursor={true}
                     cursorCharacter="_"
                     loop={false}
-                    className="text-xs sm:text-[13px] text-gray-300 font-light leading-relaxed"
+                    className="text-xs sm:text-[13px] text-theme-200 font-light leading-relaxed"
                   />
                 </motion.div>
 
@@ -290,7 +290,7 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.3 + (idx * 0.1) }}
                       key={idx} 
-                      className="flex items-start gap-3 text-xs sm:text-[13px] text-gray-300 font-light"
+                      className="flex items-start gap-3 text-xs sm:text-[13px] text-theme-200 font-light"
                     >
                       <div className="shrink-0 text-[#00F0FF] drop-shadow-[0_0_8px_#00F0FF]" style={{ marginTop: '8px' }}>
                         <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

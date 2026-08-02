@@ -1641,87 +1641,70 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       {/* Industries */}
-      <section id="industries" className="scroll-mt-32 light-sec vx-float custom-section-bg" style={{ padding: "60px 0 30px 0", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, opacity: 0.5 }}>
-          <WebGLVisibilityWrapper isAbsolute={false}>
-            <SideRays
-            speed={2}
-            rayColor1="#a78bfa"
-            rayColor2="#7c3aed"
-            intensity={1.2}
-            spread={2}
-            origin="top-right"
-            tilt={-10}
-            saturation={1.5}
-            blend={0.75}
-            falloff={1.6}
-            opacity={1}
-          />
-          </WebGLVisibilityWrapper>
-        </div>
+      <section id="industries" className="scroll-mt-32 light-sec transparent-bg vx-float" style={{ padding: "60px 0 30px 0", position: "relative", overflow: "hidden" }}>
         <div className="wrap" style={{ position: "relative", zIndex: 1 }}>
           <div className="section-head reveal in flex flex-col items-center text-center mb-8">
-            <div className="group relative inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md overflow-hidden mb-4 transition-all duration-300 hover:bg-white/10 hover:border-purple-500/30 shadow-[0_0_15px_rgba(139,92,246,0.2)]">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-fuchsia-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <Building2 className="w-4 h-4 text-purple-400 group-hover:text-purple-300 transition-colors" />
-              <span className="text-xs font-bold text-white tracking-[0.15em] uppercase">Industries</span>
+            <div className="group relative inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-transparent border border-[#705474]/15 backdrop-blur-md overflow-hidden mb-4 transition-all duration-300 hover:bg-theme-50/10 hover:border-[#705474]/30 shadow-[0_0_40px_rgba(139,47,209,0.15)]">
+ <div className="absolute inset-0 bg-[#523056]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <Building2 className="w-4 h-4 text-[#705474] group-hover:text-[#705474] transition-colors" />
+              <span className="text-xs font-bold text-[#f1eef1] tracking-[0.15em] uppercase">Industries</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-3 tracking-tight leading-[1.15] text-center">
-              Industries We <span className="font-stencilia uppercase text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-300 to-indigo-400">Serve</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-theme-50 mb-3 tracking-tight leading-[1.15] text-center">
+ Industries We <span className="font-stencilia uppercase text-theme-400">Serve</span>
             </h2>
 
-            <p className="text-[#8981A6] text-xs sm:text-sm max-w-xl mx-auto leading-relaxed font-light text-center">
-              Our custom IT solutions empower forward-thinking organizations to <span className="text-white font-medium">innovate</span>, <span className="text-purple-300 font-medium">scale seamlessly</span>, and dominate in today's rapidly evolving digital landscape.
+            <p className="text-[#ad9daf] text-xs sm:text-sm max-w-xl mx-auto leading-relaxed font-light text-center">
+              Our custom IT solutions empower forward-thinking organizations to <span className="text-[#f1eef1] font-medium">innovate</span>, <span className="text-[#705474] font-medium">scale seamlessly</span>, and dominate in today's rapidly evolving digital landscape.
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 px-2 sm:px-4 w-full mt-6">
-            <BorderGlow className="ind-card reveal in" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>
+            <BorderGlow className="ind-card reveal in" borderRadius={20} animated={false} colors={['#523056', '#705474', '#ded8df']}>
               <div className="ind-img-wrap !aspect-video"><img src="/tech-saas-cover.png" alt="Technology & SaaS" /></div>
               <div className="ind-label !text-xs sm:!text-sm">Technology & SaaS</div>
               <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Scalable platforms built for rapid growth</div>
               <div className="ind-meta">
-                <span className="text-[10px] sm:text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
+                <span className="text-[10px] sm:text-sm font-semibold text-[#705474] tracking-wide hover:text-[#f1eef1] transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
               </div>
             </BorderGlow>
-            <BorderGlow className="ind-card reveal in delay-[100ms]" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>
+            <BorderGlow className="ind-card reveal in delay-[100ms]" borderRadius={20} animated={false} colors={['#523056', '#705474', '#ded8df']}>
               <div className="ind-img-wrap !aspect-video"><img src="/finance-banking-cover.png" alt="Finance & Banking" /></div>
               <div className="ind-label !text-xs sm:!text-sm">Finance & Banking</div>
               <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Secure systems for regulated industries</div>
               <div className="ind-meta">
-                <span className="text-[10px] sm:text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
+                <span className="text-[10px] sm:text-sm font-semibold text-[#705474] tracking-wide hover:text-[#f1eef1] transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
               </div>
             </BorderGlow>
-            <BorderGlow className="ind-card reveal in delay-[200ms]" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>
+            <BorderGlow className="ind-card reveal in delay-[200ms]" borderRadius={20} animated={false} colors={['#523056', '#705474', '#ded8df']}>
               <div className="ind-img-wrap !aspect-video"><img src="/healthcare-cover.png" alt="Healthcare" /></div>
               <div className="ind-label !text-xs sm:!text-sm">Healthcare</div>
               <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Compliant, patient-first digital tools</div>
               <div className="ind-meta">
-                <span className="text-[10px] sm:text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
+                <span className="text-[10px] sm:text-sm font-semibold text-[#705474] tracking-wide hover:text-[#f1eef1] transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
               </div>
             </BorderGlow>
-            <BorderGlow className="ind-card reveal in" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>
+            <BorderGlow className="ind-card reveal in" borderRadius={20} animated={false} colors={['#523056', '#705474', '#ded8df']}>
               <div className="ind-img-wrap !aspect-video"><img src="/shopix-ecommerce.png" alt="Retail & E-commerce Dashboard" /></div>
               <div className="ind-label !text-xs sm:!text-sm">Retail & E-commerce</div>
               <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Storefronts that convert and scale</div>
               <div className="ind-meta">
-                <span className="text-[10px] sm:text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
+                <span className="text-[10px] sm:text-sm font-semibold text-[#705474] tracking-wide hover:text-[#f1eef1] transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
               </div>
             </BorderGlow>
-            <BorderGlow className="ind-card reveal in delay-[100ms]" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>
+            <BorderGlow className="ind-card reveal in delay-[100ms]" borderRadius={20} animated={false} colors={['#523056', '#705474', '#ded8df']}>
               <div className="ind-img-wrap !aspect-video"><img src="/education-cover.png" alt="Education" /></div>
               <div className="ind-label !text-xs sm:!text-sm">Education</div>
               <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Learning platforms built to engage</div>
               <div className="ind-meta">
-                <span className="text-[10px] sm:text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
+                <span className="text-[10px] sm:text-sm font-semibold text-[#705474] tracking-wide hover:text-[#f1eef1] transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
               </div>
             </BorderGlow>
-            <BorderGlow className="ind-card reveal in delay-[200ms]" borderRadius={20} animated={false} colors={['#c084fc', '#f472b6', '#38bdf8']}>
+            <BorderGlow className="ind-card reveal in delay-[200ms]" borderRadius={20} animated={false} colors={['#523056', '#705474', '#ded8df']}>
               <div className="ind-img-wrap !aspect-video"><img src="/manufacturing-cover.png" alt="Manufacturing" /></div>
               <div className="ind-label !text-xs sm:!text-sm">Manufacturing</div>
               <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Automation for modern production lines</div>
               <div className="ind-meta">
-                <span className="text-[10px] sm:text-sm font-semibold text-[#a78bfa] tracking-wide hover:text-white transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
+                <span className="text-[10px] sm:text-sm font-semibold text-[#705474] tracking-wide hover:text-[#f1eef1] transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
               </div>
             </BorderGlow>
           </div>
@@ -1749,32 +1732,33 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       {/* FAQ styled with new theme */}
-      <section id="faq" className="scroll-mt-32 vx-float custom-section-bg" style={{ paddingTop: "16px", paddingBottom: "60px" }}>
-        <div className="wrap px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
-            <div className="lg:col-span-5 relative mb-2 lg:mb-0">
-              {/* Dot Image Watermark Effect */}
-              <div 
-                className="absolute -top-12 -left-12 w-[350px] h-[350px] pointer-events-none opacity-80 z-0"
-                style={{
-                  backgroundImage: 'radial-gradient(rgba(139, 92, 246, 0.6) 2px, transparent 2px)',
-                  backgroundSize: '24px 24px',
-                  maskImage: 'radial-gradient(circle at 20% 20%, black, transparent 60%)',
-                  WebkitMaskImage: 'radial-gradient(circle at 20% 20%, black, transparent 60%)'
-                }}
-              />
-              <div className="relative lg:sticky top-4 lg:top-32 z-10">
-                <span className="eyebrow inline-block mb-3" style={{ margin: "0 0 12px 0" }}>Questions</span>
-                <h2 className="text-3xl sm:text-4xl lg:text-7xl font-bold tracking-tighter leading-[1.1] drop-shadow-lg mb-3">
-                  <ShinyText text="Common" color="#ffffff" shineColor="#8b5cf6" speed={3} /> <br />
-                  <span className="font-stencilia uppercase"><ShinyText text="Questions" color="#ffffff" shineColor="#8b5cf6" speed={3} /></span>
-                </h2>
-                <p className="text-[#8981A6] font-light max-w-sm text-xs sm:text-base leading-relaxed mb-6">
-                  Everything you need to know about our approach, timelines, and how we deliver exceptional results.
-                </p>
-              </div>
-            </div>
-            <div className="lg:col-span-7">
+      <section id="faq" className="scroll-mt-32 vx-float relative" style={{ background: "transparent", paddingTop: "16px", paddingBottom: "60px", overflow: "hidden" }}>
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 1, pointerEvents: 'none' }}>
+          <WebGLVisibilityWrapper isAbsolute={false}>
+            <DarkVeil
+              hueShift={-45}
+              noiseIntensity={0.05}
+              scanlineIntensity={0.15}
+              speed={0.3}
+              scanlineFrequency={0.8}
+              warpAmount={0.02}
+              resolutionScale={1}
+            />
+          </WebGLVisibilityWrapper>
+        </div>
+        <div className="wrap px-4 relative z-10">
+          <div className="flex flex-col items-center justify-center text-center mb-16">
+            <span className="eyebrow inline-block mb-3" style={{ margin: "0 0 12px 0" }}>Questions</span>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tighter leading-[1.1] drop-shadow-lg mb-3">
+              <ShinyText text="Common" color="#f1eef1" shineColor="#705474" speed={3} />{' '}
+              <span className="font-stencilia uppercase"><ShinyText text="Questions" color="#f1eef1" shineColor="#705474" speed={3} /></span>
+            </h2>
+            <p className="text-[#ad9daf] font-light max-w-md mx-auto text-xs sm:text-base leading-relaxed">
+              Everything you need to know about our approach, timelines, and how we deliver exceptional results.
+            </p>
+          </div>
+          <div className="flex justify-center w-full">
+            <div className="max-w-4xl w-full">
               <FAQAccordion />
             </div>
           </div>
@@ -1782,20 +1766,30 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       {/* CTA Banner */}
-      <section id="cta-banner" className="scroll-mt-32 relative py-14 sm:py-20 overflow-hidden px-4 md:px-8 min-h-[340px] custom-section-bg">
-        {/* Background Effects */}
-        <div className="absolute inset-0 z-0">
-          <Particles className="" particleCount={100} particleColors={['#ffffff', '#8b5cf6']} />
+      <section id="cta-banner" className="scroll-mt-32 relative py-14 sm:py-20 overflow-hidden border-y border-[rgba(255,255,255,0.05)] bg-transparent px-4 md:px-8 min-h-[340px]">
+        
+        <div className="absolute inset-0 z-0 bg-black/50" />
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 1, pointerEvents: 'none' }}>
+          <WebGLVisibilityWrapper isAbsolute={false}>
+            <Particles
+              particleColors={["#ffffff", "#c6bbc7", "#523056"]}
+              particleCount={100}
+              particleSpread={10}
+              speed={0.1}
+              particleBaseSize={80}
+              moveParticlesOnHover={true}
+              alphaParticles={false}
+              disableRotation={false}
+            />
+          </WebGLVisibilityWrapper>
         </div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vw] md:w-[800px] h-[120vw] md:h-[600px] bg-gradient-to-r from-violet-600/20 to-fuchsia-600/20 rounded-full blur-[90px] pointer-events-none z-0"></div>
-
         <div className="wrap relative z-10 w-full">
           <div className="max-w-3xl mx-auto flex flex-col items-center text-center w-full gap-4">
-            <span className="text-[#a78bfa] font-mono text-xs uppercase tracking-[0.2em] font-semibold drop-shadow-[0_0_8px_rgba(167,139,250,0.5)]">Ready to start?</span>
+            <span className="text-[#705474] font-mono text-xs uppercase tracking-[0.2em] font-semibold drop-shadow-[0_0_40px_rgba(139,47,209,0.15)]">Ready to start?</span>
             
             {/* Fixed Height Wrapper to Prevent Layout Fluctuation */}
             <div className="min-h-[72px] sm:min-h-[90px] flex items-center justify-center w-full">
-              <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white leading-[1.2]">
+              <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-[#f1eef1] leading-[1.2]">
                 <TextType 
                   text={[
                     "Ready to Transform Your Business?",
@@ -1814,7 +1808,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               </h2>
             </div>
             
-            <p className="text-gray-300 text-xs sm:text-base max-w-lg mx-auto leading-relaxed font-light">
+            <p className="text-[#f1eef1]/70 text-xs sm:text-base max-w-lg mx-auto leading-relaxed font-light">
               Join hundreds of forward-thinking companies that have accelerated their growth with our professional IT services. Let's build something extraordinary together.
             </p>
             

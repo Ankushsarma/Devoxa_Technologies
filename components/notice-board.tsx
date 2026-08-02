@@ -31,7 +31,7 @@ export function NoticeBoard() {
     return (
         <div className="grid lg:grid-cols-2 gap-8 min-h-[500px]">
             {/* Pending Calls List */}
-            <div className="bg-white border border-border rounded-2xl p-6 shadow-sm overflow-hidden flex flex-col">
+            <div className="bg-theme-50 border border-border rounded-2xl p-6 shadow-sm overflow-hidden flex flex-col">
                 <div className="flex items-center gap-3 mb-6 border-b border-border pb-4">
                     <div className="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center">
                         <CalendarClock className="w-5 h-5 text-orange-500" />
@@ -48,7 +48,7 @@ export function NoticeBoard() {
                             <p className="text-sm text-secondary italic">No calls scheduled actively.</p>
                         </div>
                     ) : pendingCalls.map((lead) => (
-                        <div key={lead._id} className="p-4 rounded-xl border border-border hover:border-orange-200 hover:bg-orange-50/30 transition-colors bg-white shadow-sm flex items-start gap-4">
+                        <div key={lead._id} className="p-4 rounded-xl border border-border hover:border-orange-200 hover:bg-orange-50/30 transition-colors bg-theme-50 shadow-sm flex items-start gap-4">
                             <div className="shrink-0 flex items-center flex-col justify-center w-14 h-14 bg-neutral-100 rounded-lg text-studio-black border border-neutral-200">
                                 <span className="text-xs font-bold font-mono tracking-tighter">
                                     {new Date(lead.managerChecklist.callScheduled).toLocaleDateString('en-US', { month: 'short' })}
@@ -70,7 +70,7 @@ export function NoticeBoard() {
             </div>
 
             {/* Ongoing Deals Tracker */}
-            <div className="bg-white border border-border rounded-2xl p-6 shadow-sm overflow-hidden flex flex-col">
+            <div className="bg-theme-50 border border-border rounded-2xl p-6 shadow-sm overflow-hidden flex flex-col">
                 <div className="flex items-center gap-3 mb-6 border-b border-border pb-4">
                     <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center">
                         <Activity className="w-5 h-5 text-blue-500" />
@@ -87,9 +87,9 @@ export function NoticeBoard() {
                             <p className="text-sm text-secondary italic">No ongoing deals in pipeline.</p>
                         </div>
                     ) : ongoingDeals.map((deal) => (
-                        <div key={deal._id} className="group p-4 rounded-xl border border-border hover:border-black transition-colors bg-white shadow-sm flex items-center justify-between">
+                        <div key={deal._id} className="group p-4 rounded-xl border border-border hover:border-black transition-colors bg-theme-50 shadow-sm flex items-center justify-between">
                             <div>
-                                <h4 className="font-bold text-sm tracking-tight text-neutral-900 leading-tight group-hover:text-black transition-colors">{deal.name}</h4>
+                                <h4 className="font-bold text-sm tracking-tight text-neutral-900 leading-tight group-hover:text-theme-900 transition-colors">{deal.name}</h4>
                                 <div className="flex items-center gap-2 mt-1">
                                     <span className="text-[10px] uppercase font-bold border border-border px-1.5 py-0.5 rounded tracking-widest text-neutral-500">
                                         {deal.status.replace("_", " ")}

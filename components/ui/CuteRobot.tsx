@@ -192,8 +192,8 @@ export function CuteRobot() {
 
               {/* Eyes (Animated) */}
               <g className="robot-eyes-container">
-                <rect className="robot-eye" x="40" y="32" width="10" height="12" rx="4" fill="#ffffff" style={{ filter: 'drop-shadow(0px 0px 8px rgba(255,255,255,1))' }} />
-                <rect className="robot-eye" x="55" y="32" width="10" height="12" rx="4" fill="#ffffff" style={{ filter: 'drop-shadow(0px 0px 8px rgba(255,255,255,1))' }} />
+                <rect className="robot-eye" x="40" y="32" width="10" height="12" rx="4" fill="#f1eef1" style={{ filter: 'drop-shadow(0px 0px 8px rgba(255,255,255,1))' }} />
+                <rect className="robot-eye" x="55" y="32" width="10" height="12" rx="4" fill="#f1eef1" style={{ filter: 'drop-shadow(0px 0px 8px rgba(255,255,255,1))' }} />
               </g>
             </g>
           </g>

@@ -193,19 +193,19 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
         {/* Exact Vector Borders & Backgrounds */}
         <svg className="absolute inset-0 pointer-events-none z-0 overflow-visible" width="100%" height="100%">
           {/* Main Background */}
-          <polygon points={mainPolyPoints} fill="rgba(7, 16, 27, 0.95)" stroke="rgba(139, 92, 246, 0.6)" strokeWidth="1.5" />
+          <polygon points={mainPolyPoints} fill="rgba(7, 16, 27, 0.95)" stroke="rgba(112,84,116,0.6)" strokeWidth="1.5" />
           {/* Main Glows */}
-          <line x1="140" y1="0" x2={w-20} y2="0" stroke="#ffffff" strokeWidth="2" filter="drop-shadow(0 0 8px rgba(255,255,255,0.8))" />
-          <line x1="20" y1={h} x2={w-240} y2={h} stroke="#ffffff" strokeWidth="2" filter="drop-shadow(0 0 8px rgba(255,255,255,0.8))" />
+          <line x1="140" y1="0" x2={w-20} y2="0" stroke="#f1eef1" strokeWidth="2" filter="drop-shadow(0 0 8px rgba(255,255,255,0.8))" />
+          <line x1="20" y1={h} x2={w-240} y2={h} stroke="#f1eef1" strokeWidth="2" filter="drop-shadow(0 0 8px rgba(255,255,255,0.8))" />
           
           {/* Inner Panel Background */}
-          <polygon points={innerPolyPoints} fill="rgba(139, 92, 246, 0.05)" stroke="rgba(139, 92, 246, 0.4)" strokeWidth="1" />
+          <polygon points={innerPolyPoints} fill="rgba(112,84,116,0.05)" stroke="rgba(112,84,116,0.4)" strokeWidth="1" />
         </svg>
 
         {/* Decorative Corner: Top Left Stripes */}
         <div className="absolute top-[25px] left-[30px] w-20 h-[10px] bg-transparent flex gap-[3px] transform -skew-x-[45deg] origin-top-left pointer-events-none z-10">
           {[1,2,3,4,5,6,7].map((i) => (
-            <div key={i} className="h-full w-2 bg-[#8b5cf6]/80 shadow-[0_0_5px_#8b5cf6]" />
+            <div key={i} className="h-full w-2 bg-[#705474]/80 shadow-[0_0_5px_#705474]" />
           ))}
         </div>
 
@@ -227,7 +227,7 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
           <div 
             className="absolute inset-0 opacity-15 pointer-events-none"
             style={{
-              backgroundImage: "linear-gradient(rgba(139, 92, 246, 0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(139, 92, 246, 0.5) 1px, transparent 1px)",
+              backgroundImage: "linear-gradient(rgba(112,84,116,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(112,84,116,0.5) 1px, transparent 1px)",
               backgroundSize: "20px 20px",
               backgroundPosition: "center center"
             }}
@@ -236,7 +236,7 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
           {/* Close Button */}
           <button 
             onClick={onClose}
-            className="absolute top-4 right-4 z-50 text-white/50 hover:text-white hover:bg-[#8b5cf6]/20 p-1.5 rounded-full transition-colors pointer-events-auto"
+            className="absolute top-4 right-4 z-50 text-theme-50/50 hover:text-theme-50 hover:bg-[#705474]/20 p-1.5 rounded-full transition-colors pointer-events-auto"
           >
             <X size={20} />
           </button>
@@ -246,14 +246,14 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="absolute top-5 left-0 w-full text-center text-lg sm:text-xl font-bold uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-white to-[#8b5cf6] drop-shadow-[0_0_10px_rgba(139,92,246,0.6)] z-30"
+ className="absolute top-5 left-0 w-full text-center text-lg sm:text-xl font-bold uppercase tracking-widest text-theme-50 drop-shadow-[0_0_10px_rgba(112,84,116,0.6)] z-30"
           >
             {service.title}
           </motion.h3>
 
           {/* Content Area */}
           <div 
-            className="absolute inset-0 flex flex-col justify-center gap-1 text-white overflow-hidden"
+            className="absolute inset-0 flex flex-col justify-center gap-1 text-theme-50 overflow-hidden"
             style={{ paddingTop: '80px', paddingBottom: '80px', paddingLeft: '80px', paddingRight: '40px' }}
           >
             
@@ -270,7 +270,7 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
                 showCursor={true}
                 cursorCharacter="_"
                 loop={false}
-                className="text-xs sm:text-[13px] text-gray-300 font-light leading-relaxed"
+                className="text-xs sm:text-[13px] text-theme-200 font-light leading-relaxed"
               />
             </motion.div>
 
@@ -281,7 +281,7 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.3 + (idx * 0.1) }}
                   key={idx} 
-                  className="flex items-start gap-3 text-xs sm:text-[13px] text-gray-300 font-light"
+                  className="flex items-start gap-3 text-xs sm:text-[13px] text-theme-200 font-light"
                 >
                   <div className="shrink-0 text-[#00F0FF] drop-shadow-[0_0_8px_#00F0FF]" style={{ marginTop: '8px' }}>
                     <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

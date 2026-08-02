@@ -68,6 +68,8 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
     }
   }, [isOpen])
 
+  const ptr = null;
+
   // Dimensions for SVG drawing
   const w = parseInt(modalStyle.width as string) || 520;
   const h = parseInt(modalStyle.height as string) || 340;

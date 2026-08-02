@@ -103,6 +103,7 @@ const Particles = ({
   pixelRatio = 1,
   className
 }) => {
+  const { lowQualityMode } = usePerformance();
   const containerRef = useRef(null);
   const mouseRef = useRef({ x: 0, y: 0 });
 

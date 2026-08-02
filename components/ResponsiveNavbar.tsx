@@ -44,10 +44,10 @@ export default function ResponsiveNavbar() {
         
         {/* Brand / Logo */}
         <div className="flex items-center gap-2 z-50 relative">
-          <div className="w-8 h-8 bg-gradient-to-tr from-purple-600 to-pink-500 rounded-md flex items-center justify-center">
-            <span className="text-white font-bold font-serif italic text-xl">D</span>
+ <div className="w-8 h-8 bg-[#523056] rounded-md flex items-center justify-center">
+            <span className="text-[#f1eef1] font-bold font-serif italic text-xl">D</span>
           </div>
-          <span className="text-white font-semibold text-lg tracking-wide hidden sm:block">
+          <span className="text-[#f1eef1] font-semibold text-lg tracking-wide hidden sm:block">
             Devoxa
           </span>
         </div>
@@ -58,7 +58,7 @@ export default function ResponsiveNavbar() {
             <a 
               key={item} 
               href={`#${item.toLowerCase()}`}
-              className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
+              className="text-sm font-medium text-[#f1eef1]/70 hover:text-[#f1eef1] transition-colors"
             >
               {item}
             </a>
@@ -67,7 +67,7 @@ export default function ResponsiveNavbar() {
 
         {/* Desktop Call to Action */}
         <div className="hidden md:block">
-          <button className="px-5 py-2.5 bg-white text-[#110D1F] text-sm font-bold rounded-lg hover:bg-gray-200 transition-colors">
+          <button className="px-5 py-2.5 bg-theme-50 text-[#110D1F] text-sm font-bold rounded-lg hover:bg-theme-200 transition-colors">
             Get Started
           </button>
         </div>
@@ -78,9 +78,9 @@ export default function ResponsiveNavbar() {
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle mobile menu"
         >
-          <span className={`block w-6 h-0.5 bg-white transition-transform duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-          <span className={`block w-6 h-0.5 bg-white transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
-          <span className={`block w-6 h-0.5 bg-white transition-transform duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+          <span className={`block w-6 h-0.5 bg-theme-50 transition-transform duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+          <span className={`block w-6 h-0.5 bg-theme-50 transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
+          <span className={`block w-6 h-0.5 bg-theme-50 transition-transform duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
         </button>
       </div>
 
@@ -95,12 +95,12 @@ export default function ResponsiveNavbar() {
             key={item} 
             href={`#${item.toLowerCase()}`}
             onClick={() => setIsMobileMenuOpen(false)}
-            className="text-2xl font-bold text-white hover:text-purple-400 transition-colors"
+            className="text-2xl font-bold text-[#f1eef1] hover:text-[#705474] transition-colors"
           >
             {item}
           </a>
         ))}
-        <button className="mt-4 px-8 py-3 bg-white text-[#110D1F] font-bold rounded-lg hover:bg-gray-200 transition-colors">
+        <button className="mt-4 px-8 py-3 bg-theme-50 text-[#110D1F] font-bold rounded-lg hover:bg-theme-200 transition-colors">
           Get Started
         </button>
       </div>

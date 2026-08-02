@@ -49,107 +49,28 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
     }
   }, [isOpen])
 
-  // Calculate dynamic position based on activeCardRect
+  // Center modal dialog box with dark frosted backdrop
   useLayoutEffect(() => {
-    if (isOpen && activeCardRect) {
-      const spaceLeft = activeCardRect.left
-      const spaceRight = window.innerWidth - activeCardRect.right
-      const modalWidth = Math.min(460, window.innerWidth - 40) // Scaled down width
-      const modalHeight = 320 // Scaled down height
+    if (isOpen) {
+      const modalWidth = Math.min(520, window.innerWidth - 32)
+      const modalHeight = 340
 
-      let left = 0
-      let top = activeCardRect.top + activeCardRect.height / 2 - modalHeight / 2 
-      let dir: 'left' | 'right' | 'center' = 'center'
-
-      if (spaceRight >= modalWidth + 80 || spaceRight > spaceLeft + 50) {
-        // Place on the right
-        left = activeCardRect.right + 60
-        dir = 'left' // pointer points left back to the card
-      } else if (spaceLeft >= modalWidth + 80) {
-        // Place on the left
-        left = activeCardRect.left - modalWidth - 60
-        dir = 'right' // pointer points right back to the card
-      } else {
-        // Center fallback (e.g., mobile)
-        left = (window.innerWidth - modalWidth) / 2
-        top = activeCardRect.bottom + 20
-        dir = 'center'
-      }
-
-      // Clamp coordinates to screen bounds
-      if (top < 80) top = 80 // Leave space for nav
-      if (top + modalHeight > window.innerHeight - 20) top = window.innerHeight - modalHeight - 20
-      if (left < 10) left = 10
-      if (left + modalWidth > window.innerWidth - 10) left = window.innerWidth - modalWidth - 10
-
-      setModalStyle({
-        position: 'fixed',
-        left: `${left}px`,
-        top: `${top}px`,
-        width: `${modalWidth}px`,
-        height: `${modalHeight}px`,
-        zIndex: 9999
-      })
-      setPointerDirection(dir)
-    } else if (isOpen && !activeCardRect) {
-      // Fallback if rect is missing (should not happen normally)
       setModalStyle({
         position: 'fixed',
         left: '50%',
         top: '50%',
         transform: 'translate(-50%, -50%)',
-        width: '90%',
-        maxWidth: '420px',
-        height: '320px',
+        width: `${modalWidth}px`,
+        height: `${modalHeight}px`,
         zIndex: 9999
       })
       setPointerDirection('center')
     }
-  }, [isOpen, activeCardRect])
-
-  // Calculate dynamic pointer SVG props
-  let ptr = null
-  if (activeCardRect && (pointerDirection === 'left' || pointerDirection === 'right')) {
-    const iconCenterY = 40 
-    const cardCenterY = activeCardRect.height / 2
-    const yOffset = iconCenterY - cardCenterY 
-    
-    const svgOriginY = 40 
-    const targetY = svgOriginY + yOffset 
-    
-    const distanceX = 60 + activeCardRect.width / 2
-    const svgWidth = distanceX + 20
-
-    if (pointerDirection === 'left') {
-      const targetX = 10
-      ptr = {
-        width: svgWidth,
-        textX: svgWidth - 10,
-        textAnchor: 'end' as const,
-        thickPath: `M ${svgWidth - 60} 30 L ${svgWidth} 30`,
-        thickCutout: `M ${svgWidth - 70} 30 L ${svgWidth - 60} 30 L ${svgWidth - 55} 26 L ${svgWidth - 70} 26 Z`,
-        thinPath: `M ${svgWidth} 34 L ${svgWidth - 65} 34 L ${targetX + 20} ${targetY} L ${targetX} ${targetY}`,
-        targetX, targetY,
-        className: "absolute right-full top-1/2 -translate-y-1/2 pointer-events-none overflow-visible hidden sm:block z-50"
-      }
-    } else {
-      const targetX = svgWidth - 10
-      ptr = {
-        width: svgWidth,
-        textX: 10,
-        textAnchor: 'start' as const,
-        thickPath: `M 0 30 L 60 30`,
-        thickCutout: `M 60 30 L 70 30 L 65 26 L 55 26 Z`,
-        thinPath: `M 0 34 L 65 34 L ${targetX - 20} ${targetY} L ${targetX} ${targetY}`,
-        targetX, targetY,
-        className: "absolute left-full top-1/2 -translate-y-1/2 pointer-events-none overflow-visible hidden sm:block z-50"
-      }
-    }
-  }
+  }, [isOpen])
 
   // Dimensions for SVG drawing
   const w = parseInt(modalStyle.width as string) || 520;
-  const h = parseInt(modalStyle.height as string) || 360;
+  const h = parseInt(modalStyle.height as string) || 340;
 
   // Exact coordinates matching the uploaded image's complex cut corners
   const mainPolyPoints = `0,20 0,70 30,40 110,40 140,0 ${w-20},0 ${w},20 ${w},${h-80} ${w-180},${h-80} ${w-240},${h} 20,${h} 0,${h-20}`;
@@ -163,10 +84,13 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
 
   return (
     <AnimatePresence>
-      {/* Invisible backdrop to capture outside clicks */}
-      <div 
+      {/* Dark Frosted Backdrop to isolate content */}
+      <motion.div 
         key="scifi-modal-backdrop"
-        className="fixed inset-0 z-[9998] cursor-pointer"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 z-[9998] bg-black/75 backdrop-blur-md cursor-pointer"
         onClick={onClose}
       />
 

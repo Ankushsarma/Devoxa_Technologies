@@ -690,7 +690,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
     </section>
 
 
-      <div className="agency-pillar-wrapper" style={{ marginBottom: "40px", position: "relative", backgroundColor: "transparent", overflow: "hidden" }}>
+      <div className="agency-pillar-wrapper" style={{ marginBottom: "40px", position: "relative", backgroundColor: "transparent", overflow: "visible" }}>
         {/* Shared Light Pillar Background */}
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 1, pointerEvents: 'none' }}>
           <WebGLVisibilityWrapper isAbsolute={false}>

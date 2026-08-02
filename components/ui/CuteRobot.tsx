@@ -1,64 +1,42 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import Lottie from 'lottie-react';
 
 export function CuteRobot() {
-  const [animationData, setAnimationData] = useState<any>(null);
-
-  useEffect(() => {
-    fetch('/humanoid-robot.json')
-      .then((res) => {
-        if (res.ok) return res.json();
-        throw new Error('Animation not found');
-      })
-      .then((data) => setAnimationData(data))
-      .catch(() => {
-        console.warn('humanoid-robot.json not found in public folder. Please add it to see the 3D humanoid robot.');
-      });
-  }, []);
   return (
     <motion.div
       initial={{ x: 0, y: 0, opacity: 1 }} 
       animate={{
-        //          1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16
-        x:       [  0,  50,  50,  50,  50,  65,  80,  80,  80,  80,  80,  80, 160, 240, 240, 240],
-        y:       [-55, -55, -55, -55, -55, -85,  50,  50,  50,  50,  50,  50,  50,  50,  50,  50],
-        rotateY: [ 60,  60,  60,  60,  60,  60,  60,  60,  60,  60,   0,  60,  60,  60,  60,  60],
-        rotate:  [  0,   0,   0,  25,   0,   0,   0,  90,  90,   0,   0,   0,   0,   0,   0,   0],
-        scaleX:  [  1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1],
-        scaleY:  [  1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1],
-        opacity: [  1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1]
+        //          1    2    3    4    5    6    7    8    9    10   11   12   13   14   15   16   17   18
+        x:       [  0,  40,  40,  40,  40,  40,  50,  60,  60,  60, 100, 160, 160, 160, 160, 240, 240,   0],
+        y:       [-55, -55, -55, -55, -55, -55, -85,   0,   0,   0, -30,  50,  50,  50,  50,  50,  50, -55],
+        rotateY: [ 60,  60,  60,   0,   0,   0,   0,   0,   0,  60,  60,  60,  60,  60,  60,  60,  60,  60],
+        rotate:  [  0,   0,  25,   0,   0,   0,   0,   0,   0,   0,   0,  90,  90, 110,   0,   0,   0,   0],
+        scaleX:  [  1,   1,   1,   1,   1, 1.1, 0.9, 1.1,   1, 1.1, 0.9, 1.2, 1.2,   1,   1,   1,   1,   1],
+        scaleY:  [  1,   1,   1,   1,   1, 0.8, 1.1, 0.9,   1, 0.8, 1.1, 0.7, 0.7,   1,   1,   1,   1,   1],
+        opacity: [  1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   0,   1]
       }}
       transition={{
         duration: 14,
         repeat: Infinity,
-        repeatType: "reverse",
-        //      1     2     3     4     5     6     7     8     9     10    11    12    13    14    15    16
-        times: [0.0, 0.15, 0.20, 0.23, 0.27, 0.32, 0.35, 0.37, 0.47, 0.50, 0.55, 0.60, 0.70, 0.80, 0.85, 1.0],
+        repeatType: "loop",
+        //      1     2     3     4     5     6     7     8     9     10    11    12    13    14    15    16    17    18
+        times: [0.0, 0.10, 0.15, 0.20, 0.25, 0.28, 0.30, 0.32, 0.40, 0.43, 0.45, 0.48, 0.52, 0.55, 0.65, 0.90, 0.95, 1.0],
         ease: "easeInOut"
       }}
       style={{
         position: 'absolute',
-        top: -65, 
+        top: -45, 
         left: '10%', 
-        width: '100px', 
-        height: '140px',
+        width: '55px',
+        height: '65px',
         zIndex: 10,
         pointerEvents: 'none',
         transformStyle: 'preserve-3d'
       }}
     >
-      {animationData ? (
-        <Lottie 
-          animationData={animationData} 
-          loop={true} 
-          style={{ width: '100%', height: '100%', filter: 'drop-shadow(0px 10px 15px rgba(0,0,0,0.5))' }} 
-        />
-      ) : (
-        <>
-          <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{__html: `
         @keyframes eyeExpression {
           0%, 19% { transform: scale(1, 1); rx: 4; }
           20%, 25% { transform: scale(1, 0.15); rx: 10; } /* Smile */
@@ -80,19 +58,25 @@ export function CuteRobot() {
           56%, 58%, 60% { transform: rotate(-25deg); }
           61%, 100% { transform: rotate(0deg); }
         }
-        @keyframes headBob {
-          0%, 100% { transform: rotate(0deg) translateY(0px); }
-          25% { transform: rotate(5deg) translateY(-2px); }
-          50% { transform: rotate(0deg) translateY(0px); }
-          75% { transform: rotate(-5deg) translateY(-2px); }
+        @keyframes armFlailLeft {
+          0%, 27% { transform: rotate(0deg); }
+          28%, 29% { transform: rotate(130deg); }
+          30%, 31% { transform: rotate(-60deg); }
+          32%, 42% { transform: rotate(0deg); }
+          43%, 44% { transform: rotate(130deg); }
+          45%, 46% { transform: rotate(-60deg); }
+          47%, 48% { transform: rotate(130deg); }
+          49%, 100% { transform: rotate(0deg); }
         }
-        @keyframes legSwingLeft {
-          0%, 100% { transform: rotate(20deg); }
-          50% { transform: rotate(-25deg); }
-        }
-        @keyframes legSwingRight {
-          0%, 100% { transform: rotate(-25deg); }
-          50% { transform: rotate(20deg); }
+        @keyframes armFlailRight {
+          0%, 27% { transform: rotate(0deg); }
+          28%, 29% { transform: rotate(-130deg); }
+          30%, 31% { transform: rotate(60deg); }
+          32%, 42% { transform: rotate(0deg); }
+          43%, 44% { transform: rotate(-130deg); }
+          45%, 46% { transform: rotate(60deg); }
+          47%, 48% { transform: rotate(-130deg); }
+          49%, 100% { transform: rotate(0deg); }
         }
         @keyframes deepSigh {
           0%, 54% { transform: scale(1); }
@@ -115,16 +99,12 @@ export function CuteRobot() {
           animation: deepSigh 14s infinite ease-in-out;
           transform-origin: bottom center;
         }
-        .robot-head {
-          animation: headBob 2.5s infinite ease-in-out;
-          transform-origin: 50px 70px;
-        }
         .robot-arm-left {
-          animation: legSwingLeft 1.2s infinite ease-in-out;
+          animation: armFlailLeft 14s infinite;
           transform-origin: 30px 75px;
         }
         .robot-arm-right {
-          animation: legSwingRight 1.2s infinite ease-in-out;
+          animation: armFlailRight 14s infinite;
           transform-origin: 70px 75px;
         }
         .robot-ear {
@@ -133,95 +113,92 @@ export function CuteRobot() {
         }
       `}} />
       
-      <svg viewBox="0 0 100 110" width="100%" height="100%" style={{ filter: 'drop-shadow(0 15px 20px rgba(0,0,0,0.6))' }}>
+      <svg viewBox="0 0 100 120" width="100%" height="100%" style={{ filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.4))' }}>
         <defs>
-          {/* Head 3D Lighting Gradient */}
-          <radialGradient id="head-blender-3d" cx="30%" cy="25%" r="75%" fx="25%" fy="20%">
-            <stop offset="0%" stopColor="#87929d" />
-            <stop offset="40%" stopColor="#555d66" />
-            <stop offset="85%" stopColor="#353b42" />
-            <stop offset="100%" stopColor="#22262b" />
+          <radialGradient id="head-grad" cx="30%" cy="30%" r="80%" fx="30%" fy="30%">
+            <stop offset="0%" stopColor="#a5b1c2" />
+            <stop offset="50%" stopColor="#778492" />
+            <stop offset="100%" stopColor="#3d444b" />
           </radialGradient>
           
-          {/* Body 3D Gradient */}
-          <linearGradient id="body-blender-3d" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#353b42" />
-            <stop offset="30%" stopColor="#555d66" />
-            <stop offset="100%" stopColor="#25292e" />
-          </linearGradient>
-
-          {/* Glossy Dark Screen Gradient */}
-          <radialGradient id="screen-blender-3d" cx="40%" cy="30%" r="70%">
-            <stop offset="0%" stopColor="#25292e" />
-            <stop offset="60%" stopColor="#121416" />
-            <stop offset="100%" stopColor="#0a0b0c" />
+          <radialGradient id="body-grad" cx="30%" cy="30%" r="80%" fx="30%" fy="30%">
+            <stop offset="0%" stopColor="#838e9a" />
+            <stop offset="70%" stopColor="#4a525b" />
+            <stop offset="100%" stopColor="#2c3238" />
           </radialGradient>
 
-          {/* Screen Glass Reflection */}
-          <linearGradient id="glass-reflection" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="rgba(255,255,255,0.35)" />
-            <stop offset="45%" stopColor="rgba(255,255,255,0.05)" />
+          <radialGradient id="screen-grad" cx="50%" cy="50%" r="70%" fx="50%" fy="50%">
+            <stop offset="0%" stopColor="#3a3f47" />
+            <stop offset="60%" stopColor="#1a1d21" />
+            <stop offset="100%" stopColor="#0a0c0e" />
+          </radialGradient>
+
+          <linearGradient id="screen-glass" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="rgba(255,255,255,0.4)" />
+            <stop offset="40%" stopColor="rgba(255,255,255,0.05)" />
             <stop offset="100%" stopColor="rgba(255,255,255,0)" />
           </linearGradient>
+
+          <filter id="inner-shadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feOffset dx="0" dy="4"/>
+            <feGaussianBlur stdDeviation="3" result="offset-blur"/>
+            <feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse"/>
+            <feFlood floodColor="black" floodOpacity="0.7" result="color"/>
+            <feComposite operator="in" in="color" in2="inverse" result="shadow"/>
+            <feComposite operator="over" in="shadow" in2="SourceGraphic"/>
+          </filter>
         </defs>
 
-        {/* Soft Ambient Ground Shadow */}
-        <ellipse cx="50" cy="102" rx="22" ry="4" fill="rgba(0,0,0,0.6)" filter="blur(3px)" />
+        {/* Ground Shadow that scales with jump */}
+        <ellipse cx="50" cy="105" rx="24" ry="5" fill="rgba(0,0,0,0.5)" filter="blur(2px)" />
 
         <g className="robot-body">
           <g className="robot-heave">
+            {/* Body */}
+            <path d="M 35 70 Q 50 65 65 70 C 70 70, 72 85, 65 95 C 60 105, 55 105, 50 100 C 45 105, 40 105, 35 95 C 28 85, 30 70, 35 70 Z" fill="url(#body-grad)" />
+            {/* Body Highlight */}
+            <path d="M 38 72 Q 50 68 62 72 Q 50 85 38 72" fill="rgba(255,255,255,0.15)" />
             
-            {/* Torso & Stubby Legs (Blender Style) */}
-            <g className="robot-legs">
-              {/* Main Body Nub */}
-              <path d="M 36 62 Q 50 58 64 62 C 68 62, 70 75, 65 88 C 62 94, 57 96, 52 90 C 48 96, 43 94, 40 88 C 35 75, 32 62, 36 62 Z" fill="url(#body-blender-3d)" />
-              {/* Occlusion Shadow under Head */}
-              <path d="M 34 62 Q 50 67 66 62 C 64 68, 36 68, 34 62 Z" fill="rgba(0,0,0,0.4)" />
-            </g>
-
-            {/* Left Arm Nub */}
+            {/* Left Arm (Paw) */}
             <g className="robot-arm-left">
-              <path d="M 33 66 Q 25 70 27 78 Q 30 83 34 78" fill="url(#body-blender-3d)" />
+              <path d="M 32 75 Q 22 80 25 90 Q 28 95 32 90" fill="url(#body-grad)" stroke="#3a4047" strokeWidth="1" />
+              <path d="M 31 77 Q 24 82 26 88" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" strokeLinecap="round" fill="none" />
             </g>
             
-            {/* Right Arm Nub */}
+            {/* Right Arm (Paw) */}
             <g className="robot-arm-right">
-              <path d="M 67 66 Q 75 70 73 78 Q 70 83 66 78" fill="url(#body-blender-3d)" />
+              <path d="M 68 75 Q 78 80 75 90 Q 72 95 68 90" fill="url(#body-grad)" stroke="#3a4047" strokeWidth="1" />
+              <path d="M 69 77 Q 76 82 74 88" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" strokeLinecap="round" fill="none" />
             </g>
 
-            {/* Head Assembly */}
             <g className="robot-head">
+              {/* Small arm/ear left (Puppy Ear Wiggle) */}
+              <rect className="robot-ear" x="5" y="35" width="22" height="26" rx="6" fill="url(#body-grad)" />
+              {/* Ear Highlight */}
+              <rect className="robot-ear" x="6" y="36" width="20" height="10" rx="4" fill="rgba(255,255,255,0.2)" pointerEvents="none" />
               
-              {/* Left Side Button / Ear Nub */}
-              <rect className="robot-ear" x="8" y="32" width="10" height="20" rx="4" fill="#41474e" />
-              <rect className="robot-ear" x="9" y="33" width="8" height="8" rx="2" fill="rgba(255,255,255,0.15)" />
-
-              {/* Main Head Casing (Rounded 3D Cube Helmet) */}
-              <rect x="14" y="8" width="72" height="60" rx="24" fill="url(#head-blender-3d)" />
+              {/* Head Casing */}
+              <rect x="15" y="10" width="70" height="60" rx="22" fill="url(#head-grad)" />
+              {/* Head Bevel Highlight */}
+              <rect x="16" y="11" width="68" height="58" rx="20" fill="none" stroke="rgba(255,255,255,0.6)" strokeWidth="1.5" />
+              <rect x="15" y="10" width="70" height="60" rx="22" fill="none" stroke="rgba(0,0,0,0.5)" strokeWidth="2" />
               
-              {/* Top Soft Rim Highlight (3D Lighting Bevel) */}
-              <rect x="15" y="9" width="70" height="58" rx="23" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="1.2" />
-              <rect x="14" y="8" width="72" height="60" rx="24" fill="none" stroke="rgba(0,0,0,0.4)" strokeWidth="1.5" />
-              
-              {/* Inset Screen Bevel Frame */}
-              <rect x="23" y="16" width="54" height="44" rx="18" fill="#25292e" />
-              <rect x="24" y="17" width="52" height="42" rx="17" fill="url(#screen-blender-3d)" />
+              {/* Screen Face Base with Inner Shadow */}
+              <rect x="25" y="20" width="50" height="40" rx="14" fill="url(#screen-grad)" filter="url(#inner-shadow)" />
 
-              {/* Glossy Glass Reflection Overlay */}
-              <rect x="24" y="17" width="52" height="24" rx="17" fill="url(#glass-reflection)" />
+              {/* Screen Glass Reflection */}
+              <rect x="25" y="20" width="50" height="25" rx="14" fill="url(#screen-glass)" />
+              <path d="M 25 35 Q 50 45 75 35 L 75 25 Q 50 15 25 25 Z" fill="rgba(255,255,255,0.1)" />
 
-              {/* Eyes (Glowing Rounded Squares) */}
+              {/* Eyes (Animated) */}
               <g className="robot-eyes-container">
-                <rect className="robot-eye" x="38" y="30" width="10" height="13" rx="4" fill="#ffffff" style={{ filter: 'drop-shadow(0px 0px 6px rgba(255,255,255,0.9))' }} />
-                <rect className="robot-eye" x="52" y="30" width="10" height="13" rx="4" fill="#ffffff" style={{ filter: 'drop-shadow(0px 0px 6px rgba(255,255,255,0.9))' }} />
+                <rect className="robot-eye" x="40" y="32" width="10" height="12" rx="4" fill="#f1eef1" style={{ filter: 'drop-shadow(0px 0px 8px rgba(255,255,255,1))' }} />
+                <rect className="robot-eye" x="55" y="32" width="10" height="12" rx="4" fill="#f1eef1" style={{ filter: 'drop-shadow(0px 0px 8px rgba(255,255,255,1))' }} />
               </g>
-
             </g>
           </g>
         </g>
       </svg>
-      </>
-      )}
     </motion.div>
   );
 }

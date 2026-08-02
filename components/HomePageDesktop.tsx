@@ -810,7 +810,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               </p>
 
               {/* Stats Row */}
-              <div className="flex items-center gap-8 mb-10 py-6 border-y border-theme-50/10" style={{ marginBottom: "30px", marginTop: "10px" }}>
+              <div className="flex items-center gap-8 mb-10 py-6" style={{ marginBottom: "30px", marginTop: "10px" }}>
                 <div>
                   <div className="text-3xl font-bold text-theme-50 mb-1">120+</div>
                   <div className="text-xs text-theme-50/50 uppercase tracking-widest font-semibold">Projects</div>

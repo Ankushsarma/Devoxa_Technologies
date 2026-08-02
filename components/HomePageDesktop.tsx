@@ -980,10 +980,10 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               items={projects.length > 0 ? projects.map((p: any) => {
                 let img = p.imageUrl || "/tpl-saas-software.jpg";
                 const t = p.title.toLowerCase();
-                if (t.includes('ag home')) img = 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1600&q=90';
-                else if (t.includes('cab partner')) img = 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=1600&q=90';
-                else if (t.includes('smart rent')) img = 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=90';
-                else if (t.includes('lionscott')) img = 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1600&q=90';
+                if (t.includes('ag home')) img = 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600&q=70';
+                else if (t.includes('cab partner')) img = 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=600&q=70';
+                else if (t.includes('smart rent')) img = 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&q=70';
+                else if (t.includes('lionscott')) img = 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=600&q=70';
                 return { image: img, text: p.title };
               }) : undefined}
               bend={0.6}

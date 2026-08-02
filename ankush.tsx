@@ -15,7 +15,6 @@ import MagicRings from '@/components/MagicRings';
 import DarkVeil from '@/components/DarkVeil';
 import LightRays from '@/components/LightRays';
 import Particles from '@/components/Particles';
-import CanvasVisibilityWrapper from '@/components/CanvasVisibilityWrapper';
 
 import LineWaves from "@/components/LineWaves"
 import ConsultationModal from "@/components/ConsultationModal"
@@ -197,22 +196,22 @@ function FloatingScrollButtonDesktop() {
   const [isScrolledDown, setIsScrolledDown] = useState(false);
 
   useEffect(() => {
-    const heroSection = document.querySelector("#hero");
-    if (!heroSection) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        // If hero is NOT intersecting (or intersecting very little), we are scrolled down
-        setIsScrolledDown(!entries[0].isIntersecting);
-      },
-      {
-        rootMargin: "0px",
-        threshold: 0.5, // When hero is 50% out of view
+    const handleScroll = () => {
+      const heroSection = document.querySelector("#hero");
+      if (heroSection) {
+        const rect = heroSection.getBoundingClientRect();
+        if (rect.bottom < window.innerHeight / 2) {
+          setIsScrolledDown(true);
+        } else {
+          setIsScrolledDown(false);
+        }
+      } else {
+        setIsScrolledDown(false);
       }
-    );
+    };
 
-    observer.observe(heroSection);
-    return () => observer.disconnect();
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleClick = () => {
@@ -277,32 +276,15 @@ export default function HomePageDesktop() {
 
   // Scroll listener for nav blur and WhatsApp button
   useEffect(() => {
-    const heroSection = document.querySelector("#hero");
-    if (!heroSection) return;
-
-    // Observer for blurred nav (when scrolled > 50px)
-    const navObserver = new IntersectionObserver(
-      ([entry]) => {
-        setScrolled(!entry.isIntersecting);
-      },
-      { rootMargin: "-50px 0px 0px 0px", threshold: 1.0 }
-    );
-    
-    // Observer for WhatsApp button (when scrolled > 60% of viewport)
-    const waObserver = new IntersectionObserver(
-      ([entry]) => {
-        setShowWhatsApp(!entry.isIntersecting);
-      },
-      { threshold: 0.4 } // When 60% of hero is gone
-    );
-
-    navObserver.observe(heroSection);
-    waObserver.observe(heroSection);
-
-    return () => {
-      navObserver.disconnect();
-      waObserver.disconnect();
-    };
+    const onScroll = () => {
+      setScrolled(window.scrollY > 50)
+      // Show WhatsApp button when scrolled past 60% of viewport height (past hero section)
+      setShowWhatsApp(window.scrollY > window.innerHeight * 0.6)
+    }
+    window.addEventListener("scroll", onScroll, { passive: true })
+    // Check initial state in case page is reloaded scrolled down
+    onScroll()
+    return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
   // Custom scroll restoration logic (Synchronous to prevent flash + handles layout shifts)
@@ -473,7 +455,7 @@ function DesktopNav({ user, role, loading, logout, scrolled }: any) {
       </div>
 
       {/* 2nd Part: Capsule Navigation */}
-      <div className="hidden md:flex items-center rounded-full bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.08)] bg-[#0A0714] shadow-lg">
+      <div className="hidden md:flex items-center rounded-full bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.08)] backdrop-blur-md shadow-lg">
         <PillNav
           logo={null}
           showLogo={false}
@@ -496,22 +478,22 @@ function DesktopNav({ user, role, loading, logout, scrolled }: any) {
       </div>
 
       {/* 3rd Part: Auth & CTA */}
-      <div className="flex flex-col md:flex-row items-center justify-end gap-5 flex-1">
+      <div className="flex flex-col md:flex-row items-center justify-end gap-6 flex-1">
         {!loading && user ? (
           <>
-            <Link href={`/dashboard/${role}`} className="text-[10px] font-mono uppercase tracking-widest text-neutral-300 hover:text-[#f1eef1] transition-colors">
+            <Link href={`/dashboard/${role}`} className="label-mono uppercase tracking-widest text-neutral-300 hover:text-[#f1eef1] transition-colors">
               Dashboard
             </Link>
-            <button onClick={logout} className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 hover:text-[#f1eef1] transition-colors">
+            <button onClick={logout} className="label-mono text-neutral-500 hover:text-[#f1eef1] transition-colors">
               Logout
             </button>
           </>
         ) : (
-          <Link href="/login" className="text-[10px] font-mono uppercase tracking-widest text-neutral-300 hover:text-[#f1eef1] transition-colors">
+          <Link href="/login" className="label-mono text-neutral-300 hover:text-[#f1eef1] transition-colors">
             Login
           </Link>
         )}
-        <a className="border border-theme-50/30 px-5 py-2.5 text-[10px] font-mono uppercase tracking-widest text-[#f1eef1] hover:bg-theme-50 hover:text-theme-900 transition-all hidden md:block" href="#cta-banner">
+        <a className="border border-theme-50/30 px-6 py-2 text-[10px] font-mono uppercase tracking-widest text-[#f1eef1] hover:bg-theme-50 hover:text-theme-900 transition-all hidden md:block" href="#cta-banner">
           Book a call —
         </a>
       </div>
@@ -521,7 +503,7 @@ function DesktopNav({ user, role, loading, logout, scrolled }: any) {
 
 function MobileNav({ user, role, loading, logout, scrolled }: any) {
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#0A0714]/90 bg-[#0A0714] border-b border-[#705474]/15 shadow-sm' : 'bg-transparent bg-transparent border-b border-[#705474]/15'} px-6 py-4 flex justify-between items-center`}>
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#0A0714]/90 backdrop-blur-md border-b border-[#705474]/15 shadow-sm' : 'bg-transparent backdrop-blur-sm border-b border-[#705474]/15'} px-6 py-4 flex justify-between items-center`}>
       <div className="font-serif text-xl font-medium tracking-tight italic flex items-center gap-3 text-[#f1eef1]">
         <div style={{ width: '32px', height: '32px', backgroundcolor: "#f1eef1", borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', flexShrink: 0 }}>
           <img src="/logo.png" alt="Logo" style={{ width: '100%', height: '100%', objectFit: 'contain', transform: 'scale(1.2)' }} />
@@ -708,28 +690,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
     </section>
 
 
-      <div className="agency-pillar-wrapper" style={{ marginBottom: "40px", position: "relative", backgroundColor: "transparent", overflow: "visible" }}>
-        {/* Shared Light Pillar Background */}
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 1, pointerEvents: 'none', WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 150px)', maskImage: 'linear-gradient(to bottom, transparent, black 150px)' }}>
-          <WebGLVisibilityWrapper isAbsolute={false}>
-            <LightPillar
-              topColor="#26082a"
-              bottomColor="#FF9FFC"
-              intensity={0.8}
-              rotationSpeed={0.5}
-              glowAmount={0.002}
-              pillarWidth={3.0}
-              pillarHeight={0.4}
-              noiseIntensity={0.1}
-              pillarRotation={30}
-              interactive={false}
-              mixBlendMode="normal"
-              quality="high"
-            />
-          </WebGLVisibilityWrapper>
-        </div>
-
-      <div className="hero-cards-wrapper" style={{ position: "relative", zIndex: 10 }}>
+      <div className="hero-cards-wrapper">
         <GlowingCard delay={0.1} onClick={(e) => handleCardClick(e, "Web App Dev")}>
           <div className="hc-icon"><Code2 size={28} strokeWidth={1.5} /></div>
           <h4 className="hc-title">Web App Dev</h4>
@@ -757,6 +718,26 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         </GlowingCard>
       </div>
 
+      <div className="agency-pillar-wrapper" style={{ marginBottom: "40px", position: "relative", backgroundColor: "transparent", overflow: "hidden" }}>
+        {/* Shared Light Pillar Background */}
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 1, pointerEvents: 'none' }}>
+          <WebGLVisibilityWrapper isAbsolute={false}>
+            <LightPillar
+              topColor="#26082a"
+              bottomColor="#FF9FFC"
+              intensity={0.8}
+              rotationSpeed={0.5}
+              glowAmount={0.002}
+              pillarWidth={3.0}
+              pillarHeight={0.4}
+              noiseIntensity={0.1}
+              pillarRotation={30}
+              interactive={false}
+              mixBlendMode="normal"
+              quality="high"
+            />
+          </WebGLVisibilityWrapper>
+        </div>
 
         <div style={{ position: "relative", zIndex: 1 }}>
           <AgencySection onOpenModal={onOpenModal} />
@@ -810,7 +791,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               </p>
 
               {/* Stats Row */}
-              <div className="flex items-center gap-8 mb-10 py-6" style={{ marginBottom: "30px", marginTop: "10px" }}>
+              <div className="flex items-center gap-8 mb-10 py-6 border-y border-theme-50/10" style={{ marginBottom: "30px", marginTop: "10px" }}>
                 <div>
                   <div className="text-3xl font-bold text-theme-50 mb-1">120+</div>
                   <div className="text-xs text-theme-50/50 uppercase tracking-widest font-semibold">Projects</div>
@@ -958,7 +939,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         <div className="wrap" style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 20px" }}>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", marginBottom: "80px", position: "relative" }}>
             <div className="section-head reveal in" style={{ margin: 0, display: "flex", flexDirection: "column", alignItems: "center" }}>
-              <div className="group relative inline-flex items-center gap-2 px-4 py-2 rounded-full bg-transparent border border-[#705474]/15 bg-[#0A0714] overflow-hidden mb-8 transition-all duration-300 hover:bg-theme-50/10 hover:border-[#705474]/30">
+              <div className="group relative inline-flex items-center gap-2 px-4 py-2 rounded-full bg-transparent border border-[#705474]/15 backdrop-blur-md overflow-hidden mb-8 transition-all duration-300 hover:bg-theme-50/10 hover:border-[#705474]/30">
                 <div className="absolute inset-0 bg-[#523056]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <Layers className="w-4 h-4 text-[#705474] group-hover:text-[#705474] transition-colors" />
                 <span className="text-xs font-bold text-[#f1eef1] tracking-[0.15em] uppercase">Our Portfolio</span>
@@ -980,10 +961,10 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               items={projects.length > 0 ? projects.map((p: any) => {
                 let img = p.imageUrl || "/tpl-saas-software.jpg";
                 const t = p.title.toLowerCase();
-                if (t.includes('ag home')) img = 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600&q=70';
-                else if (t.includes('cab partner')) img = 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=600&q=70';
-                else if (t.includes('smart rent')) img = 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&q=70';
-                else if (t.includes('lionscott')) img = 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=600&q=70';
+                if (t.includes('ag home')) img = 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1600&q=90';
+                else if (t.includes('cab partner')) img = 'https://images.unsplash.com/photo-1494976388531-d1058404c2b8?auto=format&fit=crop&w=1600&q=90';
+                else if (t.includes('smart rent')) img = 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=90';
+                else if (t.includes('lionscott')) img = 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1600&q=90';
                 return { image: img, text: p.title };
               }) : undefined}
               bend={0.6}

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import { useAuth } from "@/context/auth-context"
 import { useRouter } from "next/navigation"
-import { Chat } from "@/components/chat"
+// import { Chat } from "@/components/chat"
 import Image from "next/image"
 import { Folder, CheckCircle2, ClipboardList, Rss } from "lucide-react"
 import { NoticeBoard } from "@/components/notice-board"

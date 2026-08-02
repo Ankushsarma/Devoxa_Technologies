@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  devIndicators: {
+    appIsrStatus: false, // Hides the "Compiling..." and static indicator
+  },
   reactStrictMode: false,
   typescript: {
     ignoreBuildErrors: true,

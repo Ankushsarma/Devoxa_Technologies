@@ -1,5 +1,7 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 'use client';
+import CanvasVisibilityWrapper from "@/components/CanvasVisibilityWrapper";
+import { usePerformance } from "@/context/PerformanceContext";
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useRef } from 'react';
 import { Renderer, Camera, Geometry, Program, Mesh } from 'ogl';
 
@@ -102,6 +104,7 @@ const Particles = ({
   pixelRatio = 1,
   className
 }) => {
+  const { lowQualityMode } = usePerformance();
   const containerRef = useRef(null);
   const mouseRef = useRef({ x: 0, y: 0 });
 
@@ -193,9 +196,14 @@ const Particles = ({
     let animationFrameId;
     let lastTime = performance.now();
     let elapsed = 0;
+    let frameSkipCount = 0;
 
     const update = t => {
       animationFrameId = requestAnimationFrame(update);
+      if (lowQualityMode) {
+        frameSkipCount++;
+        if (frameSkipCount % 2 !== 0) return;
+      }
       const delta = t - lastTime;
       lastTime = t;
       elapsed += delta * speed;
@@ -222,6 +230,10 @@ const Particles = ({
     };
 
     animationFrameId = requestAnimationFrame(update);
+      if (lowQualityMode) {
+        frameSkipCount++;
+        if (frameSkipCount % 2 !== 0) return;
+      }
 
     return () => {
       window.removeEventListener('resize', resize);
@@ -253,4 +265,13 @@ const Particles = ({
   return <div ref={containerRef} className={`particles-container ${className}`} />;
 };
 
-export default Particles;
+// export default Particles;
+
+
+export default function ParticlesWrapper(props) {
+  return (
+    <CanvasVisibilityWrapper>
+      <Particles {...props} />
+    </CanvasVisibilityWrapper>
+  );
+}

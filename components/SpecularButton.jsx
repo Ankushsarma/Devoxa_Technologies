@@ -1,4 +1,5 @@
 'use client';
+import CanvasVisibilityWrapper from "@/components/CanvasVisibilityWrapper";
 import { useRef, useEffect } from 'react';
 import { Renderer, Program, Mesh, Triangle, Color } from 'ogl';
 import './SpecularButton.css';
@@ -245,4 +246,13 @@ const SpecularButton = ({
   );
 };
 
-export default SpecularButton;
+// export default SpecularButton;
+
+
+export default function SpecularButtonWrapper(props) {
+  return (
+    <CanvasVisibilityWrapper>
+      <SpecularButton {...props} />
+    </CanvasVisibilityWrapper>
+  );
+}

@@ -1,8 +1,9 @@
+import CanvasVisibilityWrapper from "@/components/CanvasVisibilityWrapper";
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import './LiquidEther.css';
 
-export default function LiquidEther({
+function LiquidEtherInner({
   mouseForce = 20,
   cursorSize = 100,
   isViscous = false,
@@ -1165,4 +1166,13 @@ export default function LiquidEther({
   ]);
 
   return <div ref={mountRef} className={`liquid-ether-container ${className || ''}`} style={style} />;
+}
+
+
+export default function LiquidEther(props) {
+  return (
+    <CanvasVisibilityWrapper>
+      <LiquidEtherInner {...props} />
+    </CanvasVisibilityWrapper>
+  );
 }

@@ -24,8 +24,7 @@ import {
 import Particles from "@/components/Particles";
 import ShinyText from "@/components/ShinyText";
 import ConsultationModal from "@/components/ConsultationModal";
-import { Footer } from "@/components/ui/footer-section";
-import { FooterMobile } from "@/components/ui/footer-section-mobile";
+
 export default function CookiePolicy() {
   const [activeSection, setActiveSection] = useState("section-1");
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -444,15 +443,7 @@ export default function CookiePolicy() {
       {/* Consultation Modal */}
       <ConsultationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
-      {/* Desktop Footer */}
-      <div className="hidden lg:block w-full mt-20">
-        <Footer style={{ paddingTop: '0px' }} middleSectionStyle={{ paddingTop: '50px', paddingBottom: '30px' }} />
-      </div>
 
-      {/* Mobile Footer */}
-      <div className="block lg:hidden w-full mt-10">
-        <FooterMobile />
-      </div>
 
     </div>
   );

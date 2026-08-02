@@ -1,4 +1,5 @@
 'use client';
+import CanvasVisibilityWrapper from "@/components/CanvasVisibilityWrapper";
 import { useRef, useEffect, useState } from 'react';
 import { Renderer, Program, Triangle, Mesh } from 'ogl';
 import './LightRays.css';
@@ -404,4 +405,13 @@ void main() {
   return <div ref={containerRef} className={`light-rays-container ${className}`.trim()} />;
 };
 
-export default LightRays;
+// export default LightRays;
+
+
+export default function LightRaysWrapper(props) {
+  return (
+    <CanvasVisibilityWrapper>
+      <LightRays {...props} />
+    </CanvasVisibilityWrapper>
+  );
+}

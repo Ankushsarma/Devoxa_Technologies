@@ -15,6 +15,7 @@ import MagicRings from '@/components/MagicRings';
 import DarkVeil from '@/components/DarkVeil';
 import LightRays from '@/components/LightRays';
 import Particles from '@/components/Particles';
+import CanvasVisibilityWrapper from '@/components/CanvasVisibilityWrapper';
 
 import LineWaves from "@/components/LineWaves"
 import ConsultationModal from "@/components/ConsultationModal"
@@ -196,25 +197,22 @@ function FloatingScrollButtonDesktop() {
   const [isScrolledDown, setIsScrolledDown] = useState(false);
 
   useEffect(() => {
-        let ticking = false;
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const heroSection = document.querySelector("#hero");
-          if (heroSection) {
-            const rect = heroSection.getBoundingClientRect();
-            setIsScrolledDown(rect.bottom < window.innerHeight / 2);
-          } else {
-            setIsScrolledDown(false);
-          }
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
+    const heroSection = document.querySelector("#hero");
+    if (!heroSection) return;
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // If hero is NOT intersecting (or intersecting very little), we are scrolled down
+        setIsScrolledDown(!entries[0].isIntersecting);
+      },
+      {
+        rootMargin: "0px",
+        threshold: 0.5, // When hero is 50% out of view
+      }
+    );
+
+    observer.observe(heroSection);
+    return () => observer.disconnect();
   }, []);
 
   const handleClick = () => {
@@ -279,21 +277,32 @@ export default function HomePageDesktop() {
 
   // Scroll listener for nav blur and WhatsApp button
   useEffect(() => {
-        let tickingOnScroll = false;
-    const onScroll = () => {
-      if(!tickingOnScroll) {
-        window.requestAnimationFrame(() => {
-          setScrolled(window.scrollY > 50);
-          setShowWhatsApp(window.scrollY > window.innerHeight * 0.6);
-          tickingOnScroll = false;
-        });
-        tickingOnScroll = true;
-      }
-    }
-    window.addEventListener("scroll", onScroll, { passive: true })
-    // Check initial state in case page is reloaded scrolled down
-    onScroll()
-    return () => window.removeEventListener("scroll", onScroll)
+    const heroSection = document.querySelector("#hero");
+    if (!heroSection) return;
+
+    // Observer for blurred nav (when scrolled > 50px)
+    const navObserver = new IntersectionObserver(
+      ([entry]) => {
+        setScrolled(!entry.isIntersecting);
+      },
+      { rootMargin: "-50px 0px 0px 0px", threshold: 1.0 }
+    );
+    
+    // Observer for WhatsApp button (when scrolled > 60% of viewport)
+    const waObserver = new IntersectionObserver(
+      ([entry]) => {
+        setShowWhatsApp(!entry.isIntersecting);
+      },
+      { threshold: 0.4 } // When 60% of hero is gone
+    );
+
+    navObserver.observe(heroSection);
+    waObserver.observe(heroSection);
+
+    return () => {
+      navObserver.disconnect();
+      waObserver.disconnect();
+    };
   }, [])
 
   // Custom scroll restoration logic (Synchronous to prevent flash + handles layout shifts)

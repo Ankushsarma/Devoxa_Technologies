@@ -1,4 +1,5 @@
 'use client';
+import CanvasVisibilityWrapper from "@/components/CanvasVisibilityWrapper";
 import { useRef, useCallback, useEffect } from 'react';
 import './BorderGlow.css';
 
@@ -154,4 +155,13 @@ const BorderGlow = ({
   );
 };
 
-export default BorderGlow;
+// export default BorderGlow;
+
+
+export default function BorderGlowWrapper(props) {
+  return (
+    <CanvasVisibilityWrapper>
+      <BorderGlow {...props} />
+    </CanvasVisibilityWrapper>
+  );
+}

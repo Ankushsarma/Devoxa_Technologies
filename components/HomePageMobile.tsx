@@ -738,9 +738,18 @@ export default function HomePageMobile() {
 
   // Scroll listener for nav blur
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50)
-    window.addEventListener("scroll", onScroll, { passive: true })
-    return () => window.removeEventListener("scroll", onScroll)
+    const heroSection = document.querySelector("#hero");
+    if (!heroSection) return;
+
+    const navObserver = new IntersectionObserver(
+      ([entry]) => {
+        setScrolled(!entry.isIntersecting);
+      },
+      { rootMargin: "-50px 0px 0px 0px", threshold: 1.0 }
+    );
+    
+    navObserver.observe(heroSection);
+    return () => navObserver.disconnect();
   }, [])
 
   // Custom scroll restoration logic (Synchronous to prevent flash + handles layout shifts)
@@ -826,18 +835,22 @@ export default function HomePageMobile() {
 
 function FloatingScrollButton() {
   const [isScrolledDown, setIsScrolledDown] = useState(false);
-
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 300) {
-        setIsScrolledDown(true);
-      } else {
-        setIsScrolledDown(false);
-      }
-    };
+    const heroSection = document.querySelector("#hero");
+    if (!heroSection) return;
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        setIsScrolledDown(!entries[0].isIntersecting);
+      },
+      {
+        rootMargin: "0px",
+        threshold: 0.1,
+      }
+    );
+
+    observer.observe(heroSection);
+    return () => observer.disconnect();
   }, []);
 
   const handleClick = () => {

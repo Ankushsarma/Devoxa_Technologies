@@ -1,4 +1,5 @@
 'use client';
+import CanvasVisibilityWrapper from "@/components/CanvasVisibilityWrapper";
 import { usePerformance } from "@/context/PerformanceContext";
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useRef } from 'react';
@@ -264,4 +265,13 @@ const Particles = ({
   return <div ref={containerRef} className={`particles-container ${className}`} />;
 };
 
-export default Particles;
+// export default Particles;
+
+
+export default function ParticlesWrapper(props) {
+  return (
+    <CanvasVisibilityWrapper>
+      <Particles {...props} />
+    </CanvasVisibilityWrapper>
+  );
+}

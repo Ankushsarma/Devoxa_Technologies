@@ -1,4 +1,5 @@
 'use client';
+import CanvasVisibilityWrapper from "@/components/CanvasVisibilityWrapper";
 import { useRef, useEffect, useState } from 'react';
 import { Renderer, Program, Triangle, Mesh } from 'ogl';
 import './SideRays.css';
@@ -242,4 +243,13 @@ void main() {
   return <div ref={containerRef} className={`side-rays-container ${className}`.trim()} />;
 };
 
-export default SideRays;
+// export default SideRays;
+
+
+export default function SideRaysWrapper(props) {
+  return (
+    <CanvasVisibilityWrapper>
+      <SideRays {...props} />
+    </CanvasVisibilityWrapper>
+  );
+}

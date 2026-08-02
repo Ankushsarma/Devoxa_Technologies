@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import { useAuth } from "@/context/auth-context"
 import { useRouter } from "next/navigation"
-import { Chat } from "@/components/chat"
+// import { Chat } from "@/components/chat"
 import Image from "next/image"
 import Link from "next/link"
 import { ClipboardCheck, User, ListTodo, FileText, Link as LinkIcon, ExternalLink, Calendar as CalendarIcon, ShieldCheck, Shield, Clock, Headphones } from "lucide-react"

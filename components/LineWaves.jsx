@@ -1,3 +1,4 @@
+import CanvasVisibilityWrapper from "@/components/CanvasVisibilityWrapper";
 import { Renderer, Program, Mesh, Triangle } from 'ogl';
 import { useEffect, useRef } from 'react';
 
@@ -131,7 +132,7 @@ void main() {
 }
 `;
 
-export default function LineWaves({
+function LineWavesInner({
   speed = 0.3,
   innerLineCount = 32.0,
   outerLineCount = 36.0,
@@ -246,4 +247,13 @@ export default function LineWaves({
   }, [speed, innerLineCount, outerLineCount, warpIntensity, rotation, edgeFadeWidth, colorCycleSpeed, brightness, color1, color2, color3, enableMouseInteraction, mouseInfluence]);
 
   return <div ref={containerRef} className="line-waves-container" />;
+}
+
+
+export default function LineWaves(props) {
+  return (
+    <CanvasVisibilityWrapper>
+      <LineWavesInner {...props} />
+    </CanvasVisibilityWrapper>
+  );
 }

@@ -1,4 +1,5 @@
 'use client';
+import CanvasVisibilityWrapper from "@/components/CanvasVisibilityWrapper";
 import { Camera, Mesh, Plane, Program, Renderer, Texture, Transform } from 'ogl';
 import { useEffect, useRef } from 'react';
 
@@ -588,7 +589,7 @@ class App {
   }
 }
 
-export default function CircularGallery({
+function CircularGalleryInner({
   items,
   bend = 3,
   textColor = '#ffffff',
@@ -629,5 +630,14 @@ export default function CircularGallery({
       role="region"
       aria-label="Circular image gallery. Use left and right arrow keys to navigate."
     />
+  );
+}
+
+
+export default function CircularGallery(props) {
+  return (
+    <CanvasVisibilityWrapper>
+      <CircularGalleryInner {...props} />
+    </CanvasVisibilityWrapper>
   );
 }

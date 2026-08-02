@@ -1,3 +1,4 @@
+import CanvasVisibilityWrapper from "@/components/CanvasVisibilityWrapper";
 import { useRef, useEffect } from 'react';
 import { Renderer, Program, Mesh, Triangle, Vec2 } from 'ogl';
 import './DarkVeil.css';
@@ -75,7 +76,7 @@ void main(){
 }
 `;
 
-export default function DarkVeil({
+function DarkVeilInner({
                                    hueShift = 0,
                                    noiseIntensity = 0,
                                    scanlineIntensity = 0,
@@ -147,4 +148,13 @@ export default function DarkVeil({
   }, [hueShift, noiseIntensity, scanlineIntensity, speed, scanlineFrequency, warpAmount, resolutionScale]);
 
   return <canvas ref={ref} className="darkveil-canvas" />;
+}
+
+
+export default function DarkVeil(props) {
+  return (
+    <CanvasVisibilityWrapper>
+      <DarkVeilInner {...props} />
+    </CanvasVisibilityWrapper>
+  );
 }

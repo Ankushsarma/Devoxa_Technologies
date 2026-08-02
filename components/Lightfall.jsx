@@ -1,3 +1,4 @@
+import CanvasVisibilityWrapper from "@/components/CanvasVisibilityWrapper";
 import { useEffect, useRef } from 'react';
 import { Renderer, Program, Mesh, Triangle } from 'ogl';
 import './Lightfall.css';
@@ -359,4 +360,13 @@ const Lightfall = ({
   );
 };
 
-export default Lightfall;
+// export default Lightfall;
+
+
+export default function LightfallWrapper(props) {
+  return (
+    <CanvasVisibilityWrapper>
+      <Lightfall {...props} />
+    </CanvasVisibilityWrapper>
+  );
+}

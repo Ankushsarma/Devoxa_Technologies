@@ -1,4 +1,5 @@
 "use client";
+import CanvasVisibilityWrapper from "@/components/CanvasVisibilityWrapper";
 
 import { useRef, useEffect, useState } from 'react';
 import * as THREE from 'three';
@@ -390,4 +391,12 @@ const LightPillar = ({
   return <div ref={containerRef} className={`light-pillar-container ${className}`} style={{ mixBlendMode: mixBlendMode as any }} />;
 };
 
-export default LightPillar;
+const LightPillarInner = LightPillar;
+
+export default function LightPillarWrapper(props: any) {
+  return (
+    <CanvasVisibilityWrapper>
+      <LightPillarInner {...props} />
+    </CanvasVisibilityWrapper>
+  );
+}

@@ -1,4 +1,5 @@
 'use client';
+import CanvasVisibilityWrapper from "@/components/CanvasVisibilityWrapper";
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 
@@ -64,7 +65,7 @@ void main() {
 }
 `;
 
-export default function MagicRings({
+function MagicRingsInner({
   color = '#fc42ff',
   colorTwo = '#42fcff',
   speed = 1,
@@ -248,4 +249,13 @@ export default function MagicRings({
   }, []);
 
   return <div ref={mountRef} className="magic-rings-container" style={blur > 0 ? { filter: `blur(${blur}px)` } : undefined} />;
+}
+
+
+export default function MagicRings(props) {
+  return (
+    <CanvasVisibilityWrapper>
+      <MagicRingsInner {...props} />
+    </CanvasVisibilityWrapper>
+  );
 }

@@ -478,22 +478,22 @@ function DesktopNav({ user, role, loading, logout, scrolled }: any) {
       </div>
 
       {/* 3rd Part: Auth & CTA */}
-      <div className="flex flex-col md:flex-row items-center justify-end gap-6 flex-1">
+      <div className="flex flex-col md:flex-row items-center justify-end gap-5 flex-1">
         {!loading && user ? (
           <>
-            <Link href={`/dashboard/${role}`} className="label-mono uppercase tracking-widest text-neutral-300 hover:text-[#f1eef1] transition-colors">
+            <Link href={`/dashboard/${role}`} className="text-[10px] font-mono uppercase tracking-widest text-neutral-300 hover:text-[#f1eef1] transition-colors">
               Dashboard
             </Link>
-            <button onClick={logout} className="label-mono text-neutral-500 hover:text-[#f1eef1] transition-colors">
+            <button onClick={logout} className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 hover:text-[#f1eef1] transition-colors">
               Logout
             </button>
           </>
         ) : (
-          <Link href="/login" className="label-mono text-neutral-300 hover:text-[#f1eef1] transition-colors">
+          <Link href="/login" className="text-[10px] font-mono uppercase tracking-widest text-neutral-300 hover:text-[#f1eef1] transition-colors">
             Login
           </Link>
         )}
-        <a className="border border-theme-50/30 px-6 py-2 text-[10px] font-mono uppercase tracking-widest text-[#f1eef1] hover:bg-theme-50 hover:text-theme-900 transition-all hidden md:block" href="#cta-banner">
+        <a className="border border-theme-50/30 px-5 py-2.5 text-[10px] font-mono uppercase tracking-widest text-[#f1eef1] hover:bg-theme-50 hover:text-theme-900 transition-all hidden md:block" href="#cta-banner">
           Book a call —
         </a>
       </div>

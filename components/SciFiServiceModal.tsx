@@ -1,6 +1,7 @@
 "use client"
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X } from 'lucide-react'
 
@@ -19,6 +20,13 @@ interface SciFiServiceModalProps {
 }
 
 export default function SciFiServiceModal({ isOpen, onClose, service }: SciFiServiceModalProps) {
+  const [mounted, setMounted] = useState(false)
+
+  // Hydration check for Portal
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
   // Prevent scrolling when modal is open WITHOUT layout shift
   useEffect(() => {
     if (!isOpen) return
@@ -53,17 +61,19 @@ export default function SciFiServiceModal({ isOpen, onClose, service }: SciFiSer
   // Inner panel for the card name at the bottom right cutout
   const innerPolyPoints = `${w-170},${h-70} ${w},${h-70} ${w},${h} ${w-222.5},${h}`;
 
-  return (
+  if (!mounted) return null;
+
+  return createPortal(
     <AnimatePresence>
       {isOpen && service && (
-        <div key="scifi-modal-wrapper" className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
+        <div key="scifi-modal-wrapper" className="fixed inset-0 z-[99999] flex items-center justify-center p-4 pointer-events-auto">
           {/* Dark Frosted Backdrop */}
           <motion.div 
             key="scifi-modal-backdrop"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/80 backdrop-blur-md cursor-pointer"
+            className="absolute inset-0 bg-black/80 backdrop-blur-md cursor-pointer z-0"
             onClick={onClose}
           />
 
@@ -74,7 +84,7 @@ export default function SciFiServiceModal({ isOpen, onClose, service }: SciFiSer
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 15 }}
             transition={{ type: "spring", damping: 25, stiffness: 220 }}
-            className="relative z-10 w-full max-w-[540px] h-[360px] shadow-[0_25px_60px_rgba(0,0,0,0.9)]"
+            className="relative z-50 w-full max-w-[540px] h-[360px] shadow-[0_25px_60px_rgba(0,0,0,0.9)]"
           >
             {/* Vector Borders & Backgrounds */}
             <svg className="absolute inset-0 pointer-events-none z-0 overflow-visible" width="100%" height="100%">
@@ -160,6 +170,7 @@ export default function SciFiServiceModal({ isOpen, onClose, service }: SciFiSer
           </motion.div>
         </div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   )
 }

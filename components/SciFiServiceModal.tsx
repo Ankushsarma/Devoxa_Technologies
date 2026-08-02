@@ -21,9 +21,8 @@ interface SciFiServiceModalProps {
 
 export default function SciFiServiceModal({ isOpen, onClose, service, activeCardRect }: SciFiServiceModalProps) {
   const [modalStyle, setModalStyle] = useState<React.CSSProperties>({})
-  const [pointerDirection, setPointerDirection] = useState<'left' | 'right' | 'center'>('center')
 
-  // Prevent scrolling when modal is open WITHOUT layout shift (by blocking scroll events instead of hiding scrollbar)
+  // Prevent scrolling when modal is open WITHOUT layout shift
   useEffect(() => {
     if (!isOpen) return
 
@@ -31,10 +30,8 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
       e.preventDefault()
     }
 
-    // Add non-passive event listeners to block scrolling
     window.addEventListener('wheel', preventScroll, { passive: false })
     window.addEventListener('touchmove', preventScroll, { passive: false })
-    // Block keyboard scrolling (arrow keys, page up/down, space)
     const preventKeyScroll = (e: KeyboardEvent) => {
       if (['ArrowUp', 'ArrowDown', 'Space', 'PageUp', 'PageDown'].includes(e.code)) {
         e.preventDefault()
@@ -53,7 +50,7 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
   useLayoutEffect(() => {
     if (isOpen) {
       const modalWidth = Math.min(520, window.innerWidth - 32)
-      const modalHeight = 340
+      const modalHeight = 360
 
       setModalStyle({
         position: 'fixed',
@@ -64,15 +61,12 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
         height: `${modalHeight}px`,
         zIndex: 9999
       })
-      setPointerDirection('center')
     }
   }, [isOpen])
 
-  const ptr = null;
-
   // Dimensions for SVG drawing
   const w = parseInt(modalStyle.width as string) || 520;
-  const h = parseInt(modalStyle.height as string) || 340;
+  const h = parseInt(modalStyle.height as string) || 360;
 
   // Exact coordinates matching the uploaded image's complex cut corners
   const mainPolyPoints = `0,20 0,70 30,40 110,40 140,0 ${w-20},0 ${w},20 ${w},${h-80} ${w-180},${h-80} ${w-240},${h} 20,${h} 0,${h-20}`;
@@ -80,147 +74,114 @@ export default function SciFiServiceModal({ isOpen, onClose, service, activeCard
   
   // Inner panel for the card name at the bottom right cutout
   const innerPolyPoints = `${w-170},${h-70} ${w},${h-70} ${w},${h} ${w-222.5},${h}`;
-  const innerClipPolygon = `polygon(calc(100% - 222.5px) 100%, calc(100% - 170px) 0, 100% 0, 100% 100%)`;
-
-  if (!isOpen || !service) return null
 
   return (
     <AnimatePresence>
-      {/* Dark Frosted Backdrop to isolate content */}
-      <motion.div 
-        key="scifi-modal-backdrop"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className="fixed inset-0 z-[9998] bg-black/75 backdrop-blur-md cursor-pointer"
-        onClick={onClose}
-      />
-
-      {/* Dynamic Popover Modal */}
-      <motion.div
-        key="scifi-modal-popover"
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.95 }}
-        transition={{ type: "spring", damping: 25, stiffness: 120 }}
-        style={modalStyle}
-      >
-        {/* Pointer pointing to the card's top center icon */}
-        {ptr && (
-          <svg width={ptr.width} height="80" className={ptr.className}>
-            <path d={ptr.thickPath} stroke="#00F0FF" strokeWidth="4" />
-            <path d={ptr.thickCutout} fill="#00F0FF" />
-            <path d={ptr.thinPath} fill="none" stroke="#00F0FF" strokeWidth="1.5" />
-            <circle cx={ptr.targetX} cy={ptr.targetY} r="4" fill="none" stroke="#00F0FF" strokeWidth="1.5" />
-            <circle cx={ptr.targetX} cy={ptr.targetY} r="1.5" fill="#00F0FF" />
-          </svg>
-        )}
-
-        {/* Exact Vector Borders & Backgrounds */}
-        <svg className="absolute inset-0 pointer-events-none z-0 overflow-visible" width="100%" height="100%">
-          {/* Main Background */}
-          <polygon points={mainPolyPoints} fill="rgba(7, 16, 27, 0.95)" stroke="rgba(139, 92, 246, 0.6)" strokeWidth="1.5" />
-          {/* Main Glows */}
-          <line x1="140" y1="0" x2={w-20} y2="0" stroke="#ffffff" strokeWidth="2" filter="drop-shadow(0 0 8px rgba(255,255,255,0.8))" />
-          <line x1="20" y1={h} x2={w-240} y2={h} stroke="#ffffff" strokeWidth="2" filter="drop-shadow(0 0 8px rgba(255,255,255,0.8))" />
-          
-          {/* Inner Panel Background */}
-          <polygon points={innerPolyPoints} fill="rgba(139, 92, 246, 0.05)" stroke="rgba(139, 92, 246, 0.4)" strokeWidth="1" />
-        </svg>
-
-        {/* Decorative Corner: Top Left Stripes */}
-        <div className="absolute top-[25px] left-[30px] w-20 h-[10px] bg-transparent flex gap-[3px] transform -skew-x-[45deg] origin-top-left pointer-events-none z-10">
-          {[1,2,3,4,5,6,7].map((i) => (
-            <div key={i} className="h-full w-2 bg-[#8b5cf6]/80 shadow-[0_0_5px_#8b5cf6]" />
-          ))}
-        </div>
-
-        {/* Decorative Corner: Bottom Right Card Name */}
-        <div 
-          className="absolute bottom-0 right-0 w-[170px] h-[70px] pointer-events-none flex items-center justify-center p-2 z-10"
-        >
-          <span className="text-[10px] sm:text-[11px] font-mono text-[#00F0FF] uppercase tracking-widest drop-shadow-[0_0_5px_rgba(0,240,255,0.5)]">
-            {service.title}
-          </span>
-        </div>
-
-        {/* The HTML Content Area properly clipped to not overflow the SVG borders */}
-        <div 
-          className="absolute inset-0 z-20 pointer-events-none"
-          style={{ clipPath: clipPolygon }}
-        >
-          {/* Background Grid Pattern */}
-          <div 
-            className="absolute inset-0 opacity-15 pointer-events-none"
-            style={{
-              backgroundImage: "linear-gradient(rgba(139, 92, 246, 0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(139, 92, 246, 0.5) 1px, transparent 1px)",
-              backgroundSize: "20px 20px",
-              backgroundPosition: "center center"
-            }}
+      {isOpen && service && (
+        <React.Fragment key="scifi-modal-fragment">
+          {/* Dark Frosted Backdrop to isolate content */}
+          <motion.div 
+            key="scifi-modal-backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[9998] bg-black/80 backdrop-blur-md cursor-pointer"
+            onClick={onClose}
           />
 
-          {/* Close Button */}
-          <button 
-            onClick={onClose}
-            className="absolute top-4 right-4 z-50 text-white/50 hover:text-white hover:bg-[#8b5cf6]/20 p-1.5 rounded-full transition-colors pointer-events-auto"
+          {/* Dynamic Popover Modal */}
+          <motion.div
+            key="scifi-modal-popover"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ type: "spring", damping: 25, stiffness: 120 }}
+            style={modalStyle}
           >
-            <X size={20} />
-          </button>
+            {/* Exact Vector Borders & Backgrounds */}
+            <svg className="absolute inset-0 pointer-events-none z-0 overflow-visible" width="100%" height="100%">
+              {/* Main Background */}
+              <polygon points={mainPolyPoints} fill="rgba(7, 16, 27, 0.95)" stroke="rgba(139, 92, 246, 0.6)" strokeWidth="1.5" />
+              {/* Main Glows */}
+              <line x1="140" y1="0" x2={w-20} y2="0" stroke="#ffffff" strokeWidth="2" filter="drop-shadow(0 0 8px rgba(255,255,255,0.8))" />
+              <line x1="20" y1={h} x2={w-240} y2={h} stroke="#ffffff" strokeWidth="2" filter="drop-shadow(0 0 8px rgba(255,255,255,0.8))" />
+              
+              {/* Inner Panel Background */}
+              <polygon points={innerPolyPoints} fill="rgba(139, 92, 246, 0.05)" stroke="rgba(139, 92, 246, 0.4)" strokeWidth="1" />
+            </svg>
 
-          {/* Top Center Heading */}
-          <motion.h3 
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="absolute top-5 left-0 w-full text-center text-lg sm:text-xl font-bold uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-white to-[#8b5cf6] drop-shadow-[0_0_10px_rgba(139,92,246,0.6)] z-30"
-          >
-            {service.title}
-          </motion.h3>
-
-          {/* Content Area */}
-          <div 
-            className="absolute inset-0 flex flex-col justify-center gap-1 text-white overflow-hidden"
-            style={{ paddingTop: '80px', paddingBottom: '80px', paddingLeft: '80px', paddingRight: '40px' }}
-          >
-            
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="mt-1 max-w-[95%]"
-            >
-              {/* @ts-ignore - TextType JSX component has missing default props */}
-              <TextType 
-                text={service.description}
-                typingSpeed={30}
-                showCursor={true}
-                cursorCharacter="_"
-                loop={false}
-                className="text-xs sm:text-[13px] text-gray-300 font-light leading-relaxed"
-              />
-            </motion.div>
-
-            <div className="mt-6 flex flex-col gap-2.5">
-              {service.features.map((feature, idx) => (
-                <motion.div 
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.3 + (idx * 0.1) }}
-                  key={idx} 
-                  className="flex items-start gap-3 text-xs sm:text-[13px] text-gray-300 font-light"
-                >
-                  <div className="shrink-0 text-[#00F0FF] drop-shadow-[0_0_8px_#00F0FF]" style={{ marginTop: '8px' }}>
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" />
-                    </svg>
-                  </div>
-                  <span className="leading-relaxed whitespace-pre-line">{feature}</span>
-                </motion.div>
+            {/* Decorative Corner: Top Left Stripes */}
+            <div className="absolute top-[25px] left-[30px] w-20 h-[10px] bg-transparent flex gap-[3px] transform -skew-x-[45deg] origin-top-left pointer-events-none z-10">
+              {[1,2,3,4,5,6,7].map((i) => (
+                <div key={i} className="h-full w-2 bg-[#8b5cf6]/80 shadow-[0_0_5px_#8b5cf6]" />
               ))}
             </div>
-          </div>
-        </div>
-      </motion.div>
+
+            {/* Decorative Corner: Bottom Right Card Name */}
+            <div className="absolute bottom-0 right-0 w-[170px] h-[70px] pointer-events-none flex items-center justify-center p-2 z-10">
+              <span className="text-[10px] sm:text-[11px] font-mono text-[#00F0FF] uppercase tracking-widest drop-shadow-[0_0_5px_rgba(0,240,255,0.5)]">
+                {service.title}
+              </span>
+            </div>
+
+            {/* Close Button */}
+            <button
+              onClick={onClose}
+              className="absolute top-[14px] right-[20px] z-50 text-gray-400 hover:text-white transition-colors bg-white/5 hover:bg-white/10 p-2 rounded-full border border-white/10 cursor-pointer pointer-events-auto"
+            >
+              <X size={18} />
+            </button>
+
+            {/* Modal Body Content */}
+            <div 
+              className="relative z-20 w-full h-full p-6 sm:p-8 flex flex-col justify-between"
+              style={{
+                clipPath: clipPolygon
+              }}
+            >
+              {/* Header */}
+              <div className="pt-2">
+                <div className="inline-block px-2.5 py-0.5 rounded-full bg-purple-950/80 border border-purple-500/30 text-purple-300 font-mono text-[10px] uppercase tracking-widest font-bold mb-2">
+                  SERVICE DETAILS // {service.id}
+                </div>
+                <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-snug">
+                  {service.title}
+                </h3>
+              </div>
+
+              {/* Description */}
+              <p className="text-gray-300 text-xs sm:text-sm leading-relaxed font-light my-2">
+                {service.description}
+              </p>
+
+              {/* Features List */}
+              <div className="space-y-2 pb-2">
+                <span className="text-[10px] font-mono text-purple-400 uppercase tracking-widest block font-bold">
+                  KEY CAPABILITIES:
+                </span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {service.features.map((feature, idx) => (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.1 + idx * 0.05 }}
+                      className="flex items-start gap-3 text-xs sm:text-[13px] text-gray-300 font-light"
+                    >
+                      <div className="shrink-0 text-[#00F0FF] drop-shadow-[0_0_8px_#00F0FF]" style={{ marginTop: '4px' }}>
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" />
+                        </svg>
+                      </div>
+                      <span className="leading-relaxed whitespace-pre-line">{feature}</span>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </React.Fragment>
+      )}
     </AnimatePresence>
   )
 }

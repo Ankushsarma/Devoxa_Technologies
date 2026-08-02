@@ -1,9 +1,19 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from 'react';
+import React, { createContext, useContext, useEffect, useState, useRef } from 'react';
 
-export default function CanvasVisibilityWrapper({ children, rootMargin = "1000px" }: { children: React.ReactNode, rootMargin?: string }) {
-  const [isVisible, setIsVisible] = useState(false);
+type VisibilityContextType = {
+  isVisible: boolean;
+};
+
+export const VisibilityContext = createContext<VisibilityContextType>({
+  isVisible: true,
+});
+
+export const useVisibility = () => useContext(VisibilityContext);
+
+export default function CanvasVisibilityWrapper({ children, rootMargin = "500px" }: { children: React.ReactNode, rootMargin?: string }) {
+  const [isVisible, setIsVisible] = useState(true);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -20,7 +30,9 @@ export default function CanvasVisibilityWrapper({ children, rootMargin = "1000px
 
   return (
     <div ref={ref} className="w-full h-full min-h-[10px]">
-      {isVisible ? children : null}
+      <VisibilityContext.Provider value={{ isVisible }}>
+        {children}
+      </VisibilityContext.Provider>
     </div>
   );
 }

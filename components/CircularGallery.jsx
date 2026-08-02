@@ -443,7 +443,7 @@ class App {
   createMedias(items, bend = 1, textColor, borderRadius, font) {
     const defaultItems = [
       { image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1600&q=90', text: 'Aq Homes' },
-      { image: 'https://images.unsplash.com/photo-1494976388531-d1058404c2b8?auto=format&fit=crop&w=1600&q=90', text: 'Cab Partner' },
+      { image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=1600&q=90', text: 'Cab Partner' },
       { image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=90', text: 'Smart Rent' },
       { image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1600&q=90', text: 'lionscott' }
     ];

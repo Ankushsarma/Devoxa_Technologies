@@ -28,6 +28,45 @@ import Particles from "@/components/Particles"
 import PillNav from "@/components/PillNav"
 import AnimatedProcessWorkflow from "@/components/AnimatedProcessWorkflow"
 
+const AnimatedCounter = ({ end, duration = 2000, suffix = "", decimals = 0 }: { end: number, duration?: number, suffix?: string, decimals?: number }) => {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          let startTimestamp: number | null = null;
+          const step = (timestamp: number) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            const easeOut = 1 - Math.pow(1 - progress, 3);
+            setCount(easeOut * end);
+            if (progress < 1) {
+              window.requestAnimationFrame(step);
+            } else {
+              setCount(end);
+            }
+          };
+          window.requestAnimationFrame(step);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+    return () => observer.disconnect();
+  }, [end, duration]);
+
+  return (
+    <div ref={ref} className="fs-num">
+      {Math.round(count) === count || decimals === 0 ? Math.round(count) : count.toFixed(decimals)}{suffix}
+    </div>
+  );
+};
+
 const GlowingCard = ({ children, active, delay, onClick }: { children: React.ReactNode, active?: boolean, delay: number, onClick?: (e: React.MouseEvent<HTMLDivElement>) => void }) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [opacity, setOpacity] = useState(0);

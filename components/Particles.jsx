@@ -1,5 +1,6 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 'use client';
+import { usePerformance } from "@/context/PerformanceContext";
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useRef } from 'react';
 import { Renderer, Camera, Geometry, Program, Mesh } from 'ogl';
 
@@ -193,9 +194,14 @@ const Particles = ({
     let animationFrameId;
     let lastTime = performance.now();
     let elapsed = 0;
+    let frameSkipCount = 0;
 
     const update = t => {
       animationFrameId = requestAnimationFrame(update);
+      if (lowQualityMode) {
+        frameSkipCount++;
+        if (frameSkipCount % 2 !== 0) return;
+      }
       const delta = t - lastTime;
       lastTime = t;
       elapsed += delta * speed;
@@ -222,6 +228,10 @@ const Particles = ({
     };
 
     animationFrameId = requestAnimationFrame(update);
+      if (lowQualityMode) {
+        frameSkipCount++;
+        if (frameSkipCount % 2 !== 0) return;
+      }
 
     return () => {
       window.removeEventListener('resize', resize);

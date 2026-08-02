@@ -73,6 +73,7 @@ const jsonLd = {
 
 import { Toaster } from "sonner"
 import { AuthProvider } from "@/context/auth-context"
+import { PerformanceProvider } from "@/context/PerformanceContext"
 import GlobalFooter from "@/components/GlobalFooter"
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -118,11 +119,13 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       </head>
       <body suppressHydrationWarning className={`${inter.variable} ${serif.variable} ${mono.variable} antialiased bg-transparent text-foreground font-sans selection:bg-theme-900 selection:text-[#f1eef1] overflow-x-hidden`}>
         <ErrorSuppressor />
+        <PerformanceProvider>
         <AuthProvider>
           {children}
           <GlobalFooter />
           <Toaster richColors position="top-right" />
         </AuthProvider>
+        </PerformanceProvider>
       </body>
     </html>
   )

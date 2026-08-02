@@ -269,7 +269,7 @@
     font-family: var(--font-mono);
     font-size: 0.65rem;
     color: #fff;
-    mix-blend-mode: difference;
+    
   }
 
   /* Keep legacy scroll and fade for inner dashboard elements */
@@ -356,7 +356,7 @@
   font-weight: 500;
   padding: 6px 12px;
   border-radius: 999px;
-  backdrop-filter: blur(4px);
+  
 }
 
 .ind-grid .tag .icon {

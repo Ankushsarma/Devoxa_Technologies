@@ -227,7 +227,7 @@ const MobileProjectCarousel = ({ projects }: { projects: any[] }) => {
  <div className="absolute inset-0 bg-theme-900/90" />
                   
                   {/* Category Badge Top-Left */}
-                  <span className="absolute top-3 left-3 px-3 py-1 text-[11px] font-bold text-[#705474] bg-theme-900/70 backdrop-blur-md rounded-full border border-[#705474]/40 shadow-md">
+                  <span className="absolute top-3 left-3 px-3 py-1 text-[11px] font-bold text-[#705474] bg-theme-900/70 bg-[#0A0714] rounded-full border border-[#705474]/40 shadow-md">
                     {item.category}
                   </span>
 
@@ -927,7 +927,7 @@ function DesktopNav({ user, role, loading, logout, scrolled }: any) {
       </div>
       
       {/* 2nd Part: Capsule Navigation */}
-      <div className="hidden md:flex items-center rounded-full bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.08)] backdrop-blur-md shadow-lg">
+      <div className="hidden md:flex items-center rounded-full bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.08)] bg-[#0A0714] shadow-lg">
         <PillNav
           logo={null}
           onMobileMenuClick={() => {}}
@@ -1535,7 +1535,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         <div className="wrap" style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 20px" }}>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", marginBottom: "24px", position: "relative" }}>
             <div className="section-head reveal in" style={{ margin: 0, display: "flex", flexDirection: "column", alignItems: "center" }}>
-              <div className="group relative inline-flex items-center gap-2 px-4 py-2 rounded-full bg-transparent border border-[#705474]/15 backdrop-blur-md overflow-hidden mb-4 transition-all duration-300 hover:bg-theme-50/10 hover:border-[#705474]/30">
+              <div className="group relative inline-flex items-center gap-2 px-4 py-2 rounded-full bg-transparent border border-[#705474]/15 bg-[#0A0714] overflow-hidden mb-4 transition-all duration-300 hover:bg-theme-50/10 hover:border-[#705474]/30">
  <div className="absolute inset-0 bg-[#523056]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <Layers className="w-4 h-4 text-[#705474] group-hover:text-[#705474] transition-colors" />
                 <span className="text-xs font-bold text-[#f1eef1] tracking-[0.15em] uppercase">Our Portfolio</span>
@@ -1623,7 +1623,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       <section id="industries" className="scroll-mt-32 light-sec transparent-bg vx-float" style={{ padding: "60px 0 30px 0", position: "relative", overflow: "hidden" }}>
         <div className="wrap" style={{ position: "relative", zIndex: 1 }}>
           <div className="section-head reveal in flex flex-col items-center text-center mb-8">
-            <div className="group relative inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-transparent border border-[#705474]/15 backdrop-blur-md overflow-hidden mb-4 transition-all duration-300 hover:bg-theme-50/10 hover:border-[#705474]/30 shadow-[0_0_40px_rgba(139,47,209,0.15)]">
+            <div className="group relative inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-transparent border border-[#705474]/15 bg-[#0A0714] overflow-hidden mb-4 transition-all duration-300 hover:bg-theme-50/10 hover:border-[#705474]/30 shadow-[0_0_40px_rgba(139,47,209,0.15)]">
  <div className="absolute inset-0 bg-[#523056]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <Building2 className="w-4 h-4 text-[#705474] group-hover:text-[#705474] transition-colors" />
               <span className="text-xs font-bold text-[#f1eef1] tracking-[0.15em] uppercase">Industries</span>

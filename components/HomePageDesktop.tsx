@@ -196,17 +196,20 @@ function FloatingScrollButtonDesktop() {
   const [isScrolledDown, setIsScrolledDown] = useState(false);
 
   useEffect(() => {
+        let ticking = false;
     const handleScroll = () => {
-      const heroSection = document.querySelector("#hero");
-      if (heroSection) {
-        const rect = heroSection.getBoundingClientRect();
-        if (rect.bottom < window.innerHeight / 2) {
-          setIsScrolledDown(true);
-        } else {
-          setIsScrolledDown(false);
-        }
-      } else {
-        setIsScrolledDown(false);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const heroSection = document.querySelector("#hero");
+          if (heroSection) {
+            const rect = heroSection.getBoundingClientRect();
+            setIsScrolledDown(rect.bottom < window.innerHeight / 2);
+          } else {
+            setIsScrolledDown(false);
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
@@ -276,10 +279,16 @@ export default function HomePageDesktop() {
 
   // Scroll listener for nav blur and WhatsApp button
   useEffect(() => {
+        let tickingOnScroll = false;
     const onScroll = () => {
-      setScrolled(window.scrollY > 50)
-      // Show WhatsApp button when scrolled past 60% of viewport height (past hero section)
-      setShowWhatsApp(window.scrollY > window.innerHeight * 0.6)
+      if(!tickingOnScroll) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 50);
+          setShowWhatsApp(window.scrollY > window.innerHeight * 0.6);
+          tickingOnScroll = false;
+        });
+        tickingOnScroll = true;
+      }
     }
     window.addEventListener("scroll", onScroll, { passive: true })
     // Check initial state in case page is reloaded scrolled down
@@ -455,7 +464,7 @@ function DesktopNav({ user, role, loading, logout, scrolled }: any) {
       </div>
 
       {/* 2nd Part: Capsule Navigation */}
-      <div className="hidden md:flex items-center rounded-full bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.08)] backdrop-blur-md shadow-lg">
+      <div className="hidden md:flex items-center rounded-full bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.08)] bg-[#0A0714] shadow-lg">
         <PillNav
           logo={null}
           showLogo={false}
@@ -503,7 +512,7 @@ function DesktopNav({ user, role, loading, logout, scrolled }: any) {
 
 function MobileNav({ user, role, loading, logout, scrolled }: any) {
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#0A0714]/90 backdrop-blur-md border-b border-[#705474]/15 shadow-sm' : 'bg-transparent backdrop-blur-sm border-b border-[#705474]/15'} px-6 py-4 flex justify-between items-center`}>
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#0A0714]/90 bg-[#0A0714] border-b border-[#705474]/15 shadow-sm' : 'bg-transparent bg-transparent border-b border-[#705474]/15'} px-6 py-4 flex justify-between items-center`}>
       <div className="font-serif text-xl font-medium tracking-tight italic flex items-center gap-3 text-[#f1eef1]">
         <div style={{ width: '32px', height: '32px', backgroundcolor: "#f1eef1", borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', flexShrink: 0 }}>
           <img src="/logo.png" alt="Logo" style={{ width: '100%', height: '100%', objectFit: 'contain', transform: 'scale(1.2)' }} />
@@ -940,7 +949,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         <div className="wrap" style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 20px" }}>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", marginBottom: "80px", position: "relative" }}>
             <div className="section-head reveal in" style={{ margin: 0, display: "flex", flexDirection: "column", alignItems: "center" }}>
-              <div className="group relative inline-flex items-center gap-2 px-4 py-2 rounded-full bg-transparent border border-[#705474]/15 backdrop-blur-md overflow-hidden mb-8 transition-all duration-300 hover:bg-theme-50/10 hover:border-[#705474]/30">
+              <div className="group relative inline-flex items-center gap-2 px-4 py-2 rounded-full bg-transparent border border-[#705474]/15 bg-[#0A0714] overflow-hidden mb-8 transition-all duration-300 hover:bg-theme-50/10 hover:border-[#705474]/30">
                 <div className="absolute inset-0 bg-[#523056]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <Layers className="w-4 h-4 text-[#705474] group-hover:text-[#705474] transition-colors" />
                 <span className="text-xs font-bold text-[#f1eef1] tracking-[0.15em] uppercase">Our Portfolio</span>

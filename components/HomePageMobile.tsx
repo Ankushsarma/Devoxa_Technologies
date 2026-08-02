@@ -1287,7 +1287,31 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
             
           </div>
           
-          <div className="grid grid-cols-1 min-[375px]:grid-cols-2 gap-4 mb-16 mx-auto w-full relative z-20" style={{ flexShrink: 0, marginTop: "80px" }}>
+        </div>
+      </section>
+
+      <div style={{ position: "relative", background: "transparent", backgroundColor: undefined, overflow: "hidden" }}>
+        {/* Shared Light Pillar Background */}
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 1, pointerEvents: 'none' }}>
+          <WebGLVisibilityWrapper isAbsolute={false}>
+            <LightPillar
+              topColor="#26082a"
+              bottomColor="#FF9FFC"
+              intensity={0.8}
+              rotationSpeed={0.5}
+              glowAmount={0.002}
+              pillarWidth={3.0}
+              pillarHeight={0.4}
+              noiseIntensity={0.1}
+              pillarRotation={30}
+              interactive={false}
+              mixBlendMode="normal"
+              quality="high"
+            />
+          </WebGLVisibilityWrapper>
+        </div>
+
+        <div className="grid grid-cols-1 min-[375px]:grid-cols-2 gap-4 mb-16 mx-auto w-full relative z-20 px-6" style={{ flexShrink: 0, marginTop: "10px", zIndex: 10 }}>
             <GlowingCard delay={0.1} onClick={(e) => handleCardClick(e, "Web App Dev")}>
               <div className="hc-icon shrink-0"><Code2 size={28} strokeWidth={1.5} /></div>
               <div className="flex flex-col gap-1">
@@ -1324,29 +1348,6 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               </div>
             </GlowingCard>
           </div>
-        </div>
-      </section>
-
-      <div style={{ position: "relative", background: "transparent", backgroundColor: undefined, overflow: "hidden" }}>
-        {/* Shared Light Pillar Background */}
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 1, pointerEvents: 'none' }}>
-          <WebGLVisibilityWrapper isAbsolute={false}>
-            <LightPillar
-              topColor="#26082a"
-              bottomColor="#FF9FFC"
-              intensity={0.8}
-              rotationSpeed={0.5}
-              glowAmount={0.002}
-              pillarWidth={3.0}
-              pillarHeight={0.4}
-              noiseIntensity={0.1}
-              pillarRotation={30}
-              interactive={false}
-              mixBlendMode="normal"
-              quality="high"
-            />
-          </WebGLVisibilityWrapper>
-        </div>
         
         <div style={{ position: "relative", zIndex: 1 }}>
           <AgencySection onOpenModal={onOpenModal} />

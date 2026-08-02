@@ -374,3 +374,14 @@
   border-radius: 12px;
   cursor: pointer;
 }
+
+/* Massive Scroll Performance Boost */
+section, header, footer, .nx-section {
+  contain: paint layout;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.fast-scroll * {
+  pointer-events: none !important;
+}

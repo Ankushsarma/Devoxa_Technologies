@@ -80,6 +80,23 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en" suppressHydrationWarning>
       <head>
 
+                <Script
+          id="fast-scroll"
+          dangerouslySetInnerHTML={{
+            __html: `
+              let scrollTimeout;
+              window.addEventListener('scroll', function() {
+                if(!document.body.classList.contains('fast-scroll')) {
+                  document.body.classList.add('fast-scroll');
+                }
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(function() {
+                  document.body.classList.remove('fast-scroll');
+                }, 150);
+              }, { passive: true });
+            `
+          }}
+        />
         <Script
           id="json-ld"
           type="application/ld+json"

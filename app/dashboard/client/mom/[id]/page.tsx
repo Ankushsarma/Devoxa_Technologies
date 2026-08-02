@@ -56,7 +56,7 @@ export default function ClientMomPage() {
         <div className="min-h-screen flex items-center justify-center flex-col gap-4">
             <p className="font-serif italic text-lg text-neutral-500">Meeting notes not found.</p>
             <p className="text-sm text-neutral-400">ID: {momId}</p>
-            <Link href="/dashboard/client" className="text-[10px] font-bold tracking-wider text-neutral-700 border border-neutral-200 bg-white px-4 py-2.5 rounded-lg hover:bg-neutral-50 transition-colors uppercase">
+            <Link href="/dashboard/client" className="text-[10px] font-bold tracking-wider text-neutral-700 border border-neutral-200 bg-theme-50 px-4 py-2.5 rounded-lg hover:bg-neutral-50 transition-colors uppercase">
                 Return to Workspace
             </Link>
         </div>
@@ -65,7 +65,7 @@ export default function ClientMomPage() {
     const momDate = new Date(mom.createdAt)
 
     return (
-        <div className="min-h-screen bg-white text-neutral-900 font-sans pb-4 md:pb-6 pt-4 md:pt-6 px-4 md:px-8">
+        <div className="min-h-screen bg-theme-50 text-neutral-900 font-sans pb-4 md:pb-6 pt-4 md:pt-6 px-4 md:px-8">
             <div className="w-full mx-auto">
                 <div className="p-6 md:p-8 border-b border-neutral-100 flex items-center justify-between">
                     <Link href="/dashboard/client" className="flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase text-neutral-500 hover:text-neutral-900 transition-colors">

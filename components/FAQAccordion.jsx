@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Plus, X } from 'lucide-react';
+import { Plus, Minus } from 'lucide-react';
 
 const faqs = [
   {
@@ -26,37 +26,32 @@ const faqs = [
 
 const FAQAccordionItem = ({ faq, isOpen, onClick }) => {
   return (
-    <div className="border-b border-[rgba(255,255,255,0.08)] group">
+    <div 
+      className={`group rounded-2xl overflow-hidden transition-all duration-300 border border-[rgba(255,255,255,0.05)] ${isOpen ? 'bg-[#26082a] shadow-2xl' : 'bg-[#14061a] hover:bg-[#1a061c]'}`}
+      style={{ padding: '17px', transform: 'translate3d(0px, 0px, 0px)' }}
+    >
       <button 
-        className="w-full flex justify-between items-center text-left focus:outline-none"
-        style={{ padding: "16px 0" }}
+        className="w-full flex justify-between items-center text-left focus:outline-none px-2 py-1"
         onClick={onClick}
       >
         <span 
-          className={`text-2xl font-serif transition-colors duration-300 ${isOpen ? 'text-[#5B1FA0]' : 'text-[#FFFFFF] group-hover:text-[#FFFFFF]/70'}`}
-          style={{ lineHeight: 1 }}
+          className={`flex-1 break-words pr-4 text-lg sm:text-xl font-semibold transition-colors duration-300 ${isOpen ? 'text-[#f1eef1]' : 'text-[#f1eef1]/90 group-hover:text-[#f1eef1]'}`}
         >
           {faq.question}
         </span>
-        <span className="relative flex items-center justify-center w-8 h-8 rounded-full bg-transparent group-hover:bg-white/10 transition-colors duration-300 flex-shrink-0 ml-4">
-          <Plus className={`absolute w-5 h-5 text-[#FFFFFF] transition-all duration-500 ease-[cubic-bezier(0.87,0,0.13,1)] ${isOpen ? 'rotate-180 opacity-0 scale-50' : 'rotate-0 opacity-100 scale-100'}`} />
-          <X className={`absolute w-5 h-5 text-[#5B1FA0] transition-all duration-500 ease-[cubic-bezier(0.87,0,0.13,1)] ${isOpen ? 'rotate-0 opacity-100 scale-100' : '-rotate-180 opacity-0 scale-50'}`} />
+        <span className={`relative flex items-center justify-center w-12 h-12 rounded-[14px] transition-colors duration-300 flex-shrink-0 ml-6 border ${isOpen ? 'bg-[#523056]/80 border-[#705474]/50' : 'bg-[#1a061c] border-[rgba(255,255,255,0.08)] group-hover:bg-[#26082a]'}`}>
+          <Plus className={`absolute w-5 h-5 text-[#f1eef1] transition-all duration-500 ease-[cubic-bezier(0.87,0,0.13,1)] ${isOpen ? 'rotate-180 opacity-0 scale-50' : 'rotate-0 opacity-100 scale-100'}`} />
+          <Minus className={`absolute w-5 h-5 text-[#f1eef1] transition-all duration-500 ease-[cubic-bezier(0.87,0,0.13,1)] ${isOpen ? 'rotate-0 opacity-100 scale-100' : '-rotate-180 opacity-0 scale-50'}`} />
         </span>
       </button>
       <div 
-        className={`grid transition-all duration-500 ease-[cubic-bezier(0.87,0,0.13,1)] ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
+        className={`grid transition-all duration-500 ease-[cubic-bezier(0.87,0,0.13,1)] ${isOpen ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0 mt-0'}`}
       >
         <div className="overflow-hidden">
-          <div className="pb-8 md:pb-10">
-            <div className="flex gap-4 md:gap-5">
-              {/* Line Sidebar Effect */}
-              <div 
-                className="w-[3px] rounded-full shrink-0 my-2.5 transition-all duration-500 ease-out bg-gradient-to-b from-[#5B1FA0] to-[#5B1FA0] shadow-[0_0_40px_rgba(139,47,209,0.15)]"
-              />
-              <p className="text-[#A8A5AD] font-light leading-relaxed max-w-xl text-lg pr-12 m-0">
-                {faq.answer}
-              </p>
-            </div>
+          <div className="px-2 pb-2 pt-0">
+            <p className="text-[#ad9daf] font-light leading-relaxed text-sm sm:text-base m-0">
+              {faq.answer}
+            </p>
           </div>
         </div>
       </div>
@@ -72,7 +67,7 @@ export default function FAQAccordion() {
   };
 
   return (
-    <div className="border-t border-[rgba(255,255,255,0.08)]">
+    <div className="flex flex-col gap-5 w-full mx-auto max-w-4xl">
       {faqs.map((faq, index) => (
         <FAQAccordionItem 
           key={index} 

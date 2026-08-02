@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-'use client';
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import './LiquidEther.css';
@@ -15,7 +13,7 @@ export default function LiquidEther({
   BFECC = true,
   resolution = 0.5,
   isBounce = false,
-  colors = ['#5B1FA0', '#8B2FD1', '#FFFFFF'],
+  colors = ['#5227FF', '#FF9FFC', '#B497CF'],
   style = {},
   className = '',
   autoDemo = true,
@@ -89,14 +87,7 @@ export default function LiquidEther({
         this.container = container;
         this.pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
         this.resize();
-        try {
-      
-      
-            this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    } catch (e) {
-            console.warn("WebGL limit reached, skipping LiquidEther rendering.");
-      return;
-        }
+        this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
         this.renderer.autoClear = false;
         this.renderer.setClearColor(new THREE.Color(0x000000), 0);
         this.renderer.setPixelRatio(this.pixelRatio);
@@ -116,7 +107,6 @@ export default function LiquidEther({
         if (this.renderer) this.renderer.setSize(this.width, this.height, false);
       }
       update() {
-        if (!this.renderer) return;
         this.delta = this.clock.getDelta();
         this.time += this.delta;
       }
@@ -526,7 +516,6 @@ export default function LiquidEther({
         }
       }
       update() {
-        if (!Common.renderer) return;
         Common.renderer.setRenderTarget(this.props.output || null);
         Common.renderer.render(this.scene, this.camera);
         Common.renderer.setRenderTarget(null);
@@ -968,19 +957,18 @@ export default function LiquidEther({
         this.running = false;
       }
       init() {
-        if (!Common.renderer) return;
         this.props.$wrapper.prepend(Common.renderer.domElement);
         this.output = new Output();
       }
       resize() {
         Common.resize();
-        if (this.output) this.output.resize();
+        this.output.resize();
       }
       render() {
         if (this.autoDriver) this.autoDriver.update();
         Mouse.update();
         Common.update();
-        if (this.output) this.output.update();
+        this.output.update();
       }
       loop() {
         if (!this.running) return; // safety
@@ -1032,8 +1020,7 @@ export default function LiquidEther({
     webglRef.current = webgl;
 
     const applyOptionsFromProps = () => {
-      if (!webglRef.current)
-      return;
+      if (!webglRef.current) return;
       const sim = webglRef.current.output?.simulation;
       if (!sim) return;
       const prevRes = sim.options.resolution;
@@ -1118,8 +1105,7 @@ export default function LiquidEther({
     mouseForce,
     resolution,
     viscous,
-    // Use stringified colors so inline array props don't trigger WebGL context recreation
-    colors.join(','),
+    colors,
     autoDemo,
     autoSpeed,
     autoIntensity,

@@ -114,7 +114,7 @@ export default function AdminDashboard() {
                     </div>
                     <button
                         onClick={() => router.push("/")}
-                        className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-transparent border border-[#705474]/30 text-xs font-mono font-bold uppercase tracking-widest text-[#705474] hover:text-[#f1eef1] hover:bg-[#26082a] hover:border-[#705474]/60 hover:shadow-[0_0_20px_rgba(139,47,209,0.2)] transition-all active:scale-95"
+                        className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-transparent border border-[#705474]/30 text-xs font-mono font-bold uppercase tracking-widest text-[#705474] hover:text-[#f1eef1] hover:bg-[#150B1E] hover:border-[#705474]/60 hover:shadow-[0_0_20px_rgba(139,47,209,0.2)] transition-all active:scale-95"
                     >
                         <span className="text-lg leading-none">&larr;</span> Back to Site
                     </button>
@@ -167,13 +167,13 @@ export default function AdminDashboard() {
                 </div>
 
                 {/* Content */}
-                <div className={activeTab === "assets" || activeTab === "global-notice" ? "space-y-6" : "bg-[#1a0733] rounded-2xl border border-[#705474]/30 shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden"}>
+                <div className={activeTab === "assets" || activeTab === "global-notice" ? "space-y-6" : "bg-[#0A0710] rounded-2xl border border-[#705474]/30 shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden"}>
                     {activeTab === "global-notice" ? (
                         <NoticeBoard />
                     ) : activeTab === "leads" ? (
                         <div className="overflow-x-auto">
                             <table className="w-full text-left border-collapse">
-                                <thead className="bg-[#26082a]/80 border-b border-[#705474]/30">
+                                <thead className="bg-[#150B1E]/80 border-b border-[#705474]/30">
                                     <tr>
                                         <th className="px-4 py-4 text-xs font-mono uppercase tracking-widest text-[#f1eef1]/70 font-medium">Name</th>
                                         <th className="px-4 py-4 text-xs font-mono uppercase tracking-widest text-[#f1eef1]/70 font-medium">Email</th>
@@ -186,7 +186,7 @@ export default function AdminDashboard() {
                                 </thead>
                                 <tbody className="divide-y divide-[#705474]/20">
                                     {leads.map((lead) => (
-                                        <tr key={lead._id || lead.id} className="hover:bg-[#26082a]/50 transition-colors group">
+                                        <tr key={lead._id || lead.id} className="hover:bg-[#150B1E]/50 transition-colors group">
                                             <td className="px-4 py-5 font-serif text-lg text-white max-w-[120px] truncate" title={lead.name}>{lead.name}</td>
                                             <td className="px-4 py-5 text-sm text-[#f1eef1]/70 max-w-[180px] truncate" title={lead.email}>{lead.email}</td>
                                             <td className="px-4 py-5">
@@ -254,7 +254,7 @@ export default function AdminDashboard() {
                                                 <DropdownMenu modal={false}>
                                                     <DropdownMenuTrigger
                                                         disabled={assigning === lead._id || lead.status === 'new'}
-                                                        className="flex items-center justify-between w-full max-w-[160px] bg-[#1a0733] border border-[#705474]/30 rounded-lg px-3 py-2.5 text-sm shadow-sm hover:border-black transition-colors focus:ring-2 focus:ring-black/5 focus:border-[#705474] data-[state=open]:border-black disabled:opacity-40 disabled:bg-[#26082a] disabled:cursor-not-allowed outline-none font-medium text-[#f1eef1]/90"
+                                                        className="flex items-center justify-between w-full max-w-[160px] bg-[#0A0710] border border-[#705474]/30 rounded-lg px-3 py-2.5 text-sm shadow-sm hover:border-black transition-colors focus:ring-2 focus:ring-black/5 focus:border-[#705474] data-[state=open]:border-black disabled:opacity-40 disabled:bg-[#150B1E] disabled:cursor-not-allowed outline-none font-medium text-[#f1eef1]/90"
                                                     >
                                                         <span className="truncate">
                                                             {lead.assignedTo ? developers.find(d => d._id === (lead.assignedTo?._id || lead.assignedTo))?.name || "— Unassigned —" : "— Unassigned —"}
@@ -329,7 +329,7 @@ export default function AdminDashboard() {
 
                                     {/* User Cards */}
                                     {users.map((u) => (
-                                        <div key={u._id || u.id} className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-4 items-center p-5 md:p-6 bg-[#1a0733] border border-[#705474]/30 hover:border-[#705474] transition-all rounded-2xl shadow-sm group">
+                                        <div key={u._id || u.id} className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-4 items-center p-5 md:p-6 bg-[#0A0710] border border-[#705474]/30 hover:border-[#705474] transition-all rounded-2xl shadow-sm group">
                                             <div className="col-span-6 flex items-center gap-4">
                                                 <div className="w-12 h-12 rounded-xl bg-[#523056]/50 flex items-center justify-center font-bold text-lg text-white group-hover:bg-studio-black group-hover:text-[#f1eef1] transition-colors shrink-0">
                                                     {u.name?.[0]?.toUpperCase()}
@@ -354,7 +354,7 @@ export default function AdminDashboard() {
 
                             {/* Right Side: Create Account Form */}
                             <div className="w-full lg:w-[400px] shrink-0">
-                                <div className="sticky top-8 bg-[#26082a]/50 border border-[#705474]/30 rounded-2xl p-8">
+                                <div className="sticky top-8 bg-[#150B1E]/50 border border-[#705474]/30 rounded-2xl p-8">
                                     <div className="mb-8">
                                         <h3 className="font-serif text-3xl tracking-tight text-white mb-2 italic">New Staff.</h3>
                                         <p className="text-[#f1eef1]/70 text-sm leading-relaxed">Provision internal dashboard access for a new team member.</p>
@@ -387,23 +387,23 @@ export default function AdminDashboard() {
                                     }} className="space-y-5">
                                         <div>
                                             <label className="block font-mono text-[10px] uppercase tracking-widest text-[#f1eef1]/50 mb-2">Full Name</label>
-                                            <input type="text" placeholder="John Doe" required value={newUserForm.name} onChange={e => setNewUserForm({ ...newUserForm, name: e.target.value })} className="w-full text-sm border border-[#705474]/30 rounded-xl px-4 py-3.5 bg-[#1a0733] focus:border-[#705474] focus:ring-1 focus:ring-studio-black outline-none transition-all placeholder:text-[#f1eef1]/30" />
+                                            <input type="text" placeholder="John Doe" required value={newUserForm.name} onChange={e => setNewUserForm({ ...newUserForm, name: e.target.value })} className="w-full text-sm border border-[#705474]/30 rounded-xl px-4 py-3.5 bg-[#0A0710] focus:border-[#705474] focus:ring-1 focus:ring-studio-black outline-none transition-all placeholder:text-[#f1eef1]/30" />
                                         </div>
                                         <div>
                                             <label className="block font-mono text-[10px] uppercase tracking-widest text-[#f1eef1]/50 mb-2">Email Address</label>
-                                            <input type="email" placeholder="john@devoxa.tech" required value={newUserForm.email} onChange={e => setNewUserForm({ ...newUserForm, email: e.target.value })} className="w-full text-sm border border-[#705474]/30 rounded-xl px-4 py-3.5 bg-[#1a0733] focus:border-[#705474] focus:ring-1 focus:ring-studio-black outline-none transition-all placeholder:text-[#f1eef1]/30" />
+                                            <input type="email" placeholder="john@devoxa.tech" required value={newUserForm.email} onChange={e => setNewUserForm({ ...newUserForm, email: e.target.value })} className="w-full text-sm border border-[#705474]/30 rounded-xl px-4 py-3.5 bg-[#0A0710] focus:border-[#705474] focus:ring-1 focus:ring-studio-black outline-none transition-all placeholder:text-[#f1eef1]/30" />
                                         </div>
                                         <div>
                                             <label className="block font-mono text-[10px] uppercase tracking-widest text-[#f1eef1]/50 mb-2">Password</label>
-                                            <input type="password" placeholder="••••••••" required value={newUserForm.password} onChange={e => setNewUserForm({ ...newUserForm, password: e.target.value })} className="w-full text-sm border border-[#705474]/30 rounded-xl px-4 py-3.5 bg-[#1a0733] focus:border-[#705474] focus:ring-1 focus:ring-studio-black outline-none transition-all placeholder:text-[#f1eef1]/30" />
+                                            <input type="password" placeholder="••••••••" required value={newUserForm.password} onChange={e => setNewUserForm({ ...newUserForm, password: e.target.value })} className="w-full text-sm border border-[#705474]/30 rounded-xl px-4 py-3.5 bg-[#0A0710] focus:border-[#705474] focus:ring-1 focus:ring-studio-black outline-none transition-all placeholder:text-[#f1eef1]/30" />
                                         </div>
                                         <div>
                                             <label className="block font-mono text-[10px] uppercase tracking-widest text-[#f1eef1]/50 mb-2">Role Level</label>
                                             <Select required value={newUserForm.role} onValueChange={val => setNewUserForm({ ...newUserForm, role: val })}>
-                                                <SelectTrigger className="w-full text-sm border border-[#705474]/30 rounded-xl px-4 py-3.5 bg-[#1a0733] focus:border-[#705474] focus:ring-1 focus:ring-studio-black transition-all shadow-none outline-none h-auto">
+                                                <SelectTrigger className="w-full text-sm border border-[#705474]/30 rounded-xl px-4 py-3.5 bg-[#0A0710] focus:border-[#705474] focus:ring-1 focus:ring-studio-black transition-all shadow-none outline-none h-auto">
                                                     <SelectValue placeholder="Select Role" />
                                                 </SelectTrigger>
-                                                <SelectContent className="bg-[#1a0733] border-[#705474]/30 shadow-xl rounded-xl">
+                                                <SelectContent className="bg-[#0A0710] border-[#705474]/30 shadow-xl rounded-xl">
                                                     <SelectItem value="developer" className="cursor-pointer focus:bg-[#523056]/50 py-2.5 rounded-lg">Developer</SelectItem>
                                                     <SelectItem value="admin" className="cursor-pointer focus:bg-[#523056]/50 py-2.5 rounded-lg">Admin</SelectItem>
                                                 </SelectContent>
@@ -419,12 +419,12 @@ export default function AdminDashboard() {
                     ) : activeTab === "notice-board" ? (
                         <div className="flex flex-col xl:flex-row">
                             {/* Left Side: Tasks Grid */}
-                            <div className="flex-1 p-6 lg:p-8 bg-[#26082a]/30 min-h-[500px]">
+                            <div className="flex-1 p-6 lg:p-8 bg-[#150B1E]/30 min-h-[500px]">
                                 <div className="flex justify-between items-center mb-6">
                                     <h2 className="text-xl font-bold tracking-tight text-white">Active Tasks</h2>
                                 </div>
                                 {tasks.length === 0 ? (
-                                    <div className="flex flex-col items-center justify-center h-64 text-center border-2 border-dashed border-[#705474]/30 rounded-2xl bg-[#1a0733]">
+                                    <div className="flex flex-col items-center justify-center h-64 text-center border-2 border-dashed border-[#705474]/30 rounded-2xl bg-[#0A0710]">
                                         <div className="w-12 h-12 bg-[#523056]/50 rounded-full flex items-center justify-center mb-3">
                                             <ClipboardList className="w-6 h-6 text-[#f1eef1]/50" />
                                         </div>
@@ -434,7 +434,7 @@ export default function AdminDashboard() {
                                 ) : (
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         {tasks.map((task) => (
-                                            <div key={task._id || task.id} className="bg-[#1a0733] border border-[#705474]/30 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-1 flex flex-col justify-between">
+                                            <div key={task._id || task.id} className="bg-[#0A0710] border border-[#705474]/30 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-1 flex flex-col justify-between">
                                                 <div>
                                                     <div className="flex justify-between items-start mb-3">
                                                         <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#523056]/50 text-[#f1eef1]/80 text-[10px] font-bold uppercase tracking-wider">
@@ -461,7 +461,7 @@ export default function AdminDashboard() {
                             </div>
 
                             {/* Right Side: Create Task Form */}
-                            <div className="w-full xl:w-[420px] bg-[#1a0733] p-6 lg:p-8 border-l border-border relative z-10 shadow-[-10px_0_30px_-15px_rgba(0,0,0,0.05)]">
+                            <div className="w-full xl:w-[420px] bg-[#0A0710] p-6 lg:p-8 border-l border-border relative z-10 shadow-[-10px_0_30px_-15px_rgba(0,0,0,0.05)]">
                                 <div className="mb-6">
                                     <h3 className="text-xl font-bold tracking-tight text-white mb-1">Create Task</h3>
                                     <p className="text-[#f1eef1]/70 text-sm">Break down projects and assign tasks.</p>
@@ -491,10 +491,10 @@ export default function AdminDashboard() {
                                         <div className="relative">
                                             <FolderOpen className="absolute left-3.5 top-1/2 -translate-y-1/2 w-[18px] h-[18px] text-[#f1eef1]/50 z-10" />
                                             <Select required value={newTaskForm.leadId} onValueChange={val => setNewTaskForm({ ...newTaskForm, leadId: val })}>
-                                                <SelectTrigger className="w-full pl-10 text-sm border-[#705474]/30 rounded-xl bg-[#26082a]/50 hover:bg-[#26082a] focus:bg-[#1a0733] focus:ring-2 focus:ring-studio-black/5 focus:border-neutral-400 transition-all shadow-none">
+                                                <SelectTrigger className="w-full pl-10 text-sm border-[#705474]/30 rounded-xl bg-[#150B1E]/50 hover:bg-[#150B1E] focus:bg-[#0A0710] focus:ring-2 focus:ring-studio-black/5 focus:border-neutral-400 transition-all shadow-none">
                                                     <SelectValue placeholder="Select Project" />
                                                 </SelectTrigger>
-                                                <SelectContent className="bg-[#1a0733] border-[#705474]/30 shadow-xl rounded-xl">
+                                                <SelectContent className="bg-[#0A0710] border-[#705474]/30 shadow-xl rounded-xl">
                                                     {leads.filter(l => l.status !== 'new' && l.status !== 'rejected').map(l => (
                                                         <SelectItem key={l._id} value={l._id} className="cursor-pointer focus:bg-[#523056]/50 rounded-lg">{l.name} - {l.subject}</SelectItem>
                                                     ))}
@@ -506,14 +506,14 @@ export default function AdminDashboard() {
                                         <label className="block text-[11px] font-bold mb-1.5 uppercase tracking-wider text-[#f1eef1]/70">Task Title</label>
                                         <div className="relative">
                                             <Type className="absolute left-3.5 top-1/2 -translate-y-1/2 w-[18px] h-[18px] text-[#f1eef1]/50" />
-                                            <input type="text" placeholder="e.g. Build Homepage" required value={newTaskForm.title} onChange={e => setNewTaskForm({ ...newTaskForm, title: e.target.value })} className="w-full text-sm border border-[#705474]/30 rounded-xl pl-10 pr-4 py-2.5 bg-[#26082a]/50 hover:bg-[#26082a] focus:bg-[#1a0733] focus:ring-2 focus:ring-studio-black/5 focus:border-neutral-400 outline-none transition-all" />
+                                            <input type="text" placeholder="e.g. Build Homepage" required value={newTaskForm.title} onChange={e => setNewTaskForm({ ...newTaskForm, title: e.target.value })} className="w-full text-sm border border-[#705474]/30 rounded-xl pl-10 pr-4 py-2.5 bg-[#150B1E]/50 hover:bg-[#150B1E] focus:bg-[#0A0710] focus:ring-2 focus:ring-studio-black/5 focus:border-neutral-400 outline-none transition-all" />
                                         </div>
                                     </div>
                                     <div>
                                         <label className="block text-[11px] font-bold mb-1.5 uppercase tracking-wider text-[#f1eef1]/70">Description</label>
                                         <div className="relative">
                                             <AlignLeft className="absolute left-3.5 top-3.5 w-[18px] h-[18px] text-[#f1eef1]/50" />
-                                            <textarea placeholder="Task details..." value={newTaskForm.description} onChange={e => setNewTaskForm({ ...newTaskForm, description: e.target.value })} className="w-full text-sm border border-[#705474]/30 rounded-xl pl-10 pr-4 py-2.5 bg-[#26082a]/50 hover:bg-[#26082a] focus:bg-[#1a0733] focus:ring-2 focus:ring-studio-black/5 focus:border-neutral-400 outline-none transition-all resize-none h-24" />
+                                            <textarea placeholder="Task details..." value={newTaskForm.description} onChange={e => setNewTaskForm({ ...newTaskForm, description: e.target.value })} className="w-full text-sm border border-[#705474]/30 rounded-xl pl-10 pr-4 py-2.5 bg-[#150B1E]/50 hover:bg-[#150B1E] focus:bg-[#0A0710] focus:ring-2 focus:ring-studio-black/5 focus:border-neutral-400 outline-none transition-all resize-none h-24" />
                                         </div>
                                     </div>
                                     <div>
@@ -521,10 +521,10 @@ export default function AdminDashboard() {
                                         <div className="relative">
                                             <UserPlus className="absolute left-3.5 top-1/2 -translate-y-1/2 w-[18px] h-[18px] text-[#f1eef1]/50 z-10" />
                                             <Select required value={newTaskForm.assignedTo} onValueChange={val => setNewTaskForm({ ...newTaskForm, assignedTo: val })}>
-                                                <SelectTrigger className="w-full pl-10 text-sm border-[#705474]/30 rounded-xl bg-[#26082a]/50 hover:bg-[#26082a] focus:bg-[#1a0733] focus:ring-2 focus:ring-studio-black/5 focus:border-neutral-400 transition-all shadow-none">
+                                                <SelectTrigger className="w-full pl-10 text-sm border-[#705474]/30 rounded-xl bg-[#150B1E]/50 hover:bg-[#150B1E] focus:bg-[#0A0710] focus:ring-2 focus:ring-studio-black/5 focus:border-neutral-400 transition-all shadow-none">
                                                     <SelectValue placeholder="Select Developer" />
                                                 </SelectTrigger>
-                                                <SelectContent className="bg-[#1a0733] border-[#705474]/30 shadow-xl rounded-xl">
+                                                <SelectContent className="bg-[#0A0710] border-[#705474]/30 shadow-xl rounded-xl">
                                                     {developers.map(dev => (
                                                         <SelectItem key={dev._id} value={dev._id} className="cursor-pointer focus:bg-[#523056]/50 rounded-lg">{dev.name}</SelectItem>
                                                     ))}
@@ -540,7 +540,7 @@ export default function AdminDashboard() {
                         </div>
                     ) : activeTab === "assets" ? (
                         <>
-                            <div className="bg-[#1a0733] p-8 md:p-16 relative overflow-hidden group rounded-2xl border border-[#705474]/30 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+                            <div className="bg-[#0A0710] p-8 md:p-16 relative overflow-hidden group rounded-2xl border border-[#705474]/30 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
                                 <div className="absolute top-0 left-0 w-full h-1 bg-studio-black transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
 
                                 <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-12">
@@ -609,7 +609,7 @@ export default function AdminDashboard() {
                                         <a
                                             href="/api/assets/pitch-deck"
                                             target="_blank"
-                                            className="flex items-center justify-center w-full py-4 rounded-xl font-medium text-sm border border-[#705474]/30 text-[#f1eef1]/80 hover:border-[#705474] hover:text-white hover:bg-[#26082a] transition-all active:scale-95"
+                                            className="flex items-center justify-center w-full py-4 rounded-xl font-medium text-sm border border-[#705474]/30 text-[#f1eef1]/80 hover:border-[#705474] hover:text-white hover:bg-[#150B1E] transition-all active:scale-95"
                                         >
                                             View Current Deck
                                         </a>
@@ -619,7 +619,7 @@ export default function AdminDashboard() {
                             </div>
 
                             {/* Minutes of Meeting */}
-                            <div className="bg-[#1a0733] p-8 md:p-16 relative overflow-hidden group/mom rounded-2xl border border-[#705474]/30 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+                            <div className="bg-[#0A0710] p-8 md:p-16 relative overflow-hidden group/mom rounded-2xl border border-[#705474]/30 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
                                 <div className="absolute top-0 left-0 w-full h-1 bg-studio-black transform origin-left scale-x-0 group-hover/mom:scale-x-100 transition-transform duration-500"></div>
                                 <div className="flex flex-col gap-10">
                                     <div className="text-center md:text-left">
@@ -639,7 +639,7 @@ export default function AdminDashboard() {
                                         </div>
                                     </div>
 
-                                    <div className="w-full bg-[#26082a] p-6 md:p-8 rounded-2xl border border-[#705474]/30 shadow-sm relative overflow-hidden group/form">
+                                    <div className="w-full bg-[#150B1E] p-6 md:p-8 rounded-2xl border border-[#705474]/30 shadow-sm relative overflow-hidden group/form">
                                         <div className="absolute top-0 left-0 w-full h-1 bg-studio-black transform origin-left scale-x-0 group-hover/form:scale-x-100 transition-transform duration-500"></div>
                                         <h4 className="font-serif text-2xl mb-6">Compose MOM</h4>
                                         <form onSubmit={(e) => e.preventDefault()} className="space-y-4">
@@ -647,7 +647,7 @@ export default function AdminDashboard() {
                                                 <div>
                                                     <label className="label-mono mb-2 block text-[#f1eef1]/70">Client</label>
                                                     <Select value={momForm?.leadId || ""} onValueChange={(val) => setMomForm(prev => ({ ...(prev || { title: "", content: "" }), leadId: val }))}>
-                                                        <SelectTrigger className="w-full bg-[#1a0733] border border-[#705474]/30 h-12 rounded-xl focus:ring-black">
+                                                        <SelectTrigger className="w-full bg-[#0A0710] border border-[#705474]/30 h-12 rounded-xl focus:ring-black">
                                                             <SelectValue placeholder="Select an active client..." />
                                                         </SelectTrigger>
                                                         <SelectContent>
@@ -659,12 +659,12 @@ export default function AdminDashboard() {
                                                 </div>
                                                 <div>
                                                     <label className="label-mono mb-2 block text-[#f1eef1]/70">Meeting Title</label>
-                                                    <input value={momForm?.title || ""} onChange={e => setMomForm(prev => ({ ...(prev || { leadId: "", content: "" }), title: e.target.value }))} className="w-full bg-[#1a0733] border border-[#705474]/30 p-3 h-12 rounded-xl focus:outline-none focus:border-[#705474] font-serif text-lg transition-colors" placeholder="e.g., Project Kickoff" />
+                                                    <input value={momForm?.title || ""} onChange={e => setMomForm(prev => ({ ...(prev || { leadId: "", content: "" }), title: e.target.value }))} className="w-full bg-[#0A0710] border border-[#705474]/30 p-3 h-12 rounded-xl focus:outline-none focus:border-[#705474] font-serif text-lg transition-colors" placeholder="e.g., Project Kickoff" />
                                                 </div>
                                             </div>
                                             <div>
                                                 <label className="label-mono mb-2 block text-[#f1eef1]/70">Minutes</label>
-                                                <textarea rows={5} value={momForm?.content || ""} onChange={e => setMomForm(prev => ({ ...(prev || { leadId: "", title: "" }), content: e.target.value }))} className="w-full bg-[#1a0733] border border-[#705474]/30 p-3 rounded-xl focus:outline-none focus:border-[#705474] font-serif text-base resize-none transition-colors" placeholder="Discussion points..."></textarea>
+                                                <textarea rows={5} value={momForm?.content || ""} onChange={e => setMomForm(prev => ({ ...(prev || { leadId: "", title: "" }), content: e.target.value }))} className="w-full bg-[#0A0710] border border-[#705474]/30 p-3 rounded-xl focus:outline-none focus:border-[#705474] font-serif text-base resize-none transition-colors" placeholder="Discussion points..."></textarea>
                                             </div>
 
                                             <div className="grid grid-cols-2 gap-3 pt-2">
@@ -717,7 +717,7 @@ export default function AdminDashboard() {
                             </div>
                         </>
                     ) : activeTab === "projects" ? (
-                        <div className="bg-[#1a0733] rounded-2xl border border-[#705474]/30 shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden flex flex-col lg:flex-row">
+                        <div className="bg-[#0A0710] rounded-2xl border border-[#705474]/30 shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden flex flex-col lg:flex-row">
                             {/* Project List */}
                             <div className="flex-1 divide-y divide-[#705474]/20 min-h-[400px]">
                                 {projects.length === 0 ? (
@@ -726,7 +726,7 @@ export default function AdminDashboard() {
                                         <p className="text-[#f1eef1]/50 text-sm">Add your first portfolio piece using the form.</p>
                                     </div>
                                 ) : projects.map((p, idx) => (
-                                    <div key={p._id} className={`flex items-start gap-6 p-6 transition-colors hover:bg-[#523056]/30 ${idx % 2 !== 0 ? 'bg-[#26082a]/50' : 'bg-[#1a0733]'}`}>
+                                    <div key={p._id} className={`flex items-start gap-6 p-6 transition-colors hover:bg-[#523056]/30 ${idx % 2 !== 0 ? 'bg-[#150B1E]/50' : 'bg-[#0A0710]'}`}>
                                         <div className="w-28 h-20 rounded-xl overflow-hidden border border-[#705474]/30 shadow-sm shrink-0 bg-[#523056]/50">
                                             <img src={p.imageUrl} alt={p.title} className="w-full h-full object-cover" />
                                         </div>
@@ -753,7 +753,7 @@ export default function AdminDashboard() {
                                 ))}
                             </div>
                             {/* Add Project Form */}
-                            <div className="w-full lg:w-[400px] bg-[#26082a]/50 border-t lg:border-t-0 lg:border-l border-[#705474]/30 p-8">
+                            <div className="w-full lg:w-[400px] bg-[#150B1E]/50 border-t lg:border-t-0 lg:border-l border-[#705474]/30 p-8">
                                 <div className="mb-8">
                                     <h3 className="font-serif text-2xl mb-2 text-white">Add Project</h3>
                                     <p className="text-[#f1eef1]/70 text-sm leading-relaxed">Published immediately to the homepage Work section.</p>
@@ -780,19 +780,19 @@ export default function AdminDashboard() {
                                 }} className="space-y-5">
                                     <div>
                                         <label className="label-mono block text-[#f1eef1]/70 mb-2">Title *</label>
-                                        <input required type="text" value={projectForm.title} onChange={e => setProjectForm({ ...projectForm, title: e.target.value })} className="w-full bg-[#1a0733] border border-[#705474]/30 h-12 rounded-xl focus:outline-none focus:border-[#705474] px-4 font-serif text-lg transition-colors" placeholder="Nova Dashboard" />
+                                        <input required type="text" value={projectForm.title} onChange={e => setProjectForm({ ...projectForm, title: e.target.value })} className="w-full bg-[#0A0710] border border-[#705474]/30 h-12 rounded-xl focus:outline-none focus:border-[#705474] px-4 font-serif text-lg transition-colors" placeholder="Nova Dashboard" />
                                     </div>
                                     <div>
                                         <label className="label-mono block text-[#f1eef1]/70 mb-2">Description *</label>
-                                        <textarea required rows={4} value={projectForm.description} onChange={e => setProjectForm({ ...projectForm, description: e.target.value })} className="w-full bg-[#1a0733] border border-[#705474]/30 rounded-xl focus:outline-none focus:border-[#705474] p-4 font-serif text-base resize-none transition-colors" placeholder="A bold web platform for..." />
+                                        <textarea required rows={4} value={projectForm.description} onChange={e => setProjectForm({ ...projectForm, description: e.target.value })} className="w-full bg-[#0A0710] border border-[#705474]/30 rounded-xl focus:outline-none focus:border-[#705474] p-4 font-serif text-base resize-none transition-colors" placeholder="A bold web platform for..." />
                                     </div>
                                     <div>
                                         <label className="label-mono block text-[#f1eef1]/70 mb-2">Image URL *</label>
-                                        <input required type="url" value={projectForm.imageUrl} onChange={e => setProjectForm({ ...projectForm, imageUrl: e.target.value })} className="w-full bg-[#1a0733] border border-[#705474]/30 h-12 rounded-xl focus:outline-none focus:border-[#705474] px-4 font-serif text-sm transition-colors" placeholder="https://..." />
+                                        <input required type="url" value={projectForm.imageUrl} onChange={e => setProjectForm({ ...projectForm, imageUrl: e.target.value })} className="w-full bg-[#0A0710] border border-[#705474]/30 h-12 rounded-xl focus:outline-none focus:border-[#705474] px-4 font-serif text-sm transition-colors" placeholder="https://..." />
                                     </div>
                                     <div>
                                         <label className="label-mono block text-[#f1eef1]/70 mb-2">Visit URL <span className="normal-case opacity-50 ml-1 font-sans">(optional)</span></label>
-                                        <input type="url" value={projectForm.visitUrl} onChange={e => setProjectForm({ ...projectForm, visitUrl: e.target.value })} className="w-full bg-[#1a0733] border border-[#705474]/30 h-12 rounded-xl focus:outline-none focus:border-[#705474] px-4 font-serif text-sm transition-colors" placeholder="https://..." />
+                                        <input type="url" value={projectForm.visitUrl} onChange={e => setProjectForm({ ...projectForm, visitUrl: e.target.value })} className="w-full bg-[#0A0710] border border-[#705474]/30 h-12 rounded-xl focus:outline-none focus:border-[#705474] px-4 font-serif text-sm transition-colors" placeholder="https://..." />
                                     </div>
                                     <button disabled={savingProject} className="w-full py-4 rounded-xl font-medium text-xs font-mono uppercase tracking-widest transition-all bg-theme-900 text-[#f1eef1] hover:bg-neutral-800 disabled:opacity-40 shadow-md mt-4">
                                         {savingProject ? 'Publishing...' : 'Publish to Homepage'}
@@ -801,10 +801,10 @@ export default function AdminDashboard() {
                             </div>
                         </div>
                     ) : activeTab === "logs" ? (
-                        <div className="bg-[#1a0733] rounded-2xl border border-[#705474]/30 shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden">
+                        <div className="bg-[#0A0710] rounded-2xl border border-[#705474]/30 shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden">
                             <div className="overflow-x-auto">
                                 <table className="w-full text-left border-collapse min-w-[800px]">
-                                    <thead className="bg-[#26082a]/80 border-b border-[#705474]/30">
+                                    <thead className="bg-[#150B1E]/80 border-b border-[#705474]/30">
                                         <tr>
                                             <th className="p-5 text-xs font-mono uppercase tracking-widest text-[#f1eef1]/70 font-medium">Time</th>
                                             <th className="p-5 text-xs font-mono uppercase tracking-widest text-[#f1eef1]/70 font-medium">User</th>
@@ -815,7 +815,7 @@ export default function AdminDashboard() {
                                     </thead>
                                     <tbody className="divide-y divide-[#705474]/20">
                                         {logs.map((log, idx) => (
-                                            <tr key={log._id} className={`transition-colors hover:bg-[#523056]/30 ${idx % 2 !== 0 ? 'bg-[#26082a]/50' : 'bg-[#1a0733]'}`}>
+                                            <tr key={log._id} className={`transition-colors hover:bg-[#523056]/30 ${idx % 2 !== 0 ? 'bg-[#150B1E]/50' : 'bg-[#0A0710]'}`}>
                                                 <td className="p-5 text-sm font-mono text-[#f1eef1]/70 whitespace-nowrap">
                                                     {new Date(log.createdAt).toLocaleString('en-US', { dateStyle: 'short', timeStyle: 'short' })}
                                                 </td>

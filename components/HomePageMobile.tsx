@@ -1748,7 +1748,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
           <div className="section-head reveal in relative z-10 mb-10 flex flex-col items-center text-center w-full">
             <span className="eyebrow" style={{ margin: '0 auto 16px', display: 'inline-block' }}>What Our Clients Say</span>
             <h2 style={{ margin: '0 auto 16px', textAlign: 'center', fontSize: 'clamp(26px, 6vw, 36px)', lineHeight: 1.15 }}>Trusted by businesses across <span className="font-stencilia uppercase">India</span></h2>
-            <p className="px-6" style={{ margin: '0 auto', textAlign: 'center', maxWidth: '500px', fontSize: '13px', color: '#94a3b8' }}>
+            <p style={{ margin: '0 auto', textAlign: 'center', maxWidth: '500px', fontSize: '13px', color: '#94a3b8' }}>
               Delivering high-quality software, websites, CRM solutions, mobile applications, and AI automation.
             </p>
           </div>

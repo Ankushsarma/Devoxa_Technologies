@@ -1087,7 +1087,7 @@ function MobileNav({ user, role, loading, logout, scrolled }: any) {
 
           {/* Sleek Sheet Popover Menu */}
           {isOpen && (
-            <div className="absolute top-14 right-0 w-64 bg-[#0A0714]/95 border border-[#705474]/35 rounded-2xl p-4 shadow-[0_0_40px_rgba(139,47,209,0.15)] backdrop-blur-3xl z-50 flex flex-col gap-1.5 text-left transition-all">
+            <div className="absolute top-14 right-0 w-64 bg-[#0A0714] border border-[#705474]/50 rounded-2xl p-4 shadow-[0_8px_40px_rgba(0,0,0,0.8)] z-[100] flex flex-col gap-1.5 text-left transition-all opacity-100 visible">
               <div className="px-2 py-1 flex items-center justify-between text-[10px] font-mono font-bold tracking-widest text-[#705474] uppercase border-b border-[#705474]/15 mb-1 pb-2">
                 <span>NAVIGATION // CATALOGUE</span>
                 <span className="w-2 h-2 rounded-full bg-[#523056] animate-ping"></span>

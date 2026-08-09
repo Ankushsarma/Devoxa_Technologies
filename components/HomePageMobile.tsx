@@ -1066,13 +1066,15 @@ function MobileNav({ user, role, loading, logout, scrolled }: any) {
         {/* Circular Cyber Trigger Button */}
         <div className="relative flex items-center gap-2" ref={menuRef}>
           <button 
+            type="button"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle Menu" 
- className="w-9 h-9 rounded-full bg-[#523056] p-[1.5px] shadow-[0_0_40px_rgba(139,47,209,0.15)] active:scale-90 transition-all flex items-center justify-center"
+ className="w-11 h-11 rounded-full bg-[#523056] p-[1.5px] shadow-[0_0_40px_rgba(139,47,209,0.15)] transition-all flex items-center justify-center cursor-pointer relative"
           >
-            <div className="w-full h-full rounded-full bg-transparent flex items-center justify-center transition-colors hover:bg-transparent">
+            <span className="absolute -inset-2"></span>
+            <div className="w-full h-full rounded-full bg-transparent flex items-center justify-center transition-colors hover:bg-transparent relative z-10">
               {isOpen ? (
-                <X className="w-4 h-4 text-[#f1eef1]" />
+                <X className="w-5 h-5 text-[#f1eef1]" />
               ) : (
                 <div className="flex items-center gap-1">
                   <div className="w-1 h-1 rounded-full bg-[#705474] animate-pulse"></div>
@@ -1085,7 +1087,7 @@ function MobileNav({ user, role, loading, logout, scrolled }: any) {
 
           {/* Sleek Sheet Popover Menu */}
           {isOpen && (
-            <div className="absolute top-12 right-0 w-64 bg-transparent border border-[#705474]/35 rounded-2xl p-4 shadow-[0_0_40px_rgba(139,47,209,0.15)] backdrop-blur-3xl z-50 flex flex-col gap-1.5 text-left animate-in fade-in zoom-in-95 duration-200">
+            <div className="absolute top-14 right-0 w-64 bg-[#0A0714]/95 border border-[#705474]/35 rounded-2xl p-4 shadow-[0_0_40px_rgba(139,47,209,0.15)] backdrop-blur-3xl z-50 flex flex-col gap-1.5 text-left animate-in fade-in zoom-in-95 duration-200">
               <div className="px-2 py-1 flex items-center justify-between text-[10px] font-mono font-bold tracking-widest text-[#705474] uppercase border-b border-[#705474]/15 mb-1 pb-2">
                 <span>NAVIGATION // CATALOGUE</span>
                 <span className="w-2 h-2 rounded-full bg-[#523056] animate-ping"></span>

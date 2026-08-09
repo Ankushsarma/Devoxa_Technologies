@@ -1191,19 +1191,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
     <>
       <section id="hero" className="nx vx-float pt-24 md:pt-32 relative" style={{ height: "auto", minHeight: "100vh" }}>
         <div className="absolute inset-0 z-0 bg-black/[0.65]" />
-        <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0, opacity: 1, pointerEvents: 'none' }}>
-          <WebGLVisibilityWrapper isAbsolute={false}>
-            <Particles
-              particleColors={["#ffffff", "#c6bbc7", "#523056"]}
-              particleCount={50}
-              particleSpread={10}
-              speed={0.1}
-              particleBaseSize={120}
-              moveParticlesOnHover={false}
-              alphaParticles={false}
-              disableRotation={false}
-            />
-          </WebGLVisibilityWrapper>
+        <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0, opacity: 1, pointerEvents: 'none', background: 'radial-gradient(circle at center, rgba(82, 48, 86, 0.4) 0%, transparent 70%)' }}>
         </div>
         <div className="nx-inner" style={{ minHeight: "100vh", alignItems: "flex-start", display: "flex", flexDirection: "column", justifyContent: "flex-start", padding: "140px 24px 80px 24px" }}>
           <div style={{ flexShrink: 0, width: "100%", maxWidth: "100%", textAlign: "left", position: "relative", zIndex: 10 }}>
@@ -1315,24 +1303,8 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       <div style={{ position: "relative", background: "transparent", backgroundColor: undefined, overflow: "visible" }}>
-        {/* Shared Light Pillar Background */}
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 1, pointerEvents: 'none', WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 150px)', maskImage: 'linear-gradient(to bottom, transparent, black 150px)' }}>
-          <WebGLVisibilityWrapper isAbsolute={false}>
-            <LightPillar
-              topColor="#26082a"
-              bottomColor="#FF9FFC"
-              intensity={0.4}
-              rotationSpeed={0.5}
-              glowAmount={0.002}
-              pillarWidth={3.0}
-              pillarHeight={0.4}
-              noiseIntensity={0.05}
-              pillarRotation={30}
-              interactive={false}
-              mixBlendMode="normal"
-              quality="low"
-            />
-          </WebGLVisibilityWrapper>
+        {/* Shared Light Pillar Background replaced with CSS for performance */}
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 0.15, pointerEvents: 'none', background: 'radial-gradient(ellipse at center top, rgba(255, 159, 252, 0.5) 0%, transparent 70%)' }}>
         </div>
 
         <div className="grid grid-cols-1 min-[375px]:grid-cols-2 gap-4 mb-16 mx-auto w-full relative z-20 px-6" style={{ flexShrink: 0, marginTop: "10px", zIndex: 10 }}>
@@ -1550,20 +1522,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
           overflow: "hidden"
         }}
       >
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 0.8, pointerEvents: 'none' }}>
-          <WebGLVisibilityWrapper isAbsolute={false}>
-            <LightRays
-              raysOrigin="top-center"
-              raysColor="#c6bbc7"
-              raysSpeed={1.5}
-              lightSpread={0.8}
-              rayLength={1.2}
-              followMouse={true}
-              mouseInfluence={0.1}
-              noiseAmount={0.1}
-              distortion={0.05}
-            />
-          </WebGLVisibilityWrapper>
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 0.2, pointerEvents: 'none', background: 'radial-gradient(circle at top center, rgba(198, 187, 199, 0.6) 0%, transparent 60%)' }}>
         </div>
 
         <div className="wrap" style={{ position: "relative", zIndex: 1, padding: "0 32px" }}>
@@ -1691,18 +1650,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
 
       {/* FAQ styled with new theme */}
       <section id="faq" className="scroll-mt-32 vx-float relative" style={{ background: "transparent", paddingTop: "16px", paddingBottom: "60px", overflow: "hidden" }}>
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 1, pointerEvents: 'none' }}>
-          <WebGLVisibilityWrapper isAbsolute={false}>
-            <DarkVeil
-              hueShift={-45}
-              noiseIntensity={0.05}
-              scanlineIntensity={0.15}
-              speed={0.3}
-              scanlineFrequency={0.8}
-              warpAmount={0.02}
-              resolutionScale={1}
-            />
-          </WebGLVisibilityWrapper>
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 0.1, pointerEvents: 'none', background: 'linear-gradient(to bottom, rgba(139,47,209,0.1) 0%, transparent 100%)' }}>
         </div>
         <div className="wrap px-4 relative z-10">
           <div className="flex flex-col items-center justify-center text-center mb-16">
@@ -1727,19 +1675,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       <section id="cta-banner" className="scroll-mt-32 relative py-14 sm:py-20 overflow-hidden border-y border-[rgba(255,255,255,0.05)] bg-transparent px-4 md:px-8 min-h-[340px]">
         
         <div className="absolute inset-0 z-0 bg-black/50" />
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 1, pointerEvents: 'none' }}>
-          <WebGLVisibilityWrapper isAbsolute={false}>
-            <Particles
-              particleColors={["#ffffff", "#c6bbc7", "#523056"]}
-              particleCount={100}
-              particleSpread={10}
-              speed={0.1}
-              particleBaseSize={80}
-              moveParticlesOnHover={true}
-              alphaParticles={false}
-              disableRotation={false}
-            />
-          </WebGLVisibilityWrapper>
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 0.2, pointerEvents: 'none', background: 'radial-gradient(circle at center, rgba(139, 47, 209, 0.4) 0%, transparent 80%)' }}>
         </div>
         <div className="wrap relative z-10 w-full">
           <div className="max-w-3xl mx-auto flex flex-col items-center text-center w-full gap-4">

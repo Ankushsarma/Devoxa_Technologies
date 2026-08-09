@@ -1307,7 +1307,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 0.15, pointerEvents: 'none', background: 'radial-gradient(ellipse at center top, rgba(255, 159, 252, 0.5) 0%, transparent 70%)' }}>
         </div>
 
-        <div className="flex justify-center w-full relative z-20 px-5 mb-16" style={{ marginTop: "10px", zIndex: 10 }}>
+        <div className="flex justify-center w-full relative z-20 mb-16" style={{ marginTop: "10px", zIndex: 10, padding: "0 24px" }}>
           <div className="grid grid-cols-1 min-[375px]:grid-cols-2 gap-3 sm:gap-4 w-full max-w-[400px] sm:max-w-md">
             <GlowingCard delay={0.1} onClick={(e) => handleCardClick(e, "Web App Dev")}>
               <div className="hc-icon shrink-0"><Code2 size={28} strokeWidth={1.5} /></div>

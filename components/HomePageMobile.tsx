@@ -1184,11 +1184,11 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
           <WebGLVisibilityWrapper isAbsolute={false}>
             <Particles
               particleColors={["#ffffff", "#c6bbc7", "#523056"]}
-              particleCount={200}
+              particleCount={50}
               particleSpread={10}
               speed={0.1}
               particleBaseSize={120}
-              moveParticlesOnHover={true}
+              moveParticlesOnHover={false}
               alphaParticles={false}
               disableRotation={false}
             />
@@ -1310,16 +1310,16 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
             <LightPillar
               topColor="#26082a"
               bottomColor="#FF9FFC"
-              intensity={0.8}
+              intensity={0.4}
               rotationSpeed={0.5}
               glowAmount={0.002}
               pillarWidth={3.0}
               pillarHeight={0.4}
-              noiseIntensity={0.1}
+              noiseIntensity={0.05}
               pillarRotation={30}
               interactive={false}
               mixBlendMode="normal"
-              quality="high"
+              quality="low"
             />
           </WebGLVisibilityWrapper>
         </div>
@@ -1485,32 +1485,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       <section id="how-it-works" className="scroll-mt-32 vx-float" style={{ background: "transparent", padding: "60px 0 40px", position: "relative", overflow: "hidden" }}>
         
         <div className="absolute inset-0 z-0 bg-black/50" />
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 1, pointerEvents: 'none' }}>
-          <WebGLVisibilityWrapper isAbsolute={false}>
-            <MagicRings
-              color="#523056"
-              colorTwo="#c6bbc7"
-              ringCount={6}
-              speed={1}
-              attenuation={10}
-              lineThickness={2}
-              baseRadius={0.35}
-              radiusStep={0.1}
-              scaleRate={0.1}
-              opacity={1}
-              blur={0}
-              noiseAmount={0.1}
-              rotation={0}
-              ringGap={1.5}
-              fadeIn={0.7}
-              fadeOut={0.5}
-              followMouse={false}
-              mouseInfluence={0.2}
-              hoverScale={1.2}
-              parallax={0.05}
-              clickBurst={false}
-            />
-          </WebGLVisibilityWrapper>
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 0.05, pointerEvents: 'none', background: 'radial-gradient(circle at center, #523056 0%, transparent 60%)' }}>
         </div>
 
         <div className="wrap px-4 md:px-8" style={{ position: "relative", zIndex: 1 }}>
@@ -1526,24 +1501,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
 
       {/* Recent Projects */}
       <section id="recent-projects" className="scroll-mt-32 transparent-bg vx-float" style={{ padding: "40px 0 30px", position: "relative", zIndex: 10 }}>
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 0.5, pointerEvents: 'none' }}>
-          <LiquidEther
-            colors={['#523056', '#705474', '#ad9daf']}
-            mouseForce={20}
-            cursorSize={100}
-            isViscous={false}
-            viscous={30}
-            iterationsViscous={32}
-            iterationsPoisson={32}
-            resolution={0.5}
-            isBounce={false}
-            autoDemo={true}
-            autoSpeed={0.5}
-            autoIntensity={2.2}
-            takeoverDuration={0.25}
-            autoResumeDelay={3000}
-            autoRampDuration={0.6}
-          />
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 0.15, pointerEvents: 'none', background: 'radial-gradient(circle at 50% 50%, #523056 0%, transparent 70%)' }}>
         </div>
         <div className="wrap" style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 20px" }}>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", marginBottom: "24px", position: "relative" }}>

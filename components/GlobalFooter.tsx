@@ -29,7 +29,7 @@ export default function GlobalFooter() {
           middleSectionStyle={{ paddingTop: '30px', paddingBottom: '30px' }} 
         />
       </div>
-      <div className={`block lg:hidden w-full ${isLegalPage ? '[&_footer]:!pt-6 [&>footer>div]:!gap-5 [&_footer_.grid]:!pt-2 [&_footer_.grid]:!gap-4' : ''}`}>
+      <div className={`block lg:hidden w-full ${isLegalPage ? '[&_footer]:!pt-4 [&>footer>div]:!gap-3 [&_footer_.grid]:!pt-1 [&_footer_.grid]:!gap-2 [&_footer_.mt-5]:!mt-2 [&_footer_.mb-4]:!mb-1 [&_footer_.mt-4]:!mt-1 [&_footer_h3]:!mb-1 [&_footer_.gap-8]:!gap-4' : ''}`}>
         <MobileFooter />
       </div>
     </>

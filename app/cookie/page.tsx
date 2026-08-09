@@ -124,13 +124,20 @@ export default function CookiePolicy() {
 
         {/* Mobile Header Navigation (lg:hidden) */}
         <nav className="flex lg:hidden py-4 px-6 justify-between items-center w-full bg-transparent border-none outline-none">
-          <Link href="/" className="flex items-center gap-2.5">
- <div className="w-8 h-8 rounded-xl bg-[#523056] p-[1.5px] shrink-0">
-              <div className="w-full h-full bg-[#0B0819] rounded-[10px] flex items-center justify-center p-1 overflow-hidden">
-                <img src="/logo.png" alt="Logo" className="w-full h-full object-contain" />
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="relative">
+              <div className="w-8 h-8 rounded-xl bg-[#523056] p-[1.5px] shadow-[0_0_40px_rgba(139,47,209,0.15)] shrink-0">
+                <div className="w-full h-full bg-transparent rounded-[10px] flex items-center justify-center p-0.5 overflow-hidden">
+                  <img src="/logo.png" alt="Logo" className="w-full h-full object-contain transform group-hover:scale-110 transition-transform" />
+                </div>
               </div>
             </div>
-            <span className="font-serif text-lg font-bold tracking-tight text-[#f1eef1]">Devoxa</span>
+            <div className="flex flex-col text-left">
+              <div className="flex items-center gap-1.5">
+                <span className="font-serif text-[16px] font-extrabold tracking-tight text-[#f1eef1] leading-tight">Devoxa</span>
+              </div>
+              <span className="text-[9px] font-mono font-semibold tracking-wider text-[#f1eef1]/60 uppercase">Technologies</span>
+            </div>
           </Link>
 
           <div className="flex items-center gap-3">

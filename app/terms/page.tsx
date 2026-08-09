@@ -149,35 +149,37 @@ export default function TermsOfService() {
             </button>
           </div>
 
-          {mobileMenuOpen && (
-            <div className="absolute top-16 left-4 right-4 bg-[#0A0714]/95 border border-[#705474]/30 rounded-3xl p-4 shadow-2xl backdrop-blur-2xl flex flex-col gap-2">
-              <Link href="/" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2.5 rounded-2xl bg-transparent text-xs font-semibold text-[#f1eef1] hover:text-[#f1eef1] flex items-center justify-between">
-                <span>Home</span>
-                <ChevronRight className="w-3.5 h-3.5 text-[#705474]" />
-              </Link>
-              <Link href="/#solutions" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2.5 rounded-2xl bg-transparent text-xs font-semibold text-[#f1eef1] hover:text-[#f1eef1] flex items-center justify-between">
-                <span>Solutions</span>
-                <ChevronRight className="w-3.5 h-3.5 text-[#705474]" />
-              </Link>
-              <Link href="/#pricing" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2.5 rounded-2xl bg-transparent text-xs font-semibold text-[#f1eef1] hover:text-[#f1eef1] flex items-center justify-between">
-                <span>Pricing</span>
-                <ChevronRight className="w-3.5 h-3.5 text-[#705474]" />
-              </Link>
-              <Link href="/#faq" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2.5 rounded-2xl bg-transparent text-xs font-semibold text-[#f1eef1] hover:text-[#f1eef1] flex items-center justify-between">
-                <span>FAQ</span>
-                <ChevronRight className="w-3.5 h-3.5 text-[#705474]" />
-              </Link>
-              <button
-                onClick={() => { setMobileMenuOpen(false); setIsModalOpen(true); }}
- className="mt-2 w-full py-3 rounded-full bg-[#523056] text-[#f1eef1] font-bold text-xs uppercase tracking-wider text-center"
-              >
-                Book a Free Call
-              </button>
-            </div>
-          )}
         </nav>
 
       </header>
+
+      {/* Safari-compatible Mobile Menu Popover */}
+      {mobileMenuOpen && (
+        <div className="fixed top-[76px] left-4 right-4 bg-[#0A0714] border border-[#705474]/50 rounded-3xl p-4 shadow-[0_8px_40px_rgba(0,0,0,0.8)] z-[99999] flex flex-col gap-2">
+          <Link href="/" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2.5 rounded-2xl bg-transparent text-xs font-semibold text-[#f1eef1] hover:text-[#f1eef1] flex items-center justify-between">
+            <span>Home</span>
+            <ChevronRight className="w-3.5 h-3.5 text-[#705474]" />
+          </Link>
+          <Link href="/#solutions" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2.5 rounded-2xl bg-transparent text-xs font-semibold text-[#f1eef1] hover:text-[#f1eef1] flex items-center justify-between">
+            <span>Solutions</span>
+            <ChevronRight className="w-3.5 h-3.5 text-[#705474]" />
+          </Link>
+          <Link href="/#pricing" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2.5 rounded-2xl bg-transparent text-xs font-semibold text-[#f1eef1] hover:text-[#f1eef1] flex items-center justify-between">
+            <span>Pricing</span>
+            <ChevronRight className="w-3.5 h-3.5 text-[#705474]" />
+          </Link>
+          <Link href="/#faq" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2.5 rounded-2xl bg-transparent text-xs font-semibold text-[#f1eef1] hover:text-[#f1eef1] flex items-center justify-between">
+            <span>FAQ</span>
+            <ChevronRight className="w-3.5 h-3.5 text-[#705474]" />
+          </Link>
+          <button
+            onClick={() => { setMobileMenuOpen(false); setIsModalOpen(true); }}
+            className="mt-2 w-full py-3 rounded-full bg-[#523056] text-[#f1eef1] font-bold text-xs uppercase tracking-wider text-center"
+          >
+            Book a Free Call
+          </button>
+        </div>
+      )}
 
       {/* Hero Header Section */}
  <section className="relative pt-36 md:pt-44 pb-16 px-6 md:px-12 lg:px-16 overflow-hidden bg-[#0A0710]">

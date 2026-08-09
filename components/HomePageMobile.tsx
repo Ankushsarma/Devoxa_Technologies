@@ -1569,54 +1569,97 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 px-2 sm:px-4 w-full mt-6">
-            <BorderGlow className="ind-card reveal in" borderRadius={20} animated={false} colors={['#523056', '#705474', '#ded8df']}>
-              <div className="ind-img-wrap !aspect-video"><img src="/tech-saas-cover.png" alt="Technology & SaaS" /></div>
-              <div className="ind-label !text-xs sm:!text-sm">Technology & SaaS</div>
-              <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Scalable platforms built for rapid growth</div>
-              <div className="ind-meta">
-                <span className="text-[10px] sm:text-sm font-semibold text-[#705474] tracking-wide hover:text-[#f1eef1] transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
+            
+            {/* Card 1 */}
+            <div className="relative w-full aspect-[4/5] rounded-[16px] overflow-hidden shadow-lg group border border-[#705474]/15">
+              <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=600&q=80" alt="Technology & SaaS" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0714] via-[#0A0714]/60 to-transparent"></div>
+              <div className="absolute inset-x-0 bottom-0 p-3 flex flex-col justify-end">
+                <div className="text-white text-[11px] sm:text-xs font-bold mb-1 leading-tight">Technology & SaaS</div>
+                <div className="text-white/80 text-[9px] leading-tight mb-2 line-clamp-2">Scalable platforms built for rapid growth and enterprise performance.</div>
+                <div className="flex flex-wrap gap-1 mb-2">
+                  <span className="inline-flex items-center gap-0.5 bg-white/10 border border-white/20 text-white text-[7px] font-medium px-1.5 py-0.5 rounded-full"><span className="text-[7px] text-[#FBBF24]">★</span>4.9</span>
+                  <span className="inline-flex items-center bg-white/10 border border-white/20 text-white text-[7px] font-medium px-1.5 py-0.5 rounded-full">Cloud & SaaS</span>
+                </div>
+                <button className="w-full bg-white text-[#111] text-[9px] font-bold py-1.5 rounded-[8px] transition-colors hover:bg-gray-200">Explore Solutions</button>
               </div>
-            </BorderGlow>
-            <BorderGlow className="ind-card reveal in delay-[100ms]" borderRadius={20} animated={false} colors={['#523056', '#705474', '#ded8df']}>
-              <div className="ind-img-wrap !aspect-video"><img src="/finance-banking-cover.png" alt="Finance & Banking" /></div>
-              <div className="ind-label !text-xs sm:!text-sm">Finance & Banking</div>
-              <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Secure systems for regulated industries</div>
-              <div className="ind-meta">
-                <span className="text-[10px] sm:text-sm font-semibold text-[#705474] tracking-wide hover:text-[#f1eef1] transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
+            </div>
+
+            {/* Card 2 */}
+            <div className="relative w-full aspect-[4/5] rounded-[16px] overflow-hidden shadow-lg group border border-[#705474]/15">
+              <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80" alt="Finance & Banking" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0714] via-[#0A0714]/60 to-transparent"></div>
+              <div className="absolute inset-x-0 bottom-0 p-3 flex flex-col justify-end">
+                <div className="text-white text-[11px] sm:text-xs font-bold mb-1 leading-tight">Finance & Banking</div>
+                <div className="text-white/80 text-[9px] leading-tight mb-2 line-clamp-2">Secure systems for regulated industries and modern fintech.</div>
+                <div className="flex flex-wrap gap-1 mb-2">
+                  <span className="inline-flex items-center gap-0.5 bg-white/10 border border-white/20 text-white text-[7px] font-medium px-1.5 py-0.5 rounded-full"><span className="text-[7px] text-[#FBBF24]">★</span>4.8</span>
+                  <span className="inline-flex items-center bg-white/10 border border-white/20 text-white text-[7px] font-medium px-1.5 py-0.5 rounded-full">Fintech</span>
+                </div>
+                <button className="w-full bg-white text-[#111] text-[9px] font-bold py-1.5 rounded-[8px] transition-colors hover:bg-gray-200">Explore Solutions</button>
               </div>
-            </BorderGlow>
-            <BorderGlow className="ind-card reveal in delay-[200ms]" borderRadius={20} animated={false} colors={['#523056', '#705474', '#ded8df']}>
-              <div className="ind-img-wrap !aspect-video"><img src="/healthcare-cover.png" alt="Healthcare" /></div>
-              <div className="ind-label !text-xs sm:!text-sm">Healthcare</div>
-              <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Compliant, patient-first digital tools</div>
-              <div className="ind-meta">
-                <span className="text-[10px] sm:text-sm font-semibold text-[#705474] tracking-wide hover:text-[#f1eef1] transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
+            </div>
+
+            {/* Card 3 */}
+            <div className="relative w-full aspect-[4/5] rounded-[16px] overflow-hidden shadow-lg group border border-[#705474]/15">
+              <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80" alt="Healthcare" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0714] via-[#0A0714]/60 to-transparent"></div>
+              <div className="absolute inset-x-0 bottom-0 p-3 flex flex-col justify-end">
+                <div className="text-white text-[11px] sm:text-xs font-bold mb-1 leading-tight">Healthcare</div>
+                <div className="text-white/80 text-[9px] leading-tight mb-2 line-clamp-2">Compliant, patient-first digital tools and data management.</div>
+                <div className="flex flex-wrap gap-1 mb-2">
+                  <span className="inline-flex items-center gap-0.5 bg-white/10 border border-white/20 text-white text-[7px] font-medium px-1.5 py-0.5 rounded-full"><span className="text-[7px] text-[#FBBF24]">★</span>5.0</span>
+                  <span className="inline-flex items-center bg-white/10 border border-white/20 text-white text-[7px] font-medium px-1.5 py-0.5 rounded-full">HIPAA</span>
+                </div>
+                <button className="w-full bg-white text-[#111] text-[9px] font-bold py-1.5 rounded-[8px] transition-colors hover:bg-gray-200">Explore Solutions</button>
               </div>
-            </BorderGlow>
-            <BorderGlow className="ind-card reveal in" borderRadius={20} animated={false} colors={['#523056', '#705474', '#ded8df']}>
-              <div className="ind-img-wrap !aspect-video"><img src="/shopix-ecommerce.png" alt="Retail & E-commerce Dashboard" /></div>
-              <div className="ind-label !text-xs sm:!text-sm">Retail & E-commerce</div>
-              <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Storefronts that convert and scale</div>
-              <div className="ind-meta">
-                <span className="text-[10px] sm:text-sm font-semibold text-[#705474] tracking-wide hover:text-[#f1eef1] transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
+            </div>
+
+            {/* Card 4 */}
+            <div className="relative w-full aspect-[4/5] rounded-[16px] overflow-hidden shadow-lg group border border-[#705474]/15">
+              <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=600&q=80" alt="Retail & E-commerce" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0714] via-[#0A0714]/60 to-transparent"></div>
+              <div className="absolute inset-x-0 bottom-0 p-3 flex flex-col justify-end">
+                <div className="text-white text-[11px] sm:text-xs font-bold mb-1 leading-tight">Retail & E-commerce</div>
+                <div className="text-white/80 text-[9px] leading-tight mb-2 line-clamp-2">High-performance storefronts that convert and scale globally.</div>
+                <div className="flex flex-wrap gap-1 mb-2">
+                  <span className="inline-flex items-center gap-0.5 bg-white/10 border border-white/20 text-white text-[7px] font-medium px-1.5 py-0.5 rounded-full"><span className="text-[7px] text-[#FBBF24]">★</span>4.7</span>
+                  <span className="inline-flex items-center bg-white/10 border border-white/20 text-white text-[7px] font-medium px-1.5 py-0.5 rounded-full">B2B/B2C</span>
+                </div>
+                <button className="w-full bg-white text-[#111] text-[9px] font-bold py-1.5 rounded-[8px] transition-colors hover:bg-gray-200">Explore Solutions</button>
               </div>
-            </BorderGlow>
-            <BorderGlow className="ind-card reveal in delay-[100ms]" borderRadius={20} animated={false} colors={['#523056', '#705474', '#ded8df']}>
-              <div className="ind-img-wrap !aspect-video"><img src="/education-cover.png" alt="Education" /></div>
-              <div className="ind-label !text-xs sm:!text-sm">Education</div>
-              <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Learning platforms built to engage</div>
-              <div className="ind-meta">
-                <span className="text-[10px] sm:text-sm font-semibold text-[#705474] tracking-wide hover:text-[#f1eef1] transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
+            </div>
+
+            {/* Card 5 */}
+            <div className="relative w-full aspect-[4/5] rounded-[16px] overflow-hidden shadow-lg group border border-[#705474]/15">
+              <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80" alt="Education" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0714] via-[#0A0714]/60 to-transparent"></div>
+              <div className="absolute inset-x-0 bottom-0 p-3 flex flex-col justify-end">
+                <div className="text-white text-[11px] sm:text-xs font-bold mb-1 leading-tight">Education</div>
+                <div className="text-white/80 text-[9px] leading-tight mb-2 line-clamp-2">Interactive learning platforms built to engage and educate.</div>
+                <div className="flex flex-wrap gap-1 mb-2">
+                  <span className="inline-flex items-center gap-0.5 bg-white/10 border border-white/20 text-white text-[7px] font-medium px-1.5 py-0.5 rounded-full"><span className="text-[7px] text-[#FBBF24]">★</span>4.8</span>
+                  <span className="inline-flex items-center bg-white/10 border border-white/20 text-white text-[7px] font-medium px-1.5 py-0.5 rounded-full">EdTech</span>
+                </div>
+                <button className="w-full bg-white text-[#111] text-[9px] font-bold py-1.5 rounded-[8px] transition-colors hover:bg-gray-200">Explore Solutions</button>
               </div>
-            </BorderGlow>
-            <BorderGlow className="ind-card reveal in delay-[200ms]" borderRadius={20} animated={false} colors={['#523056', '#705474', '#ded8df']}>
-              <div className="ind-img-wrap !aspect-video"><img src="/manufacturing-cover.png" alt="Manufacturing" /></div>
-              <div className="ind-label !text-xs sm:!text-sm">Manufacturing</div>
-              <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Automation for modern production lines</div>
-              <div className="ind-meta">
-                <span className="text-[10px] sm:text-sm font-semibold text-[#705474] tracking-wide hover:text-[#f1eef1] transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
+            </div>
+
+            {/* Card 6 */}
+            <div className="relative w-full aspect-[4/5] rounded-[16px] overflow-hidden shadow-lg group border border-[#705474]/15">
+              <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80" alt="Manufacturing" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0714] via-[#0A0714]/60 to-transparent"></div>
+              <div className="absolute inset-x-0 bottom-0 p-3 flex flex-col justify-end">
+                <div className="text-white text-[11px] sm:text-xs font-bold mb-1 leading-tight">Manufacturing</div>
+                <div className="text-white/80 text-[9px] leading-tight mb-2 line-clamp-2">Automation and data insights for modern production lines.</div>
+                <div className="flex flex-wrap gap-1 mb-2">
+                  <span className="inline-flex items-center gap-0.5 bg-white/10 border border-white/20 text-white text-[7px] font-medium px-1.5 py-0.5 rounded-full"><span className="text-[7px] text-[#FBBF24]">★</span>4.9</span>
+                  <span className="inline-flex items-center bg-white/10 border border-white/20 text-white text-[7px] font-medium px-1.5 py-0.5 rounded-full">Industry 4.0</span>
+                </div>
+                <button className="w-full bg-white text-[#111] text-[9px] font-bold py-1.5 rounded-[8px] transition-colors hover:bg-gray-200">Explore Solutions</button>
               </div>
-            </BorderGlow>
+            </div>
+
           </div>
         </div>
       </section>

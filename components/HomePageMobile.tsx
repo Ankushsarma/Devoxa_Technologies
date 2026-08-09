@@ -1545,7 +1545,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
           </div>
 
           <div className="reveal in w-full">
-            <MobileServicePackages />
+            <MobileServicePackages onOpenModal={onOpenModal} />
           </div>
         </div>
       </section>

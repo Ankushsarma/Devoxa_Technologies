@@ -27,7 +27,7 @@ const faqs = [
 const FAQAccordionItem = ({ faq, isOpen, onClick }) => {
   return (
     <div 
-      className={`group rounded-2xl overflow-hidden transition-all duration-300 border ${isOpen ? 'bg-gradient-to-br from-[#4c1655]/90 to-[#220727]/90 border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.05)]' : 'bg-white/5 backdrop-blur-md border-white/10 hover:bg-white/10 hover:border-white/15'}`}
+      className={`group rounded-2xl overflow-hidden transition-all duration-300 border ${isOpen ? 'bg-gradient-to-br from-[#5a1c66]/80 to-[#220727]/90 border-[#8b2fd1]/50 shadow-[0_0_30px_rgba(139,47,209,0.25)]' : 'bg-white/[0.04] backdrop-blur-xl border-white/10 border-t-white/20 hover:bg-white/[0.08] hover:border-white/25 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)]'}`}
       style={{ padding: '12px 16px', transform: 'translate3d(0px, 0px, 0px)' }}
     >
       <button 
@@ -35,13 +35,13 @@ const FAQAccordionItem = ({ faq, isOpen, onClick }) => {
         onClick={onClick}
       >
         <span 
-          className={`flex-1 break-words pr-4 text-lg sm:text-xl font-bold transition-colors duration-300 drop-shadow-sm ${isOpen ? 'text-white' : 'text-[#f1eef1]/95 group-hover:text-white'}`}
+          className={`flex-1 break-words pr-4 text-lg sm:text-xl font-bold tracking-tight transition-colors duration-300 drop-shadow-sm ${isOpen ? 'text-white' : 'text-[#f1eef1]/95 group-hover:text-white'}`}
         >
           {faq.question}
         </span>
-        <span className={`relative flex items-center justify-center w-10 h-10 rounded-xl transition-all duration-300 flex-shrink-0 ml-4 border shadow-sm ${isOpen ? 'bg-white text-[#1e0723] border-transparent scale-105' : 'bg-white/10 border-white/20 group-hover:bg-white/20 group-hover:border-white/30'}`}>
-          <Plus className={`absolute w-4 h-4 transition-all duration-500 ease-[cubic-bezier(0.87,0,0.13,1)] ${isOpen ? 'rotate-180 opacity-0 scale-50' : 'text-white rotate-0 opacity-100 scale-100'}`} />
-          <Minus className={`absolute w-4 h-4 transition-all duration-500 ease-[cubic-bezier(0.87,0,0.13,1)] ${isOpen ? 'text-[#1e0723] rotate-0 opacity-100 scale-100' : 'text-white -rotate-180 opacity-0 scale-50'}`} />
+        <span className={`relative flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 flex-shrink-0 ml-4 border ${isOpen ? 'bg-[#8b2fd1] text-white border-transparent scale-110 shadow-[0_0_15px_rgba(139,47,209,0.6)]' : 'bg-white/10 border-white/20 shadow-sm group-hover:bg-white/20 group-hover:border-white/30'}`}>
+          <Plus className={`absolute w-4 h-4 text-white transition-all duration-500 ease-[cubic-bezier(0.87,0,0.13,1)] ${isOpen ? 'rotate-180 opacity-0 scale-50' : 'rotate-0 opacity-100 scale-100'}`} />
+          <Minus className={`absolute w-4 h-4 text-white transition-all duration-500 ease-[cubic-bezier(0.87,0,0.13,1)] ${isOpen ? 'rotate-0 opacity-100 scale-100' : '-rotate-180 opacity-0 scale-50'}`} />
         </span>
       </button>
       <div 

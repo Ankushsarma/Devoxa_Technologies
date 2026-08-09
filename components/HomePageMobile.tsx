@@ -1409,24 +1409,24 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               </ul>
             </div>
             <div className="sol-img-modern w-full" style={{ marginTop: "24px" }}>
-              <div className="relative w-full h-[380px] flex items-center justify-center group overflow-visible pb-4">
+              <div className="relative w-[90%] mx-auto h-[380px] flex items-center justify-center group overflow-visible pb-4">
                 {/* Images */}
                 <img
                   src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"
                   alt="Code"
-                  className="absolute top-[2%] left-[2%] w-[52%] h-[45%] object-cover shadow-2xl z-10"
+                  className="absolute top-0 left-0 w-[48%] h-[48%] object-cover shadow-2xl z-10"
                   style={{ borderRadius: "24px" }}
                 />
                 <img
                   src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80"
                   alt="AI Tech"
-                  className="absolute bottom-[2%] left-[2%] w-[52%] h-[48%] object-cover shadow-2xl z-10"
+                  className="absolute bottom-0 left-0 w-[48%] h-[48%] object-cover shadow-2xl z-10"
                   style={{ borderRadius: "24px" }}
                 />
                 <img
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80"
                   alt="Design Process"
-                  className="absolute top-[8%] right-[2%] w-[48%] h-[84%] object-cover shadow-2xl z-20"
+                  className="absolute top-[5%] right-0 w-[48%] h-[90%] object-cover shadow-2xl z-20"
                   style={{ borderRadius: "24px" }}
                 />
 

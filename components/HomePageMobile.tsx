@@ -160,7 +160,7 @@ const AnimatedProcessWorkflow = () => {
 const MobileProjectCarousel = ({ projects }: { projects: any[] }) => {
   const defaultItems = [
     { title: "Lionscott", category: "Fitness & Wellness", image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=800" },
-    { title: "AG Home", category: "Real Estate & Living", image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" },
+    { title: "AG Homes India", category: "Real Estate & Living", image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" },
     { title: "Cab Partner", category: "Mobility & Transport", image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=800&q=80" },
     { title: "Smart Rent", category: "SaaS Platform", image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80" }
   ];
@@ -169,11 +169,15 @@ const MobileProjectCarousel = ({ projects }: { projects: any[] }) => {
     ? projects.map((p: any) => {
         let img = p.imageUrl || "/tpl-saas-software.jpg";
         const t = (p.title || "").toLowerCase();
-        if (t.includes('ag home')) img = 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=400&q=60';
+        let finalTitle = p.title;
+        if (t.includes('ag home')) {
+          img = 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=400&q=60';
+          finalTitle = "AG Homes India";
+        }
         else if (t.includes('cab partner')) img = 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=400&q=60';
         else if (t.includes('smart rent')) img = 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=60';
         else if (t.includes('lionscott')) img = 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=400&q=60';
-        return { title: p.title, category: p.category || "Digital Experience", image: img };
+        return { title: finalTitle, category: p.category || "Digital Experience", image: img };
       })
     : defaultItems;
 

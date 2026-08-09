@@ -125,9 +125,9 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
           
           <div className="relative z-10">
             <h3 className="text-xl sm:text-2xl font-semibold text-[#f1eef1] mb-2 font-serif leading-tight">
- Ready to build <br/>something <span className=" text-[#705474]">extraordinary?</span>
+  Ready to build <br/>something <span className="text-[#d8b4e2]">extraordinary?</span>
             </h3>
-            <p className="text-[13px] sm:text-sm text-[#705474]/70 leading-relaxed mb-4">
+            <p className="text-[13px] sm:text-sm text-[#c6b5cc] leading-relaxed mb-4">
               Fill out the form and our team of experts will review your request and get back to you within 24 hours.
             </p>
 

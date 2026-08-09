@@ -936,12 +936,21 @@ function DesktopNav({ user, role, loading, logout, scrolled }: any) {
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-transparent py-4' : 'bg-transparent py-6'} px-8 md:px-16 flex justify-between items-center`}>
       {/* 1st Part: Logo */}
-      <div className="font-serif text-2xl font-medium tracking-tight italic flex items-center gap-4 text-[#f1eef1] flex-1">
-        <div style={{ width: '36px', height: '36px', backgroundcolor: "#f1eef1", borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', flexShrink: 0 }}>
-          <img src="/logo.png" alt="Logo" style={{ width: '100%', height: '100%', objectFit: 'contain', transform: 'scale(1.2)' }} />
+      <Link href="#" className="flex items-center gap-3 group flex-1">
+        <div className="relative">
+          <div className="w-8 h-8 rounded-xl bg-[#523056] p-[1.5px] shadow-[0_0_40px_rgba(139,47,209,0.15)] shrink-0">
+            <div className="w-full h-full bg-transparent rounded-[10px] flex items-center justify-center p-0.5 overflow-hidden">
+              <img src="/logo.png" alt="Logo" className="w-full h-full object-contain transform group-hover:scale-110 transition-transform" />
+            </div>
+          </div>
         </div>
-        <Link href="#">Devoxa Technologies</Link>
-      </div>
+        <div className="flex flex-col text-left">
+          <div className="flex items-center gap-1.5">
+            <span className="font-serif text-[16px] font-extrabold tracking-tight text-[#f1eef1] leading-tight">Devoxa</span>
+          </div>
+          <span className="text-[9px] font-mono font-semibold tracking-wider text-[#f1eef1]/60 uppercase">Technologies</span>
+        </div>
+      </Link>
       
       {/* 2nd Part: Capsule Navigation */}
       <div className="hidden md:flex items-center rounded-full bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.08)] bg-[#0A0714] shadow-lg">

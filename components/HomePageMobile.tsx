@@ -224,7 +224,7 @@ const MobileProjectCarousel = ({ projects }: { projects: any[] }) => {
                     className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                   />
                   {/* Bottom Dark Gradient Overlay */}
- <div className="absolute inset-0 bg-theme-900/90" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#08060e] via-[#08060e]/50 to-transparent pointer-events-none opacity-90" />
                   
                   {/* Category Badge Top-Left */}
                   <span className="absolute top-3 left-3 px-3 py-1 text-[11px] font-bold text-[#705474] bg-theme-900/70 bg-[#0A0714] rounded-full border border-[#705474]/40 shadow-md">

@@ -91,7 +91,7 @@ export function Footer({ className = "pb-4", style, middleSectionClassName = "",
 							<a href="#" className="w-9 h-9 rounded-full border border-[#705474]/15 flex items-center justify-center hover:text-[#f1eef1] hover:border-theme-50/30 transition-all">
 								<Youtube className="size-4" />
 							</a>
-							<a href="#" className="w-9 h-9 rounded-full border border-[#705474]/15 flex items-center justify-center hover:text-[#f1eef1] hover:border-theme-50/30 transition-all">
+							<a href="https://x.com/devoxa_tecnniq" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full border border-[#705474]/15 flex items-center justify-center hover:text-[#f1eef1] hover:border-theme-50/30 transition-all">
 								<Twitter className="size-4" />
 							</a>
 							<a href="https://www.instagram.com/devoxa_technologies/" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full border border-[#705474]/15 flex items-center justify-center hover:text-[#f1eef1] hover:border-theme-50/30 transition-all">

@@ -1081,17 +1081,15 @@ function MobileNav({ user, role, loading, logout, scrolled }: any) {
             <span className="text-[9px] font-mono font-semibold tracking-wider text-[#f1eef1]/60 uppercase">Technologies</span>
           </div>
         </Link>
-
-        {/* Circular Cyber Trigger Button */}
         <div className="relative flex items-center gap-2" ref={menuRef}>
           <button 
             type="button"
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={(e) => { e.preventDefault(); e.stopPropagation(); setIsOpen(!isOpen); }}
             aria-label="Toggle Menu" 
- className="w-11 h-11 rounded-full bg-[#523056] p-[1.5px] shadow-[0_0_40px_rgba(139,47,209,0.15)] transition-all flex items-center justify-center cursor-pointer relative"
+            className="w-11 h-11 rounded-full bg-[#523056] p-[1.5px] shadow-[0_0_40px_rgba(139,47,209,0.15)] transition-all flex items-center justify-center cursor-pointer relative active:scale-90 duration-200 z-50"
           >
-            <span className="absolute -inset-2"></span>
-            <div className="w-full h-full rounded-full bg-transparent flex items-center justify-center transition-colors hover:bg-transparent relative z-10">
+            <span className="absolute -inset-2 pointer-events-none"></span>
+            <div className="w-full h-full rounded-full bg-transparent flex items-center justify-center transition-colors hover:bg-transparent relative z-10 pointer-events-none">
               {isOpen ? (
                 <X className="w-5 h-5 text-[#f1eef1]" />
               ) : (
@@ -1103,7 +1101,6 @@ function MobileNav({ user, role, loading, logout, scrolled }: any) {
               )}
             </div>
           </button>
-
         </div>
       </nav>
     </header>

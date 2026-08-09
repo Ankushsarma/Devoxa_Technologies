@@ -142,6 +142,12 @@ export default function CookiePolicy() {
 
           <div className="flex items-center gap-3">
             <button
+              onClick={() => window.history.back()}
+              className="w-9 h-9 rounded-full bg-transparent border border-[#705474]/30 flex items-center justify-center text-[#f1eef1] hover:bg-[#523056]/30 transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4" />
+            </button>
+            <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="w-9 h-9 rounded-full bg-transparent border border-[#705474]/30 flex items-center justify-center text-[#f1eef1]"
             >

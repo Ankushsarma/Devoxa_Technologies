@@ -988,10 +988,16 @@ function DesktopNav({ user, role, loading, logout, scrolled }: any) {
 function MobileNav({ user, role, loading, logout, scrolled }: any) {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const popoverRef = useRef<HTMLDivElement>(null);
 
+  // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent | TouchEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+      const target = event.target as Node;
+      if (
+        menuRef.current && !menuRef.current.contains(target) &&
+        popoverRef.current && !popoverRef.current.contains(target)
+      ) {
         setIsOpen(false);
       }
     };
@@ -1038,7 +1044,8 @@ function MobileNav({ user, role, loading, logout, scrolled }: any) {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
+    <>
+      <header className="fixed top-0 left-0 right-0 z-50">
       <nav className={`w-full transition-all duration-300 ${
         scrolled || isOpen 
           ? 'bg-[#06040d]/95 backdrop-blur-2xl border-b border-[#705474]/30 shadow-[0_0_40px_rgba(139,47,209,0.15)]' 
@@ -1085,70 +1092,72 @@ function MobileNav({ user, role, loading, logout, scrolled }: any) {
             </div>
           </button>
 
-          {/* Sleek Sheet Popover Menu */}
-          {isOpen && (
-            <div className="fixed top-[76px] right-4 w-64 bg-[#0A0714] border border-[#705474]/50 rounded-2xl p-4 shadow-[0_8px_40px_rgba(0,0,0,0.8)] z-[9999] flex flex-col gap-1.5 text-left transition-all opacity-100 visible">
-              <div className="px-2 py-1 flex items-center justify-between text-[10px] font-mono font-bold tracking-widest text-[#705474] uppercase border-b border-[#705474]/15 mb-1 pb-2">
-                <span>NAVIGATION // CATALOGUE</span>
-                <span className="w-2 h-2 rounded-full bg-[#523056] animate-ping"></span>
-              </div>
-
-              {navLinks.map((link, idx) => {
-                const IconComponent = link.icon;
-                return (
-                  <button
-                    key={link.href}
-                    type="button"
-                    onClick={(e) => handleLinkClick(e, link.href)}
- className="w-full px-3.5 py-2.5 rounded-xl text-xs font-semibold text-[#f1eef1] hover:text-[#f1eef1] bg-transparent hover:bg-[#523056]/40 active:scale-[0.98] transition-all flex items-center justify-between cursor-pointer border border-theme-50/5 hover:border-[#705474]/40 group text-left"
-                  >
-                    <div className="flex items-center gap-3">
-                      <span className="text-[10px] font-mono text-[#705474]/80 font-bold">0{idx + 1}</span>
-                      <div className="w-6 h-6 rounded-lg bg-[#523056] border border-[#705474]/30 flex items-center justify-center text-[#705474] group-hover:text-[#f1eef1] transition-colors">
-                        <IconComponent className="w-3.5 h-3.5" />
-                      </div>
-                      <span>{link.label}</span>
-                    </div>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#705474] group-hover:translate-x-1 transition-transform" />
-                  </button>
-                );
-              })}
-
-              <div className="h-px bg-theme-50/10 my-1" />
-
-              {!loading && user ? (
-                <>
-                  <Link
-                    href={`/dashboard/${role}`}
-                    onClick={() => setIsOpen(false)}
-                    className="px-3.5 py-2.5 rounded-xl text-xs font-semibold text-[#705474] hover:bg-[#523056] transition-all flex items-center justify-between bg-transparent border border-[#705474]/30"
-                  >
-                    <span>Dashboard</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#705474]" />
-                  </Link>
-                  <button
-                    type="button"
-                    onClick={() => { logout(); setIsOpen(false); }}
-                    className="w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-semibold text-red-400 hover:bg-red-500/20 transition-all border border-red-500/20"
-                  >
-                    Logout
-                  </button>
-                </>
-              ) : (
-                <Link
-                  href="/login"
-                  onClick={() => setIsOpen(false)}
- className="px-3.5 py-2.5 rounded-xl text-xs font-extrabold tracking-wider uppercase text-[#f1eef1] bg-[#523056] shadow-[0_0_40px_rgba(139,47,209,0.15)] hover:shadow-[0_0_40px_rgba(139,47,209,0.15)] transition-all text-center border border-[#705474]/40 mt-1 flex items-center justify-center gap-2"
-                >
-                  <span>Schedule Consultation / Login</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              )}
-            </div>
-          )}
         </div>
       </nav>
     </header>
+    
+    {/* Sleek Sheet Popover Menu - MOVED OUTSIDE HEADER FOR SAFARI COMPATIBILITY */}
+    {isOpen && (
+      <div ref={popoverRef} className="fixed top-[76px] right-4 w-64 bg-[#0A0714] border border-[#705474]/50 rounded-2xl p-4 shadow-[0_8px_40px_rgba(0,0,0,0.8)] z-[99999] flex flex-col gap-1.5 text-left opacity-100 visible">
+        <div className="px-2 py-1 flex items-center justify-between text-[10px] font-mono font-bold tracking-widest text-[#705474] uppercase border-b border-[#705474]/15 mb-1 pb-2">
+          <span>NAVIGATION // CATALOGUE</span>
+          <span className="w-2 h-2 rounded-full bg-[#523056] animate-ping"></span>
+        </div>
+
+        {navLinks.map((link, idx) => {
+          const IconComponent = link.icon;
+          return (
+            <button
+              key={link.href}
+              type="button"
+              onClick={(e) => handleLinkClick(e, link.href)}
+              className="w-full px-3.5 py-2.5 rounded-xl text-xs font-semibold text-[#f1eef1] hover:text-[#f1eef1] bg-transparent hover:bg-[#523056]/40 active:scale-[0.98] transition-all flex items-center justify-between cursor-pointer border border-theme-50/5 hover:border-[#705474]/40 group text-left"
+            >
+              <div className="flex items-center gap-3">
+                <span className="text-[10px] font-mono text-[#705474]/80 font-bold">0{idx + 1}</span>
+                <div className="w-6 h-6 rounded-lg bg-[#523056] border border-[#705474]/30 flex items-center justify-center text-[#705474] group-hover:text-[#f1eef1] transition-colors">
+                  <IconComponent className="w-3.5 h-3.5" />
+                </div>
+                <span>{link.label}</span>
+              </div>
+              <ArrowRight className="w-3.5 h-3.5 text-[#705474] group-hover:translate-x-1 transition-transform" />
+            </button>
+          );
+        })}
+
+        <div className="h-px bg-theme-50/10 my-1" />
+
+        {!loading && user ? (
+          <>
+            <Link
+              href={`/dashboard/${role}`}
+              onClick={() => setIsOpen(false)}
+              className="px-3.5 py-2.5 rounded-xl text-xs font-semibold text-[#705474] hover:bg-[#523056] transition-all flex items-center justify-between bg-transparent border border-[#705474]/30"
+            >
+              <span>Dashboard</span>
+              <ArrowRight className="w-3.5 h-3.5 text-[#705474]" />
+            </Link>
+            <button
+              type="button"
+              onClick={() => { logout(); setIsOpen(false); }}
+              className="w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-semibold text-red-400 hover:bg-red-500/20 transition-all border border-red-500/20"
+            >
+              Logout
+            </button>
+          </>
+        ) : (
+          <Link
+            href="/login"
+            onClick={() => setIsOpen(false)}
+            className="px-3.5 py-2.5 rounded-xl text-xs font-extrabold tracking-wider uppercase text-[#f1eef1] bg-[#523056] shadow-[0_0_40px_rgba(139,47,209,0.15)] hover:shadow-[0_0_40px_rgba(139,47,209,0.15)] transition-all text-center border border-[#705474]/40 mt-1 flex items-center justify-center gap-2"
+          >
+            <span>Schedule Consultation / Login</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        )}
+      </div>
+    )}
+    </>
   )
 }
 

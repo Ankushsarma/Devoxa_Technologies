@@ -1592,8 +1592,8 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4 flex flex-col justify-end h-full">
                 <div className="mt-auto">
                   <h3 className="text-white text-[13px] sm:text-[14px] font-extrabold tracking-tight mb-1 leading-tight drop-shadow-lg">Technology & SaaS</h3>
-                  <p className="text-[#f1eef1]/95 text-[11px] sm:text-[12px] font-medium leading-[1.4] mb-3 line-clamp-3 drop-shadow-md">Scalable platforms built for rapid growth and enterprise performance.</p>
-                  <button className="w-full bg-white text-[#0A0714] text-[11px] font-extrabold py-2 rounded-[12px] shadow-lg border border-white/20 transition-transform active:scale-95">Explore Solutions</button>
+                  <p className="text-[#f1eef1]/95 text-[10px] sm:text-[11px] font-medium leading-[1.4] mb-3 line-clamp-3 drop-shadow-md">Scalable platforms built for rapid growth and enterprise performance.</p>
+                  <button className="w-full bg-white/15 backdrop-blur-md text-white text-[11px] font-bold py-2 rounded-[12px] shadow-sm border border-white/30 transition-colors hover:bg-white/25 active:bg-white/10">Explore Solutions</button>
                 </div>
               </div>
             </div>
@@ -1620,8 +1620,8 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4 flex flex-col justify-end h-full">
                 <div className="mt-auto">
                   <h3 className="text-white text-[13px] sm:text-[14px] font-extrabold tracking-tight mb-1 leading-tight drop-shadow-lg">Finance & Banking</h3>
-                  <p className="text-[#f1eef1]/95 text-[11px] sm:text-[12px] font-medium leading-[1.4] mb-3 line-clamp-3 drop-shadow-md">Secure systems for regulated industries and modern fintech.</p>
-                  <button className="w-full bg-white text-[#0A0714] text-[11px] font-extrabold py-2 rounded-[12px] shadow-lg border border-white/20 transition-transform active:scale-95">Explore Solutions</button>
+                  <p className="text-[#f1eef1]/95 text-[10px] sm:text-[11px] font-medium leading-[1.4] mb-3 line-clamp-3 drop-shadow-md">Secure systems for regulated industries and modern fintech.</p>
+                  <button className="w-full bg-white/15 backdrop-blur-md text-white text-[11px] font-bold py-2 rounded-[12px] shadow-sm border border-white/30 transition-colors hover:bg-white/25 active:bg-white/10">Explore Solutions</button>
                 </div>
               </div>
             </div>
@@ -1648,8 +1648,8 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4 flex flex-col justify-end h-full">
                 <div className="mt-auto">
                   <h3 className="text-white text-[13px] sm:text-[14px] font-extrabold tracking-tight mb-1 leading-tight drop-shadow-lg">Healthcare</h3>
-                  <p className="text-[#f1eef1]/95 text-[11px] sm:text-[12px] font-medium leading-[1.4] mb-3 line-clamp-3 drop-shadow-md">Compliant, patient-first digital tools and data management.</p>
-                  <button className="w-full bg-white text-[#0A0714] text-[11px] font-extrabold py-2 rounded-[12px] shadow-lg border border-white/20 transition-transform active:scale-95">Explore Solutions</button>
+                  <p className="text-[#f1eef1]/95 text-[10px] sm:text-[11px] font-medium leading-[1.4] mb-3 line-clamp-3 drop-shadow-md">Compliant, patient-first digital tools and data management.</p>
+                  <button className="w-full bg-white/15 backdrop-blur-md text-white text-[11px] font-bold py-2 rounded-[12px] shadow-sm border border-white/30 transition-colors hover:bg-white/25 active:bg-white/10">Explore Solutions</button>
                 </div>
               </div>
             </div>
@@ -1676,8 +1676,8 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4 flex flex-col justify-end h-full">
                 <div className="mt-auto">
                   <h3 className="text-white text-[13px] sm:text-[14px] font-extrabold tracking-tight mb-1 leading-tight drop-shadow-lg">Retail & E-commerce</h3>
-                  <p className="text-[#f1eef1]/95 text-[11px] sm:text-[12px] font-medium leading-[1.4] mb-3 line-clamp-3 drop-shadow-md">High-performance storefronts that convert and scale globally.</p>
-                  <button className="w-full bg-white text-[#0A0714] text-[11px] font-extrabold py-2 rounded-[12px] shadow-lg border border-white/20 transition-transform active:scale-95">Explore Solutions</button>
+                  <p className="text-[#f1eef1]/95 text-[10px] sm:text-[11px] font-medium leading-[1.4] mb-3 line-clamp-3 drop-shadow-md">High-performance storefronts that convert and scale globally.</p>
+                  <button className="w-full bg-white/15 backdrop-blur-md text-white text-[11px] font-bold py-2 rounded-[12px] shadow-sm border border-white/30 transition-colors hover:bg-white/25 active:bg-white/10">Explore Solutions</button>
                 </div>
               </div>
             </div>
@@ -1704,8 +1704,8 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4 flex flex-col justify-end h-full">
                 <div className="mt-auto">
                   <h3 className="text-white text-[13px] sm:text-[14px] font-extrabold tracking-tight mb-1 leading-tight drop-shadow-lg">Education</h3>
-                  <p className="text-[#f1eef1]/95 text-[11px] sm:text-[12px] font-medium leading-[1.4] mb-3 line-clamp-3 drop-shadow-md">Interactive learning platforms built to engage and educate.</p>
-                  <button className="w-full bg-white text-[#0A0714] text-[11px] font-extrabold py-2 rounded-[12px] shadow-lg border border-white/20 transition-transform active:scale-95">Explore Solutions</button>
+                  <p className="text-[#f1eef1]/95 text-[10px] sm:text-[11px] font-medium leading-[1.4] mb-3 line-clamp-3 drop-shadow-md">Interactive learning platforms built to engage and educate.</p>
+                  <button className="w-full bg-white/15 backdrop-blur-md text-white text-[11px] font-bold py-2 rounded-[12px] shadow-sm border border-white/30 transition-colors hover:bg-white/25 active:bg-white/10">Explore Solutions</button>
                 </div>
               </div>
             </div>
@@ -1732,8 +1732,8 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4 flex flex-col justify-end h-full">
                 <div className="mt-auto">
                   <h3 className="text-white text-[13px] sm:text-[14px] font-extrabold tracking-tight mb-1 leading-tight drop-shadow-lg">Manufacturing</h3>
-                  <p className="text-[#f1eef1]/95 text-[11px] sm:text-[12px] font-medium leading-[1.4] mb-3 line-clamp-3 drop-shadow-md">Automation and data insights for modern production lines.</p>
-                  <button className="w-full bg-white text-[#0A0714] text-[11px] font-extrabold py-2 rounded-[12px] shadow-lg border border-white/20 transition-transform active:scale-95">Explore Solutions</button>
+                  <p className="text-[#f1eef1]/95 text-[10px] sm:text-[11px] font-medium leading-[1.4] mb-3 line-clamp-3 drop-shadow-md">Automation and data insights for modern production lines.</p>
+                  <button className="w-full bg-white/15 backdrop-blur-md text-white text-[11px] font-bold py-2 rounded-[12px] shadow-sm border border-white/30 transition-colors hover:bg-white/25 active:bg-white/10">Explore Solutions</button>
                 </div>
               </div>
             </div>

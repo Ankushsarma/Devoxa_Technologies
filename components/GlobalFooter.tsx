@@ -19,6 +19,8 @@ export default function GlobalFooter() {
     return null;
   }
 
+  const isLegalPage = pathname.startsWith('/privacy') || pathname.startsWith('/terms') || pathname.startsWith('/cookie') || pathname.startsWith('/security');
+
   return (
     <>
       <div className="hidden lg:block w-full [&_footer]:!pb-0 [&_.pb-6]:!pb-0">
@@ -27,7 +29,7 @@ export default function GlobalFooter() {
           middleSectionStyle={{ paddingTop: '30px', paddingBottom: '30px' }} 
         />
       </div>
-      <div className="block lg:hidden w-full">
+      <div className={`block lg:hidden w-full ${isLegalPage ? '[&_footer]:!pt-6 [&>footer>div]:!gap-5 [&_footer_.grid]:!pt-2 [&_footer_.grid]:!gap-4' : ''}`}>
         <MobileFooter />
       </div>
     </>

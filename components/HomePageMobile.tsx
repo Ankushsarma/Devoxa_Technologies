@@ -1575,25 +1575,25 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=600&q=80" alt="Technology & SaaS" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               
               {/* Label at Top Left */}
-              <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 z-10">
-                <span className="inline-flex items-center bg-[#0A0714]/50 backdrop-blur-md border border-[#f1eef1]/10 text-white text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full shadow-lg">
+              <div className="absolute top-3 left-3 z-10">
+                <span className="inline-flex items-center text-white text-[11px] sm:text-[12px] font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] tracking-wide">
                   Cloud & SaaS
                 </span>
               </div>
 
               {/* Rating at Top Right */}
-              <div className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 z-10">
-                <span className="inline-flex items-center gap-0.5 bg-[#0A0714]/50 backdrop-blur-md border border-[#f1eef1]/10 text-white text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full shadow-lg">
-                  <span className="text-[9px] sm:text-[10px] text-[#FBBF24]">★</span>4.9
+              <div className="absolute top-3 right-3 z-10">
+                <span className="inline-flex items-center gap-1 text-white text-[11px] sm:text-[12px] font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                  <span className="text-[#FBBF24]">★</span>4.9
                 </span>
               </div>
 
               <div className="absolute inset-x-0 bottom-0 h-[85%] bg-gradient-to-t from-[#0A0714] via-[#0A0714]/90 to-transparent pointer-events-none"></div>
               <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4 flex flex-col justify-end h-full">
                 <div className="mt-auto">
-                  <div className="text-white text-[13px] sm:text-sm font-extrabold mb-1 leading-tight drop-shadow-lg">Technology & SaaS</div>
-                  <div className="text-white/90 text-[10px] sm:text-[11px] leading-[1.3] mb-4 line-clamp-2 drop-shadow-md">Scalable platforms built for rapid growth and enterprise performance.</div>
-                  <button className="w-full bg-[#f1eef1] text-[#0A0714] text-[10px] font-bold py-2 rounded-[10px] transition-transform active:scale-95 shadow-lg border border-white/40">Explore Solutions</button>
+                  <h3 className="text-white text-[15px] sm:text-[16px] font-black tracking-wide mb-1 leading-tight drop-shadow-lg">Technology & SaaS</h3>
+                  <p className="text-[#f1eef1]/95 text-[11px] sm:text-[12px] font-medium leading-[1.4] mb-3 line-clamp-3 drop-shadow-md">Scalable platforms built for rapid growth and enterprise performance.</p>
+                  <button className="w-full bg-transparent text-white text-[11px] font-bold py-2.5 rounded-[10px] transition-colors active:bg-white/10 shadow-sm border border-white/50 backdrop-blur-sm hover:bg-white/10">Explore Solutions</button>
                 </div>
               </div>
             </div>
@@ -1603,25 +1603,25 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80" alt="Finance & Banking" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               
               {/* Label at Top Left */}
-              <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 z-10">
-                <span className="inline-flex items-center bg-[#0A0714]/50 backdrop-blur-md border border-[#f1eef1]/10 text-white text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full shadow-lg">
+              <div className="absolute top-3 left-3 z-10">
+                <span className="inline-flex items-center text-white text-[11px] sm:text-[12px] font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] tracking-wide">
                   Fintech
                 </span>
               </div>
 
               {/* Rating at Top Right */}
-              <div className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 z-10">
-                <span className="inline-flex items-center gap-0.5 bg-[#0A0714]/50 backdrop-blur-md border border-[#f1eef1]/10 text-white text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full shadow-lg">
-                  <span className="text-[9px] sm:text-[10px] text-[#FBBF24]">★</span>4.8
+              <div className="absolute top-3 right-3 z-10">
+                <span className="inline-flex items-center gap-1 text-white text-[11px] sm:text-[12px] font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                  <span className="text-[#FBBF24]">★</span>4.8
                 </span>
               </div>
 
               <div className="absolute inset-x-0 bottom-0 h-[85%] bg-gradient-to-t from-[#0A0714] via-[#0A0714]/90 to-transparent pointer-events-none"></div>
               <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4 flex flex-col justify-end h-full">
                 <div className="mt-auto">
-                  <div className="text-white text-[13px] sm:text-sm font-extrabold mb-1 leading-tight drop-shadow-lg">Finance & Banking</div>
-                  <div className="text-white/90 text-[10px] sm:text-[11px] leading-[1.3] mb-4 line-clamp-2 drop-shadow-md">Secure systems for regulated industries and modern fintech.</div>
-                  <button className="w-full bg-[#f1eef1] text-[#0A0714] text-[10px] font-bold py-2 rounded-[10px] transition-transform active:scale-95 shadow-lg border border-white/40">Explore Solutions</button>
+                  <h3 className="text-white text-[15px] sm:text-[16px] font-black tracking-wide mb-1 leading-tight drop-shadow-lg">Finance & Banking</h3>
+                  <p className="text-[#f1eef1]/95 text-[11px] sm:text-[12px] font-medium leading-[1.4] mb-3 line-clamp-3 drop-shadow-md">Secure systems for regulated industries and modern fintech.</p>
+                  <button className="w-full bg-transparent text-white text-[11px] font-bold py-2.5 rounded-[10px] transition-colors active:bg-white/10 shadow-sm border border-white/50 backdrop-blur-sm hover:bg-white/10">Explore Solutions</button>
                 </div>
               </div>
             </div>
@@ -1631,25 +1631,25 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80" alt="Healthcare" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               
               {/* Label at Top Left */}
-              <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 z-10">
-                <span className="inline-flex items-center bg-[#0A0714]/50 backdrop-blur-md border border-[#f1eef1]/10 text-white text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full shadow-lg">
+              <div className="absolute top-3 left-3 z-10">
+                <span className="inline-flex items-center text-white text-[11px] sm:text-[12px] font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] tracking-wide">
                   HIPAA
                 </span>
               </div>
 
               {/* Rating at Top Right */}
-              <div className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 z-10">
-                <span className="inline-flex items-center gap-0.5 bg-[#0A0714]/50 backdrop-blur-md border border-[#f1eef1]/10 text-white text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full shadow-lg">
-                  <span className="text-[9px] sm:text-[10px] text-[#FBBF24]">★</span>5.0
+              <div className="absolute top-3 right-3 z-10">
+                <span className="inline-flex items-center gap-1 text-white text-[11px] sm:text-[12px] font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                  <span className="text-[#FBBF24]">★</span>5.0
                 </span>
               </div>
 
               <div className="absolute inset-x-0 bottom-0 h-[85%] bg-gradient-to-t from-[#0A0714] via-[#0A0714]/90 to-transparent pointer-events-none"></div>
               <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4 flex flex-col justify-end h-full">
                 <div className="mt-auto">
-                  <div className="text-white text-[13px] sm:text-sm font-extrabold mb-1 leading-tight drop-shadow-lg">Healthcare</div>
-                  <div className="text-white/90 text-[10px] sm:text-[11px] leading-[1.3] mb-4 line-clamp-2 drop-shadow-md">Compliant, patient-first digital tools and data management.</div>
-                  <button className="w-full bg-[#f1eef1] text-[#0A0714] text-[10px] font-bold py-2 rounded-[10px] transition-transform active:scale-95 shadow-lg border border-white/40">Explore Solutions</button>
+                  <h3 className="text-white text-[15px] sm:text-[16px] font-black tracking-wide mb-1 leading-tight drop-shadow-lg">Healthcare</h3>
+                  <p className="text-[#f1eef1]/95 text-[11px] sm:text-[12px] font-medium leading-[1.4] mb-3 line-clamp-3 drop-shadow-md">Compliant, patient-first digital tools and data management.</p>
+                  <button className="w-full bg-transparent text-white text-[11px] font-bold py-2.5 rounded-[10px] transition-colors active:bg-white/10 shadow-sm border border-white/50 backdrop-blur-sm hover:bg-white/10">Explore Solutions</button>
                 </div>
               </div>
             </div>
@@ -1659,25 +1659,25 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=600&q=80" alt="Retail & E-commerce" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               
               {/* Label at Top Left */}
-              <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 z-10">
-                <span className="inline-flex items-center bg-[#0A0714]/50 backdrop-blur-md border border-[#f1eef1]/10 text-white text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full shadow-lg">
+              <div className="absolute top-3 left-3 z-10">
+                <span className="inline-flex items-center text-white text-[11px] sm:text-[12px] font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] tracking-wide">
                   B2B/B2C
                 </span>
               </div>
 
               {/* Rating at Top Right */}
-              <div className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 z-10">
-                <span className="inline-flex items-center gap-0.5 bg-[#0A0714]/50 backdrop-blur-md border border-[#f1eef1]/10 text-white text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full shadow-lg">
-                  <span className="text-[9px] sm:text-[10px] text-[#FBBF24]">★</span>4.7
+              <div className="absolute top-3 right-3 z-10">
+                <span className="inline-flex items-center gap-1 text-white text-[11px] sm:text-[12px] font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                  <span className="text-[#FBBF24]">★</span>4.7
                 </span>
               </div>
 
               <div className="absolute inset-x-0 bottom-0 h-[85%] bg-gradient-to-t from-[#0A0714] via-[#0A0714]/90 to-transparent pointer-events-none"></div>
               <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4 flex flex-col justify-end h-full">
                 <div className="mt-auto">
-                  <div className="text-white text-[13px] sm:text-sm font-extrabold mb-1 leading-tight drop-shadow-lg">Retail & E-commerce</div>
-                  <div className="text-white/90 text-[10px] sm:text-[11px] leading-[1.3] mb-4 line-clamp-2 drop-shadow-md">High-performance storefronts that convert and scale globally.</div>
-                  <button className="w-full bg-[#f1eef1] text-[#0A0714] text-[10px] font-bold py-2 rounded-[10px] transition-transform active:scale-95 shadow-lg border border-white/40">Explore Solutions</button>
+                  <h3 className="text-white text-[15px] sm:text-[16px] font-black tracking-wide mb-1 leading-tight drop-shadow-lg">Retail & E-commerce</h3>
+                  <p className="text-[#f1eef1]/95 text-[11px] sm:text-[12px] font-medium leading-[1.4] mb-3 line-clamp-3 drop-shadow-md">High-performance storefronts that convert and scale globally.</p>
+                  <button className="w-full bg-transparent text-white text-[11px] font-bold py-2.5 rounded-[10px] transition-colors active:bg-white/10 shadow-sm border border-white/50 backdrop-blur-sm hover:bg-white/10">Explore Solutions</button>
                 </div>
               </div>
             </div>
@@ -1687,25 +1687,25 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80" alt="Education" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               
               {/* Label at Top Left */}
-              <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 z-10">
-                <span className="inline-flex items-center bg-[#0A0714]/50 backdrop-blur-md border border-[#f1eef1]/10 text-white text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full shadow-lg">
+              <div className="absolute top-3 left-3 z-10">
+                <span className="inline-flex items-center text-white text-[11px] sm:text-[12px] font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] tracking-wide">
                   EdTech
                 </span>
               </div>
 
               {/* Rating at Top Right */}
-              <div className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 z-10">
-                <span className="inline-flex items-center gap-0.5 bg-[#0A0714]/50 backdrop-blur-md border border-[#f1eef1]/10 text-white text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full shadow-lg">
-                  <span className="text-[9px] sm:text-[10px] text-[#FBBF24]">★</span>4.8
+              <div className="absolute top-3 right-3 z-10">
+                <span className="inline-flex items-center gap-1 text-white text-[11px] sm:text-[12px] font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                  <span className="text-[#FBBF24]">★</span>4.8
                 </span>
               </div>
 
               <div className="absolute inset-x-0 bottom-0 h-[85%] bg-gradient-to-t from-[#0A0714] via-[#0A0714]/90 to-transparent pointer-events-none"></div>
               <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4 flex flex-col justify-end h-full">
                 <div className="mt-auto">
-                  <div className="text-white text-[13px] sm:text-sm font-extrabold mb-1 leading-tight drop-shadow-lg">Education</div>
-                  <div className="text-white/90 text-[10px] sm:text-[11px] leading-[1.3] mb-4 line-clamp-2 drop-shadow-md">Interactive learning platforms built to engage and educate.</div>
-                  <button className="w-full bg-[#f1eef1] text-[#0A0714] text-[10px] font-bold py-2 rounded-[10px] transition-transform active:scale-95 shadow-lg border border-white/40">Explore Solutions</button>
+                  <h3 className="text-white text-[15px] sm:text-[16px] font-black tracking-wide mb-1 leading-tight drop-shadow-lg">Education</h3>
+                  <p className="text-[#f1eef1]/95 text-[11px] sm:text-[12px] font-medium leading-[1.4] mb-3 line-clamp-3 drop-shadow-md">Interactive learning platforms built to engage and educate.</p>
+                  <button className="w-full bg-transparent text-white text-[11px] font-bold py-2.5 rounded-[10px] transition-colors active:bg-white/10 shadow-sm border border-white/50 backdrop-blur-sm hover:bg-white/10">Explore Solutions</button>
                 </div>
               </div>
             </div>
@@ -1715,25 +1715,25 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80" alt="Manufacturing" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               
               {/* Label at Top Left */}
-              <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 z-10">
-                <span className="inline-flex items-center bg-[#0A0714]/50 backdrop-blur-md border border-[#f1eef1]/10 text-white text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full shadow-lg">
+              <div className="absolute top-3 left-3 z-10">
+                <span className="inline-flex items-center text-white text-[11px] sm:text-[12px] font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] tracking-wide">
                   Industry 4.0
                 </span>
               </div>
 
               {/* Rating at Top Right */}
-              <div className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 z-10">
-                <span className="inline-flex items-center gap-0.5 bg-[#0A0714]/50 backdrop-blur-md border border-[#f1eef1]/10 text-white text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full shadow-lg">
-                  <span className="text-[9px] sm:text-[10px] text-[#FBBF24]">★</span>4.9
+              <div className="absolute top-3 right-3 z-10">
+                <span className="inline-flex items-center gap-1 text-white text-[11px] sm:text-[12px] font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                  <span className="text-[#FBBF24]">★</span>4.9
                 </span>
               </div>
 
               <div className="absolute inset-x-0 bottom-0 h-[85%] bg-gradient-to-t from-[#0A0714] via-[#0A0714]/90 to-transparent pointer-events-none"></div>
               <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4 flex flex-col justify-end h-full">
                 <div className="mt-auto">
-                  <div className="text-white text-[13px] sm:text-sm font-extrabold mb-1 leading-tight drop-shadow-lg">Manufacturing</div>
-                  <div className="text-white/90 text-[10px] sm:text-[11px] leading-[1.3] mb-4 line-clamp-2 drop-shadow-md">Automation and data insights for modern production lines.</div>
-                  <button className="w-full bg-[#f1eef1] text-[#0A0714] text-[10px] font-bold py-2 rounded-[10px] transition-transform active:scale-95 shadow-lg border border-white/40">Explore Solutions</button>
+                  <h3 className="text-white text-[15px] sm:text-[16px] font-black tracking-wide mb-1 leading-tight drop-shadow-lg">Manufacturing</h3>
+                  <p className="text-[#f1eef1]/95 text-[11px] sm:text-[12px] font-medium leading-[1.4] mb-3 line-clamp-3 drop-shadow-md">Automation and data insights for modern production lines.</p>
+                  <button className="w-full bg-transparent text-white text-[11px] font-bold py-2.5 rounded-[10px] transition-colors active:bg-white/10 shadow-sm border border-white/50 backdrop-blur-sm hover:bg-white/10">Explore Solutions</button>
                 </div>
               </div>
             </div>

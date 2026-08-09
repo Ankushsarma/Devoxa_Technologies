@@ -289,7 +289,7 @@ export default function CookiePolicy() {
                 <div className="w-9 h-9 rounded-2xl bg-[#523056] border border-[#705474]/30 flex items-center justify-center text-[#705474] shrink-0 shadow-inner">
                   <Info className="w-4 h-4" />
                 </div>
-                <h2 className="text-xl sm:text-2xl font-extrabold text-[#f1eef1] tracking-tight">
+                <h2 className="text-[15px] sm:text-xl font-extrabold text-[#f1eef1] tracking-tight uppercase leading-tight">
                   1. What Are Cookies?
                 </h2>
               </div>
@@ -322,7 +322,7 @@ export default function CookiePolicy() {
                 <div className="w-9 h-9 rounded-2xl bg-[#523056] border border-[#705474]/30 flex items-center justify-center text-[#705474] shrink-0 shadow-inner">
                   <Settings className="w-4 h-4" />
                 </div>
-                <h2 className="text-xl sm:text-2xl font-extrabold text-[#f1eef1] tracking-tight">
+                <h2 className="text-[15px] sm:text-xl font-extrabold text-[#f1eef1] tracking-tight uppercase leading-tight">
                   2. How We Use Your Information
                 </h2>
               </div>
@@ -351,7 +351,7 @@ export default function CookiePolicy() {
                 <div className="w-9 h-9 rounded-2xl bg-[#523056] border border-[#705474]/30 flex items-center justify-center text-[#705474] shrink-0 shadow-inner">
                   <Database className="w-4 h-4" />
                 </div>
-                <h2 className="text-xl sm:text-2xl font-extrabold text-[#f1eef1] tracking-tight">
+                <h2 className="text-[15px] sm:text-xl font-extrabold text-[#f1eef1] tracking-tight uppercase leading-tight">
                   3. Types of Cookies Technologies
                 </h2>
               </div>
@@ -366,7 +366,7 @@ export default function CookiePolicy() {
                 <div className="w-9 h-9 rounded-2xl bg-[#523056] border border-[#705474]/30 flex items-center justify-center text-[#705474] shrink-0 shadow-inner">
                   <Share2 className="w-4 h-4" />
                 </div>
-                <h2 className="text-xl sm:text-2xl font-extrabold text-[#f1eef1] tracking-tight">
+                <h2 className="text-[15px] sm:text-xl font-extrabold text-[#f1eef1] tracking-tight uppercase leading-tight">
                   4. Third-Party Data Sharing
                 </h2>
               </div>
@@ -381,7 +381,7 @@ export default function CookiePolicy() {
                 <div className="w-9 h-9 rounded-2xl bg-[#523056] border border-[#705474]/30 flex items-center justify-center text-[#705474] shrink-0 shadow-inner">
                   <Sliders className="w-4 h-4" />
                 </div>
-                <h2 className="text-xl sm:text-2xl font-extrabold text-[#f1eef1] tracking-tight">
+                <h2 className="text-[15px] sm:text-xl font-extrabold text-[#f1eef1] tracking-tight uppercase leading-tight">
                   5. Managing Your Cookies
                 </h2>
               </div>
@@ -396,7 +396,7 @@ export default function CookiePolicy() {
                 <div className="w-9 h-9 rounded-2xl bg-[#523056] border border-[#705474]/30 flex items-center justify-center text-[#705474] shrink-0 shadow-inner">
                   <RefreshCw className="w-4 h-4" />
                 </div>
-                <h2 className="text-xl sm:text-2xl font-extrabold text-[#f1eef1] tracking-tight">
+                <h2 className="text-[15px] sm:text-xl font-extrabold text-[#f1eef1] tracking-tight uppercase leading-tight">
                   6. Policy Updates
                 </h2>
               </div>
@@ -411,7 +411,7 @@ export default function CookiePolicy() {
                 <div className="w-9 h-9 rounded-2xl bg-[#523056] border border-[#705474]/30 flex items-center justify-center text-[#705474] shrink-0 shadow-inner">
                   <Mail className="w-4 h-4" />
                 </div>
-                <h2 className="text-xl sm:text-2xl font-extrabold text-[#f1eef1] tracking-tight">
+                <h2 className="text-[15px] sm:text-xl font-extrabold text-[#f1eef1] tracking-tight uppercase leading-tight">
                   7. Contact Our Legal Team
                 </h2>
               </div>

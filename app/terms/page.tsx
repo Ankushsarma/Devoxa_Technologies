@@ -289,7 +289,7 @@ export default function TermsOfService() {
                 <div className="w-9 h-9 rounded-2xl bg-[#523056] border border-[#705474]/30 flex items-center justify-center text-[#705474] shrink-0 shadow-inner">
                   <Scale className="w-4 h-4" />
                 </div>
-                <h2 className="text-xl sm:text-2xl font-extrabold text-[#f1eef1] tracking-tight">
+                <h2 className="text-[15px] sm:text-xl font-extrabold text-[#f1eef1] tracking-tight uppercase leading-tight">
                   1. Acceptance of Terms
                 </h2>
               </div>
@@ -304,7 +304,7 @@ export default function TermsOfService() {
                 <div className="w-9 h-9 rounded-2xl bg-[#523056] border border-[#705474]/30 flex items-center justify-center text-[#705474] shrink-0 shadow-inner">
                   <Code2 className="w-4 h-4" />
                 </div>
-                <h2 className="text-xl sm:text-2xl font-extrabold text-[#f1eef1] tracking-tight">
+                <h2 className="text-[15px] sm:text-xl font-extrabold text-[#f1eef1] tracking-tight uppercase leading-tight">
                   2. Scope of IT & Engineering Services
                 </h2>
               </div>
@@ -333,7 +333,7 @@ export default function TermsOfService() {
                 <div className="w-9 h-9 rounded-2xl bg-[#523056] border border-[#705474]/30 flex items-center justify-center text-[#705474] shrink-0 shadow-inner">
                   <FileText className="w-4 h-4" />
                 </div>
-                <h2 className="text-xl sm:text-2xl font-extrabold text-[#f1eef1] tracking-tight">
+                <h2 className="text-[15px] sm:text-xl font-extrabold text-[#f1eef1] tracking-tight uppercase leading-tight">
                   3. Intellectual Property Rights
                 </h2>
               </div>
@@ -348,7 +348,7 @@ export default function TermsOfService() {
                 <div className="w-9 h-9 rounded-2xl bg-[#523056] border border-[#705474]/30 flex items-center justify-center text-[#705474] shrink-0 shadow-inner">
                   <CreditCard className="w-4 h-4" />
                 </div>
-                <h2 className="text-xl sm:text-2xl font-extrabold text-[#f1eef1] tracking-tight">
+                <h2 className="text-[15px] sm:text-xl font-extrabold text-[#f1eef1] tracking-tight uppercase leading-tight">
                   4. Payments, Billing & Retainers
                 </h2>
               </div>
@@ -363,7 +363,7 @@ export default function TermsOfService() {
                 <div className="w-9 h-9 rounded-2xl bg-[#523056] border border-[#705474]/30 flex items-center justify-center text-[#705474] shrink-0 shadow-inner">
                   <Clock className="w-4 h-4" />
                 </div>
-                <h2 className="text-xl sm:text-2xl font-extrabold text-[#f1eef1] tracking-tight">
+                <h2 className="text-[15px] sm:text-xl font-extrabold text-[#f1eef1] tracking-tight uppercase leading-tight">
                   5. Project Timelines & Delivery
                 </h2>
               </div>
@@ -378,7 +378,7 @@ export default function TermsOfService() {
                 <div className="w-9 h-9 rounded-2xl bg-[#523056] border border-[#705474]/30 flex items-center justify-center text-[#705474] shrink-0 shadow-inner">
                   <ShieldAlert className="w-4 h-4" />
                 </div>
-                <h2 className="text-xl sm:text-2xl font-extrabold text-[#f1eef1] tracking-tight">
+                <h2 className="text-[15px] sm:text-xl font-extrabold text-[#f1eef1] tracking-tight uppercase leading-tight">
                   6. Limitation of Liability
                 </h2>
               </div>
@@ -393,7 +393,7 @@ export default function TermsOfService() {
                 <div className="w-9 h-9 rounded-2xl bg-[#523056] border border-[#705474]/30 flex items-center justify-center text-[#705474] shrink-0 shadow-inner">
                   <Mail className="w-4 h-4" />
                 </div>
-                <h2 className="text-xl sm:text-2xl font-extrabold text-[#f1eef1] tracking-tight">
+                <h2 className="text-[15px] sm:text-xl font-extrabold text-[#f1eef1] tracking-tight uppercase leading-tight">
                   7. Contact & Governing Law
                 </h2>
               </div>

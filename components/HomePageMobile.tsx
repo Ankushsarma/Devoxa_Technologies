@@ -1379,7 +1379,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       {/* Solutions */}
       <section id="solutions" className="scroll-mt-32 light-sec transparent-bg vx-float" style={{ padding: "0 0 36px 0", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: "50%", left: "-10%", width: "40%", height: "60%", background: "radial-gradient(circle, rgba(139,47,209,0.08) 0%, rgba(0,0,0,0) 70%)", filter: "blur(60px)", pointerEvents: "none" }}></div>
-        <div className="wrap px-4 md:px-8">
+        <div className="wrap px-4 md:px-8" style={{ padding: "0 24px" }}>
           <div className="sol-split reveal in flex flex-col items-center gap-4">
             <div className="sol-text-modern w-full max-w-full">
               <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "4px 12px", background: "rgba(139,47,209,0.1)", borderRadius: "999px", border: "1px solid rgba(139,47,209,0.2)", marginBottom: "16px" }}>
@@ -1409,55 +1409,36 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               </ul>
             </div>
             <div className="sol-img-modern w-full" style={{ marginTop: "24px" }}>
-              {/* Outer Layered Glow Ring */}
-              <div 
-                style={{
-                  position: "relative",
-                  borderRadius: "34px",
-                  padding: "6px",
-                  border: "1px solid rgba(139,47,209,0.35)",
-                  background: "rgba(124, 58, 237, 0.08)",
-                  boxShadow: "0 0 45px rgba(124, 58, 237, 0.35), 0 0 80px rgba(139,47,209,0.2)"
-                }}
-              >
-                {/* Thick Main Neon Purple Frame */}
-                <div 
-                  style={{
-                    position: "relative",
-                    borderRadius: "28px",
-                    background: "linear-gradient(135deg, #523056, #6B21A8)",
-                    padding: "14px",
-                    border: "1.5px solid #705474",
-                    boxShadow: "0 0 30px rgba(124, 58, 237, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.25)",
-                    transition: "all 0.3s ease"
-                  }}
-                >
-                  {/* Background Glow Accents */}
-                  <div style={{ position: "absolute", top: "-20px", left: "-20px", width: "140px", height: "140px", background: "#523056", filter: "blur(45px)", opacity: 0.7, zIndex: 0 }}></div>
-                  <div style={{ position: "absolute", bottom: "-20px", right: "-20px", width: "160px", height: "160px", background: "#705474", filter: "blur(55px)", opacity: 0.5, zIndex: 0 }}></div>
-                  
-                  {/* Inner Dark Screen Mockup */}
-                  <div 
-                    style={{
-                      position: "relative",
-                      zIndex: 1,
-                      borderRadius: "18px",
-                      border: "1.5px solid rgba(255, 255, 255, 0.15)",
-                      backgroundColor: "#0D0B1A",
-                      boxShadow: "0 15px 35px rgba(0, 0, 0, 0.85)",
-                      overflow: "hidden"
-                    }}
-                  >
-                    <img 
-                      src="/tpl-saas-software.jpg" 
-                      alt="IT Solutions Dashboard Showcase" 
-                      style={{ 
-                        width: "100%", 
-                        height: "auto",
-                        display: "block", 
-                        borderRadius: "16px" 
-                      }} 
-                    />
+              <div className="relative w-full h-[380px] flex items-center justify-center group overflow-visible pb-4">
+                {/* Images */}
+                <img
+                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"
+                  alt="Code"
+                  className="absolute top-[2%] left-[2%] w-[52%] h-[45%] object-cover rounded-[24px] shadow-2xl z-10"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80"
+                  alt="AI Tech"
+                  className="absolute bottom-[2%] left-[2%] w-[52%] h-[48%] object-cover rounded-[24px] shadow-2xl z-10"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80"
+                  alt="Design Process"
+                  className="absolute top-[8%] right-[2%] w-[48%] h-[84%] object-cover rounded-[24px] shadow-2xl z-20"
+                />
+
+                {/* Center Spinning Badge */}
+                <div className="absolute z-30 flex items-center justify-center w-[160px] h-[160px] rounded-full bg-[#f1eef1] shadow-[0_20px_40px_rgba(0,0,0,0.4)] left-[48%] top-[50%]" style={{ transform: "translate(-50%, -50%) scale(0.65)" }}>
+                  <svg viewBox="0 0 100 100" className="absolute w-[140px] h-[140px] animate-[spin_15s_linear_infinite]">
+                    <path id="circlePathMobileSolutions" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" fill="none" />
+                    <text className="text-[9.5px] font-bold uppercase fill-black tracking-[3px]">
+                      <textPath href="#circlePathMobileSolutions" startOffset="0%" textLength="220" lengthAdjust="spacing">
+                        Devoxa Technologies — Digital Experiences
+                      </textPath>
+                    </text>
+                  </svg>
+                  <div className="absolute w-[44px] h-[44px] bg-[#111] rounded-full flex items-center justify-center shadow-inner">
+                    <span className="text-[#f1eef1] font-bold text-xl tracking-tighter">D</span>
                   </div>
                 </div>
               </div>

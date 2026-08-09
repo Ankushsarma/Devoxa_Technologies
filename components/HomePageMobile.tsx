@@ -1764,7 +1764,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 0.1, pointerEvents: 'none', background: 'linear-gradient(to bottom, rgba(139,47,209,0.1) 0%, transparent 100%)' }}>
         </div>
         <div className="wrap px-4 relative z-10">
-          <div className="flex flex-col items-center justify-center text-center mb-16">
+          <div className="flex flex-col items-center justify-center text-center mb-10">
             <span className="eyebrow inline-block mb-3" style={{ margin: "0 0 12px 0" }}>Questions</span>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tighter leading-[1.1] drop-shadow-lg mb-3">
               <ShinyText text="Common" color="#f1eef1" shineColor="#705474" speed={3} />{' '}
@@ -1774,7 +1774,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               Everything you need to know about our approach, timelines, and how we deliver exceptional results.
             </p>
           </div>
-          <div className="flex justify-center w-full">
+          <div className="flex justify-center w-full mt-10">
             <div className="max-w-4xl w-full">
               <FAQAccordion />
             </div>

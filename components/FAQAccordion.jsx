@@ -27,21 +27,21 @@ const faqs = [
 const FAQAccordionItem = ({ faq, isOpen, onClick }) => {
   return (
     <div 
-      className={`group rounded-2xl overflow-hidden transition-all duration-300 border border-[rgba(255,255,255,0.05)] ${isOpen ? 'bg-[#26082a] shadow-2xl' : 'bg-[#14061a] hover:bg-[#1a061c]'}`}
-      style={{ padding: '17px', transform: 'translate3d(0px, 0px, 0px)' }}
+      className={`group rounded-2xl overflow-hidden transition-all duration-300 border ${isOpen ? 'bg-gradient-to-br from-[#4c1655]/90 to-[#220727]/90 border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.05)]' : 'bg-white/5 backdrop-blur-md border-white/10 hover:bg-white/10 hover:border-white/15'}`}
+      style={{ padding: '12px 16px', transform: 'translate3d(0px, 0px, 0px)' }}
     >
       <button 
         className="w-full flex justify-between items-center text-left focus:outline-none px-2 py-1"
         onClick={onClick}
       >
         <span 
-          className={`flex-1 break-words pr-4 text-lg sm:text-xl font-semibold transition-colors duration-300 ${isOpen ? 'text-[#f1eef1]' : 'text-[#f1eef1]/90 group-hover:text-[#f1eef1]'}`}
+          className={`flex-1 break-words pr-4 text-lg sm:text-xl font-bold transition-colors duration-300 drop-shadow-sm ${isOpen ? 'text-white' : 'text-[#f1eef1]/95 group-hover:text-white'}`}
         >
           {faq.question}
         </span>
-        <span className={`relative flex items-center justify-center w-12 h-12 rounded-[14px] transition-colors duration-300 flex-shrink-0 ml-6 border ${isOpen ? 'bg-[#523056]/80 border-[#705474]/50' : 'bg-[#1a061c] border-[rgba(255,255,255,0.08)] group-hover:bg-[#26082a]'}`}>
-          <Plus className={`absolute w-5 h-5 text-[#f1eef1] transition-all duration-500 ease-[cubic-bezier(0.87,0,0.13,1)] ${isOpen ? 'rotate-180 opacity-0 scale-50' : 'rotate-0 opacity-100 scale-100'}`} />
-          <Minus className={`absolute w-5 h-5 text-[#f1eef1] transition-all duration-500 ease-[cubic-bezier(0.87,0,0.13,1)] ${isOpen ? 'rotate-0 opacity-100 scale-100' : '-rotate-180 opacity-0 scale-50'}`} />
+        <span className={`relative flex items-center justify-center w-10 h-10 rounded-xl transition-all duration-300 flex-shrink-0 ml-4 border shadow-sm ${isOpen ? 'bg-white text-[#1e0723] border-transparent scale-105' : 'bg-white/10 border-white/20 group-hover:bg-white/20 group-hover:border-white/30'}`}>
+          <Plus className={`absolute w-4 h-4 transition-all duration-500 ease-[cubic-bezier(0.87,0,0.13,1)] ${isOpen ? 'rotate-180 opacity-0 scale-50' : 'text-white rotate-0 opacity-100 scale-100'}`} />
+          <Minus className={`absolute w-4 h-4 transition-all duration-500 ease-[cubic-bezier(0.87,0,0.13,1)] ${isOpen ? 'text-[#1e0723] rotate-0 opacity-100 scale-100' : 'text-white -rotate-180 opacity-0 scale-50'}`} />
         </span>
       </button>
       <div 
@@ -49,7 +49,7 @@ const FAQAccordionItem = ({ faq, isOpen, onClick }) => {
       >
         <div className="overflow-hidden">
           <div className="px-2 pb-2 pt-0">
-            <p className="text-[#ad9daf] font-light leading-relaxed text-sm sm:text-base m-0">
+            <p className="text-white/85 font-medium leading-relaxed text-sm sm:text-base m-0 drop-shadow-sm">
               {faq.answer}
             </p>
           </div>
@@ -67,7 +67,7 @@ export default function FAQAccordion() {
   };
 
   return (
-    <div className="flex flex-col gap-5 w-full mx-auto max-w-4xl">
+    <div className="flex flex-col gap-3 sm:gap-4 w-full mx-auto max-w-4xl">
       {faqs.map((faq, index) => (
         <FAQAccordionItem 
           key={index} 

@@ -1457,7 +1457,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 0.05, pointerEvents: 'none', background: 'radial-gradient(circle at center, #523056 0%, transparent 60%)' }}>
         </div>
 
-        <div className="wrap px-4 md:px-8" style={{ position: "relative", zIndex: 1 }}>
+        <div className="wrap px-4 md:px-8" style={{ padding: "0 32px", boxSizing: "border-box", position: "relative", zIndex: 1 }}>
           <div className="section-head reveal in flex flex-col items-center" style={{ margin: "0 auto 40px", textAlign: "center" }}>
             <span className="eyebrow" style={{ margin: "0 0 16px 0" }}>Our Process</span>
             <h2 style={{ textAlign: "center", fontSize: "clamp(26px, 7vw, 36px)", lineHeight: 1.2, marginBottom: "16px" }}>How Professional IT Services<br />Can Drive <span className="font-stencilia uppercase" style={{ background: "linear-gradient(90deg,#523056,#8f7992)", WebkitBackgroundClip: "text", color: "transparent" }}>Success</span></h2>

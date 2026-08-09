@@ -1760,7 +1760,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       {/* FAQ styled with new theme */}
-      <section id="faq" className="scroll-mt-32 vx-float relative" style={{ background: "transparent", paddingTop: "16px", paddingBottom: "60px", overflow: "hidden" }}>
+      <section id="faq" className="scroll-mt-32 vx-float relative" style={{ background: "transparent", paddingTop: "16px", paddingBottom: "20px", overflow: "hidden" }}>
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 0.1, pointerEvents: 'none', background: 'linear-gradient(to bottom, rgba(139,47,209,0.1) 0%, transparent 100%)' }}>
         </div>
         <div className="wrap px-4 relative z-10">
@@ -1774,7 +1774,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               Everything you need to know about our approach, timelines, and how we deliver exceptional results.
             </p>
           </div>
-          <div className="flex justify-center w-full mt-10">
+          <div className="flex justify-center w-full mt-20">
             <div className="max-w-4xl w-full">
               <FAQAccordion />
             </div>

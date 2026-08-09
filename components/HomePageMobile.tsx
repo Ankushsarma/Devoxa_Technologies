@@ -1189,11 +1189,11 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
 
   return (
     <>
-      <section id="hero" className="nx vx-float pt-24 md:pt-32 relative" style={{ height: "auto", minHeight: "100vh" }}>
+      <section id="hero" className="nx vx-float pt-24 md:pt-32 relative" style={{ height: "auto", minHeight: "auto" }}>
         <div className="absolute inset-0 z-0 bg-black/[0.65]" />
         <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0, opacity: 1, pointerEvents: 'none', background: 'radial-gradient(circle at center, rgba(82, 48, 86, 0.4) 0%, transparent 70%)' }}>
         </div>
-        <div className="nx-inner" style={{ minHeight: "100vh", alignItems: "flex-start", display: "flex", flexDirection: "column", justifyContent: "flex-start", padding: "140px 24px 80px 24px" }}>
+        <div className="nx-inner" style={{ minHeight: "auto", alignItems: "flex-start", display: "flex", flexDirection: "column", justifyContent: "flex-start", padding: "140px 24px 40px 24px" }}>
           <div style={{ flexShrink: 0, width: "100%", maxWidth: "100%", textAlign: "left", position: "relative", zIndex: 10 }}>
             
             {/* Eyebrow */}

@@ -1056,15 +1056,14 @@ function MobileNav({ user, role, loading, logout, scrolled }: any) {
           : 'bg-[#06040d]/80 backdrop-blur-xl border-b border-[#705474]/15 shadow-md'
       } px-5 py-3 flex justify-between items-center relative`}>
         
-        {/* Brand Logo with Live Status Dot */}
+        {/* Brand Logo */}
         <Link href="#" className="flex items-center gap-3 group">
           <div className="relative">
- <div className="w-8 h-8 rounded-xl bg-[#523056] p-[1.5px] shadow-[0_0_40px_rgba(139,47,209,0.15)] shrink-0">
-              <div className="w-full h-full bg-transparent rounded-[10px] flex items-center justify-center p-1.5 overflow-hidden">
-                <img src="/logo.png" alt="Logo" className="w-full h-full object-contain transform group-hover:scale-110 transition-transform" />
+            <div className="w-8 h-8 rounded-xl bg-[#523056] p-[1.5px] shadow-[0_0_40px_rgba(139,47,209,0.15)] shrink-0">
+              <div className="w-full h-full bg-transparent rounded-[10px] flex items-center justify-center p-0 overflow-hidden">
+                <img src="/logo.png" alt="Logo" className="w-full h-full object-contain transform scale-[1.3] group-hover:scale-[1.4] transition-transform" />
               </div>
             </div>
-            <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-[#06040d] shadow-[0_0_8px_#34d399]"></span>
           </div>
           <div className="flex flex-col text-left">
             <div className="flex items-center gap-1.5">

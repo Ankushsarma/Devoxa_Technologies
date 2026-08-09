@@ -1379,7 +1379,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       {/* Solutions */}
       <section id="solutions" className="scroll-mt-32 light-sec transparent-bg vx-float" style={{ padding: "0 0 36px 0", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: "50%", left: "-10%", width: "40%", height: "60%", background: "radial-gradient(circle, rgba(139,47,209,0.08) 0%, rgba(0,0,0,0) 70%)", filter: "blur(60px)", pointerEvents: "none" }}></div>
-        <div className="wrap px-4 md:px-8" style={{ padding: "0 24px" }}>
+        <div className="wrap px-4 md:px-8" style={{ padding: "0 32px", boxSizing: "border-box" }}>
           <div className="sol-split reveal in flex flex-col items-center gap-4">
             <div className="sol-text-modern w-full max-w-full">
               <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "4px 12px", background: "rgba(139,47,209,0.1)", borderRadius: "999px", border: "1px solid rgba(139,47,209,0.2)", marginBottom: "16px" }}>
@@ -1414,17 +1414,20 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
                 <img
                   src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"
                   alt="Code"
-                  className="absolute top-[2%] left-[2%] w-[52%] h-[45%] object-cover rounded-[24px] shadow-2xl z-10"
+                  className="absolute top-[2%] left-[2%] w-[52%] h-[45%] object-cover shadow-2xl z-10"
+                  style={{ borderRadius: "24px" }}
                 />
                 <img
                   src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80"
                   alt="AI Tech"
-                  className="absolute bottom-[2%] left-[2%] w-[52%] h-[48%] object-cover rounded-[24px] shadow-2xl z-10"
+                  className="absolute bottom-[2%] left-[2%] w-[52%] h-[48%] object-cover shadow-2xl z-10"
+                  style={{ borderRadius: "24px" }}
                 />
                 <img
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80"
                   alt="Design Process"
-                  className="absolute top-[8%] right-[2%] w-[48%] h-[84%] object-cover rounded-[24px] shadow-2xl z-20"
+                  className="absolute top-[8%] right-[2%] w-[48%] h-[84%] object-cover shadow-2xl z-20"
+                  style={{ borderRadius: "24px" }}
                 />
 
                 {/* Center Spinning Badge */}

@@ -1060,8 +1060,8 @@ function MobileNav({ user, role, loading, logout, scrolled }: any) {
         <Link href="#" className="flex items-center gap-3 group">
           <div className="relative">
             <div className="w-8 h-8 rounded-xl bg-[#523056] p-[1.5px] shadow-[0_0_40px_rgba(139,47,209,0.15)] shrink-0">
-              <div className="w-full h-full bg-transparent rounded-[10px] flex items-center justify-center p-[1px] overflow-hidden">
-                <img src="/logo.png" alt="Logo" className="w-full h-full object-contain transform scale-[1.2] group-hover:scale-[1.3] transition-transform" />
+              <div className="w-full h-full bg-transparent rounded-[10px] flex items-center justify-center p-1.5 overflow-hidden">
+                <img src="/logo.png" alt="Logo" className="w-full h-full object-contain transform group-hover:scale-110 transition-transform" />
               </div>
             </div>
           </div>

@@ -940,7 +940,7 @@ function DesktopNav({ user, role, loading, logout, scrolled }: any) {
         <div className="relative">
           <div className="w-8 h-8 rounded-xl bg-[#523056] p-[1.5px] shadow-[0_0_40px_rgba(139,47,209,0.15)] shrink-0">
             <div className="w-full h-full bg-transparent rounded-[10px] flex items-center justify-center p-0.5 overflow-hidden">
-              <img src="/logo.png" alt="Logo" className="w-full h-full object-contain transform group-hover:scale-110 transition-transform" />
+              <Image src="/logo.png" alt="Logo" width={40} height={40} className="w-full h-full object-contain transform group-hover:scale-110 transition-transform" />
             </div>
           </div>
         </div>
@@ -1070,7 +1070,7 @@ function MobileNav({ user, role, loading, logout, scrolled }: any) {
           <div className="relative">
             <div className="w-8 h-8 rounded-xl bg-[#523056] p-[1.5px] shadow-[0_0_40px_rgba(139,47,209,0.15)] shrink-0">
               <div className="w-full h-full bg-transparent rounded-[10px] flex items-center justify-center p-0.5 overflow-hidden">
-                <img src="/logo.png" alt="Logo" className="w-full h-full object-contain transform group-hover:scale-110 transition-transform" />
+                <Image src="/logo.png" alt="Logo" width={40} height={40} className="w-full h-full object-contain transform group-hover:scale-110 transition-transform" />
               </div>
             </div>
           </div>
@@ -1577,7 +1577,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
             
             {/* Card 1 */}
             <div className="relative w-full aspect-[4/5] rounded-[18px] overflow-hidden shadow-2xl group border border-[#705474]/20">
-              <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=600&q=80" alt="Technology & SaaS" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <Image src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=600&q=80" alt="Technology & SaaS" fill className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               
               {/* Label at Top Left */}
               <div className="absolute top-3 left-3 z-10">
@@ -1605,7 +1605,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
 
             {/* Card 2 */}
             <div className="relative w-full aspect-[4/5] rounded-[18px] overflow-hidden shadow-2xl group border border-[#705474]/20">
-              <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80" alt="Finance & Banking" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <Image src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80" alt="Finance & Banking" fill className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               
               {/* Label at Top Left */}
               <div className="absolute top-3 left-3 z-10">
@@ -1633,7 +1633,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
 
             {/* Card 3 */}
             <div className="relative w-full aspect-[4/5] rounded-[18px] overflow-hidden shadow-2xl group border border-[#705474]/20">
-              <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80" alt="Healthcare" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <Image src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80" alt="Healthcare" fill className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               
               {/* Label at Top Left */}
               <div className="absolute top-3 left-3 z-10">
@@ -1661,7 +1661,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
 
             {/* Card 4 */}
             <div className="relative w-full aspect-[4/5] rounded-[18px] overflow-hidden shadow-2xl group border border-[#705474]/20">
-              <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=600&q=80" alt="Retail & E-commerce" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <Image src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=600&q=80" alt="Retail & E-commerce" fill className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               
               {/* Label at Top Left */}
               <div className="absolute top-3 left-3 z-10">
@@ -1689,7 +1689,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
 
             {/* Card 5 */}
             <div className="relative w-full aspect-[4/5] rounded-[18px] overflow-hidden shadow-2xl group border border-[#705474]/20">
-              <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80" alt="Education" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <Image src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80" alt="Education" fill className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               
               {/* Label at Top Left */}
               <div className="absolute top-3 left-3 z-10">
@@ -1717,7 +1717,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
 
             {/* Card 6 */}
             <div className="relative w-full aspect-[4/5] rounded-[18px] overflow-hidden shadow-2xl group border border-[#705474]/20">
-              <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80" alt="Manufacturing" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <Image src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80" alt="Manufacturing" fill className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               
               {/* Label at Top Left */}
               <div className="absolute top-3 left-3 z-10">

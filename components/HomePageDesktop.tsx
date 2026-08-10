@@ -466,7 +466,7 @@ function DesktopNav({ user, role, loading, logout, scrolled }: any) {
       <div className="font-serif text-2xl font-medium tracking-tight italic flex items-center gap-4 text-[#f1eef1] flex-1">
         <Link href="#">
           <div style={{ width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-            <img src="/logo.png" alt="Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+            <Image src="/logo.png" alt="Logo" width={36} height={36} className="object-contain w-full h-full" />
           </div>
         </Link>
       </div>
@@ -523,7 +523,7 @@ function MobileNav({ user, role, loading, logout, scrolled }: any) {
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#0A0714]/90 bg-[#0A0714] border-b border-[#705474]/15 shadow-sm' : 'bg-transparent bg-transparent border-b border-[#705474]/15'} px-6 py-4 flex justify-between items-center`}>
       <div className="font-serif text-xl font-medium tracking-tight italic flex items-center gap-3 text-[#f1eef1]">
         <div style={{ width: '32px', height: '32px', backgroundcolor: "#f1eef1", borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', flexShrink: 0 }}>
-          <img src="/logo.png" alt="Logo" style={{ width: '100%', height: '100%', objectFit: 'contain', transform: 'scale(1.2)' }} />
+          <Image src="/logo.png" alt="Logo" width={32} height={32} className="object-contain w-full h-full" style={{ transform: 'scale(1.2)' }} />
         </div>
         <Link href="#">Devoxa</Link>
       </div>
@@ -619,16 +619,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               color: "transparent",
               backgroundClip: "text"
             }}>BUILD THE</span>
-            <img
-              src="/untitled-logotype.png"
-              alt="FUTURE"
-              style={{
-                width: "100%",
-                maxWidth: "clamp(320px, 35vw, 500px)",
-                height: "auto",
-                display: "block"
-              }}
-            />
+            <Image src="/untitled-logotype.png" alt="FUTURE" width={500} height={100} style={{ width: "100%", maxWidth: "clamp(320px, 35vw, 500px)", height: "auto", display: "block" }} />
           </h1>
 
           {/* Subtext — muted gray #ad9daf */}
@@ -847,25 +838,13 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               <div className="relative w-full h-[500px] md:h-[650px] flex items-center justify-center group">
 
                 {/* Top Left Image - Code */}
-                <img
-                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"
-                  alt="Code"
-                  className="absolute top-0 left-0 w-[55%] h-[45%] object-cover rounded-[32px] shadow-2xl z-10 transition-transform duration-700 hover:scale-105 hover:z-40"
-                />
+                <Image src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" alt="Code" fill className="absolute top-0 left-0 w-[55%] h-[45%] object-cover rounded-[32px] shadow-2xl z-10 transition-transform duration-700 hover:scale-105 hover:z-40" />
 
                 {/* Bottom Left Image - AI/Tech */}
-                <img
-                  src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80"
-                  alt="AI Tech"
-                  className="absolute bottom-0 left-0 w-[55%] h-[48%] object-cover rounded-[32px] shadow-2xl z-10 transition-transform duration-700 hover:scale-105 hover:z-40"
-                />
+                <Image src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" alt="AI Tech" fill className="absolute bottom-0 left-0 w-[55%] h-[48%] object-cover rounded-[32px] shadow-2xl z-10 transition-transform duration-700 hover:scale-105 hover:z-40" />
 
                 {/* Right Image - Design Desk */}
-                <img
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80"
-                  alt="Design Process"
-                  className="absolute top-[8%] right-0 w-[48%] h-[84%] object-cover rounded-[32px] shadow-2xl z-20 transition-transform duration-700 hover:scale-105 hover:z-40"
-                />
+                <Image src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Design Process" fill className="absolute top-[8%] right-0 w-[48%] h-[84%] object-cover rounded-[32px] shadow-2xl z-20 transition-transform duration-700 hover:scale-105 hover:z-40" />
 
                 {/* Center Spinning Badge */}
                 <div className="absolute z-30 flex items-center justify-center w-[160px] h-[160px] rounded-full bg-theme-50 shadow-[0_20px_40px_rgba(0,0,0,0.4)] left-[48%] top-[50%] -translate-x-1/2 -translate-y-1/2 transition-transform duration-500 hover:scale-110">
@@ -1084,7 +1063,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
           <div className="ind-grid">
             {/* Card 1 */}
             <div className="card">
-              <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=600&q=80" alt="Technology & SaaS" />
+              <Image src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=600&q=80" alt="Technology & SaaS" fill  />
               <div className="overlay">
                 <div className="title">Technology & SaaS</div>
                 <div className="desc">Scalable platforms built for rapid growth and enterprise performance.</div>
@@ -1098,7 +1077,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
 
             {/* Card 2 */}
             <div className="card">
-              <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80" alt="Finance & Banking" />
+              <Image src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80" alt="Finance & Banking" fill  />
               <div className="overlay">
                 <div className="title">Finance & Banking</div>
                 <div className="desc">Secure systems for regulated industries and modern fintech.</div>
@@ -1112,7 +1091,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
 
             {/* Card 3 */}
             <div className="card">
-              <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80" alt="Healthcare" />
+              <Image src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80" alt="Healthcare" fill  />
               <div className="overlay">
                 <div className="title">Healthcare</div>
                 <div className="desc">Compliant, patient-first digital tools and data management.</div>
@@ -1126,7 +1105,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
 
             {/* Card 4 */}
             <div className="card">
-              <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=600&q=80" alt="Retail & E-commerce" />
+              <Image src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=600&q=80" alt="Retail & E-commerce" fill  />
               <div className="overlay">
                 <div className="title">Retail & E-commerce</div>
                 <div className="desc">High-performance storefronts that convert and scale globally.</div>
@@ -1140,7 +1119,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
 
             {/* Card 5 */}
             <div className="card">
-              <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80" alt="Education" />
+              <Image src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80" alt="Education" fill  />
               <div className="overlay">
                 <div className="title">Education</div>
                 <div className="desc">Interactive learning platforms built to engage and educate.</div>
@@ -1154,7 +1133,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
 
             {/* Card 6 */}
             <div className="card">
-              <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80" alt="Manufacturing" />
+              <Image src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80" alt="Manufacturing" fill  />
               <div className="overlay">
                 <div className="title">Manufacturing</div>
                 <div className="desc">Automation and data insights for modern production lines.</div>

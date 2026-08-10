@@ -728,7 +728,7 @@ export default function AdminDashboard() {
                                 ) : projects.map((p, idx) => (
                                     <div key={p._id} className={`flex items-start gap-6 p-6 transition-colors hover:bg-[#523056]/30 ${idx % 2 !== 0 ? 'bg-[#150B1E]/50' : 'bg-[#0A0710]'}`}>
                                         <div className="w-28 h-20 rounded-xl overflow-hidden border border-[#705474]/30 shadow-sm shrink-0 bg-[#523056]/50">
-                                            <img src={p.imageUrl} alt={p.title} className="w-full h-full object-cover" />
+                                            <Image src={p.imageUrl} alt={p.title} width={64} height={64} className="w-full h-full object-cover" />
                                         </div>
                                         <div className="flex-1 min-w-0 pt-1">
                                             <h4 className="font-serif text-xl font-medium text-white mb-1.5 truncate">{p.title}</h4>

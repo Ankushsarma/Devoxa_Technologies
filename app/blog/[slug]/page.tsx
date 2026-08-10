@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Image from "next/image"
 import { getBlogPostBySlug, BLOG_POSTS } from "@/lib/blogs-data";
 import Link from "next/link";
 import { 
@@ -76,7 +77,7 @@ export default async function BlogPostDetailPage({ params }: { params: Promise<{
 
           {/* Author Card */}
           <div className="flex items-center gap-4 p-4 rounded-2xl bg-[#0c0817]/80 border border-purple-500/20 backdrop-blur-xl">
-            <img src={post.author.avatar} alt={post.author.name} className="w-12 h-12 rounded-full object-cover border-2 border-purple-400/40" />
+            <Image src={post.author.avatar} alt={post.author.name} width={64} height={64} className="w-12 h-12 rounded-full object-cover border-2 border-purple-400/40" />
             <div>
               <span className="text-sm font-bold text-white block">{post.author.name}</span>
               <span className="text-xs text-purple-300 block">{post.author.role}</span>
@@ -88,7 +89,7 @@ export default async function BlogPostDetailPage({ params }: { params: Promise<{
       {/* Main Article Image */}
       <div className="max-w-4xl mx-auto px-6 md:px-12 -mt-6 relative z-20">
         <div className="rounded-3xl overflow-hidden border border-purple-500/20 shadow-[0_20px_50px_rgba(0,0,0,0.8)] h-[300px] sm:h-[450px] w-full">
-          <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
+          <Image src={post.image} alt={post.title} width={64} height={64} className="w-full h-full object-cover" />
         </div>
       </div>
 
@@ -113,7 +114,7 @@ export default async function BlogPostDetailPage({ params }: { params: Promise<{
 
         {/* Author Bio Box */}
         <div className="mt-12 p-6 rounded-3xl bg-gradient-to-br from-purple-950/60 to-indigo-950/40 border border-purple-500/30 flex items-start gap-4">
-          <img src={post.author.avatar} alt={post.author.name} className="w-14 h-14 rounded-full object-cover border-2 border-purple-400/40 shrink-0" />
+          <Image src={post.author.avatar} alt={post.author.name} width={64} height={64} className="w-14 h-14 rounded-full object-cover border-2 border-purple-400/40 shrink-0" />
           <div>
             <span className="text-xs font-mono font-bold text-purple-400 uppercase tracking-widest block mb-1">WRITTEN BY</span>
             <h4 className="text-base font-bold text-white">{post.author.name}</h4>
@@ -142,7 +143,7 @@ export default async function BlogPostDetailPage({ params }: { params: Promise<{
               className="group rounded-3xl bg-[#0c0817]/80 border border-purple-500/20 overflow-hidden backdrop-blur-xl hover:border-purple-500/50 transition-all duration-300 p-5 flex flex-col justify-between"
             >
               <div>
-                <img src={rel.image} alt={rel.title} className="w-full h-40 object-cover rounded-2xl mb-4 transform group-hover:scale-105 transition-transform" />
+                <Image src={rel.image} alt={rel.title} width={64} height={64} className="w-full h-40 object-cover rounded-2xl mb-4 transform group-hover:scale-105 transition-transform" />
                 <span className="text-[10px] font-mono text-purple-300 font-bold uppercase tracking-wider block mb-2">{rel.category}</span>
                 <h4 className="text-base font-bold text-white group-hover:text-purple-300 transition-colors line-clamp-2 mb-2 leading-snug">{rel.title}</h4>
               </div>

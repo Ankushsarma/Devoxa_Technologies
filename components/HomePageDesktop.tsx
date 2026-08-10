@@ -838,13 +838,13 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               <div className="relative w-full h-[500px] md:h-[650px] flex items-center justify-center group">
 
                 {/* Top Left Image - Code */}
-                <Image src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" alt="Code" fill className="absolute top-0 left-0 w-[55%] h-[45%] object-cover rounded-[32px] shadow-2xl z-10 transition-transform duration-700 hover:scale-105 hover:z-40" />
+                <Image src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" alt="Code" width={600} height={600} className="absolute top-0 left-0 w-[55%] h-[45%] object-cover rounded-[32px] shadow-2xl z-10 transition-transform duration-700 hover:scale-105 hover:z-40" />
 
                 {/* Bottom Left Image - AI/Tech */}
-                <Image src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" alt="AI Tech" fill className="absolute bottom-0 left-0 w-[55%] h-[48%] object-cover rounded-[32px] shadow-2xl z-10 transition-transform duration-700 hover:scale-105 hover:z-40" />
+                <Image src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" alt="AI Tech" width={600} height={600} className="absolute bottom-0 left-0 w-[55%] h-[48%] object-cover rounded-[32px] shadow-2xl z-10 transition-transform duration-700 hover:scale-105 hover:z-40" />
 
                 {/* Right Image - Design Desk */}
-                <Image src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Design Process" fill className="absolute top-[8%] right-0 w-[48%] h-[84%] object-cover rounded-[32px] shadow-2xl z-20 transition-transform duration-700 hover:scale-105 hover:z-40" />
+                <Image src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Design Process" width={600} height={600} className="absolute top-[8%] right-0 w-[48%] h-[84%] object-cover rounded-[32px] shadow-2xl z-20 transition-transform duration-700 hover:scale-105 hover:z-40" />
 
                 {/* Center Spinning Badge */}
                 <div className="absolute z-30 flex items-center justify-center w-[160px] h-[160px] rounded-full bg-theme-50 shadow-[0_20px_40px_rgba(0,0,0,0.4)] left-[48%] top-[50%] -translate-x-1/2 -translate-y-1/2 transition-transform duration-500 hover:scale-110">

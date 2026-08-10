@@ -100,32 +100,31 @@ const AnimatedProcessWorkflow = () => {
 };
 
 const GlowingCard = ({ children, active, delay, onClick }: { children: React.ReactNode, active?: boolean, delay: number, onClick?: (e: React.MouseEvent<HTMLDivElement>) => void }) => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [opacity, setOpacity] = useState(0);
   const cardRef = useRef<HTMLDivElement>(null);
+  const glowRef = useRef<HTMLDivElement>(null);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
+    if (!cardRef.current || !glowRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
-    setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    glowRef.current.style.background = `radial-gradient(300px circle at ${x}px ${y}px, rgba(139,47,209,0.15), transparent 40%)`;
   };
 
   return (
     <div
       ref={cardRef}
       onMouseMove={handleMouseMove}
-      onMouseEnter={() => setOpacity(1)}
-      onMouseLeave={() => setOpacity(0)}
+      onMouseEnter={() => { if (glowRef.current) glowRef.current.style.opacity = '1'; }}
+      onMouseLeave={() => { if (glowRef.current) glowRef.current.style.opacity = '0'; }}
       onClick={onClick}
       className={`hero-card ${active ? 'active' : ''} ${onClick ? 'cursor-pointer' : ''}`}
       style={{ animationDelay: `${delay}s` }}
     >
       <div
+        ref={glowRef}
         className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-300 rounded-[12px]"
-        style={{
-          opacity,
-          background: `radial-gradient(300px circle at ${position.x}px ${position.y}px, rgba(139,47,209,0.15), transparent 40%)`,
-        }}
+        style={{ opacity: 0 }}
       />
       <div className="relative z-10 flex flex-col items-center gap-[clamp(10px,1.5vw,15px)] w-full h-full">
         {children}

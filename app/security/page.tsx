@@ -88,7 +88,7 @@ export default function SecurityPolicy() {
           {/* Logo & Company Name */}
           <div className="flex items-center gap-4">
             <Link href="/" className="flex items-center gap-3 group">
-              <div style={{ width: '36px', height: '36px', backgroundColor: "transparent", borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', flexShrink: 0 }}>
+              <div style={{ width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                 <img src="/logo.png" alt="Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
               </div>
               <div className="flex flex-col text-left">

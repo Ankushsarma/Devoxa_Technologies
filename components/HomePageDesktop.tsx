@@ -466,7 +466,7 @@ function DesktopNav({ user, role, loading, logout, scrolled }: any) {
       {/* 1st Part: Logo */}
       <div className="font-serif text-2xl font-medium tracking-tight italic flex items-center gap-4 text-[#f1eef1] flex-1">
         <Link href="#">
-          <div style={{ width: '36px', height: '36px', backgroundColor: "transparent", borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', flexShrink: 0 }}>
+          <div style={{ width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
             <img src="/logo.png" alt="Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
           </div>
         </Link>

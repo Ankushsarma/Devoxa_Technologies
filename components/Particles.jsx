@@ -110,6 +110,9 @@ const Particles = ({
   const { lowQualityMode } = usePerformance();
   const containerRef = useRef(null);
   const mouseRef = useRef({ x: 0, y: 0 });
+  const { isVisible } = useVisibility();
+  const visibilityRef = useRef(isVisible);
+  useEffect(() => { visibilityRef.current = isVisible; }, [isVisible]);
 
   useEffect(() => {
     const container = containerRef.current;

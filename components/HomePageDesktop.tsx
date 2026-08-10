@@ -1064,13 +1064,14 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
             {/* Card 1 */}
             <div className="card">
               <Image src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=600&q=80" alt="Technology & SaaS" fill  />
-              <div className="overlay">
-                <div className="title">Technology & SaaS</div>
-                <div className="desc">Scalable platforms built for rapid growth and enterprise performance.</div>
-                <div className="tags">
+              <div className="tags">
                   <span className="tag"><span className="icon">★</span>4.9</span>
                   <span className="tag">Cloud & SaaS</span>
                 </div>
+              <div className="overlay">
+                <div className="title">Technology & SaaS</div>
+                <div className="desc">Scalable platforms built for rapid growth and enterprise performance.</div>
+                
                 <button className="reserve-btn">Explore Solutions</button>
               </div>
             </div>
@@ -1078,13 +1079,14 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
             {/* Card 2 */}
             <div className="card">
               <Image src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80" alt="Finance & Banking" fill  />
-              <div className="overlay">
-                <div className="title">Finance & Banking</div>
-                <div className="desc">Secure systems for regulated industries and modern fintech.</div>
-                <div className="tags">
+              <div className="tags">
                   <span className="tag"><span className="icon">★</span>4.8</span>
                   <span className="tag">Fintech</span>
                 </div>
+              <div className="overlay">
+                <div className="title">Finance & Banking</div>
+                <div className="desc">Secure systems for regulated industries and modern fintech.</div>
+                
                 <button className="reserve-btn">Explore Solutions</button>
               </div>
             </div>
@@ -1092,13 +1094,14 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
             {/* Card 3 */}
             <div className="card">
               <Image src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80" alt="Healthcare" fill  />
-              <div className="overlay">
-                <div className="title">Healthcare</div>
-                <div className="desc">Compliant, patient-first digital tools and data management.</div>
-                <div className="tags">
+              <div className="tags">
                   <span className="tag"><span className="icon">★</span>5.0</span>
                   <span className="tag">HIPAA</span>
                 </div>
+              <div className="overlay">
+                <div className="title">Healthcare</div>
+                <div className="desc">Compliant, patient-first digital tools and data management.</div>
+                
                 <button className="reserve-btn">Explore Solutions</button>
               </div>
             </div>
@@ -1106,13 +1109,14 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
             {/* Card 4 */}
             <div className="card">
               <Image src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=600&q=80" alt="Retail & E-commerce" fill  />
-              <div className="overlay">
-                <div className="title">Retail & E-commerce</div>
-                <div className="desc">High-performance storefronts that convert and scale globally.</div>
-                <div className="tags">
+              <div className="tags">
                   <span className="tag"><span className="icon">★</span>4.7</span>
                   <span className="tag">B2B/B2C</span>
                 </div>
+              <div className="overlay">
+                <div className="title">Retail & E-commerce</div>
+                <div className="desc">High-performance storefronts that convert and scale globally.</div>
+                
                 <button className="reserve-btn">Explore Solutions</button>
               </div>
             </div>
@@ -1120,13 +1124,14 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
             {/* Card 5 */}
             <div className="card">
               <Image src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80" alt="Education" fill  />
-              <div className="overlay">
-                <div className="title">Education</div>
-                <div className="desc">Interactive learning platforms built to engage and educate.</div>
-                <div className="tags">
+              <div className="tags">
                   <span className="tag"><span className="icon">★</span>4.8</span>
                   <span className="tag">EdTech</span>
                 </div>
+              <div className="overlay">
+                <div className="title">Education</div>
+                <div className="desc">Interactive learning platforms built to engage and educate.</div>
+                
                 <button className="reserve-btn">Explore Solutions</button>
               </div>
             </div>
@@ -1134,13 +1139,14 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
             {/* Card 6 */}
             <div className="card">
               <Image src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80" alt="Manufacturing" fill  />
-              <div className="overlay">
-                <div className="title">Manufacturing</div>
-                <div className="desc">Automation and data insights for modern production lines.</div>
-                <div className="tags">
+              <div className="tags">
                   <span className="tag"><span className="icon">★</span>4.9</span>
                   <span className="tag">Industry 4.0</span>
                 </div>
+              <div className="overlay">
+                <div className="title">Manufacturing</div>
+                <div className="desc">Automation and data insights for modern production lines.</div>
+                
                 <button className="reserve-btn">Explore Solutions</button>
               </div>
             </div>

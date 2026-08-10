@@ -88,10 +88,8 @@ export default function SecurityPolicy() {
           {/* Logo & Company Name */}
           <div className="flex items-center gap-4">
             <Link href="/" className="flex items-center gap-3 group">
- <div className="w-10 h-10 rounded-xl bg-[#523056] p-[1.5px] shadow-[0_0_40px_rgba(139,47,209,0.15)] shrink-0">
-                <div className="w-full h-full bg-[#0B0819] rounded-[10px] flex items-center justify-center p-1.5 overflow-hidden">
-                  <img src="/logo.png" alt="Logo" className="w-full h-full object-contain transform group-hover:scale-110 transition-transform" />
-                </div>
+              <div style={{ width: '36px', height: '36px', backgroundColor: "transparent", borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', flexShrink: 0 }}>
+                <img src="/logo.png" alt="Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
               </div>
               <div className="flex flex-col text-left">
                 <span className="font-serif text-xl font-bold tracking-tight text-[#f1eef1] leading-tight">Devoxa Technologies</span>

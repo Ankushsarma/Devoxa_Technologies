@@ -1,4 +1,5 @@
-'use client';
+"use client";
+import { useVisibility } from './CanvasVisibilityWrapper';
 import CanvasVisibilityWrapper from "@/components/CanvasVisibilityWrapper";
 import { Camera, Mesh, Plane, Program, Renderer, Texture, Transform } from 'ogl';
 import { useEffect, useRef } from 'react';

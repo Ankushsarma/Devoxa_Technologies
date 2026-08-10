@@ -1,4 +1,7 @@
-'use client';
+"use client";
+
+import React from "react";
+import { useVisibility } from './CanvasVisibilityWrapper';
 import CanvasVisibilityWrapper from "@/components/CanvasVisibilityWrapper";
 import { usePerformance } from "@/context/PerformanceContext";
 /* eslint-disable react-hooks/exhaustive-deps */
@@ -199,7 +202,7 @@ const Particles = ({
     let frameSkipCount = 0;
 
     const update = t => {
-      animationFrameId = requestAnimationFrame(update);
+      animationFrameId = requestAnimationFrame((time) => { if (visibilityRef.current) { update(time); } else { requestAnimationFrame(update); } });
       if (lowQualityMode) {
         frameSkipCount++;
         if (frameSkipCount % 2 !== 0) return;
@@ -229,7 +232,7 @@ const Particles = ({
       renderer.render({ scene: particles, camera });
     };
 
-    animationFrameId = requestAnimationFrame(update);
+    animationFrameId = requestAnimationFrame((time) => { if (visibilityRef.current) { update(time); } else { requestAnimationFrame(update); } });
       if (lowQualityMode) {
         frameSkipCount++;
         if (frameSkipCount % 2 !== 0) return;
@@ -269,6 +272,9 @@ const Particles = ({
 
 
 export default function ParticlesWrapper(props) {
+  const { isVisible } = useVisibility();
+  const visibilityRef = React.useRef(isVisible);
+  React.useEffect(() => { visibilityRef.current = isVisible; }, [isVisible]);
   return (
     <CanvasVisibilityWrapper>
       <Particles {...props} />

@@ -1,4 +1,7 @@
-'use client';
+"use client";
+
+import React from "react";
+import { useVisibility } from './CanvasVisibilityWrapper';
 import CanvasVisibilityWrapper from "@/components/CanvasVisibilityWrapper";
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
@@ -195,7 +198,7 @@ function MagicRingsInner({
 
     let frameId;
     const animate = (t) => {
-      frameId = requestAnimationFrame(animate);
+      frameId = requestAnimationFrame((time) => { if (visibilityRef.current) { animate(time); } else { requestAnimationFrame(animate); } });
       if (!isVisible) return;
       
       const p = propsRef.current;
@@ -230,7 +233,7 @@ function MagicRingsInner({
 
       renderer.render(scene, camera);
     };
-    frameId = requestAnimationFrame(animate);
+    frameId = requestAnimationFrame((time) => { if (visibilityRef.current) { animate(time); } else { requestAnimationFrame(animate); } });
 
     return () => {
       cancelAnimationFrame(frameId);
@@ -253,6 +256,9 @@ function MagicRingsInner({
 
 
 export default function MagicRings(props) {
+  const { isVisible } = useVisibility();
+  const visibilityRef = React.useRef(isVisible);
+  React.useEffect(() => { visibilityRef.current = isVisible; }, [isVisible]);
   return (
     <CanvasVisibilityWrapper>
       <MagicRingsInner {...props} />

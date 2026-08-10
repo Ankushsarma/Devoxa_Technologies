@@ -26,7 +26,6 @@ import SpotlightCard from "@/components/SpotlightCard"
 import PillNav from "@/components/PillNav"
 import { Footer } from "@/components/ui/footer-section"
 const AnimatedCounter = ({ end, duration = 2000, suffix = "", decimals = 0 }: { end: number, duration?: number, suffix?: string, decimals?: number }) => {
-  const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -38,11 +37,22 @@ const AnimatedCounter = ({ end, duration = 2000, suffix = "", decimals = 0 }: { 
             if (!startTimestamp) startTimestamp = timestamp;
             const progress = Math.min((timestamp - startTimestamp) / duration, 1);
             const easeOut = 1 - Math.pow(1 - progress, 3);
-            setCount(easeOut * end);
+            const currentCount = easeOut * end;
+            
+            if (ref.current) {
+              const formattedCount = Math.round(currentCount) === currentCount || decimals === 0 
+                ? Math.round(currentCount) 
+                : currentCount.toFixed(decimals);
+              ref.current.textContent = formattedCount + suffix;
+            }
+
             if (progress < 1) {
               window.requestAnimationFrame(step);
             } else {
-              setCount(end);
+              if (ref.current) {
+                const finalCount = Math.round(end) === end || decimals === 0 ? Math.round(end) : end.toFixed(decimals);
+                ref.current.textContent = finalCount + suffix;
+              }
             }
           };
           window.requestAnimationFrame(step);
@@ -55,11 +65,11 @@ const AnimatedCounter = ({ end, duration = 2000, suffix = "", decimals = 0 }: { 
       observer.observe(ref.current);
     }
     return () => observer.disconnect();
-  }, [end, duration]);
+  }, [end, duration, suffix, decimals]);
 
   return (
     <div ref={ref} className="fs-num">
-      {Math.round(count) === count || decimals === 0 ? Math.round(count) : count.toFixed(decimals)}{suffix}
+      0{suffix}
     </div>
   );
 };

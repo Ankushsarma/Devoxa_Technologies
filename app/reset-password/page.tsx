@@ -189,7 +189,7 @@ export default function ResetPasswordPage() {
 
                         <div className="text-center mb-6 mt-2">
                             <div className="w-12 h-12 bg-studio-black rounded-xl mx-auto flex items-center justify-center shadow-lg shadow-neutral-800/20 mb-3">
-                                <Image src="/logo.png" alt="Devoxa Logo" width={28} height={28} className="rounded-lg bg-theme-50 p-1" />
+                                <Image src="/logo.png" alt="Devoxa Logo" width={28} height={28} className="object-contain" />
                             </div>
                             <h2 className="text-slate-800 text-lg font-bold">Set New Password</h2>
                             <p className="text-slate-500 text-sm font-medium mt-1">

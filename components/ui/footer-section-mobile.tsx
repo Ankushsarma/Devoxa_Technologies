@@ -86,13 +86,13 @@ export function FooterMobile() {
 						<a href="#" className="w-10 h-10 rounded-full border border-[#705474]/15 flex items-center justify-center hover:text-[#f1eef1] hover:border-theme-50/30 transition-all bg-transparent">
 							<Youtube className="size-4" />
 						</a>
-						<a href="#" className="w-10 h-10 rounded-full border border-[#705474]/15 flex items-center justify-center hover:text-[#f1eef1] hover:border-theme-50/30 transition-all bg-transparent">
+						<a href="https://x.com/devoxa_tecnniq" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-[#705474]/15 flex items-center justify-center hover:text-[#f1eef1] hover:border-theme-50/30 transition-all bg-transparent">
 							<Twitter className="size-4" />
 						</a>
-						<a href="#" className="w-10 h-10 rounded-full border border-[#705474]/15 flex items-center justify-center hover:text-[#f1eef1] hover:border-theme-50/30 transition-all bg-transparent">
+						<a href="https://www.instagram.com/devoxa_technologies/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-[#705474]/15 flex items-center justify-center hover:text-[#f1eef1] hover:border-theme-50/30 transition-all bg-transparent">
 							<Instagram className="size-4" />
 						</a>
-						<a href="#" className="w-10 h-10 rounded-full border border-[#705474]/15 flex items-center justify-center hover:text-[#f1eef1] hover:border-theme-50/30 transition-all bg-transparent">
+						<a href="https://www.linkedin.com/in/devoxa-technologies-b6717b428/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-[#705474]/15 flex items-center justify-center hover:text-[#f1eef1] hover:border-theme-50/30 transition-all bg-transparent">
 							<Linkedin className="size-4" />
 						</a>
 					</div>

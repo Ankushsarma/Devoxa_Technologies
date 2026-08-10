@@ -1,3 +1,4 @@
+import { useVisibility } from './CanvasVisibilityWrapper';
 import CanvasVisibilityWrapper from "@/components/CanvasVisibilityWrapper";
 import { Renderer, Program, Mesh, Triangle } from 'ogl';
 import { useEffect, useRef } from 'react';
@@ -217,7 +218,7 @@ function LineWavesInner({
     let animationFrameId;
 
     function update(time) {
-      animationFrameId = requestAnimationFrame(update);
+      animationFrameId = requestAnimationFrame((time) => { if (visibilityRef.current) { update(time); } else { requestAnimationFrame(update); } });
       program.uniforms.uTime.value = time * 0.001;
 
       if (enableMouseInteraction) {
@@ -232,7 +233,7 @@ function LineWavesInner({
 
       renderer.render({ scene: mesh });
     }
-    animationFrameId = requestAnimationFrame(update);
+    animationFrameId = requestAnimationFrame((time) => { if (visibilityRef.current) { update(time); } else { requestAnimationFrame(update); } });
 
     return () => {
       cancelAnimationFrame(animationFrameId);
@@ -251,6 +252,9 @@ function LineWavesInner({
 
 
 export default function LineWaves(props) {
+  const { isVisible } = useVisibility();
+  const visibilityRef = React.useRef(isVisible);
+  React.useEffect(() => { visibilityRef.current = isVisible; }, [isVisible]);
   return (
     <CanvasVisibilityWrapper>
       <LineWavesInner {...props} />

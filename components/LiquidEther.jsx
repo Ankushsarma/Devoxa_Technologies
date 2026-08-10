@@ -1,3 +1,4 @@
+import { useVisibility } from './CanvasVisibilityWrapper';
 import CanvasVisibilityWrapper from "@/components/CanvasVisibilityWrapper";
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';

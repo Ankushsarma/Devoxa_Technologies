@@ -88,10 +88,8 @@ export default function TermsOfService() {
           {/* Logo & Company Name */}
           <div className="flex items-center gap-4">
             <Link href="/" className="flex items-center gap-3 group">
- <div className="w-10 h-10 rounded-xl bg-[#523056] p-[1.5px] shadow-[0_0_40px_rgba(139,47,209,0.15)] shrink-0">
-                <div className="w-full h-full bg-[#0B0819] rounded-[10px] flex items-center justify-center p-1.5 overflow-hidden">
-                  <img src="/logo.png" alt="Logo" className="w-full h-full object-contain transform group-hover:scale-110 transition-transform" />
-                </div>
+              <div style={{ width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                <img src="/logo.png" alt="Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
               </div>
               <div className="flex flex-col text-left">
                 <span className="font-serif text-xl font-bold tracking-tight text-[#f1eef1] leading-tight">Devoxa Technologies</span>
@@ -124,16 +122,29 @@ export default function TermsOfService() {
 
         {/* Mobile Header Navigation (lg:hidden) */}
         <nav className="flex lg:hidden py-4 px-6 justify-between items-center w-full bg-transparent border-none outline-none">
-          <Link href="/" className="flex items-center gap-2.5">
- <div className="w-8 h-8 rounded-xl bg-[#523056] p-[1.5px] shrink-0">
-              <div className="w-full h-full bg-[#0B0819] rounded-[10px] flex items-center justify-center p-1 overflow-hidden">
-                <img src="/logo.png" alt="Logo" className="w-full h-full object-contain" />
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="relative">
+              <div className="w-8 h-8 rounded-xl bg-[#523056] p-[1.5px] shadow-[0_0_40px_rgba(139,47,209,0.15)] shrink-0">
+                <div className="w-full h-full bg-transparent rounded-[10px] flex items-center justify-center p-0.5 overflow-hidden">
+                  <img src="/logo.png" alt="Logo" className="w-full h-full object-contain transform group-hover:scale-110 transition-transform" />
+                </div>
               </div>
             </div>
-            <span className="font-serif text-lg font-bold tracking-tight text-[#f1eef1]">Devoxa</span>
+            <div className="flex flex-col text-left">
+              <div className="flex items-center gap-1.5">
+                <span className="font-serif text-[16px] font-extrabold tracking-tight text-[#f1eef1] leading-tight">Devoxa</span>
+              </div>
+              <span className="text-[9px] font-mono font-semibold tracking-wider text-[#f1eef1]/60 uppercase">Technologies</span>
+            </div>
           </Link>
 
           <div className="flex items-center gap-3">
+            <button
+              onClick={() => window.history.back()}
+              className="w-9 h-9 rounded-full bg-transparent border border-[#705474]/30 flex items-center justify-center text-[#f1eef1] hover:bg-[#523056]/30 active:scale-90 active:bg-[#523056]/60 transition-all duration-200"
+            >
+              <ArrowLeft className="w-4 h-4" />
+            </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="w-9 h-9 rounded-full bg-transparent border border-[#705474]/30 flex items-center justify-center text-[#f1eef1]"
@@ -142,35 +153,37 @@ export default function TermsOfService() {
             </button>
           </div>
 
-          {mobileMenuOpen && (
-            <div className="absolute top-16 left-4 right-4 bg-[#0A0714]/95 border border-[#705474]/30 rounded-3xl p-4 shadow-2xl backdrop-blur-2xl flex flex-col gap-2">
-              <Link href="/" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2.5 rounded-2xl bg-transparent text-xs font-semibold text-[#f1eef1] hover:text-[#f1eef1] flex items-center justify-between">
-                <span>Home</span>
-                <ChevronRight className="w-3.5 h-3.5 text-[#705474]" />
-              </Link>
-              <Link href="/#solutions" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2.5 rounded-2xl bg-transparent text-xs font-semibold text-[#f1eef1] hover:text-[#f1eef1] flex items-center justify-between">
-                <span>Solutions</span>
-                <ChevronRight className="w-3.5 h-3.5 text-[#705474]" />
-              </Link>
-              <Link href="/#pricing" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2.5 rounded-2xl bg-transparent text-xs font-semibold text-[#f1eef1] hover:text-[#f1eef1] flex items-center justify-between">
-                <span>Pricing</span>
-                <ChevronRight className="w-3.5 h-3.5 text-[#705474]" />
-              </Link>
-              <Link href="/#faq" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2.5 rounded-2xl bg-transparent text-xs font-semibold text-[#f1eef1] hover:text-[#f1eef1] flex items-center justify-between">
-                <span>FAQ</span>
-                <ChevronRight className="w-3.5 h-3.5 text-[#705474]" />
-              </Link>
-              <button
-                onClick={() => { setMobileMenuOpen(false); setIsModalOpen(true); }}
- className="mt-2 w-full py-3 rounded-full bg-[#523056] text-[#f1eef1] font-bold text-xs uppercase tracking-wider text-center"
-              >
-                Book a Free Call
-              </button>
-            </div>
-          )}
         </nav>
 
       </header>
+
+      {/* Safari-compatible Mobile Menu Popover */}
+      {mobileMenuOpen && (
+        <div className="fixed top-[76px] left-4 right-4 bg-[#0A0714] border border-[#705474]/50 rounded-3xl p-4 shadow-[0_8px_40px_rgba(0,0,0,0.8)] z-[99999] flex flex-col gap-2">
+          <Link href="/" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2.5 rounded-2xl bg-transparent text-xs font-semibold text-[#f1eef1] hover:text-[#f1eef1] flex items-center justify-between">
+            <span>Home</span>
+            <ChevronRight className="w-3.5 h-3.5 text-[#705474]" />
+          </Link>
+          <Link href="/#solutions" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2.5 rounded-2xl bg-transparent text-xs font-semibold text-[#f1eef1] hover:text-[#f1eef1] flex items-center justify-between">
+            <span>Solutions</span>
+            <ChevronRight className="w-3.5 h-3.5 text-[#705474]" />
+          </Link>
+          <Link href="/#pricing" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2.5 rounded-2xl bg-transparent text-xs font-semibold text-[#f1eef1] hover:text-[#f1eef1] flex items-center justify-between">
+            <span>Pricing</span>
+            <ChevronRight className="w-3.5 h-3.5 text-[#705474]" />
+          </Link>
+          <Link href="/#faq" onClick={() => setMobileMenuOpen(false)} className="px-4 py-2.5 rounded-2xl bg-transparent text-xs font-semibold text-[#f1eef1] hover:text-[#f1eef1] flex items-center justify-between">
+            <span>FAQ</span>
+            <ChevronRight className="w-3.5 h-3.5 text-[#705474]" />
+          </Link>
+          <button
+            onClick={() => { setMobileMenuOpen(false); setIsModalOpen(true); }}
+            className="mt-2 w-full py-3 rounded-full bg-[#523056] text-[#f1eef1] font-bold text-xs uppercase tracking-wider text-center"
+          >
+            Book a Free Call
+          </button>
+        </div>
+      )}
 
       {/* Hero Header Section */}
  <section className="relative pt-36 md:pt-44 pb-16 px-6 md:px-12 lg:px-16 overflow-hidden bg-[#0A0710]">
@@ -282,7 +295,7 @@ export default function TermsOfService() {
                 <div className="w-9 h-9 rounded-2xl bg-[#523056] border border-[#705474]/30 flex items-center justify-center text-[#705474] shrink-0 shadow-inner">
                   <Scale className="w-4 h-4" />
                 </div>
-                <h2 className="text-xl sm:text-2xl font-extrabold text-[#f1eef1] tracking-tight">
+                <h2 className="text-[15px] sm:text-xl font-extrabold text-[#f1eef1] tracking-tight uppercase leading-tight">
                   1. Acceptance of Terms
                 </h2>
               </div>
@@ -297,7 +310,7 @@ export default function TermsOfService() {
                 <div className="w-9 h-9 rounded-2xl bg-[#523056] border border-[#705474]/30 flex items-center justify-center text-[#705474] shrink-0 shadow-inner">
                   <Code2 className="w-4 h-4" />
                 </div>
-                <h2 className="text-xl sm:text-2xl font-extrabold text-[#f1eef1] tracking-tight">
+                <h2 className="text-[15px] sm:text-xl font-extrabold text-[#f1eef1] tracking-tight uppercase leading-tight">
                   2. Scope of IT & Engineering Services
                 </h2>
               </div>
@@ -326,7 +339,7 @@ export default function TermsOfService() {
                 <div className="w-9 h-9 rounded-2xl bg-[#523056] border border-[#705474]/30 flex items-center justify-center text-[#705474] shrink-0 shadow-inner">
                   <FileText className="w-4 h-4" />
                 </div>
-                <h2 className="text-xl sm:text-2xl font-extrabold text-[#f1eef1] tracking-tight">
+                <h2 className="text-[15px] sm:text-xl font-extrabold text-[#f1eef1] tracking-tight uppercase leading-tight">
                   3. Intellectual Property Rights
                 </h2>
               </div>
@@ -341,7 +354,7 @@ export default function TermsOfService() {
                 <div className="w-9 h-9 rounded-2xl bg-[#523056] border border-[#705474]/30 flex items-center justify-center text-[#705474] shrink-0 shadow-inner">
                   <CreditCard className="w-4 h-4" />
                 </div>
-                <h2 className="text-xl sm:text-2xl font-extrabold text-[#f1eef1] tracking-tight">
+                <h2 className="text-[15px] sm:text-xl font-extrabold text-[#f1eef1] tracking-tight uppercase leading-tight">
                   4. Payments, Billing & Retainers
                 </h2>
               </div>
@@ -356,7 +369,7 @@ export default function TermsOfService() {
                 <div className="w-9 h-9 rounded-2xl bg-[#523056] border border-[#705474]/30 flex items-center justify-center text-[#705474] shrink-0 shadow-inner">
                   <Clock className="w-4 h-4" />
                 </div>
-                <h2 className="text-xl sm:text-2xl font-extrabold text-[#f1eef1] tracking-tight">
+                <h2 className="text-[15px] sm:text-xl font-extrabold text-[#f1eef1] tracking-tight uppercase leading-tight">
                   5. Project Timelines & Delivery
                 </h2>
               </div>
@@ -371,7 +384,7 @@ export default function TermsOfService() {
                 <div className="w-9 h-9 rounded-2xl bg-[#523056] border border-[#705474]/30 flex items-center justify-center text-[#705474] shrink-0 shadow-inner">
                   <ShieldAlert className="w-4 h-4" />
                 </div>
-                <h2 className="text-xl sm:text-2xl font-extrabold text-[#f1eef1] tracking-tight">
+                <h2 className="text-[15px] sm:text-xl font-extrabold text-[#f1eef1] tracking-tight uppercase leading-tight">
                   6. Limitation of Liability
                 </h2>
               </div>
@@ -386,7 +399,7 @@ export default function TermsOfService() {
                 <div className="w-9 h-9 rounded-2xl bg-[#523056] border border-[#705474]/30 flex items-center justify-center text-[#705474] shrink-0 shadow-inner">
                   <Mail className="w-4 h-4" />
                 </div>
-                <h2 className="text-xl sm:text-2xl font-extrabold text-[#f1eef1] tracking-tight">
+                <h2 className="text-[15px] sm:text-xl font-extrabold text-[#f1eef1] tracking-tight uppercase leading-tight">
                   7. Contact & Governing Law
                 </h2>
               </div>

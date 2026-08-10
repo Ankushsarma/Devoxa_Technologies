@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image"
 import Link from "next/link";
 import { 
   Sparkles, 
@@ -284,7 +285,7 @@ export default function BlogListingPage() {
 
                     <div className="flex items-center justify-between pt-5 border-t border-white/10">
                       <div className="flex items-center gap-3">
-                        <img src={featuredPost.author.avatar} alt={featuredPost.author.name} className="w-8 h-8 rounded-full object-cover border border-purple-400/40" />
+                        <Image src={featuredPost.author.avatar} alt={featuredPost.author.name} width={64} height={64} className="w-8 h-8 rounded-full object-cover border border-purple-400/40" />
                         <div>
                           <span className="text-xs font-bold text-white block">{featuredPost.author.name}</span>
                           <span className="text-[10px] text-purple-300 block">{featuredPost.author.role}</span>
@@ -346,7 +347,7 @@ export default function BlogListingPage() {
 
                       <div className="pt-4 border-t border-white/5 flex items-center justify-between mt-2">
                         <div className="flex items-center gap-2">
-                          <img src={post.author.avatar} alt={post.author.name} className="w-6 h-6 rounded-full object-cover border border-purple-400/30" />
+                          <Image src={post.author.avatar} alt={post.author.name} width={64} height={64} className="w-6 h-6 rounded-full object-cover border border-purple-400/30" />
                           <span className="text-xs text-gray-300 font-medium">{post.author.name}</span>
                         </div>
                         <span className="text-xs font-mono text-purple-400 group-hover:text-purple-300 flex items-center gap-1 font-bold">

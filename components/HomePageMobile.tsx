@@ -160,7 +160,7 @@ const AnimatedProcessWorkflow = () => {
 const MobileProjectCarousel = ({ projects }: { projects: any[] }) => {
   const defaultItems = [
     { title: "Lionscott", category: "Fitness & Wellness", image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=800" },
-    { title: "AG Home", category: "Real Estate & Living", image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" },
+    { title: "AG Homes India", category: "Real Estate & Living", image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" },
     { title: "Cab Partner", category: "Mobility & Transport", image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=800&q=80" },
     { title: "Smart Rent", category: "SaaS Platform", image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80" }
   ];
@@ -169,11 +169,15 @@ const MobileProjectCarousel = ({ projects }: { projects: any[] }) => {
     ? projects.map((p: any) => {
         let img = p.imageUrl || "/tpl-saas-software.jpg";
         const t = (p.title || "").toLowerCase();
-        if (t.includes('ag home')) img = 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=400&q=60';
+        let finalTitle = p.title;
+        if (t.includes('ag home')) {
+          img = 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=400&q=60';
+          finalTitle = "AG Homes India";
+        }
         else if (t.includes('cab partner')) img = 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=400&q=60';
         else if (t.includes('smart rent')) img = 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=60';
         else if (t.includes('lionscott')) img = 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=400&q=60';
-        return { title: p.title, category: p.category || "Digital Experience", image: img };
+        return { title: finalTitle, category: p.category || "Digital Experience", image: img };
       })
     : defaultItems;
 
@@ -224,7 +228,7 @@ const MobileProjectCarousel = ({ projects }: { projects: any[] }) => {
                     className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                   />
                   {/* Bottom Dark Gradient Overlay */}
- <div className="absolute inset-0 bg-theme-900/90" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#08060e] via-[#08060e]/50 to-transparent pointer-events-none opacity-90" />
                   
                   {/* Category Badge Top-Left */}
                   <span className="absolute top-3 left-3 px-3 py-1 text-[11px] font-bold text-[#705474] bg-theme-900/70 bg-[#0A0714] rounded-full border border-[#705474]/40 shadow-md">
@@ -932,12 +936,21 @@ function DesktopNav({ user, role, loading, logout, scrolled }: any) {
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-transparent py-4' : 'bg-transparent py-6'} px-8 md:px-16 flex justify-between items-center`}>
       {/* 1st Part: Logo */}
-      <div className="font-serif text-2xl font-medium tracking-tight italic flex items-center gap-4 text-[#f1eef1] flex-1">
-        <div style={{ width: '36px', height: '36px', backgroundcolor: "#f1eef1", borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', flexShrink: 0 }}>
-          <img src="/logo.png" alt="Logo" style={{ width: '100%', height: '100%', objectFit: 'contain', transform: 'scale(1.2)' }} />
+      <Link href="#" className="flex items-center gap-3 group flex-1">
+        <div className="relative">
+          <div className="w-8 h-8 rounded-xl bg-[#523056] p-[1.5px] shadow-[0_0_40px_rgba(139,47,209,0.15)] shrink-0">
+            <div className="w-full h-full bg-transparent rounded-[10px] flex items-center justify-center p-0.5 overflow-hidden">
+              <Image src="/logo.png" alt="Logo" width={40} height={40} className="w-full h-full object-contain transform group-hover:scale-110 transition-transform" />
+            </div>
+          </div>
         </div>
-        <Link href="#">Devoxa Technologies</Link>
-      </div>
+        <div className="flex flex-col text-left">
+          <div className="flex items-center gap-1.5">
+            <span className="font-serif text-[16px] font-extrabold tracking-tight text-[#f1eef1] leading-tight">Devoxa</span>
+          </div>
+          <span className="text-[9px] font-mono font-semibold tracking-wider text-[#f1eef1]/60 uppercase">Technologies</span>
+        </div>
+      </Link>
       
       {/* 2nd Part: Capsule Navigation */}
       <div className="hidden md:flex items-center rounded-full bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.08)] bg-[#0A0714] shadow-lg">
@@ -988,10 +1001,16 @@ function DesktopNav({ user, role, loading, logout, scrolled }: any) {
 function MobileNav({ user, role, loading, logout, scrolled }: any) {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const popoverRef = useRef<HTMLDivElement>(null);
 
+  // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent | TouchEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+      const target = event.target as Node;
+      if (
+        menuRef.current && !menuRef.current.contains(target) &&
+        popoverRef.current && !popoverRef.current.contains(target)
+      ) {
         setIsOpen(false);
       }
     };
@@ -1038,22 +1057,22 @@ function MobileNav({ user, role, loading, logout, scrolled }: any) {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
+    <>
+      <header className="fixed top-0 left-0 right-0 z-50">
       <nav className={`w-full transition-all duration-300 ${
         scrolled || isOpen 
           ? 'bg-[#06040d]/95 backdrop-blur-2xl border-b border-[#705474]/30 shadow-[0_0_40px_rgba(139,47,209,0.15)]' 
           : 'bg-[#06040d]/80 backdrop-blur-xl border-b border-[#705474]/15 shadow-md'
       } px-5 py-3 flex justify-between items-center relative`}>
         
-        {/* Brand Logo with Live Status Dot */}
+        {/* Brand Logo */}
         <Link href="#" className="flex items-center gap-3 group">
           <div className="relative">
- <div className="w-8 h-8 rounded-xl bg-[#523056] p-[1.5px] shadow-[0_0_40px_rgba(139,47,209,0.15)] shrink-0">
-              <div className="w-full h-full bg-transparent rounded-[10px] flex items-center justify-center p-1.5 overflow-hidden">
-                <img src="/logo.png" alt="Logo" className="w-full h-full object-contain transform group-hover:scale-110 transition-transform" />
+            <div className="w-8 h-8 rounded-xl bg-[#523056] p-[1.5px] shadow-[0_0_40px_rgba(139,47,209,0.15)] shrink-0">
+              <div className="w-full h-full bg-transparent rounded-[10px] flex items-center justify-center p-0.5 overflow-hidden">
+                <Image src="/logo.png" alt="Logo" width={40} height={40} className="w-full h-full object-contain transform group-hover:scale-110 transition-transform" />
               </div>
             </div>
-            <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-[#06040d] shadow-[0_0_8px_#34d399]"></span>
           </div>
           <div className="flex flex-col text-left">
             <div className="flex items-center gap-1.5">
@@ -1062,17 +1081,17 @@ function MobileNav({ user, role, loading, logout, scrolled }: any) {
             <span className="text-[9px] font-mono font-semibold tracking-wider text-[#f1eef1]/60 uppercase">Technologies</span>
           </div>
         </Link>
-
-        {/* Circular Cyber Trigger Button */}
         <div className="relative flex items-center gap-2" ref={menuRef}>
           <button 
-            onClick={() => setIsOpen(!isOpen)}
+            type="button"
+            onClick={(e) => { e.preventDefault(); e.stopPropagation(); setIsOpen(!isOpen); }}
             aria-label="Toggle Menu" 
- className="w-9 h-9 rounded-full bg-[#523056] p-[1.5px] shadow-[0_0_40px_rgba(139,47,209,0.15)] active:scale-90 transition-all flex items-center justify-center"
+            className="w-11 h-11 rounded-full bg-[#523056] p-[1.5px] shadow-[0_0_40px_rgba(139,47,209,0.15)] transition-all flex items-center justify-center cursor-pointer relative active:scale-90 duration-200 z-50"
           >
-            <div className="w-full h-full rounded-full bg-transparent flex items-center justify-center transition-colors hover:bg-transparent">
+            <span className="absolute -inset-2 pointer-events-none"></span>
+            <div className="w-full h-full rounded-full bg-transparent flex items-center justify-center transition-colors hover:bg-transparent relative z-10 pointer-events-none">
               {isOpen ? (
-                <X className="w-4 h-4 text-[#f1eef1]" />
+                <X className="w-5 h-5 text-[#f1eef1]" />
               ) : (
                 <div className="flex items-center gap-1">
                   <div className="w-1 h-1 rounded-full bg-[#705474] animate-pulse"></div>
@@ -1082,71 +1101,72 @@ function MobileNav({ user, role, loading, logout, scrolled }: any) {
               )}
             </div>
           </button>
-
-          {/* Sleek Sheet Popover Menu */}
-          {isOpen && (
-            <div className="absolute top-12 right-0 w-64 bg-transparent border border-[#705474]/35 rounded-2xl p-4 shadow-[0_0_40px_rgba(139,47,209,0.15)] backdrop-blur-3xl z-50 flex flex-col gap-1.5 text-left animate-in fade-in zoom-in-95 duration-200">
-              <div className="px-2 py-1 flex items-center justify-between text-[10px] font-mono font-bold tracking-widest text-[#705474] uppercase border-b border-[#705474]/15 mb-1 pb-2">
-                <span>NAVIGATION // CATALOGUE</span>
-                <span className="w-2 h-2 rounded-full bg-[#523056] animate-ping"></span>
-              </div>
-
-              {navLinks.map((link, idx) => {
-                const IconComponent = link.icon;
-                return (
-                  <button
-                    key={link.href}
-                    type="button"
-                    onClick={(e) => handleLinkClick(e, link.href)}
- className="w-full px-3.5 py-2.5 rounded-xl text-xs font-semibold text-[#f1eef1] hover:text-[#f1eef1] bg-transparent hover:bg-[#523056]/40 active:scale-[0.98] transition-all flex items-center justify-between cursor-pointer border border-theme-50/5 hover:border-[#705474]/40 group text-left"
-                  >
-                    <div className="flex items-center gap-3">
-                      <span className="text-[10px] font-mono text-[#705474]/80 font-bold">0{idx + 1}</span>
-                      <div className="w-6 h-6 rounded-lg bg-[#523056] border border-[#705474]/30 flex items-center justify-center text-[#705474] group-hover:text-[#f1eef1] transition-colors">
-                        <IconComponent className="w-3.5 h-3.5" />
-                      </div>
-                      <span>{link.label}</span>
-                    </div>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#705474] group-hover:translate-x-1 transition-transform" />
-                  </button>
-                );
-              })}
-
-              <div className="h-px bg-theme-50/10 my-1" />
-
-              {!loading && user ? (
-                <>
-                  <Link
-                    href={`/dashboard/${role}`}
-                    onClick={() => setIsOpen(false)}
-                    className="px-3.5 py-2.5 rounded-xl text-xs font-semibold text-[#705474] hover:bg-[#523056] transition-all flex items-center justify-between bg-transparent border border-[#705474]/30"
-                  >
-                    <span>Dashboard</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#705474]" />
-                  </Link>
-                  <button
-                    type="button"
-                    onClick={() => { logout(); setIsOpen(false); }}
-                    className="w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-semibold text-red-400 hover:bg-red-500/20 transition-all border border-red-500/20"
-                  >
-                    Logout
-                  </button>
-                </>
-              ) : (
-                <Link
-                  href="/login"
-                  onClick={() => setIsOpen(false)}
- className="px-3.5 py-2.5 rounded-xl text-xs font-extrabold tracking-wider uppercase text-[#f1eef1] bg-[#523056] shadow-[0_0_40px_rgba(139,47,209,0.15)] hover:shadow-[0_0_40px_rgba(139,47,209,0.15)] transition-all text-center border border-[#705474]/40 mt-1 flex items-center justify-center gap-2"
-                >
-                  <span>Schedule Consultation / Login</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              )}
-            </div>
-          )}
         </div>
       </nav>
     </header>
+    
+    {/* Sleek Sheet Popover Menu - MOVED OUTSIDE HEADER FOR SAFARI COMPATIBILITY */}
+    {isOpen && (
+      <div ref={popoverRef} className="fixed top-[76px] right-4 w-64 bg-[#0A0714] border border-[#705474]/50 rounded-2xl p-4 shadow-[0_8px_40px_rgba(0,0,0,0.8)] z-[99999] flex flex-col gap-1.5 text-left opacity-100 visible">
+        <div className="px-2 py-1 flex items-center justify-between text-[10px] font-mono font-bold tracking-widest text-[#705474] uppercase border-b border-[#705474]/15 mb-1 pb-2">
+          <span>NAVIGATION // CATALOGUE</span>
+          <span className="w-2 h-2 rounded-full bg-[#523056] animate-ping"></span>
+        </div>
+
+        {navLinks.map((link, idx) => {
+          const IconComponent = link.icon;
+          return (
+            <button
+              key={link.href}
+              type="button"
+              onClick={(e) => handleLinkClick(e, link.href)}
+              className="w-full px-3.5 py-2.5 rounded-xl text-xs font-semibold text-[#f1eef1] hover:text-[#f1eef1] bg-transparent hover:bg-[#523056]/40 active:scale-[0.98] transition-all flex items-center justify-between cursor-pointer border border-theme-50/5 hover:border-[#705474]/40 group text-left"
+            >
+              <div className="flex items-center gap-3">
+                <span className="text-[10px] font-mono text-[#705474]/80 font-bold">0{idx + 1}</span>
+                <div className="w-6 h-6 rounded-lg bg-[#523056] border border-[#705474]/30 flex items-center justify-center text-[#705474] group-hover:text-[#f1eef1] transition-colors">
+                  <IconComponent className="w-3.5 h-3.5" />
+                </div>
+                <span>{link.label}</span>
+              </div>
+              <ArrowRight className="w-3.5 h-3.5 text-[#705474] group-hover:translate-x-1 transition-transform" />
+            </button>
+          );
+        })}
+
+        <div className="h-px bg-theme-50/10 my-1" />
+
+        {!loading && user ? (
+          <>
+            <Link
+              href={`/dashboard/${role}`}
+              onClick={() => setIsOpen(false)}
+              className="px-3.5 py-2.5 rounded-xl text-xs font-semibold text-[#705474] hover:bg-[#523056] transition-all flex items-center justify-between bg-transparent border border-[#705474]/30"
+            >
+              <span>Dashboard</span>
+              <ArrowRight className="w-3.5 h-3.5 text-[#705474]" />
+            </Link>
+            <button
+              type="button"
+              onClick={() => { logout(); setIsOpen(false); }}
+              className="w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-semibold text-red-400 hover:bg-red-500/20 transition-all border border-red-500/20"
+            >
+              Logout
+            </button>
+          </>
+        ) : (
+          <Link
+            href="/login"
+            onClick={() => setIsOpen(false)}
+            className="px-3.5 py-2.5 rounded-xl text-xs font-extrabold tracking-wider uppercase text-[#f1eef1] bg-[#523056] shadow-[0_0_40px_rgba(139,47,209,0.15)] hover:shadow-[0_0_40px_rgba(139,47,209,0.15)] transition-all text-center border border-[#705474]/40 mt-1 flex items-center justify-center gap-2"
+          >
+            <span>Schedule Consultation / Login</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        )}
+      </div>
+    )}
+    </>
   )
 }
 
@@ -1178,23 +1198,11 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
 
   return (
     <>
-      <section id="hero" className="nx vx-float pt-24 md:pt-32 relative" style={{ height: "auto", minHeight: "100vh" }}>
+      <section id="hero" className="nx vx-float pt-24 md:pt-32 relative" style={{ height: "auto", minHeight: "auto" }}>
         <div className="absolute inset-0 z-0 bg-black/[0.65]" />
-        <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0, opacity: 1, pointerEvents: 'none' }}>
-          <WebGLVisibilityWrapper isAbsolute={false}>
-            <Particles
-              particleColors={["#ffffff", "#c6bbc7", "#523056"]}
-              particleCount={200}
-              particleSpread={10}
-              speed={0.1}
-              particleBaseSize={120}
-              moveParticlesOnHover={true}
-              alphaParticles={false}
-              disableRotation={false}
-            />
-          </WebGLVisibilityWrapper>
+        <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0, opacity: 1, pointerEvents: 'none', background: 'radial-gradient(circle at center, rgba(82, 48, 86, 0.4) 0%, transparent 70%)' }}>
         </div>
-        <div className="nx-inner" style={{ minHeight: "100vh", alignItems: "flex-start", display: "flex", flexDirection: "column", justifyContent: "flex-start", padding: "140px 24px 80px 24px" }}>
+        <div className="nx-inner" style={{ minHeight: "auto", alignItems: "flex-start", display: "flex", flexDirection: "column", justifyContent: "flex-start", padding: "140px 24px 40px 24px" }}>
           <div style={{ flexShrink: 0, width: "100%", maxWidth: "100%", textAlign: "left", position: "relative", zIndex: 10 }}>
             
             {/* Eyebrow */}
@@ -1304,27 +1312,12 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       <div style={{ position: "relative", background: "transparent", backgroundColor: undefined, overflow: "visible" }}>
-        {/* Shared Light Pillar Background */}
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 1, pointerEvents: 'none', WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 150px)', maskImage: 'linear-gradient(to bottom, transparent, black 150px)' }}>
-          <WebGLVisibilityWrapper isAbsolute={false}>
-            <LightPillar
-              topColor="#26082a"
-              bottomColor="#FF9FFC"
-              intensity={0.8}
-              rotationSpeed={0.5}
-              glowAmount={0.002}
-              pillarWidth={3.0}
-              pillarHeight={0.4}
-              noiseIntensity={0.1}
-              pillarRotation={30}
-              interactive={false}
-              mixBlendMode="normal"
-              quality="high"
-            />
-          </WebGLVisibilityWrapper>
+        {/* Shared Light Pillar Background replaced with CSS for performance */}
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 0.15, pointerEvents: 'none', background: 'radial-gradient(ellipse at center top, rgba(255, 159, 252, 0.5) 0%, transparent 70%)' }}>
         </div>
 
-        <div className="grid grid-cols-1 min-[375px]:grid-cols-2 gap-4 mb-16 mx-auto w-full relative z-20 px-6" style={{ flexShrink: 0, marginTop: "10px", zIndex: 10 }}>
+        <div className="flex justify-center w-full relative z-20 mb-16" style={{ marginTop: "10px", zIndex: 10, padding: "0 24px" }}>
+          <div className="grid grid-cols-1 min-[375px]:grid-cols-2 gap-3 sm:gap-4 w-full max-w-[400px] sm:max-w-md">
             <GlowingCard delay={0.1} onClick={(e) => handleCardClick(e, "Web App Dev")}>
               <div className="hc-icon shrink-0"><Code2 size={28} strokeWidth={1.5} /></div>
               <div className="flex flex-col gap-1">
@@ -1361,6 +1354,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               </div>
             </GlowingCard>
           </div>
+        </div>
         
         <div style={{ position: "relative", zIndex: 1 }}>
           <AgencySection onOpenModal={onOpenModal} />
@@ -1394,7 +1388,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       {/* Solutions */}
       <section id="solutions" className="scroll-mt-32 light-sec transparent-bg vx-float" style={{ padding: "0 0 36px 0", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: "50%", left: "-10%", width: "40%", height: "60%", background: "radial-gradient(circle, rgba(139,47,209,0.08) 0%, rgba(0,0,0,0) 70%)", filter: "blur(60px)", pointerEvents: "none" }}></div>
-        <div className="wrap px-4 md:px-8">
+        <div className="wrap px-4 md:px-8" style={{ padding: "0 32px", boxSizing: "border-box" }}>
           <div className="sol-split reveal in flex flex-col items-center gap-4">
             <div className="sol-text-modern w-full max-w-full">
               <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "4px 12px", background: "rgba(139,47,209,0.1)", borderRadius: "999px", border: "1px solid rgba(139,47,209,0.2)", marginBottom: "16px" }}>
@@ -1424,55 +1418,39 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               </ul>
             </div>
             <div className="sol-img-modern w-full" style={{ marginTop: "24px" }}>
-              {/* Outer Layered Glow Ring */}
-              <div 
-                style={{
-                  position: "relative",
-                  borderRadius: "34px",
-                  padding: "6px",
-                  border: "1px solid rgba(139,47,209,0.35)",
-                  background: "rgba(124, 58, 237, 0.08)",
-                  boxShadow: "0 0 45px rgba(124, 58, 237, 0.35), 0 0 80px rgba(139,47,209,0.2)"
-                }}
-              >
-                {/* Thick Main Neon Purple Frame */}
-                <div 
-                  style={{
-                    position: "relative",
-                    borderRadius: "28px",
-                    background: "linear-gradient(135deg, #523056, #6B21A8)",
-                    padding: "14px",
-                    border: "1.5px solid #705474",
-                    boxShadow: "0 0 30px rgba(124, 58, 237, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.25)",
-                    transition: "all 0.3s ease"
-                  }}
-                >
-                  {/* Background Glow Accents */}
-                  <div style={{ position: "absolute", top: "-20px", left: "-20px", width: "140px", height: "140px", background: "#523056", filter: "blur(45px)", opacity: 0.7, zIndex: 0 }}></div>
-                  <div style={{ position: "absolute", bottom: "-20px", right: "-20px", width: "160px", height: "160px", background: "#705474", filter: "blur(55px)", opacity: 0.5, zIndex: 0 }}></div>
-                  
-                  {/* Inner Dark Screen Mockup */}
-                  <div 
-                    style={{
-                      position: "relative",
-                      zIndex: 1,
-                      borderRadius: "18px",
-                      border: "1.5px solid rgba(255, 255, 255, 0.15)",
-                      backgroundColor: "#0D0B1A",
-                      boxShadow: "0 15px 35px rgba(0, 0, 0, 0.85)",
-                      overflow: "hidden"
-                    }}
-                  >
-                    <img 
-                      src="/tpl-saas-software.jpg" 
-                      alt="IT Solutions Dashboard Showcase" 
-                      style={{ 
-                        width: "100%", 
-                        height: "auto",
-                        display: "block", 
-                        borderRadius: "16px" 
-                      }} 
-                    />
+              <div className="relative w-[90%] mx-auto h-[380px] flex items-center justify-center group overflow-visible pb-4">
+                {/* Images */}
+                <img
+                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"
+                  alt="Code"
+                  className="absolute top-0 left-0 w-[48%] h-[48%] object-cover shadow-2xl z-10"
+                  style={{ borderRadius: "24px" }}
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80"
+                  alt="AI Tech"
+                  className="absolute bottom-0 left-0 w-[48%] h-[48%] object-cover shadow-2xl z-10"
+                  style={{ borderRadius: "24px" }}
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80"
+                  alt="Design Process"
+                  className="absolute top-[5%] right-0 w-[48%] h-[90%] object-cover shadow-2xl z-20"
+                  style={{ borderRadius: "24px" }}
+                />
+
+                {/* Center Spinning Badge */}
+                <div className="absolute z-30 flex items-center justify-center w-[160px] h-[160px] rounded-full bg-[#f1eef1] shadow-[0_20px_40px_rgba(0,0,0,0.4)] left-[48%] top-[50%]" style={{ transform: "translate(-50%, -50%) scale(0.65)" }}>
+                  <svg viewBox="0 0 100 100" className="absolute w-[140px] h-[140px] animate-[spin_15s_linear_infinite]">
+                    <path id="circlePathMobileSolutions" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" fill="none" />
+                    <text className="text-[9.5px] font-bold uppercase fill-black tracking-[3px]">
+                      <textPath href="#circlePathMobileSolutions" startOffset="0%" textLength="220" lengthAdjust="spacing">
+                        Devoxa Technologies — Digital Experiences
+                      </textPath>
+                    </text>
+                  </svg>
+                  <div className="absolute w-[44px] h-[44px] bg-[#111] rounded-full flex items-center justify-center shadow-inner">
+                    <span className="text-[#f1eef1] font-bold text-xl tracking-tighter">D</span>
                   </div>
                 </div>
               </div>
@@ -1485,35 +1463,10 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       <section id="how-it-works" className="scroll-mt-32 vx-float" style={{ background: "transparent", padding: "60px 0 40px", position: "relative", overflow: "hidden" }}>
         
         <div className="absolute inset-0 z-0 bg-black/50" />
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 1, pointerEvents: 'none' }}>
-          <WebGLVisibilityWrapper isAbsolute={false}>
-            <MagicRings
-              color="#523056"
-              colorTwo="#c6bbc7"
-              ringCount={6}
-              speed={1}
-              attenuation={10}
-              lineThickness={2}
-              baseRadius={0.35}
-              radiusStep={0.1}
-              scaleRate={0.1}
-              opacity={1}
-              blur={0}
-              noiseAmount={0.1}
-              rotation={0}
-              ringGap={1.5}
-              fadeIn={0.7}
-              fadeOut={0.5}
-              followMouse={false}
-              mouseInfluence={0.2}
-              hoverScale={1.2}
-              parallax={0.05}
-              clickBurst={false}
-            />
-          </WebGLVisibilityWrapper>
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 0.05, pointerEvents: 'none', background: 'radial-gradient(circle at center, #523056 0%, transparent 60%)' }}>
         </div>
 
-        <div className="wrap px-4 md:px-8" style={{ position: "relative", zIndex: 1 }}>
+        <div className="wrap px-4 md:px-8" style={{ padding: "0 32px", boxSizing: "border-box", position: "relative", zIndex: 1 }}>
           <div className="section-head reveal in flex flex-col items-center" style={{ margin: "0 auto 40px", textAlign: "center" }}>
             <span className="eyebrow" style={{ margin: "0 0 16px 0" }}>Our Process</span>
             <h2 style={{ textAlign: "center", fontSize: "clamp(26px, 7vw, 36px)", lineHeight: 1.2, marginBottom: "16px" }}>How Professional IT Services<br />Can Drive <span className="font-stencilia uppercase" style={{ background: "linear-gradient(90deg,#523056,#8f7992)", WebkitBackgroundClip: "text", color: "transparent" }}>Success</span></h2>
@@ -1526,24 +1479,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
 
       {/* Recent Projects */}
       <section id="recent-projects" className="scroll-mt-32 transparent-bg vx-float" style={{ padding: "40px 0 30px", position: "relative", zIndex: 10 }}>
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 0.5, pointerEvents: 'none' }}>
-          <LiquidEther
-            colors={['#523056', '#705474', '#ad9daf']}
-            mouseForce={20}
-            cursorSize={100}
-            isViscous={false}
-            viscous={30}
-            iterationsViscous={32}
-            iterationsPoisson={32}
-            resolution={0.5}
-            isBounce={false}
-            autoDemo={true}
-            autoSpeed={0.5}
-            autoIntensity={2.2}
-            takeoverDuration={0.25}
-            autoResumeDelay={3000}
-            autoRampDuration={0.6}
-          />
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 0.15, pointerEvents: 'none', background: 'radial-gradient(circle at 50% 50%, #523056 0%, transparent 70%)' }}>
         </div>
         <div className="wrap" style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 20px" }}>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", marginBottom: "24px", position: "relative" }}>
@@ -1581,20 +1517,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
           overflow: "hidden"
         }}
       >
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 0.8, pointerEvents: 'none' }}>
-          <WebGLVisibilityWrapper isAbsolute={false}>
-            <LightRays
-              raysOrigin="top-center"
-              raysColor="#c6bbc7"
-              raysSpeed={1.5}
-              lightSpread={0.8}
-              rayLength={1.2}
-              followMouse={true}
-              mouseInfluence={0.1}
-              noiseAmount={0.1}
-              distortion={0.05}
-            />
-          </WebGLVisibilityWrapper>
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 0.2, pointerEvents: 'none', background: 'radial-gradient(circle at top center, rgba(198, 187, 199, 0.6) 0%, transparent 60%)' }}>
         </div>
 
         <div className="wrap" style={{ position: "relative", zIndex: 1, padding: "0 32px" }}>
@@ -1627,7 +1550,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
           </div>
 
           <div className="reveal in w-full">
-            <MobileServicePackages />
+            <MobileServicePackages onOpenModal={onOpenModal} />
           </div>
         </div>
       </section>
@@ -1651,54 +1574,175 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 px-2 sm:px-4 w-full mt-6">
-            <BorderGlow className="ind-card reveal in" borderRadius={20} animated={false} colors={['#523056', '#705474', '#ded8df']}>
-              <div className="ind-img-wrap !aspect-video"><img src="/tech-saas-cover.png" alt="Technology & SaaS" /></div>
-              <div className="ind-label !text-xs sm:!text-sm">Technology & SaaS</div>
-              <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Scalable platforms built for rapid growth</div>
-              <div className="ind-meta">
-                <span className="text-[10px] sm:text-sm font-semibold text-[#705474] tracking-wide hover:text-[#f1eef1] transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
+            
+            {/* Card 1 */}
+            <div className="relative w-full aspect-[4/5] rounded-[18px] overflow-hidden shadow-2xl group border border-[#705474]/20">
+              <Image src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=600&q=80" alt="Technology & SaaS" fill className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              
+              {/* Label at Top Left */}
+              <div className="absolute top-3 left-3 z-10">
+                <span className="inline-flex items-center text-white text-[11px] sm:text-[12px] font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] tracking-wide">
+                  Cloud & SaaS
+                </span>
               </div>
-            </BorderGlow>
-            <BorderGlow className="ind-card reveal in delay-[100ms]" borderRadius={20} animated={false} colors={['#523056', '#705474', '#ded8df']}>
-              <div className="ind-img-wrap !aspect-video"><img src="/finance-banking-cover.png" alt="Finance & Banking" /></div>
-              <div className="ind-label !text-xs sm:!text-sm">Finance & Banking</div>
-              <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Secure systems for regulated industries</div>
-              <div className="ind-meta">
-                <span className="text-[10px] sm:text-sm font-semibold text-[#705474] tracking-wide hover:text-[#f1eef1] transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
+
+              {/* Rating at Top Right */}
+              <div className="absolute top-3 right-3 z-10">
+                <span className="inline-flex items-center gap-1 text-white text-[11px] sm:text-[12px] font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                  <span className="text-[#FBBF24]">★</span>4.9
+                </span>
               </div>
-            </BorderGlow>
-            <BorderGlow className="ind-card reveal in delay-[200ms]" borderRadius={20} animated={false} colors={['#523056', '#705474', '#ded8df']}>
-              <div className="ind-img-wrap !aspect-video"><img src="/healthcare-cover.png" alt="Healthcare" /></div>
-              <div className="ind-label !text-xs sm:!text-sm">Healthcare</div>
-              <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Compliant, patient-first digital tools</div>
-              <div className="ind-meta">
-                <span className="text-[10px] sm:text-sm font-semibold text-[#705474] tracking-wide hover:text-[#f1eef1] transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
+
+              <div className="absolute inset-x-0 bottom-0 h-[85%] bg-gradient-to-t from-[#0A0714] via-[#0A0714]/90 to-transparent pointer-events-none"></div>
+              <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4 flex flex-col justify-end h-full">
+                <div className="mt-auto">
+                  <h3 className="text-white text-[13px] sm:text-[14px] font-extrabold tracking-tight mb-1 leading-tight drop-shadow-lg">Technology & SaaS</h3>
+                  <p className="text-[#f1eef1]/95 text-[10px] sm:text-[11px] font-medium leading-[1.4] mb-3 line-clamp-3 drop-shadow-md">Scalable platforms built for rapid growth and enterprise performance.</p>
+                  <button className="w-full bg-white/15 backdrop-blur-md text-white text-[11px] font-bold py-2 rounded-[12px] shadow-sm border border-white/30 transition-colors hover:bg-white/25 active:bg-white/10">Explore Solutions</button>
+                </div>
               </div>
-            </BorderGlow>
-            <BorderGlow className="ind-card reveal in" borderRadius={20} animated={false} colors={['#523056', '#705474', '#ded8df']}>
-              <div className="ind-img-wrap !aspect-video"><img src="/shopix-ecommerce.png" alt="Retail & E-commerce Dashboard" /></div>
-              <div className="ind-label !text-xs sm:!text-sm">Retail & E-commerce</div>
-              <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Storefronts that convert and scale</div>
-              <div className="ind-meta">
-                <span className="text-[10px] sm:text-sm font-semibold text-[#705474] tracking-wide hover:text-[#f1eef1] transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
+            </div>
+
+            {/* Card 2 */}
+            <div className="relative w-full aspect-[4/5] rounded-[18px] overflow-hidden shadow-2xl group border border-[#705474]/20">
+              <Image src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80" alt="Finance & Banking" fill className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              
+              {/* Label at Top Left */}
+              <div className="absolute top-3 left-3 z-10">
+                <span className="inline-flex items-center text-white text-[11px] sm:text-[12px] font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] tracking-wide">
+                  Fintech
+                </span>
               </div>
-            </BorderGlow>
-            <BorderGlow className="ind-card reveal in delay-[100ms]" borderRadius={20} animated={false} colors={['#523056', '#705474', '#ded8df']}>
-              <div className="ind-img-wrap !aspect-video"><img src="/education-cover.png" alt="Education" /></div>
-              <div className="ind-label !text-xs sm:!text-sm">Education</div>
-              <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Learning platforms built to engage</div>
-              <div className="ind-meta">
-                <span className="text-[10px] sm:text-sm font-semibold text-[#705474] tracking-wide hover:text-[#f1eef1] transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
+
+              {/* Rating at Top Right */}
+              <div className="absolute top-3 right-3 z-10">
+                <span className="inline-flex items-center gap-1 text-white text-[11px] sm:text-[12px] font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                  <span className="text-[#FBBF24]">★</span>4.8
+                </span>
               </div>
-            </BorderGlow>
-            <BorderGlow className="ind-card reveal in delay-[200ms]" borderRadius={20} animated={false} colors={['#523056', '#705474', '#ded8df']}>
-              <div className="ind-img-wrap !aspect-video"><img src="/manufacturing-cover.png" alt="Manufacturing" /></div>
-              <div className="ind-label !text-xs sm:!text-sm">Manufacturing</div>
-              <div className="ind-desc !text-[10px] sm:!text-xs !leading-tight">Automation for modern production lines</div>
-              <div className="ind-meta">
-                <span className="text-[10px] sm:text-sm font-semibold text-[#705474] tracking-wide hover:text-[#f1eef1] transition-colors duration-300" style={{ cursor: 'pointer' }}>Explore <ArrowRight size={12} className="inline-block ml-0.5 sm:ml-1" /></span>
+
+              <div className="absolute inset-x-0 bottom-0 h-[85%] bg-gradient-to-t from-[#0A0714] via-[#0A0714]/90 to-transparent pointer-events-none"></div>
+              <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4 flex flex-col justify-end h-full">
+                <div className="mt-auto">
+                  <h3 className="text-white text-[13px] sm:text-[14px] font-extrabold tracking-tight mb-1 leading-tight drop-shadow-lg">Finance & Banking</h3>
+                  <p className="text-[#f1eef1]/95 text-[10px] sm:text-[11px] font-medium leading-[1.4] mb-3 line-clamp-3 drop-shadow-md">Secure systems for regulated industries and modern fintech.</p>
+                  <button className="w-full bg-white/15 backdrop-blur-md text-white text-[11px] font-bold py-2 rounded-[12px] shadow-sm border border-white/30 transition-colors hover:bg-white/25 active:bg-white/10">Explore Solutions</button>
+                </div>
               </div>
-            </BorderGlow>
+            </div>
+
+            {/* Card 3 */}
+            <div className="relative w-full aspect-[4/5] rounded-[18px] overflow-hidden shadow-2xl group border border-[#705474]/20">
+              <Image src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80" alt="Healthcare" fill className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              
+              {/* Label at Top Left */}
+              <div className="absolute top-3 left-3 z-10">
+                <span className="inline-flex items-center text-white text-[11px] sm:text-[12px] font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] tracking-wide">
+                  HIPAA
+                </span>
+              </div>
+
+              {/* Rating at Top Right */}
+              <div className="absolute top-3 right-3 z-10">
+                <span className="inline-flex items-center gap-1 text-white text-[11px] sm:text-[12px] font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                  <span className="text-[#FBBF24]">★</span>5.0
+                </span>
+              </div>
+
+              <div className="absolute inset-x-0 bottom-0 h-[85%] bg-gradient-to-t from-[#0A0714] via-[#0A0714]/90 to-transparent pointer-events-none"></div>
+              <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4 flex flex-col justify-end h-full">
+                <div className="mt-auto">
+                  <h3 className="text-white text-[13px] sm:text-[14px] font-extrabold tracking-tight mb-1 leading-tight drop-shadow-lg">Healthcare</h3>
+                  <p className="text-[#f1eef1]/95 text-[10px] sm:text-[11px] font-medium leading-[1.4] mb-3 line-clamp-3 drop-shadow-md">Compliant, patient-first digital tools and data management.</p>
+                  <button className="w-full bg-white/15 backdrop-blur-md text-white text-[11px] font-bold py-2 rounded-[12px] shadow-sm border border-white/30 transition-colors hover:bg-white/25 active:bg-white/10">Explore Solutions</button>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 4 */}
+            <div className="relative w-full aspect-[4/5] rounded-[18px] overflow-hidden shadow-2xl group border border-[#705474]/20">
+              <Image src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=600&q=80" alt="Retail & E-commerce" fill className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              
+              {/* Label at Top Left */}
+              <div className="absolute top-3 left-3 z-10">
+                <span className="inline-flex items-center text-white text-[11px] sm:text-[12px] font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] tracking-wide">
+                  B2B/B2C
+                </span>
+              </div>
+
+              {/* Rating at Top Right */}
+              <div className="absolute top-3 right-3 z-10">
+                <span className="inline-flex items-center gap-1 text-white text-[11px] sm:text-[12px] font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                  <span className="text-[#FBBF24]">★</span>4.7
+                </span>
+              </div>
+
+              <div className="absolute inset-x-0 bottom-0 h-[85%] bg-gradient-to-t from-[#0A0714] via-[#0A0714]/90 to-transparent pointer-events-none"></div>
+              <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4 flex flex-col justify-end h-full">
+                <div className="mt-auto">
+                  <h3 className="text-white text-[13px] sm:text-[14px] font-extrabold tracking-tight mb-1 leading-tight drop-shadow-lg">Retail & E-commerce</h3>
+                  <p className="text-[#f1eef1]/95 text-[10px] sm:text-[11px] font-medium leading-[1.4] mb-3 line-clamp-3 drop-shadow-md">High-performance storefronts that convert and scale globally.</p>
+                  <button className="w-full bg-white/15 backdrop-blur-md text-white text-[11px] font-bold py-2 rounded-[12px] shadow-sm border border-white/30 transition-colors hover:bg-white/25 active:bg-white/10">Explore Solutions</button>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 5 */}
+            <div className="relative w-full aspect-[4/5] rounded-[18px] overflow-hidden shadow-2xl group border border-[#705474]/20">
+              <Image src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80" alt="Education" fill className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              
+              {/* Label at Top Left */}
+              <div className="absolute top-3 left-3 z-10">
+                <span className="inline-flex items-center text-white text-[11px] sm:text-[12px] font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] tracking-wide">
+                  EdTech
+                </span>
+              </div>
+
+              {/* Rating at Top Right */}
+              <div className="absolute top-3 right-3 z-10">
+                <span className="inline-flex items-center gap-1 text-white text-[11px] sm:text-[12px] font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                  <span className="text-[#FBBF24]">★</span>4.8
+                </span>
+              </div>
+
+              <div className="absolute inset-x-0 bottom-0 h-[85%] bg-gradient-to-t from-[#0A0714] via-[#0A0714]/90 to-transparent pointer-events-none"></div>
+              <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4 flex flex-col justify-end h-full">
+                <div className="mt-auto">
+                  <h3 className="text-white text-[13px] sm:text-[14px] font-extrabold tracking-tight mb-1 leading-tight drop-shadow-lg">Education</h3>
+                  <p className="text-[#f1eef1]/95 text-[10px] sm:text-[11px] font-medium leading-[1.4] mb-3 line-clamp-3 drop-shadow-md">Interactive learning platforms built to engage and educate.</p>
+                  <button className="w-full bg-white/15 backdrop-blur-md text-white text-[11px] font-bold py-2 rounded-[12px] shadow-sm border border-white/30 transition-colors hover:bg-white/25 active:bg-white/10">Explore Solutions</button>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 6 */}
+            <div className="relative w-full aspect-[4/5] rounded-[18px] overflow-hidden shadow-2xl group border border-[#705474]/20">
+              <Image src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80" alt="Manufacturing" fill className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              
+              {/* Label at Top Left */}
+              <div className="absolute top-3 left-3 z-10">
+                <span className="inline-flex items-center text-white text-[11px] sm:text-[12px] font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] tracking-wide">
+                  Industry 4.0
+                </span>
+              </div>
+
+              {/* Rating at Top Right */}
+              <div className="absolute top-3 right-3 z-10">
+                <span className="inline-flex items-center gap-1 text-white text-[11px] sm:text-[12px] font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                  <span className="text-[#FBBF24]">★</span>4.9
+                </span>
+              </div>
+
+              <div className="absolute inset-x-0 bottom-0 h-[85%] bg-gradient-to-t from-[#0A0714] via-[#0A0714]/90 to-transparent pointer-events-none"></div>
+              <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4 flex flex-col justify-end h-full">
+                <div className="mt-auto">
+                  <h3 className="text-white text-[13px] sm:text-[14px] font-extrabold tracking-tight mb-1 leading-tight drop-shadow-lg">Manufacturing</h3>
+                  <p className="text-[#f1eef1]/95 text-[10px] sm:text-[11px] font-medium leading-[1.4] mb-3 line-clamp-3 drop-shadow-md">Automation and data insights for modern production lines.</p>
+                  <button className="w-full bg-white/15 backdrop-blur-md text-white text-[11px] font-bold py-2 rounded-[12px] shadow-sm border border-white/30 transition-colors hover:bg-white/25 active:bg-white/10">Explore Solutions</button>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -1709,7 +1753,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
           <div className="section-head reveal in relative z-10 mb-10 flex flex-col items-center text-center w-full">
             <span className="eyebrow" style={{ margin: '0 auto 16px', display: 'inline-block' }}>What Our Clients Say</span>
             <h2 style={{ margin: '0 auto 16px', textAlign: 'center', fontSize: 'clamp(26px, 6vw, 36px)', lineHeight: 1.15 }}>Trusted by businesses across <span className="font-stencilia uppercase">India</span></h2>
-            <p style={{ margin: '0 auto', textAlign: 'center', maxWidth: '500px', fontSize: '13px', color: '#94a3b8' }}>
+            <p style={{ margin: '0 auto', textAlign: 'center', maxWidth: '500px', fontSize: '13px', color: '#94a3b8', padding: '0 24px' }}>
               Delivering high-quality software, websites, CRM solutions, mobile applications, and AI automation.
             </p>
           </div>
@@ -1721,22 +1765,11 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       </section>
 
       {/* FAQ styled with new theme */}
-      <section id="faq" className="scroll-mt-32 vx-float relative" style={{ background: "transparent", paddingTop: "16px", paddingBottom: "60px", overflow: "hidden" }}>
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 1, pointerEvents: 'none' }}>
-          <WebGLVisibilityWrapper isAbsolute={false}>
-            <DarkVeil
-              hueShift={-45}
-              noiseIntensity={0.05}
-              scanlineIntensity={0.15}
-              speed={0.3}
-              scanlineFrequency={0.8}
-              warpAmount={0.02}
-              resolutionScale={1}
-            />
-          </WebGLVisibilityWrapper>
+      <section id="faq" className="scroll-mt-32 vx-float relative" style={{ background: "transparent", paddingTop: "16px", paddingBottom: "20px", overflow: "hidden" }}>
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 0.1, pointerEvents: 'none', background: 'linear-gradient(to bottom, rgba(139,47,209,0.1) 0%, transparent 100%)' }}>
         </div>
         <div className="wrap px-4 relative z-10">
-          <div className="flex flex-col items-center justify-center text-center mb-16">
+          <div className="flex flex-col items-center justify-center text-center mb-10">
             <span className="eyebrow inline-block mb-3" style={{ margin: "0 0 12px 0" }}>Questions</span>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tighter leading-[1.1] drop-shadow-lg mb-3">
               <ShinyText text="Common" color="#f1eef1" shineColor="#705474" speed={3} />{' '}
@@ -1746,7 +1779,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
               Everything you need to know about our approach, timelines, and how we deliver exceptional results.
             </p>
           </div>
-          <div className="flex justify-center w-full">
+          <div className="flex justify-center w-full mt-20">
             <div className="max-w-4xl w-full">
               <FAQAccordion />
             </div>
@@ -1758,19 +1791,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       <section id="cta-banner" className="scroll-mt-32 relative py-14 sm:py-20 overflow-hidden border-y border-[rgba(255,255,255,0.05)] bg-transparent px-4 md:px-8 min-h-[340px]">
         
         <div className="absolute inset-0 z-0 bg-black/50" />
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 1, pointerEvents: 'none' }}>
-          <WebGLVisibilityWrapper isAbsolute={false}>
-            <Particles
-              particleColors={["#ffffff", "#c6bbc7", "#523056"]}
-              particleCount={100}
-              particleSpread={10}
-              speed={0.1}
-              particleBaseSize={80}
-              moveParticlesOnHover={true}
-              alphaParticles={false}
-              disableRotation={false}
-            />
-          </WebGLVisibilityWrapper>
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 0.2, pointerEvents: 'none', background: 'radial-gradient(circle at center, rgba(139, 47, 209, 0.4) 0%, transparent 80%)' }}>
         </div>
         <div className="wrap relative z-10 w-full">
           <div className="max-w-3xl mx-auto flex flex-col items-center text-center w-full gap-4">

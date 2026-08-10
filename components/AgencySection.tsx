@@ -33,7 +33,7 @@ export default function AgencySection({ onOpenModal }: { onOpenModal: () => void
         <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "60px" }}>
           
           {/* Left Text Column */}
-          <div style={{ flex: "1 1 400px", maxWidth: "clamp(480px, 45vw, 680px)", paddingLeft: "clamp(20px, 5vw, 80px)", marginTop: "clamp(-60px, -5vh, -20px)" }}>
+          <div className="max-md:!pl-0 max-md:!w-full max-md:!max-w-full" style={{ flex: "1 1 300px", maxWidth: "clamp(300px, 90vw, 680px)", paddingLeft: "clamp(20px, 5vw, 80px)", marginTop: "clamp(-60px, -5vh, -20px)", boxSizing: "border-box" }}>
             
             {/* Eyebrow */}
             <div style={{ display: "flex", alignItems: "center", marginBottom: "clamp(16px, 2.5vh, 24px)", position: "relative" }}>
@@ -65,7 +65,7 @@ export default function AgencySection({ onOpenModal }: { onOpenModal: () => void
                 fontSize: "clamp(13px, 1.1vw, 15px)", 
                 color: "#ad9daf", 
                 lineHeight: 1.8, 
-                maxWidth: "clamp(400px, 40vw, 550px)",
+                maxWidth: "clamp(280px, 90vw, 550px)",
                 fontWeight: 400
               }}>
                 At <span style={{ color: "#fff", fontWeight: 600 }}>Devoxa Technologies</span>, we specialize in delivering high-quality <span style={{ color: "#fff", fontWeight: 600 }}>software, scalable websites, CRM solutions, dynamic mobile applications, and cutting-edge AI automation.</span>
@@ -128,7 +128,7 @@ export default function AgencySection({ onOpenModal }: { onOpenModal: () => void
           </div>
           
           {/* Right Circles Grid */}
-          <div style={{ flex: "1 1 500px" }}>
+          <div className="max-md:!w-full max-md:!flex-[1_1_100%]" style={{ flex: "1 1 500px" }}>
             <style dangerouslySetInnerHTML={{__html: `
               @media (max-width: 768px) {
                 .agency-section-wrapper {

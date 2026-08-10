@@ -78,8 +78,8 @@ export default function ForgotPasswordPage() {
                 
                 {/* Logo Area */}
                 <div className="relative z-10 mb-8 flex items-center justify-center gap-3">
-                    <Image src="/logo.png" alt="Devoxa Logo" width={36} height={36} className="rounded-md bg-theme-50 p-1" />
-                    <span style={{ fontSize: "32px", fontWeight: 700, color: "#fff", letterSpacing: "-1px" }}>Devoxa.</span>
+                    <Image src="/logo.png" alt="Devoxa Logo" width={36} height={36} className="object-contain" />
+                    <span style={{ fontSize: "32px", fontWeight: 700, color: "#fff", letterSpacing: "-1px" }}>Devoxa Technologies</span>
                 </div>
 
                 {/* Form Container */}

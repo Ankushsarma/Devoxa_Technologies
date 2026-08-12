@@ -35,13 +35,11 @@ export const metadata: Metadata = {
     siteName: 'Devoxa Technologies',
     title: 'Devoxa Technologies | Digital Agency from Bihar',
     description: 'Crafting immersive digital dreams that push boundaries and captivate audiences worldwide.',
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Devoxa Technologies' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Devoxa Technologies — Devoxa Technologies',
     description: 'We craft immersive digital experiences that push boundaries and captivate audiences worldwide.',
-    images: ['/og-image.jpg'],
   },
   robots: { index: true, follow: true },
   verification: {

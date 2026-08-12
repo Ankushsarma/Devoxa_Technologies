@@ -8,16 +8,12 @@ import Link from "next/link"
 import { Search, BarChart3, Layers, Code2, Zap, ArrowRight, ArrowLeft, Quote, CheckCircle, X, Youtube, Twitter, Instagram, Linkedin, Phone, ChevronUp, ChevronDown } from "lucide-react"
 import FAQAccordion from '@/components/FAQAccordion';
 import ShinyText from '@/components/ShinyText';
-import LiquidEther from '@/components/LiquidEther';
 import LightPillar from '@/components/LightPillar';
 import WebGLVisibilityWrapper from '@/components/WebGLVisibilityWrapper';
 import MagicRings from '@/components/MagicRings';
 import CSSWaveBackground from '@/components/CSSWaveBackground';
-import LightRays from '@/components/LightRays';
 import CSSParticleStars from '@/components/CSSParticleStars';
-import CanvasVisibilityWrapper from '@/components/CanvasVisibilityWrapper';
 
-import LineWaves from "@/components/LineWaves"
 import ConsultationModal from "@/components/ConsultationModal"
 import SciFiServiceModal, { ServiceDetails } from "@/components/SciFiServiceModal"
 import AgencySection from "@/components/AgencySection"

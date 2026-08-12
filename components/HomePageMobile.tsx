@@ -4,29 +4,17 @@ import { useEffect, useState, useRef, useLayoutEffect } from "react"
 import { useAuth } from "@/context/auth-context"
 import { toast } from "sonner"
 import Image from "next/image"
-import WebGLVisibilityWrapper from '@/components/WebGLVisibilityWrapper';
+
 import Link from "next/link"
 import { Users, Layout, Shield, Search, ArrowRight, ArrowLeft, Activity, Menu, Code2, Zap, Layers, BarChart3, Database, CheckCircle, X, Youtube, Twitter, Instagram, Linkedin, Phone, Building2, ChevronDown, ChevronUp } from "lucide-react"
 import FAQAccordion from '@/components/FAQAccordion';
 import ShinyText from '@/components/ShinyText';
 import TextType from '@/components/TextType';
+import BorderGlow from "@/components/BorderGlow"
 
-
-import LineWaves from "@/components/LineWaves"
 import ConsultationModal from "@/components/ConsultationModal"
 import SciFiServiceModal, { ServiceDetails } from "@/components/SciFiServiceModal"
 import AgencySection from "@/components/AgencySection"
-import LightPillar from "@/components/LightPillar"
-import MagicRings from "@/components/MagicRings"
-import CircularGallery from "@/components/CircularGallery"
-import LiquidEther from "@/components/LiquidEther"
-import SpecularButton from "@/components/SpecularButton"
-import LightRays from "@/components/LightRays"
-import BorderGlow from "@/components/BorderGlow"
-import DarkVeil from "@/components/DarkVeil"
-import Particles from "@/components/Particles"
-
-import SideRays from "@/components/SideRays"
 import SpotlightCard from "@/components/SpotlightCard"
 import PillNav from "@/components/PillNav"
 import { FooterMobile } from "@/components/ui/footer-section-mobile"

@@ -203,9 +203,9 @@ const Lightfall = ({
     if (!container) return;
 
     const renderer = new Renderer({
-      dpr: dpr ?? (typeof window !== 'undefined' ? window.devicePixelRatio || 1 : 1),
+      dpr: 1.0, // Cap at 1.0 to reduce GPU fill-rate
       alpha: true,
-      antialias: true
+      antialias: false
     });
     rendererRef.current = renderer;
     const gl = renderer.gl;
@@ -280,6 +280,14 @@ const Lightfall = ({
       canvas.addEventListener('pointermove', onPointerMove);
     }
 
+    // Pause rendering when scrolled out of view
+    let isInViewport = false;
+    const visIO = new IntersectionObserver(
+      ([entry]) => { isInViewport = entry.isIntersecting; },
+      { threshold: 0 }
+    );
+    visIO.observe(canvas);
+
     const loop = t => {
       rafRef.current = requestAnimationFrame(loop);
       uniforms.iTime.value = t * 0.001;
@@ -297,7 +305,7 @@ const Lightfall = ({
       } else {
         lastTimeRef.current = t;
       }
-      if (!paused && programRef.current && meshRef.current) {
+      if (!paused && isInViewport && programRef.current && meshRef.current) {
         try {
           renderer.render({ scene: meshRef.current });
         } catch (e) {
@@ -309,6 +317,7 @@ const Lightfall = ({
 
     return () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      visIO.disconnect();
       if (mouseInteraction) canvas.removeEventListener('pointermove', onPointerMove);
       ro.disconnect();
       if (canvas.parentElement === container) {

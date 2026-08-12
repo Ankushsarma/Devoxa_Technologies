@@ -402,8 +402,15 @@ class App {
     this.scrollSpeed = scrollSpeed;
     this.scroll = { ease: scrollEase, current: 0, target: 0, last: 0 };
     this.onCheckDebounce = debounce(this.onCheck, 200);
+    this.isVisible = false;
+    // Only render when gallery is in viewport
+    this.visIO = new IntersectionObserver(
+      ([entry]) => { this.isVisible = entry.isIntersecting; },
+      { threshold: 0 }
+    );
     this.createRenderer();
     if (!this.renderer) return;
+    this.visIO.observe(this.renderer.gl.canvas);
     this.createCamera();
     this.createScene();
     this.onResize();
@@ -413,11 +420,11 @@ class App {
     this.addEventListeners();
   }
   createRenderer() {
-        try {
+    try {
       this.renderer = new Renderer({
         alpha: true,
-        antialias: true,
-        dpr: Math.min(window.devicePixelRatio || 1, 2)
+        antialias: false,
+        dpr: 1.0 // Cap at 1.0 to halve GPU fill-rate
       });
     } catch (e) {
       console.warn("WebGL limit reached, skipping CircularGallery rendering.");
@@ -545,7 +552,10 @@ class App {
     if (this.medias) {
       this.medias.forEach(media => media.update(this.scroll, direction));
     }
-    this.renderer.render({ scene: this.scene, camera: this.camera });
+    // Only GPU-render when visible; keep scroll lerp alive so it's smooth when re-entering
+    if (this.isVisible) {
+      this.renderer.render({ scene: this.scene, camera: this.camera });
+    }
     this.scroll.last = this.scroll.current;
     this.raf = window.requestAnimationFrame(this.update.bind(this));
   }
@@ -571,6 +581,7 @@ class App {
   }
   destroy() {
     window.cancelAnimationFrame(this.raf);
+    if (this.visIO) this.visIO.disconnect();
     window.removeEventListener('resize', this.boundOnResize);
     window.removeEventListener('mousewheel', this.boundOnWheel);
     window.removeEventListener('wheel', this.boundOnWheel);

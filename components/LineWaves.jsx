@@ -1,4 +1,3 @@
-import { useVisibility } from './CanvasVisibilityWrapper';
 import CanvasVisibilityWrapper from "@/components/CanvasVisibilityWrapper";
 import { Renderer, Program, Mesh, Triangle } from 'ogl';
 import { useEffect, useRef } from 'react';
@@ -153,7 +152,7 @@ function LineWavesInner({
   useEffect(() => {
     if (!containerRef.current) return;
     const container = containerRef.current;
-    const renderer = new Renderer({ alpha: true, premultipliedAlpha: false });
+    const renderer = new Renderer({ dpr: 1.0, alpha: true, premultipliedAlpha: false });
     const gl = renderer.gl;
     gl.clearColor(0, 0, 0, 0);
 
@@ -216,9 +215,18 @@ function LineWavesInner({
     }
 
     let animationFrameId;
+    let isInViewport = false;
+
+    // Pause renders when scrolled out of view
+    const visIO = new IntersectionObserver(
+      ([entry]) => { isInViewport = entry.isIntersecting; },
+      { threshold: 0 }
+    );
+    visIO.observe(container);
 
     function update(time) {
-      animationFrameId = requestAnimationFrame((time) => { if (visibilityRef.current) { update(time); } else { requestAnimationFrame(update); } });
+      animationFrameId = requestAnimationFrame(update);
+      if (!isInViewport) return; // Skip render when off-screen
       program.uniforms.uTime.value = time * 0.001;
 
       if (enableMouseInteraction) {
@@ -233,16 +241,17 @@ function LineWavesInner({
 
       renderer.render({ scene: mesh });
     }
-    animationFrameId = requestAnimationFrame((time) => { if (visibilityRef.current) { update(time); } else { requestAnimationFrame(update); } });
+    animationFrameId = requestAnimationFrame(update);
 
     return () => {
       cancelAnimationFrame(animationFrameId);
+      visIO.disconnect();
       window.removeEventListener('resize', resize);
       if (enableMouseInteraction) {
         gl.canvas.removeEventListener('mousemove', handleMouseMove);
         gl.canvas.removeEventListener('mouseleave', handleMouseLeave);
       }
-      container.removeChild(gl.canvas);
+      if (container.contains(gl.canvas)) container.removeChild(gl.canvas);
       gl.getExtension('WEBGL_lose_context')?.loseContext();
     };
   }, [speed, innerLineCount, outerLineCount, warpIntensity, rotation, edgeFadeWidth, colorCycleSpeed, brightness, color1, color2, color3, enableMouseInteraction, mouseInfluence]);
@@ -252,9 +261,6 @@ function LineWavesInner({
 
 
 export default function LineWaves(props) {
-  const { isVisible } = useVisibility();
-  const visibilityRef = React.useRef(isVisible);
-  React.useEffect(() => { visibilityRef.current = isVisible; }, [isVisible]);
   return (
     <CanvasVisibilityWrapper>
       <LineWavesInner {...props} />

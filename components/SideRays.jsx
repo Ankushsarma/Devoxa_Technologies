@@ -58,7 +58,7 @@ const SideRays = ({
       let renderer;
       try {
         renderer = new Renderer({
-          dpr: Math.min(window.devicePixelRatio, 2),
+          dpr: 1.0, // Cap at 1.0 to halve fill-rate
           alpha: true,
           premultipliedAlpha: false
         });
@@ -170,20 +170,29 @@ void main() {
 
       const updateSize = () => {
         if (!containerRef.current || !renderer) return;
-        renderer.dpr = Math.min(window.devicePixelRatio, 2);
+        renderer.dpr = 1.0;
         const { clientWidth: w, clientHeight: h } = containerRef.current;
         renderer.setSize(w, h);
         uniforms.iResolution.value = [w * renderer.dpr, h * renderer.dpr];
       };
 
+      // Pause renders when not in viewport
+      let isVisible = false;
+      const visIO = new IntersectionObserver(
+        ([entry]) => { isVisible = entry.isIntersecting; },
+        { threshold: 0 }
+      );
+      visIO.observe(containerRef.current);
+
       const loop = t => {
         if (!rendererRef.current || !uniformsRef.current || !meshRef.current) return;
+        animationIdRef.current = requestAnimationFrame(loop);
+        if (!isVisible) return; // Skip render when off-screen
         uniforms.iTime.value = t * 0.001;
         try {
           renderer.render({ scene: mesh });
-          animationIdRef.current = requestAnimationFrame(loop);
         } catch (e) {
-      return;
+          return;
         }
       };
 
@@ -197,6 +206,7 @@ void main() {
           animationIdRef.current = null;
         }
         window.removeEventListener('resize', updateSize);
+        visIO.disconnect();
         if (renderer) {
           try {
             const loseCtx = renderer.gl.getExtension('WEBGL_lose_context');

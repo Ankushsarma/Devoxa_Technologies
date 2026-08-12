@@ -60,11 +60,11 @@ const LightPillar = ({
 
     const qualitySettings: any = {
       low: { iterations: 48, waveIterations: 3, pixelRatio: 1.0, precision: 'mediump', stepMultiplier: 1.0 },
-      medium: { iterations: 60, waveIterations: 3, pixelRatio: Math.min(typeof window !== 'undefined' ? window.devicePixelRatio : 1, 1.5), precision: 'highp', stepMultiplier: 1.0 },
+      medium: { iterations: 60, waveIterations: 3, pixelRatio: 1.0, precision: 'highp', stepMultiplier: 1.0 },
       high: {
         iterations: 80,
         waveIterations: 4,
-        pixelRatio: Math.min(window.devicePixelRatio, 2),
+        pixelRatio: 1.0,
         precision: 'highp',
         stepMultiplier: 1.0
       }

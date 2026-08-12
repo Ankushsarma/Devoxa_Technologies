@@ -11,10 +11,19 @@ export const PerformanceContext = createContext<PerformanceContextType>({
 });
 
 export function PerformanceProvider({ children }: { children: React.ReactNode }) {
-  // Default to false so SSR perfectly matches initial client render
-  const [lowQualityMode, setLowQualityMode] = useState(false);
+  // Detect low-end device immediately (no wait needed)
+  const [lowQualityMode, setLowQualityMode] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    const cores = navigator.hardwareConcurrency ?? 8;
+    const isMobile = /Android|iPhone|iPad|iPod|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    // Trigger low quality immediately for low-end devices
+    return isMobile || cores <= 4;
+  });
 
   useEffect(() => {
+    // Already in low quality mode — skip FPS check
+    if (lowQualityMode) return;
+
     let frameCount = 0;
     let lastTime = performance.now();
     let rafId: number;
@@ -27,31 +36,30 @@ export function PerformanceProvider({ children }: { children: React.ReactNode })
       rafId = requestAnimationFrame(measureFPS);
     };
 
-    // Start checking
     rafId = requestAnimationFrame(measureFPS);
 
-    // Stop checking after 3 seconds and calculate average
+    // Check after 2 seconds (shorter than before)
     checkTimeout = setTimeout(() => {
       isChecking = false;
       cancelAnimationFrame(rafId);
-      
+
       const currentTime = performance.now();
       const elapsed = currentTime - lastTime;
       const fps = (frameCount * 1000) / elapsed;
 
-      // If FPS is extremely poor, trigger low quality mode
-      if (fps < 40) {
-        console.warn(`[Performance Monitor] Low FPS detected (${Math.round(fps)} FPS). Engaging adaptive resolution for canvas components.`);
+      // Lower threshold: trigger at < 50fps instead of 40fps
+      if (fps < 50) {
+        console.warn(`[Performance Monitor] Low FPS (${Math.round(fps)}fps). Enabling adaptive quality.`);
         setLowQualityMode(true);
       }
-    }, 3000);
+    }, 2000);
 
     return () => {
       isChecking = false;
       cancelAnimationFrame(rafId);
       clearTimeout(checkTimeout);
     };
-  }, []);
+  }, [lowQualityMode]);
 
   return (
     <PerformanceContext.Provider value={{ lowQualityMode }}>

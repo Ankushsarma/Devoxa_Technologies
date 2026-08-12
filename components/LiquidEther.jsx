@@ -9,11 +9,11 @@ function LiquidEtherInner({
   cursorSize = 100,
   isViscous = false,
   viscous = 30,
-  iterationsViscous = 32,
-  iterationsPoisson = 32,
+  iterationsViscous = 16,
+  iterationsPoisson = 16,
   dt = 0.014,
   BFECC = true,
-  resolution = 0.5,
+  resolution = 0.3,
   isBounce = false,
   colors = ['#5227FF', '#FF9FFC', '#B497CF'],
   style = {},
@@ -87,9 +87,10 @@ function LiquidEtherInner({
       }
       init(container) {
         this.container = container;
-        this.pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+        // Cap pixelRatio to 1.0 to prevent 2x overdraw on HiDPI screens
+        this.pixelRatio = 1.0;
         this.resize();
-        this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        this.renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true });
         this.renderer.autoClear = false;
         this.renderer.setClearColor(new THREE.Color(0x000000), 0);
         this.renderer.setPixelRatio(this.pixelRatio);

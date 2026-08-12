@@ -121,7 +121,7 @@ const Particles = ({
     let renderer;
     try {
       renderer = new Renderer({
-        dpr: pixelRatio,
+        dpr: 1.0, // Cap at 1.0 to reduce GPU fill-rate
         depth: false,
         alpha: true
       });
@@ -205,7 +205,9 @@ const Particles = ({
     let frameSkipCount = 0;
 
     const update = t => {
-      animationFrameId = requestAnimationFrame((time) => { if (visibilityRef.current) { update(time); } else { requestAnimationFrame(update); } });
+      animationFrameId = requestAnimationFrame(update);
+      // Pause rendering when not visible in viewport
+      if (!visibilityRef.current) return;
       if (lowQualityMode) {
         frameSkipCount++;
         if (frameSkipCount % 2 !== 0) return;
@@ -235,11 +237,7 @@ const Particles = ({
       renderer.render({ scene: particles, camera });
     };
 
-    animationFrameId = requestAnimationFrame((time) => { if (visibilityRef.current) { update(time); } else { requestAnimationFrame(update); } });
-      if (lowQualityMode) {
-        frameSkipCount++;
-        if (frameSkipCount % 2 !== 0) return;
-      }
+    animationFrameId = requestAnimationFrame(update);
 
     return () => {
       window.removeEventListener('resize', resize);
@@ -275,9 +273,6 @@ const Particles = ({
 
 
 export default function ParticlesWrapper(props) {
-  const { isVisible } = useVisibility();
-  const visibilityRef = React.useRef(isVisible);
-  React.useEffect(() => { visibilityRef.current = isVisible; }, [isVisible]);
   return (
     <CanvasVisibilityWrapper>
       <Particles {...props} />

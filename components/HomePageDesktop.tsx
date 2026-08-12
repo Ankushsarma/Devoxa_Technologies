@@ -12,9 +12,9 @@ import LiquidEther from '@/components/LiquidEther';
 import LightPillar from '@/components/LightPillar';
 import WebGLVisibilityWrapper from '@/components/WebGLVisibilityWrapper';
 import MagicRings from '@/components/MagicRings';
-import DarkVeil from '@/components/DarkVeil';
+import CSSWaveBackground from '@/components/CSSWaveBackground';
 import LightRays from '@/components/LightRays';
-import Particles from '@/components/Particles';
+import CSSParticleStars from '@/components/CSSParticleStars';
 import CanvasVisibilityWrapper from '@/components/CanvasVisibilityWrapper';
 
 import LineWaves from "@/components/LineWaves"
@@ -573,21 +573,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
 
   return (
     <>      <section id="hero" className="nx vx-float pt-24 md:pt-32">
-      <div className="absolute inset-0 z-0 bg-black/[0.65]" />
-      <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0, opacity: 1, pointerEvents: 'none' }}>
-        <WebGLVisibilityWrapper isAbsolute={false}>
-          <Particles
-            particleColors={["#ffffff", "#c6bbc7", "#523056"]}
-            particleCount={400}
-            particleSpread={10}
-            speed={0.1}
-            particleBaseSize={150}
-            moveParticlesOnHover={true}
-            alphaParticles={false}
-            disableRotation={false}
-          />
-        </WebGLVisibilityWrapper>
-      </div>
+      <CSSParticleStars density="high" overlay={0.65} />
       <div className="nx-inner" style={{ minHeight: "max(100vh, 750px)", alignItems: "flex-start", display: "flex", flexDirection: "column", justifyContent: "flex-start", paddingLeft: "clamp(50px, 12vw, 150px)", paddingTop: "clamp(160px, 20vh, 220px)", paddingBottom: "100px" }}>
         <div style={{ width: "100%", maxWidth: "clamp(480px, 45vw, 680px)", textAlign: "left", position: "relative", zIndex: 10, marginBottom: "auto" }}>
 
@@ -914,25 +900,8 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
 
       {/* Recent Projects */}
       <section id="recent-projects" className="scroll-mt-32 vx-float" style={{ padding: "80px 0 60px", position: "relative", zIndex: 10 }}>
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 0.5, pointerEvents: 'none' }}>
-          <LiquidEther
-            colors={['#523056', '#705474', '#ad9daf']}
-            mouseForce={20}
-            cursorSize={100}
-            isViscous={false}
-            viscous={30}
-            iterationsViscous={32}
-            iterationsPoisson={32}
-            resolution={0.5}
-            isBounce={false}
-            autoDemo={true}
-            autoSpeed={0.5}
-            autoIntensity={2.2}
-            takeoverDuration={0.25}
-            autoResumeDelay={3000}
-            autoRampDuration={0.6}
-          />
-        </div>
+
+
         <div className="wrap" style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 20px" }}>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", marginBottom: "80px", position: "relative" }}>
             <div className="section-head reveal in" style={{ margin: 0, display: "flex", flexDirection: "column", alignItems: "center" }}>
@@ -979,21 +948,6 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       {/* Pricing */}
       <section id="pricing" className="scroll-mt-32 light-sec transparent-bg vx-float" style={{ padding: "100px 0", position: "relative", overflow: "hidden" }}>
 
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 0.8, pointerEvents: 'none' }}>
-          <WebGLVisibilityWrapper isAbsolute={false}>
-            <LightRays
-              raysOrigin="top-center"
-              raysColor="#c6bbc7"
-              raysSpeed={1.5}
-              lightSpread={0.8}
-              rayLength={1.2}
-              followMouse={true}
-              mouseInfluence={0.1}
-              noiseAmount={0.1}
-              distortion={0.05}
-            />
-          </WebGLVisibilityWrapper>
-        </div>
 
         <div className="wrap" style={{ position: "relative", zIndex: 1 }}>
           <div className="section-head reveal in">
@@ -1245,19 +1199,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       {/* FAQ styled with new theme */}
       <section id="faq" className="scroll-mt-32 vx-float relative" style={{ background: "transparent", paddingTop: "40px", paddingBottom: "100px", overflow: "hidden" }}>
 
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 1, pointerEvents: 'none' }}>
-          <WebGLVisibilityWrapper isAbsolute={false}>
-            <DarkVeil
-              hueShift={-45}
-              noiseIntensity={0.05}
-              scanlineIntensity={0.15}
-              speed={0.3}
-              scanlineFrequency={0.8}
-              warpAmount={0.02}
-              resolutionScale={1}
-            />
-          </WebGLVisibilityWrapper>
-        </div>
+        <CSSWaveBackground />
 
         <div className="wrap relative z-10">
           <div className="flex flex-col items-center justify-center text-center mb-32">
@@ -1283,21 +1225,7 @@ function MainContent({ projects, onOpenModal }: { projects: any[], onOpenModal: 
       {/* CTA Banner */}
       <section id="cta-banner" className="scroll-mt-32 relative py-32 overflow-hidden border-y border-[rgba(255,255,255,0.05)] bg-transparent flex flex-col items-center justify-center min-h-[400px]">
 
-        <div className="absolute inset-0 z-0 bg-black/50" />
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, opacity: 1, pointerEvents: 'none' }}>
-          <WebGLVisibilityWrapper isAbsolute={false}>
-            <Particles
-              particleColors={["#ffffff", "#c6bbc7", "#523056"]}
-              particleCount={200}
-              particleSpread={10}
-              speed={0.1}
-              particleBaseSize={100}
-              moveParticlesOnHover={true}
-              alphaParticles={false}
-              disableRotation={false}
-            />
-          </WebGLVisibilityWrapper>
-        </div>
+        <CSSParticleStars density="low" overlay={0.5} />
 
         <div className="wrap relative z-10 w-full flex flex-col items-center justify-center h-full">
           <div className="max-w-5xl w-full mx-auto flex flex-col items-center justify-center text-center" style={{ gap: '2.5rem' }}>

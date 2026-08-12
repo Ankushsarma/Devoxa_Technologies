@@ -98,7 +98,7 @@ const LightRays = ({
       let renderer;
       try {
         renderer = new Renderer({
-          dpr: Math.min(window.devicePixelRatio, 2),
+          dpr: 1.0, // Cap at 1.0 to halve fill-rate
           alpha: true
         });
       } catch(e) {
@@ -251,7 +251,7 @@ void main() {
       const updatePlacement = () => {
         if (!containerRef.current || !renderer) return;
 
-        renderer.dpr = Math.min(window.devicePixelRatio, 2);
+        renderer.dpr = 1.0;
 
         const { clientWidth: wCSS, clientHeight: hCSS } = containerRef.current;
         renderer.setSize(wCSS, hCSS);

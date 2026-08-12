@@ -7,13 +7,22 @@ type VisibilityContextType = {
 };
 
 export const VisibilityContext = createContext<VisibilityContextType>({
-  isVisible: true,
+  isVisible: false,
 });
 
 export const useVisibility = () => useContext(VisibilityContext);
 
-export default function CanvasVisibilityWrapper({ children, rootMargin = "500px" }: { children: React.ReactNode, rootMargin?: string }) {
-  const [isVisible, setIsVisible] = useState(true);
+// rootMargin defaults to "0px" so canvases only run when actually in viewport.
+// Inner components that use useVisibility() will receive isVisible=false and
+// should pause their RAF loops, reducing GPU/CPU load for off-screen sections.
+export default function CanvasVisibilityWrapper({
+  children,
+  rootMargin = "0px",
+}: {
+  children: React.ReactNode;
+  rootMargin?: string;
+}) {
+  const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -21,7 +30,10 @@ export default function CanvasVisibilityWrapper({ children, rootMargin = "500px"
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
       },
-      { rootMargin } 
+      {
+        rootMargin,
+        threshold: [0, 0.05, 0.1, 0.5],
+      }
     );
 
     if (ref.current) observer.observe(ref.current);

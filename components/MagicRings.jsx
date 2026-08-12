@@ -161,7 +161,7 @@ function MagicRingsInner({
     const resize = () => {
       const w = mount.clientWidth;
       const h = mount.clientHeight;
-      const dpr = Math.min(window.devicePixelRatio, 2);
+      const dpr = 1.0; // Cap at 1.0 to reduce GPU fill-rate
       renderer.setSize(w, h);
       renderer.setPixelRatio(dpr);
       uniforms.uResolution.value.set(w * dpr, h * dpr);
@@ -198,8 +198,8 @@ function MagicRingsInner({
 
     let frameId;
     const animate = (t) => {
-      frameId = requestAnimationFrame((time) => { if (visibilityRef.current) { animate(time); } else { requestAnimationFrame(animate); } });
-      if (!isVisible) return;
+      frameId = requestAnimationFrame(animate);
+      if (!isVisible) return; // Skip render when off-screen
       
       const p = propsRef.current;
 
@@ -233,7 +233,7 @@ function MagicRingsInner({
 
       renderer.render(scene, camera);
     };
-    frameId = requestAnimationFrame((time) => { if (visibilityRef.current) { animate(time); } else { requestAnimationFrame(animate); } });
+    frameId = requestAnimationFrame(animate);
 
     return () => {
       cancelAnimationFrame(frameId);
@@ -256,9 +256,6 @@ function MagicRingsInner({
 
 
 export default function MagicRings(props) {
-  const { isVisible } = useVisibility();
-  const visibilityRef = React.useRef(isVisible);
-  React.useEffect(() => { visibilityRef.current = isVisible; }, [isVisible]);
   return (
     <CanvasVisibilityWrapper>
       <MagicRingsInner {...props} />

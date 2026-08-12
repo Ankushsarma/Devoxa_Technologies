@@ -90,10 +90,11 @@ function DarkVeilInner({
     const canvas = ref.current;
     const parent = canvas.parentElement;
 
+    // Cap dpr at 1.0 to halve fill-rate cost
     const renderer = new Renderer({
-      dpr: Math.min(window.devicePixelRatio, 2),
+      dpr: 1.0,
       canvas,
-      alpha: true, // We likely want transparency
+      alpha: true,
     });
 
     const gl = renderer.gl;
@@ -127,8 +128,18 @@ function DarkVeilInner({
 
     const start = performance.now();
     let frame = 0;
+    let isVisible = false;
+
+    // Only render when canvas is in the viewport
+    const io = new IntersectionObserver(
+      ([entry]) => { isVisible = entry.isIntersecting; },
+      { threshold: 0 }
+    );
+    io.observe(canvas);
 
     const loop = () => {
+      frame = requestAnimationFrame(loop);
+      if (!isVisible) return; // Skip render when off-screen
       program.uniforms.uTime.value = ((performance.now() - start) / 1000) * speed;
       program.uniforms.uHueShift.value = hueShift;
       program.uniforms.uNoise.value = noiseIntensity;
@@ -136,13 +147,13 @@ function DarkVeilInner({
       program.uniforms.uScanFreq.value = scanlineFrequency;
       program.uniforms.uWarp.value = warpAmount;
       renderer.render({ scene: mesh });
-      frame = requestAnimationFrame(loop);
     };
 
     loop();
 
     return () => {
       cancelAnimationFrame(frame);
+      io.disconnect();
       window.removeEventListener('resize', resize);
     };
   }, [hueShift, noiseIntensity, scanlineIntensity, speed, scanlineFrequency, warpAmount, resolutionScale]);

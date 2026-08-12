@@ -19,19 +19,19 @@ const footerLinks: FooterSection[] = [
 	{
 		label: 'Products',
 		links: [
-			{ title: 'Technology', href: '#' },
-			{ title: 'Integrations', href: '#' },
-			{ title: 'Releases', href: '#' },
-			{ title: 'Status', href: '#' },
+			{ title: 'Technology', href: '/technology' },
+			{ title: 'Integrations', href: '/integrations' },
+			{ title: 'Releases', href: '/releases' },
+			{ title: 'Status', href: '/status' },
 		],
 	},
 	{
 		label: 'Company',
 		links: [
 			{ title: 'About Us', href: '/about' },
-			{ title: 'Careers', href: '#' },
+			{ title: 'Careers', href: '/careers' },
 			{ title: 'Blog', href: '/blog' },
-			{ title: 'Contact Us', href: '#' },
+			{ title: 'Contact Us', href: '/contact' },
 		],
 	},
 	{

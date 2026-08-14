@@ -56,12 +56,12 @@ export async function POST(req: Request) {
       // Attach PDF if found in public directory
       const fs = require('fs')
       const path = require('path')
-      const filePath = path.join(process.cwd(), 'public', 'BYI-Pitch-Deck.pdf')
+      const filePath = path.join(process.cwd(), 'public', 'Devoxa-Pitch-Deck.pdf')
 
       if (fs.existsSync(filePath)) {
         emailPayload.attachments = [
           {
-            filename: 'BYI-Pitch-Deck.pdf',
+            filename: 'Devoxa-Pitch-Deck.pdf',
             content: fs.readFileSync(filePath),
           }
         ]

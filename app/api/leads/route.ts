@@ -6,7 +6,10 @@ import { requireAdmin, AuthError } from '@/lib/auth'
 
 export async function POST(req: Request) {
     try {
-        const rateLimitResult = rateLimit(req, { limit: 3, windowMs: 60000 * 15 }) // 3 requests per 15 minutes
+        // Bypass rate limiting in development or increase limit
+        const rateLimitResult = process.env.NODE_ENV !== 'development' 
+            ? rateLimit(req, { limit: 3, windowMs: 60000 * 15 }) // 3 requests per 15 minutes
+            : { success: true };
         if (!rateLimitResult.success) {
             return NextResponse.json({ error: 'Too many requests. Please try again later.' }, { status: 429 })
         }
@@ -39,7 +42,7 @@ export async function POST(req: Request) {
                         await sendEmail({
                             to: existingLead.email,
                             subject: 'Devoxa Technologies — Portal Access Recovery',
-                            html: `<p>Hi ${existingLead.name},</p><p>You recently submitted another inquiry, but you already have an active project portal with us!</p><p>We have safely reset your login credentials so you can securely access your dashboard and message your manager directly:</p><p><strong>URL:</strong> https://beyondyourimagination.shop/login</p><p><strong>Email:</strong> ${existingLead.email}</p><p><strong>New Password:</strong> ${newPassword}</p>`
+                            html: `<p>Hi ${existingLead.name},</p><p>You recently submitted another inquiry, but you already have an active project portal with us!</p><p>We have safely reset your login credentials so you can securely access your dashboard and message your manager directly:</p><p><strong>URL:</strong> https://www.devoxatechnologies.com/login</p><p><strong>Email:</strong> ${existingLead.email}</p><p><strong>New Password:</strong> ${newPassword}</p>`
                         }).catch(e => console.error("Resend creds fail:", e))
                     }
                     return NextResponse.json({ error: 'You already have an active project. We have emailed you a new password to access your secure portal.' }, { status: 409 })
@@ -61,6 +64,7 @@ export async function POST(req: Request) {
 
         return NextResponse.json({ message: 'Lead saved successfully', lead: newLead })
     } catch (err: any) {
+        console.error("API LEADS ERROR:", err)
         return NextResponse.json({ error: err.message }, { status: 500 })
     }
 }

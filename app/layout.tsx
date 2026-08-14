@@ -85,7 +85,7 @@ const jsonLd = {
       contactPoint: {
         '@type': 'ContactPoint',
         contactType: 'customer service',
-        email: 'support@beyondyourimagination.shop',
+        email: 'support@devoxatechnologies.com',
         telephone: '+91-8544005858',
         availableLanguage: ['English', 'Hindi']
       },

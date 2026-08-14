@@ -355,20 +355,30 @@ export default function AboutUs() {
                   4. Leadership Team
                 </h2>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="p-6 rounded-2xl bg-[#2B0F45]/50 border border-[#705474]/30 text-center flex flex-col items-center">
-                  <div className="w-16 h-16 rounded-full bg-[#523056] border-2 border-[#705474] mb-4 flex items-center justify-center overflow-hidden">
-                     <span className="font-bold text-xl text-[#f1eef1]">AK</span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="relative group overflow-hidden rounded-[40px] aspect-[4/5] bg-[#2B0F45]/50 border border-[#705474]/30 shadow-lg">
+                  <img 
+                    src="/ankush.jpg" 
+                    alt="Ankush Kumar" 
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0710]/95 via-[#0A0710]/40 to-transparent pointer-events-none"></div>
+                  <div className="absolute inset-0 p-8 flex flex-col justify-end text-center items-center">
+                    <h3 className="font-bold text-[#f1eef1] text-2xl sm:text-3xl mb-1.5 tracking-tight">Ankush Kumar</h3>
+                    <p className="text-[#f1eef1]/80 font-medium text-base sm:text-lg">Co-Founder & Director</p>
                   </div>
-                  <h3 className="font-bold text-[#f1eef1] text-lg">Ankush Kumar</h3>
-                  <p className="text-[#705474] font-mono text-xs uppercase tracking-wider mt-1">Co-Founder & Director</p>
                 </div>
-                <div className="p-6 rounded-2xl bg-[#2B0F45]/50 border border-[#705474]/30 text-center flex flex-col items-center">
-                  <div className="w-16 h-16 rounded-full bg-[#523056] border-2 border-[#705474] mb-4 flex items-center justify-center overflow-hidden">
-                     <span className="font-bold text-xl text-[#f1eef1]">NK</span>
+                <div className="relative group overflow-hidden rounded-[40px] aspect-[4/5] bg-[#2B0F45]/50 border border-[#705474]/30 shadow-lg">
+                  <img 
+                    src="/nikhil.jpeg" 
+                    alt="Nikhil Kumar" 
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0710]/95 via-[#0A0710]/40 to-transparent pointer-events-none"></div>
+                  <div className="absolute inset-0 p-8 flex flex-col justify-end text-center items-center">
+                    <h3 className="font-bold text-[#f1eef1] text-2xl sm:text-3xl mb-1.5 tracking-tight">Nikhil Kumar</h3>
+                    <p className="text-[#f1eef1]/80 font-medium text-base sm:text-lg">Co-Founder & Director</p>
                   </div>
-                  <h3 className="font-bold text-[#f1eef1] text-lg">Nikhil Kumar</h3>
-                  <p className="text-[#705474] font-mono text-xs uppercase tracking-wider mt-1">Co-Founder & Director</p>
                 </div>
               </div>
             </div>

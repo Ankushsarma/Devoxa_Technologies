@@ -484,7 +484,7 @@ function DesktopNav({ user, role, loading, logout, scrolled }: any) {
           ease="power2.easeOut"
           baseColor="rgba(255,255,255,0.1)"
           pillColor="transparent"
-          hoveredPilltextColor="#f1eef1"
+          hoveredPillTextColor="#f1eef1"
           pillTextColor="#9ca3af"
           initialLoadAnimation={false}
         />
@@ -518,7 +518,7 @@ function MobileNav({ user, role, loading, logout, scrolled }: any) {
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#0A0714]/90 bg-[#0A0714] border-b border-[#705474]/15 shadow-sm' : 'bg-transparent bg-transparent border-b border-[#705474]/15'} px-6 py-4 flex justify-between items-center`}>
       <div className="font-serif text-xl font-medium tracking-tight italic flex items-center gap-3 text-[#f1eef1]">
-        <div style={{ width: '32px', height: '32px', backgroundcolor: "#f1eef1", borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', flexShrink: 0 }}>
+        <div style={{ width: '32px', height: '32px', backgroundColor: "#f1eef1", borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', flexShrink: 0 }}>
           <Image src="/logo.png" alt="Logo" width={32} height={32} className="object-contain w-full h-full" style={{ transform: 'scale(1.2)' }} />
         </div>
         <Link href="#">Devoxa</Link>

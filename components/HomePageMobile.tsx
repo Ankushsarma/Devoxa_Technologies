@@ -956,7 +956,7 @@ function DesktopNav({ user, role, loading, logout, scrolled }: any) {
           ease="power2.easeOut"
           baseColor="rgba(255,255,255,0.1)"
           pillColor="transparent"
-          hoveredPilltextColor="#f1eef1"
+          hoveredPillTextColor="#f1eef1"
           pillTextColor="#9ca3af"
           initialLoadAnimation={false}
         />

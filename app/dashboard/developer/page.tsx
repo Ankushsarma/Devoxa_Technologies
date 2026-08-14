@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import { useAuth } from "@/context/auth-context"
 import { useRouter } from "next/navigation"
-// import { Chat } from "@/components/chat"
+import { Chat } from "@/components/chat"
 import Image from "next/image"
 import { Folder, Clock, CheckCircle2, ClipboardList, MessageSquare, X, Rss } from "lucide-react"
 import { NoticeBoard } from "@/components/notice-board"
@@ -212,7 +212,11 @@ export default function DeveloperDashboard() {
                                         </div>
                                     </div>
                                     {/* Chat  */}
-                                    <Chat chatId={selectedLead.chatId} />
+                                    {selectedLead.chatId ? (
+                                        <Chat chatId={selectedLead.chatId} />
+                                    ) : (
+                                        <div className="p-10 text-center text-sm text-neutral-500 bg-white">No chat available for this lead.</div>
+                                    )}
                                 </>
                             ) : (
                                 <div className="h-[500px] glass-card rounded-2xl border border-border flex items-center justify-center text-center p-10">
@@ -323,7 +327,11 @@ export default function DeveloperDashboard() {
                             </button>
                         </div>
                         <div className="flex-1 overflow-hidden bg-theme-50">
-                            <Chat chatId={activeChatModal.chatId} className="h-full border-none shadow-none rounded-none" />
+                            {activeChatModal.chatId ? (
+                                <Chat chatId={activeChatModal.chatId} className="h-full border-none shadow-none rounded-none" />
+                            ) : (
+                                <div className="h-full flex items-center justify-center text-sm text-neutral-500">No chat available for this task.</div>
+                            )}
                         </div>
                     </div>
                 </div>

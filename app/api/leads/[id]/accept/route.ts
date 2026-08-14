@@ -66,7 +66,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
                     
                     <p style="font-size: 15px; margin: 0 0 12px 0;">
                         <strong style="color: #111111; display: inline-block; width: 90px;">Portal URL:</strong> 
-                        <a href="https://beyondyourimagination.shop/login" style="color: #000000; text-decoration: underline;">https://beyondyourimagination.shop/login</a>
+                        <a href="https://www.devoxatechnologies.com/login" style="color: #000000; text-decoration: underline;">https://www.devoxatechnologies.com/login</a>
                     </p>
                     <p style="font-size: 15px; margin: 0 0 12px 0;">
                         <strong style="color: #111111; display: inline-block; width: 90px;">Email:</strong> 
@@ -79,7 +79,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
                 </div>
                 
                 <div style="text-align: center; margin-bottom: 40px;">
-                    <a href="https://beyondyourimagination.shop/login" style="display: inline-block; background-color: #111111; color: #f1eef1; text-decoration: none; font-size: 14px; font-weight: 600; padding: 14px 32px; border-radius: 6px;">Access Client Portal</a>
+                    <a href="https://www.devoxatechnologies.com/login" style="display: inline-block; background-color: #111111; color: #f1eef1; text-decoration: none; font-size: 14px; font-weight: 600; padding: 14px 32px; border-radius: 6px;">Access Client Portal</a>
                 </div>
                 
                 <p style="font-size: 15px; line-height: 1.6; color: #444444; margin-bottom: 32px;">

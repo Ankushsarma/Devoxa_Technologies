@@ -6,7 +6,7 @@ import { requireAuth, requireAdmin, AuthError } from '@/lib/auth'
 export async function GET() {
     try {
         await requireAuth()
-        const filePath = path.join(process.cwd(), 'public', 'BYI-Pitch-Deck.pdf')
+        const filePath = path.join(process.cwd(), 'public', 'Devoxa-Pitch-Deck.pdf')
 
         if (!fs.existsSync(filePath)) {
             return NextResponse.json({ error: 'Pitch deck file is missing' }, { status: 404 })
@@ -17,7 +17,7 @@ export async function GET() {
         return new NextResponse(buffer, {
             headers: {
                 'Content-Type': 'application/pdf',
-                'Content-Disposition': `attachment; filename="BYI-Pitch-Deck.pdf"`,
+                'Content-Disposition': `attachment; filename="Devoxa-Pitch-Deck.pdf"`,
             },
         })
     } catch (err: any) {
@@ -33,7 +33,7 @@ export async function POST(req: Request) {
         const { name, data, contentType } = await req.json()
 
         const buffer = Buffer.from(data, 'base64')
-        const filePath = path.join(process.cwd(), 'public', 'BYI-Pitch-Deck.pdf')
+        const filePath = path.join(process.cwd(), 'public', 'Devoxa-Pitch-Deck.pdf')
 
         fs.writeFileSync(filePath, buffer)
 

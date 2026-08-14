@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import { useAuth } from "@/context/auth-context"
 import { useRouter } from "next/navigation"
-// import { Chat } from "@/components/chat"
+import { Chat } from "@/components/chat"
 import Image from "next/image"
 import { Folder, CheckCircle2, ClipboardList, Rss } from "lucide-react"
 import { NoticeBoard } from "@/components/notice-board"
@@ -230,7 +230,14 @@ export default function ManagerDashboard() {
                                             <h4 className="font-bold tracking-tight">Direct Client Comms</h4>
                                             <span className="text-[10px] font-mono uppercase text-neutral-400">Encrypted Chat</span>
                                         </div>
-                                        <Chat chatId={selectedLead.chatId} />
+                                        {/* Chat Window */}
+                                        <div className="flex-1 overflow-hidden bg-theme-50">
+                                            {selectedLead.chatId ? (
+                                                <Chat chatId={selectedLead.chatId} className="h-full border-none shadow-none rounded-none" />
+                                            ) : (
+                                                <div className="h-full flex items-center justify-center text-sm text-neutral-500">No chat available for this lead.</div>
+                                            )}
+                                        </div>
                                     </div>
                                 </>
                             ) : (

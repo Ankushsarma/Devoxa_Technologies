@@ -80,7 +80,7 @@ export async function POST(req: Request) {
                 await sendEmail({
                     to: clientLead.email,
                     subject: 'New Document Shared in Your Portal',
-                    html: `<p>Hi ${clientLead.name},</p><p>Your manager has just shared a new file or document in your secure chat portal!</p><p><strong>Message preview:</strong><br/>${text}</p><p>Please log in to your dashboard to review it: <a href="https://beyondyourimagination.shop/login">https://beyondyourimagination.shop/login</a></p>`
+                    html: `<p>Hi ${clientLead.name},</p><p>Your manager has just shared a new file or document in your secure chat portal!</p><p><strong>Message preview:</strong><br/>${text}</p><p>Please log in to your dashboard to review it: <a href="https://www.devoxatechnologies.com/login">https://www.devoxatechnologies.com/login</a></p>`
                 }).catch(e => console.error("File share email failure:", e))
             }
         }

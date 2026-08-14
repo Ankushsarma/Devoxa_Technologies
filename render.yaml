@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: byi-agency
+    name: devoxa-technologies
     env: node
     region: oregon
     plan: free
